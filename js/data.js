@@ -98,6 +98,7 @@ var ASCC = {
         "Whole-school T&L average 2.08; 80% of lesson drop-in statements rated expected or strong.",
         "2024 outcomes prove the curriculum is landing: Progress 8 +0.69 vs −0.03 national; Attainment 8 5.39 vs 4.59 national.",
         "Parents agree: 100% satisfied with the quality of teaching (76% 'very satisfied'); 96% say their child is appropriately challenged (Y7 & Y10 surveys, n=82).",
+        "Reading is everyone's job — and provably understood: 59 staff across every department completed 'Unlocking Reading' Modules 1+2 with an average quiz score of 92% (81% scored 9 or 10/10); 100% correctly identified the Science of Reading's purpose and 98% that their role is to explicitly teach and model reading within their subject.",
         "National recognition: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; senior leaders invited to speak externally on teaching and learning."
       ],
       development: [
@@ -314,6 +315,29 @@ var ASCC = {
     lenten: { examA8: 4.16, predA8: 5.09, gcse24A8: 5.37 },
     note: "Y10 performing and predicted roughly half a grade better than current Y11 at the same point, with the same KS2 profile as the GCSE 2024 cohort (P8 +0.69)."
   },
+  transition: {
+    headline: "Primary transition as a data exercise: joining KS4 attendance back to feeder primary shows exactly where the risk arrives — and where Year 6 transition effort should concentrate.",
+    feeders: [
+      ["Saint Francis of Assisi", 16, 93.1, 12, 110.2],
+      ["St Mary Magdalen", 33, 92.8, 18, 106.9],
+      ["St Thomas CofE", 22, 91.7, 5, 103.4],
+      ["St Mary RC", 22, 91.2, 50, 102.6],
+      ["St Charles RC", 26, 90.9, 27, 104.9],
+      ["St Mary of the Angels", 14, 90.9, 21, 104.0],
+      ["Joined mid-phase / other", 85, 90.8, 15, 106.0],
+      ["Our Lady of Dolours", 14, 85.2, 21, 102.2],
+      ["Barlby Primary", 18, 83.9, 11, 104.0],
+      ["Pope John RC", 12, 78.1, 25, 101.7]
+    ],
+    insights: [
+      "A 15-point KS4 attendance spread by feeder primary (93.1% down to 78.1%) — and the low-attendance feeders also arrive with the lowest KS2 priors. Risk is identifiable before a child walks through the door in Year 7.",
+      "One feeder's pupils reach a 50% persistent-absence rate by KS4; two others sit at 21–27%. These are the transition meetings where the safeguarding-led questions (already built into Y6 transition) matter most — and where attendance contracts should start in Year 7, not Year 10.",
+      "85 KS4 pupils (a quarter of the cohort) joined mid-phase rather than at Y7 — a highly mobile intake that never had our transition programme at all, arguing for a structured 'late joiners' induction with reading screening on entry (the Emmanuel diagnostic logic).",
+      "Underperformance is engineered against, not observed: 65 of 160 Year 11s were not yet at grade 4+ in English & Maths at autumn mocks — every one identified in January, grouped into shoulder-day revision, and tracked through to the summer. Last year the same pipeline took E&M 4+ from 59% at autumn mocks to 75% at GCSE."
+    ],
+    note: "Internal targeting analysis (Y10 + Y11 trackers, feeders with 8+ pupils; KS2 averages from Y10 data). Used to prioritise transition visits, early attendance contracts and entry screening — not to judge partner schools."
+  },
+
   ks3: {
     profiles: [
       { year: "Year 7", n: 192, pp: "40%", eal: "31%", sen: "20%", att: "95%", ks2: 108 },
@@ -480,11 +504,12 @@ var ASCC = {
           "Every suspension authorised by the Headteacher; Emmaus Centre + reintegration meetings"
         ] },
       { id: "personal", label: "Personal Development", type: "pillar", grade: "Strong", size: 14,
-        desc: "4+ trips per pupil per year; ESP & Elev:8; tracked entitlement.",
+        desc: "4+ trips per pupil per year; ESP & Elev:8; tracked entitlement; Gatsby 92%.",
         stats: [
-          "Every pupil: 4+ trips a year plus whole-school celebration days",
-          "ESP & Elev:8 transformational — real potential for national scaling",
-          "Participation tracked (EVOLVE, Class Charts stars) — disadvantaged access evidenced",
+          "Every pupil: 4+ trips a year; 30 careers/PSHCE events delivered incl. whole-Y10 work experience week",
+          "Gatsby Benchmarks: 92% average, 100% on personal guidance and needs-of-each-pupil",
+          "Voice at scale: 94% of 416 Culture Day respondents felt they belong; 100% of parents recommend the school",
+          "St Thomas Aquinas Award: 53 Y10 pupils, a quarter PP — university-style stretch",
           "“Opportunity is planned, not left to chance”"
         ] },
       { id: "inclusion", label: "Inclusion", type: "pillar", grade: "Exceptional", size: 15,
@@ -492,8 +517,9 @@ var ASCC = {
         stats: [
           "EHCP 9.83% (88 pupils) & SEN 22% — well above national, rising yearly",
           "2024 P8: EHCP +0.07 · SEN Support +0.13 — positive progress at scale of need",
-          "Bethlehem & Romero Centres · pupil passports for every SEN pupil · Deputy SENCo",
-          "50+ mapped provisions at £0 to families — Fresh Start phonics 3× faster recall; Galilee +27–44pp; 1:1 NHS-target speech therapy for 17 EHCP pupils"
+          "Bethlehem & Romero Centres · pupil passports · graduate ASAs working both ends of the ability range",
+          "50+ mapped provisions at £0 to families — Fresh Start 3× faster recall; Galilee +27–44pp; 1:1 NHS-target speech therapy for 17 EHCP pupils",
+          "Emmanuel next: £400k RBKC-funded reintegration hub + adapted literacy pathway"
         ] },
       { id: "safeguarding", label: "Safeguarding", type: "pillar", grade: "Met", size: 13,
         desc: "External review Jan 2026 → action plan Feb 2026. Met.",
@@ -526,9 +552,10 @@ var ASCC = {
       { id: "enrichment", label: "Enrichment: ESP & Elev:8", type: "driver", size: 12,
         desc: "Extended day, no phones, enrichment for all — nationally covered innovation.",
         stats: [
-          "Extended enrichment day and phone-free culture",
-          "Covered by Guardian, Times, Fortune, BBC, international press",
-          "Enrichment is a monitored entitlement, not an offer for those who turn up"
+          "404 pupils (45% of roll) in clubs; 3,695 logged attendances; 35 clubs; all 8 DfE benchmarks met",
+          "Club members attend school +7.2 points better (SEN members +12.1) — the engine of attendance",
+          "Y8 (Elev:8) is the most-engaged cohort: 91% in clubs — the national 'dip' year inverted",
+          "Covered by Guardian, Times, Fortune, BBC, international press"
         ] },
       { id: "pastoral", label: "Pastoral & Attendance Systems", type: "driver", size: 12,
         desc: "Home visits, Attendance Contracts, CPOMs, HOY/HOKS structure.",
@@ -560,11 +587,12 @@ var ASCC = {
           "Bethlehem Centre (exceptional teaching) · Romero Centre (keeping up, not catching up)"
         ] },
       { id: "reading", label: "Reading & Literacy", type: "risk", size: 10,
-        desc: "54% below age-related expectations (Aut 25) → Y7 Fluency Pilot, Thinking Reading, literacy committee.",
+        desc: "54% below age-related expectations (Aut 25) → whole-staff training, Fresh Start, Fluency Pilot, Emmanuel pathway.",
         stats: [
-          "54% of pupils below/significantly below age-related reading (Autumn 2025)",
-          "Response: Y7 Fluency Pilot · Thinking Reading · new literacy committee · Bedrock",
-          "Success measure: % at expected/above rising through 2026-27; TR graduations"
+          "54% below age-related reading (Aut 25); GL Cycle 1: 66 Y7–8 pupils significantly below (SAS<85), mean deficit 51.8 months",
+          "Whole-staff 'Unlocking Reading' training: 59 staff, every department, 92% average quiz score",
+          "Fresh Start impact measured: Speed Sound recall up to 3× faster (71s → 19s)",
+          "Next: Emmanuel adapted literacy pathway — daily, low-cognitive-load, keep up not catch up"
         ] },
       { id: "gap", label: "Disadvantaged Gap (in-school)", type: "risk", size: 10,
         desc: "0.57 → 0.80 → 1.14* — driven by non-disadvantaged surge; levers: adaptive teaching, attendance, intervention.",
@@ -588,6 +616,14 @@ var ASCC = {
           "FSM pupils, boys, EHCP and Black Caribbean pupils suspended at higher rates than peers",
           "Self-identified through our own analysis — not raised by anyone external",
           "Named owners (BFO/MEH/DHA), plans due end HT6, reviewed HT1/HT2"
+        ] },
+      { id: "emmanuel", label: "Emmanuel (next build)", type: "driver", size: 12,
+        desc: "£400k RBKC-funded SEN provision: reintegration hub, multi-agency space, adapted Y7–8 literacy pathway.",
+        stats: [
+          "£400k high-needs capital secured (RBKC agreement) + ~£103k school; 55m² modular build",
+          "Case triangulated from our own data: 66 Y7–8 readers SAS<85 · 27 below 85% attendance · 7 pupils = a third of suspensions",
+          "Reintegration hub for anxiety-driven (SEMH/autism) absence — managed return to full-time education",
+          "The Elev:8 discipline applied to a building: need identified, funding secured, outcomes named first"
         ] }
     ],
     // types: drives (solid), evidences (dashed), watches (dotted risk), underpins (ethos)
@@ -623,7 +659,11 @@ var ASCC = {
       { s: "achievement", t: "gap", type: "watches", why: "Gap 0.57→0.80→1.14* is named and owned — while disadvantaged pupils stay above national." },
       { s: "attendance", t: "y11att", type: "watches", why: "Y11 sits 2.17 below national — audit, contracts and home visits all in train now." },
       { s: "behaviour", t: "dispro", type: "watches", why: "Disproportionality self-identified; named owners, plans due end HT6, reviewed HT1/HT2." },
-      { s: "inclusion", t: "reading", type: "watches", why: "Romero Centre reading fluency provision — keeping up, not catching up." }
+      { s: "inclusion", t: "reading", type: "watches", why: "Romero Centre reading fluency provision — keeping up, not catching up." },
+      { s: "leadership", t: "emmanuel", type: "drives", why: "Leaders converted a data-triangulated need into £400k of secured RBKC capital, value-engineered by £150–175k." },
+      { s: "emmanuel", t: "reading", type: "drives", why: "The adapted Y7–8 literacy pathway: daily decoding, fluency and Tier 2/3 vocabulary — for the 66 pupils reading 4+ years behind." },
+      { s: "emmanuel", t: "send-out", type: "drives", why: "Reintegration hub + multi-agency space (EP, SaLT, OT) — the next layer of the graduated SEND response." },
+      { s: "emmanuel", t: "y11att", type: "watches", why: "Anxiety-driven absence is the hub's core cohort — interrupting the cycle before it hardens into KS4 patterns." }
     ]
   },
 
@@ -760,6 +800,14 @@ var ASCC = {
       ]
     },
     closing: "Impact where it counts: EHCP pupils attend 9.13 points above the national EHCP figure; EHCP and SEN Support pupils made positive Progress 8 in 2024 (+0.07 / +0.13); only 2 of 59 off-site directions involved EHCP pupils because embedded plans keep complex needs in mainstream. The named risk — SEN K attainment declining since 2023 — is exactly what this provision map and the adaptive-teaching CPD are built to reverse, with EEF-aligned methods throughout (one-to-one +5, small-group +4, TA interventions +4, phonics +5, oral language high-impact).",
+    asa: {
+      headline: "Academic Support Assistants — graduate subject specialists who work both ends of the ability range: structured SEND support in class, and stretch for the most able through the St Thomas Aquinas Award.",
+      aquinas: {
+        stats: [["53", "Year 10 pupils completed the Aquinas Award"], ["24.5%", "of participants Pupil Premium (13 pupils)"], ["6", "academic pathways — ethics to RSA encryption"], ["1", "assessed independent project each, university-style"]],
+        what: "Weekly academic seminars beyond the GCSE curriculum — ethics (the Trolley Problem), history/sociology podcasts, modular arithmetic and RSA encryption, psychology of music and memory, Spanish film analysis, spoken-word poetry — each ending in an assessed independent project. A taste of post-16 and university learning, with tangible evidence for sixth-form applications.",
+        line: "Stretch is not reserved for the privileged: a quarter of Aquinas participants are Pupil Premium, and SEND pupils take part. The same graduate ASAs delivering structured SEND support run the most-able programme — one team, the whole ability range."
+      }
+    },
     emmanuel: {
       tagline: "Emmanuel — “God with us”. The next build: a dedicated SEN provision, funded and evidenced.",
       what: "A 55m² modular SEN provision building with three functions: a reintegration hub for pupils whose anxiety-driven (SEMH/autism) absence keeps them out of mainstream — managed, relational transitions from non-attendance and part-time timetables back to full-time education; a centralised multi-agency intervention space (educational psychology, speech & language, occupational therapy) aligned with the Government's 'Every Child Achieving and Thriving' White Paper; and an adapted Y7–8 literacy pathway — daily, low-cognitive-load lessons with explicit decoding, fluency and Tier 2/3 vocabulary pre-teaching, so pupils keep up rather than catch up.",

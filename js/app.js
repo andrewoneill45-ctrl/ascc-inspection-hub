@@ -300,6 +300,18 @@ function renderSend() {
       </div>
     </div>
 
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-600)">
+      <h3>Academic Support Assistants — one graduate team, the whole ability range</h3>
+      <p class="sef-headline" style="margin-top:10px">${s.asa.headline}</p>
+      <div class="grid cols-4" style="margin:14px 0">
+        ${s.asa.aquinas.stats.map(x => `
+          <div class="card stat" style="box-shadow:none"><div class="num" style="font-size:1.5rem">${x[0]}</div><div class="lbl">${x[1]}</div></div>`).join("")}
+      </div>
+      <h4>The St Thomas Aquinas Award</h4>
+      <p style="font-size:0.87rem">${s.asa.aquinas.what}</p>
+      <span class="phrase">“${s.asa.aquinas.line}”</span>
+    </div>
+
     <div class="card" style="border-left:5px solid var(--green);margin-bottom:18px">
       <h3>Where it lands</h3>
       <p style="font-size:0.9rem">${s.closing}</p>
@@ -434,6 +446,19 @@ function renderYears() {
       <div class="chart-wrap" id="yc-y10" style="height:220px"></div>
       <p class="note">${y10.note}</p>
     </div>
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--gold)">
+      <h3>Primary transition — risk mapped before it arrives</h3>
+      <p class="sef-headline" style="margin-top:10px">${ASCC.transition.headline}</p>
+      <div class="grid cols-2" style="margin-top:12px">
+        <div class="chart-card"><h4 style="margin-top:0">KS4 attendance by feeder primary (8+ pupils)</h4><div class="chart-wrap" id="yc-feeder" style="height:300px"></div>
+          <p class="note">${ASCC.transition.note}</p></div>
+        <div>
+          <h4 style="margin-top:0">What the join tells us</h4>
+          <ul style="margin-left:18px;font-size:0.85rem">${ASCC.transition.insights.map(i => `<li style="margin-bottom:8px">${i}</li>`).join("")}</ul>
+        </div>
+      </div>
+    </div>
+
     <div class="grid cols-2">
       <div class="card chart-card">
         <h3>KS3 — % on/above track in English &amp; Maths</h3>
@@ -459,6 +484,11 @@ function renderYears() {
   makeChart("yc-y10", { type: "bar", data: { labels: ["Lenten exams 2026", "Lenten predictions 2026", "GCSE 2024 (same KS2 profile)"], datasets: [
     { label: "Average A8", data: [y10.lenten.examA8, y10.lenten.predA8, y10.lenten.gcse24A8], backgroundColor: [BRAND.purpleFaint, BRAND.purple, BRAND.gold], borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } } } });
+  const tr = ASCC.transition;
+  makeChart("yc-feeder", { type: "bar", data: { labels: tr.feeders.map(x => `${x[0]} (${x[1]})`), datasets: [
+    { label: "Avg KS4 attendance %", data: tr.feeders.map(x => x[2]),
+      backgroundColor: tr.feeders.map(x => x[2] < 88 ? BRAND.amber : BRAND.purple), borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { min: 70, max: 96 } } } });
   makeChart("yc-ks3", { type: "bar", data: { labels: ks3.emOnTrack.labels, datasets: [
     { label: "Michaelmas", data: ks3.emOnTrack.michaelmas, backgroundColor: BRAND.purpleFaint, borderRadius: 6 },
     { label: "Lenten", data: ks3.emOnTrack.lenten, backgroundColor: BRAND.purple, borderRadius: 6 } ] },
