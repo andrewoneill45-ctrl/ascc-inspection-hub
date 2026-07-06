@@ -305,6 +305,84 @@ a.media-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); 
 footer { text-align: center; padding: 30px 20px 50px; color: var(--muted); font-size: 0.75rem; }
 footer .motto { color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; font-size: 0.68rem; margin-bottom: 6px; }
 
+/* ---------- Export to PDF button ---------- */
+.export-btn {
+  border: 1px solid rgba(255,255,255,0.35); background: rgba(255,255,255,0.12); color: #fff;
+  border-radius: 999px; padding: 8px 18px; font-size: 0.82rem; font-weight: 600; font-family: var(--font);
+  cursor: pointer; white-space: nowrap; transition: background 0.15s, border-color 0.15s;
+}
+.export-btn:hover { background: rgba(255,255,255,0.22); border-color: var(--gold-light); }
+
+/* print header (hidden on screen) */
+#print-header { display: none; }
+
+/* ---------- PRINT / PDF EXPORT — A4 landscape ---------- */
+@media print {
+  @page { size: A4 landscape; margin: 9mm 11mm 11mm; }
+
+  html, body { background: #fff !important; }
+  body { font-size: 10.5px; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* chrome off */
+  header.topbar, nav.tabs, footer, .login-screen, .export-btn,
+  .ask-input, .ask-status, .ask-side, .graph-filters, .graph-legend { display: none !important; }
+
+  main { max-width: none; margin: 0; padding: 0; }
+  section.view { display: none !important; }
+  section.view.active { display: block !important; animation: none; }
+
+  /* branded header on page 1 */
+  #print-header {
+    display: flex !important; align-items: center; gap: 14px;
+    border-bottom: 2.5px solid var(--purple-800); padding-bottom: 8px; margin-bottom: 12px;
+  }
+  #print-header img { height: 40px; }
+  .ph-school { font-family: "Space Grotesk", var(--font); font-weight: 600; font-size: 13px; color: var(--purple-900); }
+  .ph-meta { font-size: 9px; color: var(--muted); margin-top: 2px; }
+
+  .view-head { margin-bottom: 12px; }
+  .view-head h2 { font-size: 19px; }
+  .view-head p { font-size: 10px; max-width: none; }
+
+  /* cards: no shadows, avoid splitting across pages */
+  .card, .sef-item, .bench-row, .quote-card, .perm-card, .conn, .media-group, .eef-card {
+    box-shadow: none !important; break-inside: avoid; page-break-inside: avoid;
+  }
+  .grid { gap: 8px; }
+  .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+  .grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .card { padding: 10px 12px; }
+  .stat .num { font-size: 1.5rem; }
+  .chart-wrap { height: 200px !important; }
+  .chart-card { min-height: 0; }
+  table.data, table.prio { font-size: 8.5px; }
+  table.data tr, table.prio tr { break-inside: avoid; }
+  h3 { font-size: 12px; } h4 { font-size: 9.5px; }
+  .note { font-size: 8.5px; }
+
+  /* SEF: open every accordion for print */
+  .sef-item .sef-body { display: block !important; }
+  .sef-item .chev { display: none; }
+
+  /* Ask: print the full conversation */
+  .ask-layout { display: block; }
+  .ask-panel { min-height: 0; display: block; border: 0; }
+  .ask-messages { overflow: visible; height: auto; padding: 0; }
+  .msg { max-width: 100%; break-inside: avoid; }
+  .ai-chart .cwrap { height: 200px !important; }
+
+  /* Connections graph */
+  .graph-layout { display: block; width: auto; margin-left: 0; }
+  #graph-svg-wrap { break-inside: avoid; }
+  #graph-svg { height: 420px; }
+  #graph-detail { max-height: none; overflow: visible; margin-top: 10px; }
+
+  /* media links: show as plain cards */
+  a.media-card, a.eef-card { transform: none !important; }
+  .media-grid, .quote-grid, .perm-grid, .eef-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 720px) {
   .topbar .badge { display: none; }
   .topbar .title .hub-sub { font-size: 0.88rem; white-space: normal; line-height: 1.3; }

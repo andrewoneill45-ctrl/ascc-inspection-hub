@@ -33,6 +33,12 @@ document.getElementById("login-form").addEventListener("submit", async e => {
 /* ---------------- Router ---------------- */
 let appInitialised = false;
 const rendered = {};
+const VIEW_TITLES = {
+  dashboard: "Dashboard", sef: "Self-Evaluation", results: "Results & Trends",
+  years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour",
+  enrichment: "Enrichment", voice: "Student & Parent Voice", graph: "Connections",
+  framework: "Renewed Framework", media: "Innovation & Press", ask: "Ask the Portal — AI conversation"
+};
 function initApp() {
   if (appInitialised) return;
   appInitialised = true;
@@ -54,6 +60,18 @@ function initApp() {
   document.addEventListener("click", e => {
     if (!e.target.closest("#tabs .dd")) tabs.querySelectorAll(".dd").forEach(d => d.classList.remove("open"));
   });
+
+  /* Export to PDF: browser print dialog with A4-landscape print styles */
+  el("export-pdf").addEventListener("click", () => window.print());
+  window.addEventListener("beforeprint", () => {
+    el("ph-date").textContent = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    // reflow charts to the print layout
+    Object.values(Chart.instances || {}).forEach(c => { try { c.resize(); } catch {} });
+  });
+  window.addEventListener("afterprint", () => {
+    Object.values(Chart.instances || {}).forEach(c => { try { c.resize(); } catch {} });
+  });
+
   showView("dashboard");
 }
 function showView(name) {
@@ -65,6 +83,10 @@ function showView(name) {
   });
   document.querySelectorAll("section.view").forEach(s => s.classList.toggle("active", s.id === "view-" + name));
   if (!rendered[name]) { RENDER[name](); rendered[name] = true; }
+  // print header + PDF filename follow the current page
+  const t = VIEW_TITLES[name] || name;
+  const ph = el("ph-section"); if (ph) ph.textContent = t;
+  document.title = `ASCC Portal — ${t}`;
   window.scrollTo({ top: 0 });
 }
 window.gotoView = showView;
