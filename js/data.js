@@ -999,6 +999,85 @@ var ASCC = {
     }
   ],
 
+  /* ---------- Scenario Lab (what-if / innovation) ---------- */
+  scenarios: {
+    intro: "Innovation here is not guesswork: every experiment starts from our own data, borrows the strongest available evidence, and names its measures before it begins. That is how the extended day, Elev:8 and the phone-free culture happened — and this page is where the next ones are tested. Each scenario below can be stress-tested live by the Portal AI: evidence for, risks, what we would measure, and the EEF strands in play.",
+    cards: [
+      { tag: "Next frontier", title: "Elev:9 — take the Elev:8 model into Year 9",
+        hypothesis: "If Elev:8 inverted the Year 8 dip (91% club participation, biggest clubs in school), a Year 9 version targets our next pressure point: Y9 has the highest OSD use (24), elevated suspensions (9.4%) and only 29% club participation.",
+        evidence: "Own data: Y8→Y9 engagement cliff · Jerrim's engagement research · EEF extending school time (structured + enriched) · Elev:8 participation data as the pilot result.",
+        boundary: "Nobody structures Year 9 deliberately — it's nationally treated as the 'lost year'. We'd be first again.",
+        measures: "Y9 club participation %, OSD count, suspension rate, attendance delta vs matched prior year, Michaelmas→Lenten on-track movement." },
+      { tag: "Attendance", title: "Enrichment on prescription for persistent absentees",
+        hypothesis: "Club members attend 7.2 points better than non-members (SEN +12.1). What if every PA pupil's attendance plan included a guaranteed place in a club of their choice — belonging as the intervention, not just contracts and monitoring?",
+        evidence: "Own data: members 94.5% vs non-members 87.3%; 10+ visits → 95.5% · EEF parental engagement + extending school time · DfE enrichment framework benchmark 5.",
+        boundary: "Attendance strategy nationally is compliance-led. Making enrichment the front-line treatment is a genuine inversion.",
+        measures: "Attendance delta for PA pupils with/without club uptake, PA rate to <20% target, pupil-voice belonging scores." },
+      { tag: "Reading", title: "Universal Y7 fluency screening → phonics for every below-threshold reader",
+        hypothesis: "54% of pupils arrive below age-related reading. Fresh Start produced 3× faster recall for a small tracked group. What if the Y7 Fluency Pilot became a universal screen-and-treat model — every below-threshold Y7 in a phonics or fluency group by October half term?",
+        evidence: "Own Fresh Start impact data (71s→19s) · EEF phonics +5 / reading comprehension +7 · Galilee pre/post gains.",
+        boundary: "Secondary schools rarely run universal phonics screening — it's seen as primary business. Our data says otherwise.",
+        measures: "% at/above age-related by Y7 summer, Speed Sound cohort averages, NGRT/reading-test movement, KS3 English on-track %." },
+      { tag: "Workforce", title: "Flexible working 2.0 — the retention dividend",
+        hypothesis: "Teacher 'lie-ins' made national news and the Education Secretary endorsed flexible working. With 24% ITT/ECT staff, what if we built the sector's most explicit retention offer — flexible windows, planning-from-home, sabbatical pathways — and published the retention data?",
+        evidence: "Own coverage + recruitment pull (Education Business Awards reference) · DfE flexible-working push · coaching model capacity.",
+        boundary: "Most schools whisper about flexibility; we'd cost it, measure it and publish it.",
+        measures: "Teacher retention %, recruitment field sizes, staff-absence rate, T&L scores held ≥ current 2.08 baseline." },
+      { tag: "SEND", title: "Reverse the SEN K attainment slide by 2027",
+        hypothesis: "SEN Support A8 has fallen half a grade a year since 2023 while EHCP care flourishes. What if the K-code cohort got the EHCP treatment: named keyworker, provision-mapped interventions with pre/post measures, and a termly parent conference?",
+        evidence: "Own provision-map impact data (Fresh Start, Galilee, SaLT) · EEF TA interventions +4 / small group +4 / one-to-one +5 · EHCP attendance +9.13 as proof the intensive model works.",
+        boundary: "Treating SEN Support with EHCP-level intentionality — ahead of the SEND review the sector is waiting for.",
+        measures: "SEN K A8/P8 vs 2025 baseline, SEN K attendance ≥87.5% target, % of K pupils with measured intervention gain." },
+      { tag: "Oracy", title: "The speaking school — oracy as a public signature",
+        hypothesis: "We're already an Oracy Education Commission case study with oracy in every SoW. What if oracy became the public signature: whole-school debating, pupil TED-style showcase, spoken-word graduation expectation for every Y11?",
+        evidence: "EEF oral language (high impact) · Oracy Commission case study · Voice 21 evidence base · P7 Enrichment literacy strand.",
+        boundary: "Most schools do oracy as pedagogy; making it a visible entitlement with a public stage is the next step.",
+        measures: "Oracy assessment framework scores, English outcomes, pupil confidence in voice surveys, participation in public events." }
+    ],
+    builder: {
+      levers: ["Extended day / enrichment", "Coaching & teaching model", "Attendance systems", "Behaviour & pastoral systems", "Reading & literacy intervention", "SEND provision map", "Staff wellbeing & retention", "Oracy & student voice", "AI & technology"],
+      groups: ["Whole school", "Year 7", "Year 8 (Elev:8)", "Year 9", "Year 11", "Pupil Premium pupils", "SEN Support (K) pupils", "EHCP pupils", "Persistent absentees", "Staff"],
+      outcomes: ["Attendance", "Progress & attainment", "Behaviour / suspensions", "Reading age", "Belonging & engagement", "Retention & recruitment", "Parental engagement"]
+    }
+  },
+
+  /* ---------- Governors' challenge ---------- */
+  governors: {
+    intro: "The renewed framework asks whether governors provide consistent support and robust challenge across all aspects of the school's work — and the SEF names one action before the call: concrete, dated examples of challenge and leaders' response. This page arms that: the probing questions worth asking in each domain, where the evidence lives, and what a strong answer sounds like. Rehearse any of them live with the Portal AI.",
+    domains: [
+      { name: "Curriculum & Standards", icon: "📚",
+        questions: [
+          { q: "54% of pupils arrived below age-related reading. What did you do within the year, and how will we know it worked?", look: ["sef", "Self-Evaluation → Curriculum"], strong: "Y7 Fluency Pilot, Thinking Reading, literacy committee, Bedrock — with Fresh Start pupils measurably 3× faster and the success measure (% at/above expectations rising) already defined." },
+          { q: "SEN Support attainment has fallen half a grade a year since 2023. Why, and what changes in September?", look: ["send", "SEND page"], strong: "Named honestly in the SEF; adaptive-teaching strand in every SoW, CPD from September, provision-mapped interventions with pre/post measures — reviewed Oct–Jan." },
+          { q: "English Language residual was −0.54 in 2025. What did the department change?", look: ["results", "Results & Trends"], strong: "Class-level analysis completed, SoW finished in January, teacher-level residuals tracked, targeted meetings held — with mock-to-exam trajectory monitored termly." },
+          { q: "A quarter of teaching staff are trainees or early-career. How is quality held consistent?", look: ["sef", "Curriculum & Teaching"], strong: "Active Ingredients coaching (EEF metacognition +8), T&L average 2.08 with 80% expected/strong, CPR cycle keeping SoW live." },
+          { q: "Are 2026 predictions credible? What would make you wrong?", look: ["years", "Year Groups"], strong: "Trajectory mirrors last cohort's mock-to-exam climb (4.48→5.12); risks named — attendance of a small Y11 group, English Language — with intervention attached to each." }
+        ] },
+      { name: "Finance & Resources", icon: "💷",
+        questions: [
+          { q: "Show me the Pupil Premium money becoming outcomes. What's the mechanism?", look: ["sef", "Leadership (EEF tiers)"], strong: "EEF tiered model: quality-first teaching (coaching) → targeted support (Y11 small groups, one-to-one) → wider strategies (attendance team, enrichment entitlement). Disadvantaged P8 above national three years running." },
+          { q: "Every SEND intervention is costed at £0 to families — what does it cost the school, and is that sustainable?", look: ["send", "SEND page"], strong: "Deliberate resourcing decisions (Deputy SENCo, Bethlehem, Romero, trained LSA for SaLT) with impact measured per provision — investment justified by EHCP attendance +9.13 and measured literacy gains." },
+          { q: "The roll grew 41% in four years. Where is the growth money going, and what breaks first if it stops?", look: ["dashboard", "Dashboard"], strong: "Growth funded the inclusion architecture and pastoral capacity; per-pupil behaviour metrics improved through growth (internal suspensions per pupil halved) — showing scale managed, not endured." },
+          { q: "Free uniform, PE kit, prom tickets, vouchers — generosity or strategy?", look: ["attendance", "Attendance → Safeguarding"], strong: "Strategy: dignity as safeguarding, funded partly by alumni donation; removes the cost barriers the enrichment framework names, and participation parity data proves it works." }
+        ] },
+      { name: "Catholic Life & Personal Development", icon: "✝️",
+        questions: [
+          { q: "Orare, Laborare, Servire — where would I see the motto in a Tuesday afternoon, not a display board?", look: ["graph", "Connections → Catholic Ethos"], strong: "Prayer in lessons, the charity operations pupils name unprompted in surveys, reconciliation built into behaviour, Elev:8 grounded in John 10:10 — pupil voice quotes it back." },
+          { q: "Is enrichment an offer for the keen, or an entitlement for all? Prove the disadvantaged get it.", look: ["enrichment", "Enrichment"], strong: "Tracked pupil-by-pupil: PP 34% of club members vs 39% of roll, SEN near parity, 94% of 416 Culture Day respondents felt they belonged — a monitored entitlement." },
+          { q: "Only 37% of the pupil panel feel their opinions are often listened to. What changed because a pupil said something?", look: ["voice", "Student & Parent Voice"], strong: "K-Pop, film & philosophy and dodgeball clubs exist because pupils asked; the flag was pre-owned in the SEF with student-voice priority (DWI/NKE) — and the school publishes the uncomfortable number." },
+          { q: "How do I know safeguarding is a culture and not a folder?", look: ["attendance", "Attendance → Safeguarding"], strong: "External audit: 'exemplary'; 100% of surveyed parents say their child feels safe; every child knows the team; the DSL audits other schools." }
+        ] },
+      { name: "Strategic Direction", icon: "🧭",
+        questions: [
+          { q: "The Headteacher advises the Secretary of State. Who runs the school, and what's the succession plan?", look: ["sef", "Leadership & Governance"], strong: "Distributed leadership evidenced across the SEF — every priority has a non-Head owner; the secondment is itself evidence the bench is deep. Named succession and capacity plan held by governors." },
+          { q: "The disadvantaged gap widened three years running. When does 'named priority' become 'solved problem'?", look: ["results", "Results & Trends"], strong: "Honest framing: disadvantaged pupils remain above national; gap driven partly by non-disadvantaged surge; levers (adaptive teaching, attendance, intervention) with dates — governors should set the review milestone and hold it." },
+          { q: "What did the DfE enrichment framework and renewed Ofsted framework change about our strategy?", look: ["framework", "Framework"], strong: "Nothing reactive — both frameworks arrived after we already met them. Strategy continues to lead policy, not follow it: the innovation pipeline (Scenario Lab) is the forward plan." },
+          { q: "What are the three biggest risks on the register right now?", look: ["graph", "Connections → risks"], strong: "Reading, the disadvantaged gap, Y11 attendance/SEN K attainment — each with owner, milestone, measure. The DfE data-quality issue is escalated and documented. Nothing on this site is unowned." }
+        ] },
+    ],
+    challengeNote: "Before the inspection call: log 2–3 real, minuted examples of governor challenge with dates and what leaders changed as a result — the SEF names this as the one leadership gap. The questions above are the raw material; the minutes are the evidence. (Model pattern: 'Governors challenged X on [date] → leaders responded with Y → outcome Z.')"
+  },
+
   askSuggestions: [
     "Give me the strongest 60-second case for Exceptional leadership",
     "How do I explain the disadvantaged gap widening?",

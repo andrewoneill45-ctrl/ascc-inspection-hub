@@ -295,6 +295,32 @@ a.media-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); 
 .quote-text { font-family: var(--serif); font-size: 0.95rem; color: var(--purple-900); line-height: 1.45; flex: 1; }
 .quote-who { font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
 
+/* ---------- Scenario Lab ---------- */
+.scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+.scenario-card { display: flex; flex-direction: column; border-top: 4px solid var(--gold); }
+.scen-tag { align-self: flex-start; font-size: 0.66rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.08em; color: #fff; background: var(--purple-600); border-radius: 999px; padding: 3px 11px; margin-bottom: 8px; }
+.scen-hyp { font-size: 0.88rem; margin: 4px 0 10px; }
+.scen-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 7px; line-height: 1.45; }
+.scen-meta strong { color: var(--purple-800); }
+.scen-bold { color: #7a5c10; }
+.scen-bold strong { color: var(--gold); }
+.scen-test { margin-top: auto; align-self: flex-start; border: 1.5px solid var(--purple-500); background: var(--purple-50); color: var(--purple-800); border-radius: 999px; padding: 8px 16px; font-size: 0.8rem; font-weight: 650; cursor: pointer; font-family: var(--font); transition: background 0.15s; }
+.scen-test:hover { background: var(--purple-100); }
+.builder-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; margin-top: 14px; }
+.builder-row label { display: flex; flex-direction: column; gap: 5px; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--purple-700); flex: 1; min-width: 180px; }
+.builder-row select { padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 10px; font-family: var(--font); font-size: 0.88rem; background: #fff; }
+.sb-go { border: 0; border-radius: 10px; padding: 12px 22px; background: linear-gradient(135deg, var(--purple-700), var(--purple-500)); color: #fff; font-weight: 650; cursor: pointer; font-size: 0.9rem; font-family: var(--font); }
+
+/* ---------- Governors ---------- */
+.gov-q { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.gov-q:last-child { border-bottom: 0; }
+.gov-question { font-family: var(--serif); font-size: 1.02rem; color: var(--purple-900); font-weight: 650; }
+.gov-strong { font-size: 0.84rem; margin-top: 6px; }
+.gov-strong strong { color: var(--green); }
+.gov-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 9px; }
+.gov-actions button { border: 1.5px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 14px; font-size: 0.76rem; cursor: pointer; font-family: var(--font); color: var(--purple-800); transition: border-color 0.15s, background 0.15s; }
+.gov-actions button:hover { border-color: var(--purple-500); background: var(--purple-50); }
+
 /* framework */
 .scale-row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .scale-row:last-child { border-bottom: 0; }

@@ -37,6 +37,7 @@ const VIEW_TITLES = {
   dashboard: "Dashboard", sef: "Self-Evaluation", send: "SEND — Interventions & Impact", results: "Results & Trends",
   years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour",
   enrichment: "Enrichment", careers: "Careers & Gatsby Benchmarks", voice: "Student & Parent Voice", graph: "Connections",
+  scenarios: "Scenario Lab", governors: "Governors' Challenge",
   framework: "Renewed Framework", media: "Innovation & Press", ask: "Ask the Portal — AI conversation"
 };
 function initApp() {
@@ -1099,6 +1100,102 @@ function renderGraph() {
   tick();
 }
 
+/* ================= SCENARIO LAB ================= */
+window.askPortal = function (q) {
+  showView("ask");
+  const ta = el("ask-text");
+  if (ta) { ta.value = q; sendAsk(); }
+};
+function renderScenarios() {
+  const sc = ASCC.scenarios;
+  el("view-scenarios").appendChild(h(`
+    <div class="view-head">
+      <h2>Scenario Lab — evidence-built, boundary-pushing</h2>
+      <p>${sc.intro}</p>
+    </div>
+    <div class="scenario-grid" id="sc-cards"></div>
+    <div class="card" style="margin-top:18px;border-left:5px solid var(--purple-600)">
+      <h3>Build your own what-if</h3>
+      <p style="font-size:0.85rem;color:var(--muted)">Pick a lever, a group and an outcome — the Portal AI will stress-test the scenario against the school's own data and the EEF evidence base: the case for, the risks, what to measure, and whether it clears the bar we set for Elev:8.</p>
+      <div class="builder-row">
+        <label>Change lever
+          <select id="sb-lever">${sc.builder.levers.map(x => `<option>${x}</option>`).join("")}</select>
+        </label>
+        <label>Target group
+          <select id="sb-group">${sc.builder.groups.map(x => `<option>${x}</option>`).join("")}</select>
+        </label>
+        <label>Outcome to move
+          <select id="sb-outcome">${sc.builder.outcomes.map(x => `<option>${x}</option>`).join("")}</select>
+        </label>
+        <button class="sb-go" id="sb-go">⚡ Stress-test with Portal AI</button>
+      </div>
+    </div>
+  `));
+  const wrap = el("sc-cards");
+  sc.cards.forEach(c => {
+    const card = h(`
+      <div class="card scenario-card">
+        <div class="scen-tag">${c.tag}</div>
+        <h3>${c.title}</h3>
+        <p class="scen-hyp">${c.hypothesis}</p>
+        <div class="scen-meta"><strong>Evidence base:</strong> ${c.evidence}</div>
+        <div class="scen-meta scen-bold"><strong>Where it pushes the boundary:</strong> ${c.boundary}</div>
+        <div class="scen-meta"><strong>We would measure:</strong> ${c.measures}</div>
+        <button class="scen-test">⚡ Stress-test this scenario</button>
+      </div>`).firstElementChild;
+    card.querySelector(".scen-test").addEventListener("click", () => {
+      askPortal(`Stress-test this innovation scenario for All Saints: "${c.title}". Hypothesis: ${c.hypothesis} Give me: (1) the strongest evidence for it from our own data and the EEF toolkit, (2) the three biggest risks and how we'd mitigate them, (3) exactly what we'd measure and the success thresholds, (4) a verdict — does it clear the bar Elev:8 set? Include a chart if useful.`);
+    });
+    wrap.appendChild(card);
+  });
+  el("sb-go").addEventListener("click", () => {
+    const lever = el("sb-lever").value, group = el("sb-group").value, outcome = el("sb-outcome").value;
+    askPortal(`Scenario Lab what-if: using "${lever}" as the change lever, targeting "${group}", to improve "${outcome}". Design the boldest credible intervention for All Saints: what it looks like in practice, the evidence for it (our own data + EEF), the risks, what we'd measure and the thresholds for scaling or stopping it. Be ambitious but evidence-built — this school runs a 12-hour day and redesigned Year 8, so don't be timid. Include a chart if useful.`);
+  });
+}
+
+/* ================= GOVERNORS ================= */
+function renderGovernors() {
+  const g = ASCC.governors;
+  el("view-governors").appendChild(h(`
+    <div class="view-head">
+      <h2>Governors' Challenge</h2>
+      <p>${g.intro}</p>
+    </div>
+    <div id="gov-domains"></div>
+    <div class="card" style="border-left:5px solid var(--gold);margin-top:4px">
+      <h3>The challenge log — the one gap to close before the call</h3>
+      <p style="font-size:0.88rem">${g.challengeNote}</p>
+    </div>
+  `));
+  const wrap = el("gov-domains");
+  g.domains.forEach(d => {
+    const dom = h(`
+      <div class="card" style="margin-bottom:18px">
+        <h3>${d.icon} ${d.name}</h3>
+        <div class="gov-list"></div>
+      </div>`).firstElementChild;
+    const list = dom.querySelector(".gov-list");
+    d.questions.forEach(x => {
+      const row = h(`
+        <div class="gov-q">
+          <div class="gov-question">“${x.q}”</div>
+          <div class="gov-strong"><strong>A strong answer sounds like:</strong> ${x.strong}</div>
+          <div class="gov-actions">
+            <button class="gov-look">📄 See the evidence — ${x.look[1]}</button>
+            <button class="gov-rehearse">✦ Rehearse with Portal AI</button>
+          </div>
+        </div>`).firstElementChild;
+      row.querySelector(".gov-look").addEventListener("click", () => gotoView(x.look[0]));
+      row.querySelector(".gov-rehearse").addEventListener("click", () => {
+        askPortal(`A governor asks: "${x.q}" — give me the strongest evidenced answer, with exact figures, the honest caveats, and the follow-up question a sharp governor would ask next (with its answer).`);
+      });
+      list.appendChild(row);
+    });
+    wrap.appendChild(dom);
+  });
+}
+
 /* ================= FRAMEWORK ================= */
 function renderFramework() {
   const f = ASCC.framework;
@@ -1319,7 +1416,8 @@ function escapeHtml(s) {
 const RENDER = {
   dashboard: renderDashboard, sef: renderSef, send: renderSend, results: renderResults,
   years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, enrichment: renderEnrichment,
-  careers: renderCareers, voice: renderVoice, graph: renderGraph, framework: renderFramework,
+  careers: renderCareers, voice: renderVoice, graph: renderGraph,
+  scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,
   media: renderMedia, ask: renderAsk
 };
 
