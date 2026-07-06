@@ -207,7 +207,7 @@ function renderSef() {
   v.appendChild(h(`
     <div class="view-head">
       <h2>Self-Evaluation — July 2026</h2>
-      <p>Eight evaluation areas mapped to the renewed framework toolkit. Every identified weakness carries a named owner, milestone and success measure — <em>nothing is sitting unaddressed</em>. And every improvement lever is anchored to the <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">EEF Teaching &amp; Learning Toolkit</a>: evidence-led where the evidence exists, innovation-minded where the school is ahead of it.</p>
+      <p>Eight evaluation areas, each pinned to the renewed framework's toolkit tests: every Exceptional grade argues all three tests — <em>sustained exceptionally high standards · transformational impact on disadvantaged pupils and those with SEND · nothing significant unaddressed</em> — with the evidence beneath each; and every Strong grade states, on the record, exactly what is holding it there. Every improvement lever is anchored to the <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">EEF Toolkit</a>: evidence-led where the evidence exists, innovation-minded where the school is ahead of it.</p>
     </div>
     <div id="sef-list"></div>
   `));
@@ -227,6 +227,20 @@ function renderSef() {
       </div>` : "";
     const phrases = a.phrases ? `<h4>Phrases that land</h4>` + a.phrases.map(p => `<span class="phrase">“${p}”</span>`).join("") : "";
     const note = a.note ? `<span style="font-size:0.72rem;color:var(--muted);font-style:italic">${a.note}</span>` : "";
+    const exc = a.exceptional ? `
+      <div class="exc-block">
+        <div class="exc-title">Why Exceptional — pinned to the framework toolkit</div>
+        ${a.exceptional.map(t => `
+          <div class="exc-test">
+            <div class="exc-test-name">${t[0]}</div>
+            <div class="exc-test-ev">${t[1]}</div>
+          </div>`).join("")}
+      </div>` : "";
+    const rationale = a.gradeRationale ? `
+      <div class="exc-block" style="border-color:var(--purple-500);background:var(--purple-50)">
+        <div class="exc-title" style="color:var(--purple-800)">Why this grade — calibration, on the record</div>
+        <div class="exc-test-ev" style="margin-top:6px">${a.gradeRationale}</div>
+      </div>` : "";
     const item = h(`
       <div class="sef-item" id="sef-${a.id}">
         <button class="sef-head">
@@ -236,6 +250,8 @@ function renderSef() {
         </button>
         <div class="sef-body">
           <div class="sef-headline">${a.headline}</div>
+          ${exc}
+          ${rationale}
           <div class="sef-cols">
             <div><h4>Headline evidence</h4><ul>${evid}</ul></div>
             <div class="dev"><h4>We know, we act — development areas</h4><ul>${dev}</ul></div>

@@ -77,6 +77,11 @@ var ASCC = {
         "Some books don't always show the intended sequence; some pupils struggle to articulate prior learning — tracked with targeted plans.",
         "Inconsistency in how confidently some teachers probe understanding and adapt in the moment for pupils with SEND."
       ],
+      exceptional: [
+        ["Test 1 — Exceptionally high standards, sustained", "Need has risen every year (EHCP 6.0% → 7.4% → 8.6%, now 9.8%) and provision has scaled ahead of it: Bethlehem and Romero Centres, Deputy SENCo, graduate ASAs, a 50+ provision map — every intervention dated, staffed, reviewed and free to families. Identification starts before arrival (Y6 SENCo transition, passports for all) and has been the model for years, not months."],
+        ["Test 2 — Transformational impact on disadvantaged pupils, those with SEND and those facing other barriers", "EHCP pupils attend 9.13 points above the national EHCP figure. EHCP and SEN Support pupils made positive Progress 8 in 2024 (+0.07 / +0.13). Intervention impact is measured per pupil: Fresh Start recall up to 3× faster, Galilee +27–44 percentage points, NHS-target speech therapy delivered weekly. Only 2 of 59 off-site directions involved EHCP pupils — complex needs stay in mainstream. These pupils achieve and thrive — the toolkit's own words, evidenced."],
+        ["Test 3 — No significant area unaddressed", "The SEN Support attainment slide is named, owned (adaptive-teaching CPD from September, provision-mapped interventions with pre/post measures) and answered at capital scale by Emmanuel — £400k secured against a data-triangulated case. Book consistency and in-the-moment adaptation carry named owners and half-termly checkpoints."]
+      ],
       priorities: [
         ["Adaptive teaching on every teacher's agenda from the outset", "BHO", "Half-termly checkpoints"],
         ["Maintain exceptional teaching standards in the Bethlehem Centre", "BHO / new KPI appointment", "Bi-weekly checkpoints"],
@@ -106,6 +111,7 @@ var ASCC = {
         "SEN and disadvantaged attainment gap remains live — SoW updated with an explicit adaptive-teaching strand.",
         "24% of teaching staff are ITTs or ECTs — some KS3 inconsistency, addressed through coaching and CPD."
       ],
+      gradeRationale: "Why Strong and not yet Exceptional — held deliberately: the toolkit's Strong standard ('consistently strong, responsive teaching') is comfortably evidenced by T&L 2.08, 80% expected/strong and outcomes above national with 24% early-career staff. Exceptional is blocked by live data we will not argue around: 54% below age-related reading, the SEN/disadvantaged attainment gap, and KS3 consistency — each owned, dated and resourced. When the reading measures and SEN K attainment move, this grade moves with them. Calibration here is what makes our Exceptional grades credible elsewhere.",
       priorities: [
         ["Embed ASCC Pillars in every Scheme of Work, including oracy", "CDA / NGI / JAN", "July, Sept & Dec 2026"],
         ["Raise consistency & quality of books (presentation, live feedback, pupil response)", "CDA / NGI / JAN", "Sept, Nov & Jan"],
@@ -134,6 +140,11 @@ var ASCC = {
         "In-school gap between disadvantaged and non-disadvantaged has widened over two years even though disadvantaged pupils remain above national — adaptive teaching, attendance and targeted intervention are the levers.",
         "SEN K attainment has fallen since 2023; EHCP outcomes in 2025 affected by a very small, complex cohort (n=5–10)."
       ],
+      exceptional: [
+        ["Test 1 — Exceptionally high standards, sustained", "The majority of measures significantly above national for three consecutive years: Progress 8 +0.12 → +0.69 → +0.76* against a national of −0.03; Attainment 8 above 5.0 for two published years (5.39 vs 4.59); 4+ English & Maths held at 74–75% vs 65% national — while the cohorts' KS2 priors fell year on year (105.5 → 101.5). Standards sustained against a weakening intake is the strong form of 'sustained'."],
+        ["Test 2 — Transformational impact on disadvantaged pupils and those facing barriers", "Disadvantaged Progress 8 above the national disadvantaged figure for three consecutive years — and in 2024 our disadvantaged pupils outperformed national NON-disadvantaged pupils (+0.26 vs +0.16). In a top-quintile deprivation school where 44% are FSM, that is the toolkit's 'achieve and thrive', delivered at whole-cohort scale."],
+        ["Test 3 — No significant area unaddressed", "LPA outcomes, Science VA, the in-school disadvantaged gap and SEN Support attainment each carry a named owner, milestone and success measure — several already reviewed in July 2026. The grade is held pending published 2026 outcomes: we will confirm it against results, not hope."]
+      ],
       priorities: [
         ["Improve outcomes for Lower Prior Attainers", "JAN / CDA / NGI", "July 2026 & Jan 2027"],
         ["Improve Science outcomes (target VA +0.3 or better)", "JAN / GSH", "Jan 2027"],
@@ -161,6 +172,7 @@ var ASCC = {
         "SEN Support pupils attend at 84.44% (−2.32 vs national) — the most complex-needs cohort; 14.3% of pupils on SEN Support vs 13.4% nationally.",
         "Known DfE data discrepancies (see Appendix A) being resolved with DfE / SIMS / Class Charts — explanation ready."
       ],
+      gradeRationale: "Why Strong and not yet Exceptional — held deliberately: above national, above similar schools, improvement at four times the DfE expectation, and transformational for EHCP pupils (+9.13). But persistent absence at 20.9%, Y11 below national and SEN Support at 84.44% are live gaps we will not grade around. The trajectory — and the enrichment engine behind it (+7.2 for club members) — is the Exceptional case for next year; this year we grade what the data shows.",
       priorities: [
         ["Audit every incoming Y11 below 90% attendance, categorised by cause", "DMG", "June 2026"],
         ["Contact all Y10 PA/SA families before September; Attendance Contracts agreed", "DMG / HOKS / HOY", "July 2026"],
@@ -185,6 +197,11 @@ var ASCC = {
       development: [
         "Year 9 (9.4%) and Year 11 (11.7%, improving) suspension rates elevated vs Y7 (2.8%) and Y10 (4.4%) — a known national pattern for Y9.",
         "Suspension disproportionality: FSM pupils, boys, EHCP pupils and Black Caribbean pupils suspended at higher rates than peers — named priorities with plans due by end of this half-term."
+      ],
+      exceptional: [
+        ["Test 1 — Exceptionally high standards, sustained", "Not one good year but four coherent ones: permanent exclusions 7 → 3 → 2 → 0; fixed-term suspensions down 43.9% from the 2023–24 peak and sustained; internal lesson removals falling every year for four years (−33%) while the roll grew 41% — per-pupil removals halved. Daily climate: 99,194 achievement points to 34,320 incidents, roughly 3:1 positive."],
+        ["Test 2 — Transformational impact on vulnerable pupils", "The graduated system exists precisely for pupils with the greatest barriers: internal provision and 59 short reciprocal off-site directions keep pupils in education rather than excluded — only 2 involved EHCP pupils, and zero pupils were permanently excluded this year in a school with well-above-average SEND and FSM. Repeat suspension triggers a provision review, not a repeat sanction. The pupils national data expects to be excluded are, here, retained and re-integrated."],
+        ["Test 3 — No significant area unaddressed", "Suspension disproportionality (FSM, boys, EHCP, Black Caribbean) was self-identified through our own analysis — not raised externally — with named owners and plans due end of HT6, reviewed HT1/HT2. Y9 and Y11 elevation is tracked, with Y11 already falling 18 → 4 within the year."]
       ],
       priorities: [
         ["Update suspension/internal monitoring and flagging system", "BFO", "New system for September"],
@@ -215,6 +232,11 @@ var ASCC = {
         "Confidence that every pupil (not just Student Leaders) can articulate British Values fluently needs strengthening, particularly in Year 9.",
         "The Exceptional case in one line: all 8 DfE enrichment benchmarks met before the framework existed; 45% of roll in tracked clubs at PP/SEN parity; Elev:8 inverted the national Y8 dip (91% participation); Gatsby 100% on personal guidance and needs-of-each-pupil; 94% belonging from 416 pupil voices; 99% of parents value the offer. Transformational for disadvantaged pupils — with receipts."
       ],
+      exceptional: [
+        ["Test 1 — Exceptionally high standards, sustained", "The offer predates the frameworks that now measure it: all 8 DfE enrichment benchmarks met on publication day; Gatsby at 92% on two identical Compass+ runs, with 100% on personal guidance and needs-of-each-pupil; 30 dated careers/PSHCE events delivered including a whole-cohort work experience week; every pupil guaranteed 4+ trips a year. This is an entitlement architecture, sustained across years — not an events calendar."],
+        ["Test 2 — Transformational impact on disadvantaged pupils", "Participation is tracked pupil-by-pupil and reaches near-parity: PP pupils 34% of club members (39% of roll), SEN 21% (22%). Club membership is associated with +7.2 points of school attendance (+12.1 for SEN members). Aspiration programmes are reserved for disadvantage: Brilliant Club at 70% disadvantaged ending in an Oxford graduation, EY Foundation and Girls' Network PP-only, Aquinas stretch at 24.5% PP. Elev:8 turned the national disengagement year into our most-engaged cohort (91%). And the community confirms it: 94% of 416 pupils felt they belong; 99% of parents value the offer."],
+        ["Test 3 — No significant area unaddressed", "The two named gaps — KS3 curriculum-careers embedding (Gatsby BM4) and universal British Values articulation — are dated, owned (RFU/careers lead; DWI/NKE) and scheduled into September's Schemes of Work. Found by our own evaluation, twice."]
+      ],
       priorities: [
         ["Consistent PSHCE delivery in form time; planned careers programme per year group", "RFU / careers lead", "Live for Sept"],
         ["Embed British Values language and student voice opportunities", "DWI / NKE", "Begin ASAP"],
@@ -233,10 +255,14 @@ var ASCC = {
       id: "leadership", area: "Leadership & Governance", grade: "Exceptional", scale: 5,
       headline: "Exceptionally high standards of leadership and governance sustained over time: leaders at every level drive improvement across every evaluation area, with transformational impact on disadvantaged pupils, those with SEND, and those facing other barriers.",
       evidence: [
-        "Test 1 (sustained): suspensions down 43.9% from the 2023–24 peak and permanent exclusions 7 → 3 → 2 → 0 over four years; attendance improving 2 years to above national; outcomes above national for 3 consecutive years. Every area self-assessed Strong or Exceptional with its own live action plan.",
-        "Test 2 (transformational impact): disadvantaged P8 above national disadvantaged for 3 years (2024 +0.26 vs −0.57); FSM6 attendance +1.70 vs national; EHCP attendance +9.13 vs national; resourced investment in Bethlehem & Romero Centres; monitored enrichment entitlement.",
-        "Test 3 (nothing unaddressed): every honest weakness in this SEF has a named owner, deadline and success measure. Nothing identified is sitting unaddressed.",
+        "The Strong-standard foundation is exceeded, not just met: 'leaders use their detailed and insightful analysis of school performance to evaluate the effectiveness of their provision' — this portal, the SEF and the named-owner priority architecture are that analysis, made visible.",
+        "Staff expertise as the driver of improvement: the Active Ingredients cycle (54 reflections, 40 coached targets, 45% choosing the school's own priority) plus whole-staff reading training at 92%.",
         "External validation: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; leaders speak nationally; Headteachers' Roundtable co-chair; Secondary Headteacher of the Year (Pearson National Teaching Awards)."
+      ],
+      exceptional: [
+        ["Test 1 — “Exceptionally high standards of leadership and governance have been sustained … leading to continued improvement and/or sustained high standards in all areas of the school's work.” (toolkit wording)", "Sustained across every domain at once: outcomes above national three consecutive years; attendance above national and similar schools after two years of improvement; PEX 7 → 3 → 2 → 0 and internal removals falling four straight years through 41% roll growth; safeguarding audited 'exemplary'. Every evaluation area in this SEF independently self-assesses Strong or Exceptional, each with its own live action plan — leadership impact across the whole school's work, not one strong department carrying the picture."],
+        ["Test 2 — “Leaders' actions have a transformational impact on the outcomes and experiences of disadvantaged pupils, those with SEND … and those who may face other barriers. These pupils achieve and thrive.” (toolkit wording)", "Disadvantaged P8 above national disadvantaged three years running (2024: +0.26 vs −0.57, beating national non-disadvantaged); FSM6 attendance +1.70 and EHCP attendance +9.13 above national; deliberate resourcing — Bethlehem, Romero, ASAs, £400k Emmanuel — reallocating capacity to exactly the pupils the toolkit names; a monitored enrichment entitlement at PP/SEN parity. Achieve AND thrive, both evidenced."],
+        ["Test 3 — “There are no significant areas for improvement that leaders have not already prioritised.” (toolkit wording)", "Every weakness named anywhere on this portal — reading, the disadvantaged gap, SEN K attainment, Y11 attendance, suspension disproportionality, KS3 careers embedding — carries a named owner, milestone and success measure, most identified by our own analysis before anyone external asked. Nothing is sitting unaddressed."]
       ],
       development: [
         "Gather 2–3 concrete, named examples of governance challenge and leader response — ready to cite with dates and outcomes.",

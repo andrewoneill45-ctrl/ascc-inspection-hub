@@ -163,6 +163,13 @@ table.prio th { text-align: left; padding: 8px 10px; background: var(--purple-50
 table.prio td { padding: 8px 10px; border-top: 1px solid var(--line); vertical-align: top; }
 .phrase { display: inline-block; background: #fdf7e7; border: 1px dashed var(--gold); border-radius: 8px; padding: 6px 12px; margin: 4px 6px 0 0; font-size: 0.82rem; font-style: italic; color: #7a5c10; }
 
+/* Exceptional toolkit-test blocks */
+.exc-block { border: 1.5px solid var(--gold); background: #fdf9ee; border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
+.exc-title { font-size: 0.72rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.08em; color: #8a6a0d; }
+.exc-test { margin-top: 10px; }
+.exc-test-name { font-size: 0.85rem; font-weight: 650; color: var(--purple-900); }
+.exc-test-ev { font-size: 0.84rem; margin-top: 3px; line-height: 1.5; }
+
 /* EEF evidence cards */
 .eef-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin-top: 6px; }
 a.eef-card { display: block; text-decoration: none; background: #f4faf6; border: 1px solid #cfe5d8; border-left: 4px solid var(--green); border-radius: 10px; padding: 10px 12px; transition: border-color 0.15s, transform 0.15s; }
