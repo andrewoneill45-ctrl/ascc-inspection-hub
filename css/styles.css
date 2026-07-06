@@ -383,9 +383,60 @@ footer .motto { color: var(--gold); letter-spacing: 0.16em; text-transform: uppe
   .media-grid, .quote-grid, .perm-grid, .eef-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* ---------- Mobile optimisation ---------- */
 @media (max-width: 720px) {
+  /* header: compact, non-sticky so content wins the small screen */
+  header.topbar { position: static; }
+  .topbar-inner { padding: 10px 14px; gap: 10px; }
+  .topbar img.crest { height: 32px; }
   .topbar .badge { display: none; }
-  .topbar .title .hub-sub { font-size: 0.88rem; white-space: normal; line-height: 1.3; }
-  .view-head h2 { font-size: 1.5rem; }
-  #graph-svg { height: 480px; }
+  .topbar .title .hub-sub { font-size: 0.82rem; white-space: normal; line-height: 1.3; }
+  .export-btn { padding: 7px 12px; font-size: 0.74rem; }
+
+  /* nav: sticky at top, tighter buttons */
+  nav.tabs { top: 0; }
+  .tabs-inner { padding: 0 6px; }
+  .tabs button { padding: 11px 10px; font-size: 0.8rem; }
+  .dd-menu { min-width: 200px; }
+
+  main { padding: 20px 14px 60px; }
+  .view-head h2 { font-size: 1.45rem; }
+  .view-head p { font-size: 0.9rem; }
+  .grid { gap: 12px; }
+  .card { padding: 16px; }
+  .stat .num { font-size: 1.7rem; }
+  .chart-wrap { height: 235px; }
+
+  /* wide tables scroll instead of breaking the page */
+  table.data, table.prio { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  table.prio td, table.data td { white-space: normal; min-width: 110px; }
+
+  /* SEF */
+  .sef-head .area { font-size: 1rem; }
+  .sef-headline { font-size: 0.9rem; }
+
+  /* connections graph: fixed readable width, pan horizontally */
+  #graph-svg-wrap { overflow-x: auto; }
+  #graph-svg { min-width: 900px; height: 480px; }
+  .graph-legend { position: static; margin: 8px; }
+  #graph-detail { max-height: none; }
+
+  /* ask */
+  .ask-panel { min-height: 68vh; }
+  .msg { max-width: 100%; }
+  .ask-input textarea { font-size: 16px; }  /* prevents iOS zoom-on-focus */
+
+  /* enrichment / voice grids to single column sooner */
+  .media-grid, .quote-grid, .perm-grid, .eef-grid { grid-template-columns: 1fr; }
+  .bench-row { gap: 10px; }
+  .bench-num { width: 30px; height: 30px; font-size: 0.95rem; border-radius: 9px; }
+
+  .login-card { padding: 34px 26px; }
+}
+
+@media (max-width: 400px) {
+  .tabs button { padding: 10px 8px; font-size: 0.76rem; }
+  .stat .num { font-size: 1.5rem; }
+  .export-btn { font-size: 0; padding: 7px 10px; }
+  .export-btn::before { content: "⤓ PDF"; font-size: 0.74rem; }
 }
