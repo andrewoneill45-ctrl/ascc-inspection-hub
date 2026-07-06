@@ -70,7 +70,8 @@ var ASCC = {
         "Robust Y6 transition & initial assessment with primary SENCos and parents; every pupil has a support plan / pupil passport shaping department planning.",
         "SEN referrals tracked with CAMHS liaison and access-arrangement documentation; 2 successful EHCP applications this year — swift, accurate identification of need.",
         "2024 Progress 8: EHCP pupils +0.07, SEN Support +0.13 — positive progress in a school with well-above-average need.",
-        "Deliberate resourcing: Deputy SENCo, Bethlehem Centre, Romero Centre ('keeping up, not catching up'), enhanced Attendance team."
+        "Deliberate resourcing: Deputy SENCo, Bethlehem Centre, Romero Centre ('keeping up, not catching up'), enhanced Attendance team.",
+        "A mapped offer of 50+ provisions, all at £0 to families, with measured impact: Fresh Start pupils reading sounds up to 3× faster; Galilee literacy gains of 27–44 percentage points; NHS-target 1:1 speech therapy for 17 EHCP pupils — see the dedicated SEND tab."
       ],
       development: [
         "Some books don't always show the intended sequence; some pupils struggle to articulate prior learning — tracked with targeted plans.",
@@ -483,7 +484,7 @@ var ASCC = {
           "EHCP 9.83% (88 pupils) & SEN 22% — well above national, rising yearly",
           "2024 P8: EHCP +0.07 · SEN Support +0.13 — positive progress at scale of need",
           "Bethlehem & Romero Centres · pupil passports for every SEN pupil · Deputy SENCo",
-          "2 successful EHCP applications this year — swift, accurate identification"
+          "50+ mapped provisions at £0 to families — Fresh Start phonics 3× faster recall; Galilee +27–44pp; 1:1 NHS-target speech therapy for 17 EHCP pupils"
         ] },
       { id: "safeguarding", label: "Safeguarding", type: "pillar", grade: "Met", size: 13,
         desc: "External review Jan 2026 → action plan Feb 2026. Met.",
@@ -697,6 +698,59 @@ var ASCC = {
       improved: [32, 53, 46, 64],
       note: "Matched-pupil attendance change vs the same pupils last year (to 22 May). The Y7→Y8 transition shows the steepest fall — the national 'Year 8 dip' Jerrim documents, visible in our own data. Elev:8 is the structural answer. At the other end, 64% of Year 11 pupils improved their attendance on last year — against the national trend of decline into exam year."
     }
+  },
+
+  /* ---------- SEND: interventions & impact ---------- */
+  send: {
+    intro: "197 pupils with SEN (22% of roll) and 88 EHCPs (9.8%, rising every year) — among the highest of any secondary school in RBKC. This page shows what we do about it: a mapped provision offer of 50+ interventions, every one costed at £0 to families, with impact measured pupil by pupil.",
+    tiles: [
+      ["50+", "provisions running this year — mapped, dated, staffed and reviewed on Provision Map"],
+      ["£0", "cost to families for every intervention — from NHS-target speech therapy to GCSE tuition"],
+      ["3×", "faster phonics recall for Fresh Start pupils — 71 seconds to 19 at best"],
+      ["+27–44", "percentage-point gains, pre- to post-assessment, for Galilee literacy pupils"]
+    ],
+    map: {
+      areas: [
+        ["Cognition & Learning", 19, "TA in-class deployment across year groups (17–95 pupils per deployment) + whole-cohort Academic Support"],
+        ["Literacy", 9, "Fresh Start phonics, Galilee grammar (47 pupils), GCSE French/Spanish/RE intervention"],
+        ["SEMH & mentoring", 10, "AllChild (Y9, 30), counselling, ELSA, empathy development, female mentoring (20), Y11 mentoring"],
+        ["Behavioural & social", 5, "Romero Pass (98 pupils), English mentoring (31), targeted Y11 support"],
+        ["Communication & Interaction", 3, "1:1 speech & language therapy (17 EHCP pupils), Lego Therapy (9)"],
+        ["EAL & other", 8, "EAL support, literacy & numeracy 1:1s, maths intervention, autism outreach"]
+      ],
+      biggest: [
+        ["Romero Pass", 98], ["Academic Support (largest deployment)", 95], ["Galilee Literacy", 47],
+        ["English Mentoring", 31], ["AllChild Year 9", 30], ["GCSE French", 21],
+        ["Female Mentoring", 20], ["Fresh Start phonics", 18], ["GCSE Spanish", 18],
+        ["1:1 Speech & Language", 17], ["GCSE RE", 10], ["Lego Therapy", 9]
+      ],
+      note: "Pupil counts from the Provision Map report. This is the graduated response in action: universal TA deployment and academic support underneath, targeted small-group literacy and mentoring in the middle, specialist 1:1 therapy on top — every layer logged with start dates, end dates, staffing and review outcomes."
+    },
+    freshStart: {
+      what: "Fresh Start (Read Write Inc.) — systematic phonics for KS3 pupils reading below age-related expectations, delivered in small groups and 1:1, two sessions a week, with parents called personally at enrolment. This is the intervention arm of the reading strategy (EEF: phonics +5 months for older struggling readers).",
+      pairs: {
+        labels: ["Pupil A", "Pupil B", "Pupil C", "Pupil D", "Pupil E", "Pupil F", "Pupil G", "Pupil H", "Pupil I"],
+        before: [63, 42, 56, 71, 56, 44, 57, 70, 38],
+        after: [18, 17, 19, 19, 32, 29, 25, 56, 32]
+      },
+      pairsNote: "Speed Sound recall times, seconds (lower is better) — entry vs July 2026, individual tracked pupils, anonymised. The best improvement is 71 → 19 seconds: a pupil reading sounds well over three times faster, described as 'very clear'. Clarity improved in every case; assessors note pupils who plateaued on speed instead gained markedly in pronunciation and are now working on prosody and fluency.",
+      outcomes: "July review grades every pupil −1 to +2 with a written rationale: most graded +1/+2; pupils mid-programme carry a 0 and continue next year (modules tracked, e.g. 7→28, 12→31 of 33); one pupil graded −1 has the barrier named (focus and comprehension) and a plan. Honest grading — not everything marked a success — is what makes the +2s credible."
+    },
+    galilee: {
+      what: "Galilee Literacy Intervention — explicit grammar teaching (verb tenses, punctuation, sentence construction) in small groups, three 50-minute sessions a week, 47 pupils. Pre- and post-assessed with question-level analysis.",
+      gains: { labels: ["Pupil A", "Pupil B", "Pupil C", "Pupil D"], pct: [44, 39, 37, 27] },
+      gainsNote: "Percentage-point gains between pre- and post-assessment for the fully assessed group. Raw-mark movement elsewhere is even starker: pupils moving from 27 to 102 marks, 10 to 91, 26 to 108 — several pupils tripled or quadrupled their scores. Teacher notes record the how: encouragement, resilience-building, group work — and name honestly the pupils who need 1:1 next (with two non-attenders flagged and parental agreement pursued)."
+    },
+    salt: {
+      what: "Weekly 50-minute 1:1 speech and language therapy for 17 pupils — every one with an EHCP — working towards targets written by an NHS speech and language therapist and delivered by a trained learning support assistant.",
+      points: [
+        "Techniques with an evidence base: Shape Coding for grammar and syntax, narrative planners, barrier games, communication profiles.",
+        "Session notes evidence progress against each pupil's own targets — grammatically correct sentences in active and passive voice, self-help strategies for communication breakdown, revision strategies carried home.",
+        "The quiet story: therapy that families would wait months for through the NHS, timetabled weekly in school at no cost — for pupils in Years 7 to 11.",
+        "This is what 'Guardian: the school that embodies Labour's hopes for special needs' looks like in a timetable."
+      ]
+    },
+    closing: "Impact where it counts: EHCP pupils attend 9.13 points above the national EHCP figure; EHCP and SEN Support pupils made positive Progress 8 in 2024 (+0.07 / +0.13); only 2 of 59 off-site directions involved EHCP pupils because embedded plans keep complex needs in mainstream. The named risk — SEN K attainment declining since 2023 — is exactly what this provision map and the adaptive-teaching CPD are built to reverse, with EEF-aligned methods throughout (one-to-one +5, small-group +4, TA interventions +4, phonics +5, oral language high-impact)."
   },
 
   /* ---------- Student & Parent Voice (2025-26 surveys) ---------- */

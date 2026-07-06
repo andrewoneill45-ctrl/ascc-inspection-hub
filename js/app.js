@@ -34,7 +34,7 @@ document.getElementById("login-form").addEventListener("submit", async e => {
 let appInitialised = false;
 const rendered = {};
 const VIEW_TITLES = {
-  dashboard: "Dashboard", sef: "Self-Evaluation", results: "Results & Trends",
+  dashboard: "Dashboard", sef: "Self-Evaluation", send: "SEND — Interventions & Impact", results: "Results & Trends",
   years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour",
   enrichment: "Enrichment", voice: "Student & Parent Voice", graph: "Connections",
   framework: "Renewed Framework", media: "Innovation & Press", ask: "Ask the Portal — AI conversation"
@@ -243,6 +243,77 @@ function renderSef() {
     const head = e.target.closest(".sef-head");
     if (head) head.parentElement.classList.toggle("open");
   });
+}
+
+/* ================= SEND ================= */
+function renderSend() {
+  const s = ASCC.send;
+  el("view-send").appendChild(h(`
+    <div class="view-head">
+      <h2>SEND — interventions &amp; impact</h2>
+      <p>${s.intro}</p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      ${s.tiles.map(t => `<div class="card stat"><div class="num">${t[0]}</div><div class="lbl">${t[1]}</div></div>`).join("")}
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <h3>The provision map — a graduated response you can hold in your hand</h3>
+      <div class="grid cols-2" style="margin-top:10px">
+        <div>
+          <table class="data"><tr><th>Area of concern</th><th>Provisions</th><th>What's in it</th></tr>
+            ${s.map.areas.map(a => `<tr><td style="font-weight:650;white-space:nowrap">${a[0]}</td><td>${a[1]}</td><td style="font-size:0.8rem">${a[2]}</td></tr>`).join("")}
+          </table>
+        </div>
+        <div class="chart-card"><h4 style="margin-top:0">Biggest provisions by pupils reached</h4><div class="chart-wrap" id="sd-map" style="height:320px"></div></div>
+      </div>
+      <p class="note">${s.map.note}</p>
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card">
+        <h3>Fresh Start phonics — measured pupil by pupil</h3>
+        <div class="chart-wrap" id="sd-fs"></div>
+        <p class="note">${s.freshStart.pairsNote}</p>
+      </div>
+      <div class="card">
+        <h3>What Fresh Start is</h3>
+        <p style="font-size:0.88rem">${s.freshStart.what}</p>
+        <h4>Honest, graded reviews</h4>
+        <p style="font-size:0.86rem">${s.freshStart.outcomes}</p>
+      </div>
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card">
+        <h3>Galilee literacy — pre/post assessment gains</h3>
+        <div class="chart-wrap" id="sd-gal"></div>
+        <p class="note">${s.galilee.gainsNote}</p>
+      </div>
+      <div class="card">
+        <h3>What Galilee is</h3>
+        <p style="font-size:0.88rem">${s.galilee.what}</p>
+        <h4>1:1 speech &amp; language therapy</h4>
+        <p style="font-size:0.86rem">${s.salt.what}</p>
+        <ul style="margin-left:18px;font-size:0.84rem;margin-top:8px">${s.salt.points.map(p => `<li style="margin-bottom:6px">${p}</li>`).join("")}</ul>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:5px solid var(--green)">
+      <h3>Where it lands</h3>
+      <p style="font-size:0.9rem">${s.closing}</p>
+    </div>
+  `));
+  makeChart("sd-map", { type: "bar", data: { labels: s.map.biggest.map(x => x[0]), datasets: [
+    { label: "Pupils", data: s.map.biggest.map(x => x[1]), backgroundColor: BRAND.purple, borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true } } } });
+  makeChart("sd-fs", { type: "bar", data: { labels: s.freshStart.pairs.labels, datasets: [
+    { label: "Entry (seconds — lower is better)", data: s.freshStart.pairs.before, backgroundColor: BRAND.grey, borderRadius: 5 },
+    { label: "July 2026", data: s.freshStart.pairs.after, backgroundColor: BRAND.green, borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: "Speed Sound time (s)" } } } } });
+  makeChart("sd-gal", { type: "bar", data: { labels: s.galilee.gains.labels, datasets: [
+    { label: "Percentage-point gain, pre → post", data: s.galilee.gains.pct, backgroundColor: BRAND.gold, borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 50 } } } });
 }
 
 /* ================= RESULTS ================= */
@@ -1189,7 +1260,7 @@ function escapeHtml(s) {
 
 /* ---------------- Render map ---------------- */
 const RENDER = {
-  dashboard: renderDashboard, sef: renderSef, results: renderResults,
+  dashboard: renderDashboard, sef: renderSef, send: renderSend, results: renderResults,
   years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, enrichment: renderEnrichment,
   voice: renderVoice, graph: renderGraph, framework: renderFramework,
   media: renderMedia, ask: renderAsk
