@@ -298,7 +298,16 @@ var ASCC = {
     attendanceImpact: [
       ["Below 90% attendance", 3.53], ["Above 93%", 5.16], ["Above 95%", 5.22]
     ],
-    attendanceNote: "Average A8 by attendance band (Spring mocks) — the single clearest internal evidence that attendance work is achievement work. Six pupils below 10% attendance depress mock A8 by 0.18."
+    attendanceNote: "Average A8 by attendance band (Spring mocks) — the single clearest internal evidence that attendance work is achievement work. Six pupils below 10% attendance depress mock A8 by 0.18.",
+    machinery: {
+      headline: "Behind the headline numbers sits a tracking machine: no Year 10 or 11 pupil is a passenger.",
+      items: [
+        ["One row per pupil, everything joined", "The Y11 tracker holds two years of attendance per pupil with pastoral notes (Early Help referrals, Attendance Contracts, CAMHS escalations), spring-vs-autumn attendance movement, mock grades against MEGs, behaviour and homework flags — one sheet, every child visible, including a governors' data view."],
+        ["SLT mentoring for the 20 highest-risk", "Twenty Year 11 pupils identified from mock APS, attendance and behaviour data each have a named SLT mentor — including the Headteacher's team — with a fixed weekly slot and logged meetings."],
+        ["Revision engineered from data", "January 'shoulder day' groups built directly from autumn mock English & Maths performance; coursework catch-up timetabled teacher-by-teacher across three named weeks in November."],
+        ["Quality of work tracked in cycles", "Year 10 'quality of book' grades collected per subject across three cycles, with Lenten grades checked against MEGs — classroom standards audited, not assumed."]
+      ]
+    }
   },
   y10: {
     profile: { n: 179, pp: "36%", eal: "56%", sen: "21%", ehcp: "12%", ks2: 104.5 },
@@ -750,7 +759,19 @@ var ASCC = {
         "This is what 'Guardian: the school that embodies Labour's hopes for special needs' looks like in a timetable."
       ]
     },
-    closing: "Impact where it counts: EHCP pupils attend 9.13 points above the national EHCP figure; EHCP and SEN Support pupils made positive Progress 8 in 2024 (+0.07 / +0.13); only 2 of 59 off-site directions involved EHCP pupils because embedded plans keep complex needs in mainstream. The named risk — SEN K attainment declining since 2023 — is exactly what this provision map and the adaptive-teaching CPD are built to reverse, with EEF-aligned methods throughout (one-to-one +5, small-group +4, TA interventions +4, phonics +5, oral language high-impact)."
+    closing: "Impact where it counts: EHCP pupils attend 9.13 points above the national EHCP figure; EHCP and SEN Support pupils made positive Progress 8 in 2024 (+0.07 / +0.13); only 2 of 59 off-site directions involved EHCP pupils because embedded plans keep complex needs in mainstream. The named risk — SEN K attainment declining since 2023 — is exactly what this provision map and the adaptive-teaching CPD are built to reverse, with EEF-aligned methods throughout (one-to-one +5, small-group +4, TA interventions +4, phonics +5, oral language high-impact).",
+    emmanuel: {
+      tagline: "Emmanuel — “God with us”. The next build: a dedicated SEN provision, funded and evidenced.",
+      what: "A 55m² modular SEN provision building with three functions: a reintegration hub for pupils whose anxiety-driven (SEMH/autism) absence keeps them out of mainstream — managed, relational transitions from non-attendance and part-time timetables back to full-time education; a centralised multi-agency intervention space (educational psychology, speech & language, occupational therapy) aligned with the Government's 'Every Child Achieving and Thriving' White Paper; and an adapted Y7–8 literacy pathway — daily, low-cognitive-load lessons with explicit decoding, fluency and Tier 2/3 vocabulary pre-teaching, so pupils keep up rather than catch up.",
+      funding: [
+        ["£400k", "high-needs capital funding allocated under a signed RBKC agreement"],
+        ["~£103k", "school contribution (including £45k contingency, unlikely to be needed on a modular build)"],
+        ["£150–175k", "saved by value-engineering the footprint from 75m² to 55m²"],
+        ["10–20", "pupils at a time on rolling intake, Y7–8 priority cohort already identified from data"]
+      ],
+      case: "The business case is triangulated from our own 2025–26 datasets: GL reading tests found 66 Y7–8 pupils significantly below expected (SAS<85 — one in six), nine of them functionally pre-reading (SAS<70), with a mean deficit of 51.8 months; 27 Y7–8 pupils sit below 85% attendance (78% of them Pupil Premium); and seven pupils account for over a third of all suspensions. Nine children appear in two or more of those datasets — the named priority cohort. The proposal even evidences its own diagnostic gap: the two highest-priority children couldn't be reading-tested because of their attendance — exactly what a reintegration hub exists to fix.",
+      line: "This is what evidence-led innovation looks like at capital scale: the same triangulation discipline as Elev:8, applied to a building — identified need, secured funding, value-engineered design, measurable outcomes named before a brick is laid."
+    }
   },
 
   /* ---------- Student & Parent Voice (2025-26 surveys) ---------- */
@@ -839,14 +860,27 @@ var ASCC = {
       { n: 5, title: "Encounters with employers and employees", score: 88,
         evidence: "Meaningful employer encounters running across year groups — the Y10 Careers Day (banking, The Economist, data analytics, youth work) rated 4–5/5 by 76% of pupils." },
       { n: 6, title: "Experiences of workplaces", score: 87,
-        evidence: "Workplace experiences established and expanding through the employer network — with London Leaders immersive business days extending reach through the extended day." },
+        evidence: "Every Year 10 pupil completed a week-long work experience placement (29 June–3 July), on top of PA Consulting and EY Foundation workplace visits — with London Leaders immersive business days extending reach through the extended day." },
       { n: 7, title: "Encounters with further and higher education", score: 90,
-        evidence: "Most pupils encounter universities and higher technical/FE providers, with strong post-16 transition support." },
+        evidence: "Year 10 visited Oxford University, Westminster University, West London College, LAMDA and a St Charles taster day this year; the Brilliant Club Scholars Programme took Year 9 (70% disadvantaged) through to an Oxford graduation." },
       { n: 8, title: "Personal guidance", score: 100,
         evidence: "Every pupil accesses personal careers guidance — full marks on every sub-question. In a school where 44% are FSM, individual guidance is not left to families to buy privately." }
     ],
     devplan: "Compass+ names the specific next steps, and each already sits in the SEF careers priority (live for September): careers embedded into KS3 Schemes of Work with staff CPD; structured purpose-briefs for every employer and FE/HE encounter; workplace experiences extended to more pupils via the employer network and London Leaders; pupil use of labour-market information tracked. Found by our own evaluation, twice — that is what Benchmark 1 calls a stable programme.",
-    voiceTie: "Pupil voice backs the scores: 76% rated Y10 Careers Day 4–5/5, with employer sessions cited by name — 'banking… gave me a real understanding of what to do to achieve it.'"
+    voiceTie: "Pupil voice backs the scores: 76% rated Y10 Careers Day 4–5/5, with employer sessions cited by name — 'banking… gave me a real understanding of what to do to achieve it.'",
+    events: {
+      total: 30,
+      headline: "Thirty careers, citizenship and personal-development events delivered September to July — a programme, not a gesture. Every Year 10 pupil: a week-long work experience placement, a university visit and a post-16 taster day. Targeted aspiration programmes reserved for disadvantaged pupils.",
+      byCategory: [["Careers", 13], ["Citizenship / PSHCE", 10], ["Personal Development", 7]],
+      highlights: [
+        ["Whole-cohort entitlement (Y10)", "Week-long work experience (29 Jun–3 Jul) · Oxford University and Westminster University visits · West London College trip · St Charles taster day · LAMDA performing-arts pathway · PA Consulting trip · Careers Day with employer sessions."],
+        ["Aspiration, targeted at disadvantage", "Brilliant Club Scholars Programme for Year 9 (70% disadvantaged) culminating in an Oxford University graduation · EY Foundation careers workshop (PP pupils only) · Girls' Network confidence & communication workshops (Y9 PP only)."],
+        ["Employers & institutions in the room", "Guinness Associates Y11 assembly · Home Office visit · St Charles careers fair · Jack Petchey speak-out programme (30 pupils) with a regional final hosted in our hall."],
+        ["Citizenship lived, not taught", "Politics Week with a whole-school Election Day and a Parliament trip · City Hall trips for Y7 and Y8 · an MP's public event · International Women's Day · Macmillan coffee morning."],
+        ["Character & challenge", "Duke of Edinburgh Bronze practice and assessed expeditions · Elev:8 residential launching the year."]
+      ],
+      note: "Every event dated and logged 2025–26 — the delivery record behind the Compass+ scores, and direct evidence for Gatsby benchmarks 5 (employers), 6 (workplaces) and 7 (FE/HE encounters)."
+    }
   },
 
   /* ---------- Safeguarding culture (July 2026 report) ---------- */
@@ -1072,6 +1106,7 @@ var ASCC = {
           { q: "The Headteacher advises the Secretary of State. Who runs the school, and what's the succession plan?", look: ["sef", "Leadership & Governance"], strong: "Distributed leadership evidenced across the SEF — every priority has a non-Head owner; the secondment is itself evidence the bench is deep. Named succession and capacity plan held by governors." },
           { q: "The disadvantaged gap widened three years running. When does 'named priority' become 'solved problem'?", look: ["results", "Results & Trends"], strong: "Honest framing: disadvantaged pupils remain above national; gap driven partly by non-disadvantaged surge; levers (adaptive teaching, attendance, intervention) with dates — governors should set the review milestone and hold it." },
           { q: "What did the DfE enrichment framework and renewed Ofsted framework change about our strategy?", look: ["framework", "Framework"], strong: "Nothing reactive — both frameworks arrived after we already met them. Strategy continues to lead policy, not follow it: the innovation pipeline (Scenario Lab) is the forward plan." },
+          { q: "Emmanuel commits ~£103k of school money alongside RBKC's £400k. Convince me the building is the right intervention and not a monument.", look: ["send", "SEND → Emmanuel"], strong: "The case is triangulated from three internal datasets (reading, attendance, suspensions) identifying a named priority cohort; the footprint was value-engineered down £150–175k; outcomes are defined before build (attendance recovery, repeat-suspension reduction, literacy gain) — the same discipline as Elev:8, at capital scale." },
           { q: "What are the three biggest risks on the register right now?", look: ["graph", "Connections → risks"], strong: "Reading, the disadvantaged gap, Y11 attendance/SEN K attainment — each with owner, milestone, measure. The DfE data-quality issue is escalated and documented. Nothing on this site is unowned." }
         ] },
     ],

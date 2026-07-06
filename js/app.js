@@ -300,9 +300,24 @@ function renderSend() {
       </div>
     </div>
 
-    <div class="card" style="border-left:5px solid var(--green)">
+    <div class="card" style="border-left:5px solid var(--green);margin-bottom:18px">
       <h3>Where it lands</h3>
       <p style="font-size:0.9rem">${s.closing}</p>
+    </div>
+
+    <div class="card elev8-card">
+      <div class="elev8-head">
+        <h3>${s.emmanuel.tagline}</h3>
+        <span class="elev8-tag">Next build</span>
+      </div>
+      <p style="font-size:0.9rem;margin-top:8px">${s.emmanuel.what}</p>
+      <div class="grid cols-4" style="margin:14px 0">
+        ${s.emmanuel.funding.map(f => `
+          <div class="card stat" style="box-shadow:none"><div class="num" style="font-size:1.5rem">${f[0]}</div><div class="lbl">${f[1]}</div></div>`).join("")}
+      </div>
+      <h4>The data-informed case</h4>
+      <p style="font-size:0.87rem">${s.emmanuel.case}</p>
+      <span class="phrase">“${s.emmanuel.line}”</span>
     </div>
   `));
   makeChart("sd-map", { type: "bar", data: { labels: s.map.biggest.map(x => x[0]), datasets: [
@@ -403,6 +418,17 @@ function renderYears() {
       <div class="card stat"><div class="num">5.01</div><div class="lbl">2026 predicted Attainment 8</div><div class="ctx neutral">P8 prediction +0.74 (SISRA)</div></div>
       <div class="card stat"><div class="num">48%</div><div class="lbl">Y11 Pupil Premium</div><div class="ctx neutral">EAL 46% · SEN 22% — a high-need cohort</div></div>
     </div>
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-600)">
+      <h3>${ASCC.y11.machinery.headline}</h3>
+      <div class="grid cols-2" style="margin-top:12px">
+        ${ASCC.y11.machinery.items.map(x => `
+          <div style="border-left:4px solid var(--purple-500);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.9rem">${x[0]}</div>
+            <div style="font-size:0.83rem;margin-top:3px">${x[1]}</div>
+          </div>`).join("")}
+      </div>
+    </div>
+
     <div class="card" style="margin-bottom:18px">
       <h3>Year 10 — Lenten 2026 snapshot</h3>
       <div class="chart-wrap" id="yc-y10" style="height:220px"></div>
@@ -768,6 +794,18 @@ function renderCareers() {
         <h4>Development plan</h4>
         <p style="font-size:0.83rem">${ca.devplan}</p>
       </div>
+    </div>
+    <div class="card" style="margin-bottom:18px">
+      <h3>The year in careers &amp; personal development — ${ca.events.total} events delivered</h3>
+      <p class="sef-headline" style="margin-top:10px">${ca.events.headline}</p>
+      <div class="grid cols-2" style="margin-top:12px">
+        ${ca.events.highlights.map(x => `
+          <div style="border-left:4px solid var(--gold);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.9rem">${x[0]}</div>
+            <div style="font-size:0.83rem;margin-top:3px">${x[1]}</div>
+          </div>`).join("")}
+      </div>
+      <p class="note">${ca.events.note}</p>
     </div>
     <div class="card">
       <h3>Benchmark by benchmark — the evidence</h3>
