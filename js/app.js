@@ -102,7 +102,28 @@ function renderDashboard() {
     </div>
     <div class="card" style="margin-top:18px;border-left:5px solid var(--green)">
       <h3>Evidence-led, innovation-minded</h3>
-      <p style="font-size:0.9rem">Every improvement lever in this SEF maps to the <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">EEF Teaching &amp; Learning Toolkit</a>: the Active Ingredients coaching model draws on <strong>metacognition (+8 months — the Toolkit's highest-impact strand)</strong>; Thinking Reading and the Y7 Fluency Pilot on <strong>reading comprehension (+7)</strong> and <strong>phonics (+5)</strong>; the oracy pillar on <strong>oral language (high impact)</strong>; Y11 intervention on <strong>small-group (+4)</strong> and <strong>one-to-one tuition (+5)</strong>; book-quality priorities on <strong>feedback (+6)</strong>. And where the evidence base is still catching up — the extended enrichment day, the phone-free culture, staff-wellbeing flexibility — All Saints is the school national media and the DfE come to see. Each SEF area below carries its EEF citations.</p>
+      <div class="sef-cols" style="margin-top:8px">
+        <div>
+          <h4 style="color:var(--green)">Where we follow the evidence</h4>
+          <ul style="margin-left:18px;font-size:0.86rem">
+            <li style="margin-bottom:6px"><strong>Active Ingredients coaching</strong> → EEF metacognition, <strong>+8 months</strong> — the Toolkit's highest-impact strand.</li>
+            <li style="margin-bottom:6px"><strong>Thinking Reading & Y7 Fluency Pilot</strong> → reading comprehension <strong>+7</strong>, phonics <strong>+5</strong> — answering our own reading data (54% below age-related).</li>
+            <li style="margin-bottom:6px"><strong>Oracy in every Scheme of Work</strong> → oral language (high impact); national Oracy Commission case study.</li>
+            <li style="margin-bottom:6px"><strong>Y11 intervention</strong> → small-group <strong>+4</strong> / one-to-one <strong>+5</strong>; book priorities → feedback <strong>+6</strong>.</li>
+            <li><strong>Elev:8</strong> → built on Professor John Jerrim's research on the Year 8 engagement dip — visible in our own matched data (−2.29pts Y7→Y8).</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--gold)">Where we lead the evidence</h4>
+          <ul style="margin-left:18px;font-size:0.86rem">
+            <li style="margin-bottom:6px"><strong>The extended enrichment day</strong> — running years before the DfE's Enrichment Framework (June 2026); we already meet all <strong>8 benchmarks</strong>. Covered by Guardian, Times, Fortune, BBC.</li>
+            <li style="margin-bottom:6px"><strong>Elev:8</strong> — no other school has redesigned Year 8 around the engagement dip: residential, compulsory P7 enrichment, London Leaders.</li>
+            <li style="margin-bottom:6px"><strong>Phone-free culture</strong> — national and international coverage before the policy debate caught up.</li>
+            <li style="margin-bottom:6px"><strong>Teacher 'lie-ins' & flexible working</strong> — retention innovation the Education Secretary later endorsed.</li>
+            <li><strong>System leadership</strong> — Headteacher advises the Secretary of State; DSL audits other schools' safeguarding.</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="card" style="margin-top:18px">
       <h3>Inspection context — what this school is</h3>
@@ -337,6 +358,26 @@ function renderClimate() {
       <div class="card chart-card"><h3>In-year attendance by year group (SIMS)</h3><div class="chart-wrap" id="cc-byyear"></div>
         <p class="note">SIMS in-year figure (90.03% overall) differs from the FFT/DfE benchmarked 92.41% — known platform discrepancies are documented with an explanation ready for inspectors.</p></div>
     </div>
+
+    <div class="card safeg-card" style="margin-top:18px">
+      <h3>Safeguarding — a culture, not a folder</h3>
+      <p class="sef-headline" style="margin-top:10px">${ASCC.safeguardingReport.headline}</p>
+      <div class="sef-cols">
+        <div>
+          <h4>Everyone trained, always current</h4>
+          <ul style="margin-left:18px;font-size:0.85rem">${ASCC.safeguardingReport.training.map(t => `<li style="margin-bottom:6px">${t}</li>`).join("")}</ul>
+        </div>
+        <div>
+          <h4>What the culture looks like</h4>
+          <ul style="margin-left:18px;font-size:0.85rem">${ASCC.safeguardingReport.culture.map(t => `<li style="margin-bottom:6px">${t}</li>`).join("")}</ul>
+        </div>
+      </div>
+      <h4>How safeguarding permeates every part of the school</h4>
+      <div class="perm-grid">
+        ${ASCC.safeguardingReport.permeates.map(p => `
+          <div class="perm-card"><div class="perm-title">${p[0]}</div><div class="perm-text">${p[1]}</div></div>`).join("")}
+      </div>
+    </div>
   `));
   makeChart("cc-att", { type: "bar", data: { labels: at.bars.map(x => x[0]), datasets: [
     { label: "Attendance %", data: at.bars.map(x => x[1]), backgroundColor: [BRAND.purple, BRAND.grey, BRAND.grey, BRAND.purpleFaint], borderRadius: 6 } ] },
@@ -354,6 +395,96 @@ function renderClimate() {
   makeChart("cc-byyear", { type: "bar", data: { labels: at.byYearSims.map(x => x[0]), datasets: [
     { label: "Attendance %", data: at.byYearSims.map(x => x[1]), backgroundColor: at.byYearSims.map(x => x[1] < 85 ? BRAND.amber : BRAND.purple), borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 70, max: 100 } } } });
+}
+
+/* ================= ENRICHMENT ================= */
+function renderEnrichment() {
+  const en = ASCC.enrichment, c = en.clubs, e8 = en.elev8;
+  el("view-enrichment").appendChild(h(`
+    <div class="view-head">
+      <h2>Enrichment — meeting every DfE benchmark</h2>
+      <p>${en.intro} <a href="${en.frameworkUrl}" target="_blank" rel="noopener">DfE Enrichment Benchmarks →</a></p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      <div class="card stat"><div class="num">8 / 8</div><div class="lbl">DfE enrichment benchmarks met</div><div class="ctx">Framework published 15 June 2026 — we already met it</div></div>
+      <div class="card stat"><div class="num">${c.total}</div><div class="lbl">Clubs running this year</div><div class="ctx neutral">${c.attendances.toLocaleString()} attendances logged on Class Charts</div></div>
+      <div class="card stat"><div class="num">${c.uniquePupils}</div><div class="lbl">Pupils in at least one club (${c.pctOfRoll}% of roll)</div><div class="ctx neutral">Plus compulsory P7 Enrichment & 4+ trips for every pupil</div></div>
+      <div class="card stat"><div class="num">${c.ppShare}%</div><div class="lbl">of club members are Pupil Premium</div><div class="ctx">vs ${c.ppSchool}% of the school — near-perfect parity</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <h3>The eight benchmarks — evidence against every one</h3>
+      <div id="bench-list"></div>
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card"><h3>Biggest clubs by membership</h3><div class="chart-wrap" id="en-clubs"></div>
+        <p class="note">${c.breadth}</p></div>
+      <div class="card chart-card"><h3>Who enrichment reaches (benchmark 5)</h3><div class="chart-wrap" id="en-parity"></div>
+        <p class="note">${c.note}</p></div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <h3>Coverage of the DfE's five activity categories</h3>
+      <table class="data"><tr><th>DfE category</th><th>What it means</th><th>All Saints delivery</th></tr>
+        ${en.categories.map(x => `<tr><td style="font-weight:650;white-space:nowrap">${x.cat}</td><td style="font-size:0.8rem">${x.dfe}</td><td style="font-size:0.82rem">${x.ascc}</td></tr>`).join("")}
+      </table>
+    </div>
+
+    <div class="card elev8-card" style="margin-bottom:18px">
+      <div class="elev8-head">
+        <h3>Elev:8 — ahead of the curve on the Year 8 dip</h3>
+        <span class="elev8-tag">Innovation</span>
+      </div>
+      <p class="elev8-quote">${e8.tagline}</p>
+      <div class="sef-cols">
+        <div>
+          <h4>The research</h4>
+          <p style="font-size:0.87rem">${e8.why}</p>
+          <h4>The programme</h4>
+          <p style="font-size:0.87rem">${e8.what}</p>
+        </div>
+        <div>
+          <h4>Ahead of the framework</h4>
+          <p style="font-size:0.87rem">${e8.aheadOfCurve}</p>
+          <h4>Already visible in the data</h4>
+          <p style="font-size:0.87rem">${e8.clubsNow}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card chart-card">
+      <h3>The Year 8 dip — in our own matched-pupil data</h3>
+      <div class="chart-wrap" id="en-dip"></div>
+      <p class="note">${ASCC.enrichment.y8DipChart.note}</p>
+    </div>
+  `));
+
+  const bl = el("bench-list");
+  en.benchmarks.forEach(b => {
+    bl.appendChild(h(`
+      <div class="bench-row">
+        <div class="bench-num">${b.n}</div>
+        <div class="bench-body">
+          <div class="bench-title">${b.title} <span class="pill met">${b.status}</span></div>
+          <div class="bench-ind">DfE indicator: ${b.indicator}</div>
+          <div class="bench-ev">${b.evidence}</div>
+        </div>
+      </div>`));
+  });
+
+  makeChart("en-clubs", { type: "bar", data: { labels: c.top.map(x => x[0]), datasets: [
+    { label: "Members", data: c.top.map(x => x[1]), backgroundColor: BRAND.purple, borderRadius: 5 },
+    { label: "Attendances logged", data: c.top.map(x => x[2]), backgroundColor: BRAND.gold, borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, indexAxis: "y", scales: { x: { beginAtZero: true } } } });
+  makeChart("en-parity", { type: "bar", data: { labels: ["Pupil Premium", "SEN"], datasets: [
+    { label: "% of school roll", data: [c.ppSchool, c.senSchool], backgroundColor: BRAND.grey, borderRadius: 6 },
+    { label: "% of club members", data: [c.ppShare, c.senShare], backgroundColor: BRAND.purple, borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 50 } } } });
+  const dip = ASCC.enrichment.y8DipChart;
+  makeChart("en-dip", { type: "bar", data: { labels: dip.labels, datasets: [
+    { label: "Matched attendance change (pts) vs last year", data: dip.deltas, backgroundColor: dip.deltas.map(d => d < -1 ? BRAND.red : (d >= 0 ? BRAND.green : BRAND.purpleLight)), borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } } } });
 }
 
 /* ================= CONNECTIONS GRAPH ================= */
@@ -416,12 +547,15 @@ function renderGraph() {
   const gNodes = document.createElementNS(NS, "g");
   svg.appendChild(gLinks); svg.appendChild(gNodes);
 
+  // Supernotes-style: small solid dots, hairline edges, quiet labels
+  const nodeR = n => 6 + n.size * 0.45;           // ~10-14px dots
   links.forEach(l => {
     const st = EDGE_STYLE[l.type];
     const line = document.createElementNS(NS, "line");
     line.setAttribute("stroke", st.color);
-    line.setAttribute("stroke-width", l.type === "drives" ? 2.4 : 2);
-    line.setAttribute("stroke-opacity", 0.55);
+    line.setAttribute("stroke-width", l.type === "drives" ? 1.7 : 1.4);
+    line.setAttribute("stroke-opacity", 0.32);
+    line.setAttribute("stroke-linecap", "round");
     if (st.dash) line.setAttribute("stroke-dasharray", st.dash);
     gLinks.appendChild(line);
     l.el = line;
@@ -430,44 +564,63 @@ function renderGraph() {
     const st = NODE_STYLE[n.type];
     const g = document.createElementNS(NS, "g");
     g.style.cursor = "pointer";
+    const halo = document.createElementNS(NS, "circle");   // selection ring
+    halo.setAttribute("r", nodeR(n) + 5);
+    halo.setAttribute("fill", "none");
+    halo.setAttribute("stroke", st.stroke);
+    halo.setAttribute("stroke-width", 1.6);
+    halo.setAttribute("opacity", 0);
     const c = document.createElementNS(NS, "circle");
-    c.setAttribute("r", n.size);
+    c.setAttribute("r", nodeR(n));
     c.setAttribute("fill", st.fill);
-    c.setAttribute("stroke", st.stroke);
-    c.setAttribute("stroke-width", 2.5);
+    c.setAttribute("stroke", n.type === "risk" ? st.stroke : "#ffffff");
+    c.setAttribute("stroke-width", 2);
     const t = document.createElementNS(NS, "text");
     t.textContent = n.label;
     t.setAttribute("text-anchor", "middle");
-    t.setAttribute("font-size", "10");
-    t.setAttribute("font-weight", "650");
-    t.setAttribute("fill", "#2a1245");
+    t.setAttribute("font-size", "9.5");
+    t.setAttribute("font-weight", "600");
+    t.setAttribute("fill", "#5c5266");
     t.setAttribute("pointer-events", "none");
-    g.appendChild(c); g.appendChild(t);
+    g.appendChild(halo); g.appendChild(c); g.appendChild(t);
     gNodes.appendChild(g);
-    n.el = g; n.circle = c; n.text = t;
-    g.addEventListener("mouseenter", () => { if (!pinned) showDetail(n); highlight(n); });
+    n.el = g; n.circle = c; n.text = t; n.halo = halo; n.r = nodeR(n);
+    g.addEventListener("mouseenter", () => { if (!pinned) { showDetail(n); highlight(n); } });
     g.addEventListener("mouseleave", () => { if (!pinned) clearHighlight(); });
-    g.addEventListener("click", ev => { ev.stopPropagation(); pinned = n; showDetail(n); highlight(n); });
-    // drag
+    // drag / click-to-pin (click detected manually — pointer capture eats click events)
     g.addEventListener("pointerdown", ev => {
-      ev.preventDefault(); dragging = n; n.fixed = true;
+      ev.preventDefault();
+      dragging = n; n.fixed = true;
+      dragStart = { x: ev.clientX, y: ev.clientY, moved: false };
       svg.setPointerCapture(ev.pointerId);
     });
   });
   svg.addEventListener("pointermove", ev => {
     if (!dragging) return;
-    const pt = svgPoint(ev);
-    dragging.x = pt.x; dragging.y = pt.y; kick();
+    if (Math.abs(ev.clientX - dragStart.x) + Math.abs(ev.clientY - dragStart.y) > 6) dragStart.moved = true;
+    if (dragStart.moved) {
+      const pt = svgPoint(ev);
+      dragging.x = pt.x; dragging.y = pt.y; kick();
+    }
   });
-  svg.addEventListener("pointerup", () => { if (dragging) { dragging.fixed = false; dragging = null; } });
-  svg.addEventListener("click", () => { pinned = null; clearHighlight(); });
+  svg.addEventListener("pointerup", () => {
+    if (!dragging) return;
+    if (!dragStart.moved) pin(dragging);          // a click, not a drag → pin (sticks until another node is clicked)
+    dragging.fixed = false; dragging = null;
+  });
+  function pin(n) {
+    if (pinned) pinned.halo.setAttribute("opacity", 0);
+    pinned = n;
+    n.halo.setAttribute("opacity", 0.9);
+    showDetail(n); highlight(n);
+  }
 
   function svgPoint(ev) {
     const p = svg.createSVGPoint(); p.x = ev.clientX; p.y = ev.clientY;
     return p.matrixTransform(svg.getScreenCTM().inverse());
   }
 
-  let dragging = null, pinned = null;
+  let dragging = null, pinned = null, dragStart = { x: 0, y: 0, moved: false };
   function highlight(n) {
     const connected = new Set([n.id]);
     links.forEach(l => {
@@ -478,7 +631,7 @@ function renderGraph() {
     nodes.forEach(m => m.el.setAttribute("opacity", connected.has(m.id) ? 1 : 0.25));
   }
   function clearHighlight() {
-    links.forEach(l => l.el.setAttribute("stroke-opacity", l.hidden ? 0 : 0.55));
+    links.forEach(l => l.el.setAttribute("stroke-opacity", l.hidden ? 0 : 0.32));
     nodes.forEach(m => m.el.setAttribute("opacity", 1));
     const d = el("graph-detail");
     d.innerHTML = `<h3>Talk across the school</h3><p class="placeholder">Click any node to bring up its key data and every intersection — the lines a leader can walk an inspector along. Hover to preview; drag to rearrange.</p>`;
@@ -509,7 +662,7 @@ function renderGraph() {
     el("graph-detail").querySelectorAll(".conn").forEach(c => {
       c.addEventListener("click", () => {
         const m = byId[c.dataset.node];
-        if (m) { pinned = m; showDetail(m); highlight(m); }
+        if (m) pin(m);
       });
     });
   }
@@ -521,7 +674,7 @@ function renderGraph() {
     const t = b.dataset.t;
     links.forEach(l => {
       l.hidden = t !== "all" && l.type !== t;
-      l.el.setAttribute("stroke-opacity", l.hidden ? 0 : 0.55);
+      l.el.setAttribute("stroke-opacity", l.hidden ? 0 : 0.32);
     });
   });
 
@@ -571,7 +724,8 @@ function renderGraph() {
     });
     nodes.forEach(n => {
       n.circle.setAttribute("cx", n.x); n.circle.setAttribute("cy", n.y);
-      n.text.setAttribute("x", n.x); n.text.setAttribute("y", n.y + n.size + 14);
+      n.text.setAttribute("x", n.x); n.text.setAttribute("y", n.y + n.r + 13);
+      n.halo.setAttribute("cx", n.x); n.halo.setAttribute("cy", n.y);
     });
   }
   tick();
@@ -796,8 +950,8 @@ function escapeHtml(s) {
 /* ---------------- Render map ---------------- */
 const RENDER = {
   dashboard: renderDashboard, sef: renderSef, results: renderResults,
-  years: renderYears, climate: renderClimate, graph: renderGraph,
-  framework: renderFramework, media: renderMedia, ask: renderAsk
+  years: renderYears, climate: renderClimate, enrichment: renderEnrichment,
+  graph: renderGraph, framework: renderFramework, media: renderMedia, ask: renderAsk
 };
 
 /* Auto-unlock for the current browser session (runs after all declarations) */

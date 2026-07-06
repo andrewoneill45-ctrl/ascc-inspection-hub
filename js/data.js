@@ -49,9 +49,11 @@ var ASCC = {
       id: "safeguarding", area: "Safeguarding", grade: "Met", scale: "met",
       headline: "Safeguarding is Met. An external Whole School Safeguarding Review (January 2026) found strong leadership, culture, governance oversight, pupil voice, records management and curriculum; the DSL produced an action plan within a month.",
       evidence: [
-        "January 2026 external Whole School Safeguarding Review + February 2026 Safeguarding Action Plan — both ready to show on demand.",
+        "January 2026 external Whole School Safeguarding Review + February 2026 Safeguarding Action Plan — both ready to show on demand. The audit called the evidence base “exemplary” and described a culture of “always striving to be better”.",
         "Immediate concerns from the review already actioned; remaining actions tracked and ongoing.",
-        "Leaders receptive to challenge and reflective about their own practice — review commissioned externally, acted on within a month."
+        "All 145 staff trained (KCSIE annual, Prevent, online safety, FGM); 12 Level 3-trained DSL/DDSLs; compliant, audited Single Central Record; every member of staff knows the 5 Rs.",
+        "Culture is verifiable: pupil voice confirms all children know who to talk to; CPOMS evidences rapid follow-up, including appropriately challenging social care; Securus monitors digital safety; monthly online-safety newsletters reach every family.",
+        "System leadership: the DSL audited a Westminster primary's safeguarding (June 2026) and spoke at a national attendance conference — practice strong enough that other schools borrow it. See the full culture picture on the Attendance & Behaviour tab."
       ],
       development: ["Persistent absence (20.9%) as a safeguarding-adjacent priority."],
       priorities: [
@@ -530,6 +532,99 @@ var ASCC = {
       { s: "attendance", t: "y11att", type: "watches", why: "Y11 sits 2.17 below national — audit, contracts and home visits all in train now." },
       { s: "behaviour", t: "dispro", type: "watches", why: "Disproportionality self-identified; named owners, plans due end HT6, reviewed HT1/HT2." },
       { s: "inclusion", t: "reading", type: "watches", why: "Romero Centre reading fluency provision — keeping up, not catching up." }
+    ]
+  },
+
+  /* ---------- Enrichment: DfE benchmarks + club data + Elev:8 ---------- */
+  enrichment: {
+    intro: "The DfE's Enrichment Framework was published on 15 June 2026. All Saints didn't have to change anything to meet it — the extended enrichment day, tracked club participation and Elev:8 already deliver every benchmark. The framework caught up with us.",
+    frameworkUrl: "https://www.gov.uk/government/publications/the-enrichment-framework-for-schools-and-colleges/enrichment-benchmarks",
+    clubs: {
+      total: 31, uniquePupils: 350, pctOfRoll: 39.0, attendances: 1723,
+      ppShare: 35.1, ppSchool: 39.3, senShare: 20.3, senSchool: 22.0,
+      note: "Class Charts club 'stars' — every attendance logged. Participation mirrors the school's profile: PP pupils are 39.3% of the roll and 35.1% of club members; SEN 22.0% of roll, 20.3% of members. Enrichment reaches the pupils national data says are most likely to miss out.",
+      top: [
+        ["Basketball", 62, 141], ["Volleyball", 54, 138], ["KS3 Cooking", 49, 159],
+        ["Netball", 45, 147], ["Y7 Boys Football", 43, 175], ["Maths Homework Support", 39, 116],
+        ["Theatre Design", 36, 137], ["Y8 Boys Football (Elev:8)", 36, 116], ["Dodgeball", 36, 57],
+        ["Girls Football", 35, 91]
+      ],
+      breadth: "31 clubs spanning sport (basketball, volleyball, netball, dodgeball, football for boys and girls, cycling), arts (art, theatre design, dance, K-Pop, choir, music ensemble, creative writing), academics (maths problem-solving, EAL & maths homework support, book club, MFL, history, film & philosophy), and life skills (cooking, Green Club)."
+    },
+    categories: [
+      { cat: "Civic engagement", dfe: "Volunteering, debating, school democracy, community engagement", ascc: "Faith in Action & The Mission (service programmes), student leadership & student voice, Green Club sustainability projects, house system and inter-house democracy." },
+      { cat: "Arts and culture", dfe: "Music, art, dance, theatre, museums and galleries", ascc: "Schola Cantorum (toured Germany, 2026), music ensemble, choir, K-Pop and dance clubs, theatre design, art club, Culture Day, museum and gallery visits on Curriculum Enhancement Days." },
+      { cat: "Nature, outdoors & adventure", dfe: "Time outdoors, residentials and camps, sustainability", ascc: "Elev:8 launches with a whole-year-group residential at PGL Liddington (150 acres of outdoor learning); Green Club; Activity Days; cycling club." },
+      { cat: "Sport & physical activities", dfe: "Individual and team sports, dance, fitness, representing the school", ascc: "12 sports clubs including girls' football, netball, basketball, volleyball; inter-house competitions; Sports Day; borough fixtures." },
+      { cat: "Wider life & future skills", dfe: "Digital literacy, STEM clubs, cooking, finances, enterprise", ascc: "Cooking clubs (incl. Elev:8 strand), London Leaders business challenge, coding & digital media in P7 Enrichment, Maths & Problem Solving, careers programme with Compass+." }
+    ],
+    benchmarks: [
+      { n: 1, title: "A strategically aligned enrichment offer", status: "Met",
+        indicator: "Structured offer with explicit SLT/governor backing, understood by staff, with an implementation and monitoring plan.",
+        evidence: "Enrichment is a headline commitment in the SEF's Personal Development area with named owners (DWI/RFU) and milestones; the extended day builds enrichment into the timetable itself; the Headteacher's national enrichment advocacy (EPI panel, DfE role) makes the strategic backing unmistakable." },
+      { n: 2, title: "A broad and well-rounded enrichment offer", status: "Met",
+        indicator: "Every pupil accesses activities across all 5 DfE categories, delivered regularly including within the school day.",
+        evidence: "31 clubs cover all five categories (see mapping below); every pupil attends 4+ trips a year plus whole-school celebration days; P7 Enrichment is compulsory and timetabled — provision inside the extended school day, exactly as the benchmark asks." },
+      { n: 3, title: "Well-communicated, celebrating participation and achievement", status: "Met",
+        indicator: "Timely, clear information; high aspirations for participation; achievement celebrated; pupils reflect on their experiences.",
+        evidence: "Club offer published to families each term; Class Charts stars and EVOLVE records celebrate and evidence participation; London Leaders rewards conduct, effort and club attendance with a central-London leadership day; assemblies and awards evenings celebrate enrichment achievement." },
+      { n: 4, title: "Shaped by the school community", status: "Met",
+        indicator: "Pupil, parent and staff voice shapes the offer; pupil leadership encouraged; staff interests and capacity considered.",
+        evidence: "Student voice surveys shape the club list (K-Pop, film & philosophy and dodgeball all came from pupil demand); Student Leaders run activities with staff support; clubs are built on staff expertise from theatre design to cycling." },
+      { n: 5, title: "Accessible and engaging for all", status: "Met",
+        indicator: "Equitable, inclusive, accessible — with participation monitored and barriers addressed, especially for SEND and disadvantaged pupils.",
+        evidence: "The strongest card we hold: participation is tracked pupil-by-pupil with PP/SEN flags. PP pupils are 35% of club members (39% of roll); SEN 20% (22% of roll) — near-perfect parity. Free uniform/PE kit for all, funded places and free Y11 prom tickets remove cost barriers. This is a monitored entitlement, not an open offer." },
+      { n: 6, title: "Works in partnership", status: "Met",
+        indicator: "Partnerships broaden the offer; feedback processes exist; signposting beyond the school's own offer.",
+        evidence: "PGL Liddington residential; London businesses host the London Leaders day; West London Zone, GRIT Mentoring, Latimer Community Art Therapy and Catholic Children's Society enrich provision; Schola Cantorum tours internationally; EVOLVE manages external trip quality." },
+      { n: 7, title: "Outcomes-focused", status: "Met",
+        indicator: "Pupil outcomes considered in design; effective systems (including MIS) collect and monitor outcome-related data.",
+        evidence: "Exactly what Class Charts delivers: 1,723 logged club attendances against a named baseline of all 898 pupils with PP/SEN flags — participation cross-referenced with attendance, behaviour and progress data. Compass+ tracks careers outcomes from September." },
+      { n: 8, title: "Continually improving", status: "Met",
+        indicator: "Feedback gathered from pupils, parents, staff and partners; the offer continuously improves.",
+        evidence: "Impact tracking for every trip, event and programme is a named SEF priority (DWI/RFU, live from September); Elev:8 itself is the proof of continuous improvement — a whole-year-group redesign built from our own participation and attendance data." }
+    ],
+    elev8: {
+      tagline: "“I have come so that you might have life, life in all its fullness” — John 10:10",
+      what: "Elev:8 is a year-long programme that redesigns Year 8 around enrichment: a whole-cohort PGL Liddington residential in HT1, compulsory weekly P7 Enrichment (creative arts, STEM, literacy & spoken word, sport, enterprise & coding), aspiration assemblies with role models, the London Leaders business challenge (stars earned for attendance, effort and club participation; top 20 win an immersive leadership day in central London), and inter-house music and sport competitions.",
+      why: "Research by Professor John Jerrim (UCL Institute of Education) shows pupil engagement falls off a cliff between the end of Year 7 and Year 8 — the 'Year 8 dip'. We see it in our own data: matched-pupil attendance falls 2.29 points as pupils move from Y7 into Y8, the biggest drop of any transition. Most schools notice the dip; we redesigned the year around it.",
+      aheadOfCurve: "Elev:8 was designed before the DfE published its Enrichment Framework (15 June 2026) — and it delivers the framework's benchmarks by design: all five activity categories, a residential, pupil leadership, outcome tracking through stars, and equitable access for a year group where 39% are Pupil Premium. Evidence-led (Jerrim, EEF extending-school-time conditions) and innovation-minded (nobody else is doing this for Year 8).",
+      clubsNow: "Elev:8-badged clubs are already among the school's biggest: Y8 Boys Football (36 members — 21 PP, 13 SEN), Y8 Girls Football (19), and two Elev:8 cooking strands (39 combined)."
+    },
+    y8DipChart: {
+      labels: ["Y7 → Y8", "Y8 → Y9", "Y9 → Y10", "Y10 → Y11"],
+      deltas: [-2.29, 0.25, -0.78, -0.53],
+      improved: [32, 53, 46, 64],
+      note: "Matched-pupil attendance change vs the same pupils last year (to 22 May). The Y7→Y8 transition shows the steepest fall — the national 'Year 8 dip' Jerrim documents, visible in our own data. Elev:8 is the structural answer. At the other end, 64% of Year 11 pupils improved their attendance on last year — against the national trend of decline into exam year."
+    }
+  },
+
+  /* ---------- Safeguarding culture (July 2026 report) ---------- */
+  safeguardingReport: {
+    headline: "Safeguarding at All Saints is not a policy folder — it is a culture. The external audit described the evidence base as “exemplary”, and a school culture of “always striving to be better”.",
+    training: [
+      "Every member of staff (145) trained: KCSIE Level 1 (annual), Prevent Duty (LA-delivered), online safety, FGM (external specialist)",
+      "12-strong DSL/DDSL team, all Level 3 trained on a 2-year cycle; Operation Encompass trained (June/July 2026)",
+      "Safer Recruitment trained admin + Headteacher + DSL; Single Central Record fully compliant, regularly audited",
+      "Scenario-based training and learning from serious case reviews (incl. Child Practice Review) used through the year",
+      "Monthly online-safety newsletters to families — 10 editions this year covering AI, nudify apps, the manosphere, deepfakes, group chats and more (published on the school website)"
+    ],
+    culture: [
+      "“Exemplary” evidence base (external Safeguarding Review, Jan 2026); DSL action plan produced within one month; immediate actions complete",
+      "Leaders can describe 'what lies beneath' at individual-pupil level across safeguarding, bullying, behaviour and SEND — the audit's words",
+      "Every member of staff knows the 5 Rs: Recognise, Respond, Report, Record, Refer; daily safeguarding updates in pastoral morning meetings",
+      "Pupil voice confirms every child knows who the safeguarding team are and who to talk to; all pupils know how to reach Childline",
+      "CPOMS records are accurate and live — with evidence of the school appropriately challenging social care responses when children need more",
+      "Securus digital monitoring protects pupils online across school systems",
+      "Vigilance is logged, not hidden: 45 bullying and 5 racist incidents recorded and acted on this year; 11 social-care referrals in the summer term; 41 active or pending Early Help cases tracked pupil-by-pupil — a school that sees things, records them and follows through"
+    ],
+    permeates: [
+      ["Attendance", "Safeguarding and attendance are one machinery: home visits for every severely absent pupil logged on CPOMS, external agency support for every pupil below 50%, and the DSL leads both."],
+      ["Inclusion & SEND", "16 external partnerships (CAMHS ×2 boroughs, art therapy, NHS SaLT & OT, autism outreach, West London Zone, GRIT) wrap around vulnerable pupils; EHCP pupils attend 9.13 points above national."],
+      ["Curriculum", "Online safety, Prevent themes and healthy relationships taught through PSHCE; monthly family newsletters extend the curriculum home."],
+      ["Community", "Supermarket vouchers, free uniform and PE kit for every family (alumni-funded), free Y11 prom tickets, Catholic Children's Society funds — dignity as safeguarding."],
+      ["Transition", "Vulnerable incoming Y7 pupils identified before arrival; Y6 transition meetings carry structured safeguarding and attendance questions."],
+      ["System leadership", "The DSL audited a Westminster primary school (June 2026), spoke at a national attendance conference, and the school sits in the DfE RISE Behaviour & Attendance Hub — our safeguarding practice is strong enough that other schools borrow it."]
     ]
   },
 
