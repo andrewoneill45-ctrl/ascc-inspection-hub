@@ -53,7 +53,7 @@ var ASCC = {
         "Immediate concerns from the review already actioned; remaining actions tracked and ongoing.",
         "All 145 staff trained (KCSIE annual, Prevent, online safety, FGM); 12 Level 3-trained DSL/DDSLs; compliant, audited Single Central Record; every member of staff knows the 5 Rs.",
         "Culture is verifiable: pupil voice confirms all children know who to talk to; CPOMS evidences rapid follow-up, including appropriately challenging social care; Securus monitors digital safety; monthly online-safety newsletters reach every family.",
-        "System leadership: the DSL audited a Westminster primary's safeguarding (June 2026) and spoke at a national attendance conference — practice strong enough that other schools borrow it. See the full culture picture on the Attendance & Behaviour tab.",
+        "System leadership: the DSL audited a Westminster primary's safeguarding (June 2026) and spoke at a national attendance conference — practice strong enough that other schools borrow it. See the full culture picture on the Attendance tab.",
         "Parent voice is unanimous: 100% of surveyed parents (82/82, Y7 and Y10) say their child feels safe at school; 99% say the school promotes a safe and respectful environment."
       ],
       development: ["Persistent absence (20.9%) as a safeguarding-adjacent priority."],
@@ -378,6 +378,29 @@ var ASCC = {
       ],
       honesty: "The disproportionate representation of PP and SEND pupils in suspensions is a known, named challenge — it reflects concentrated, complex need, and it points to where we improve next: not lowering expectations, but matching the pastoral support around vulnerable pupils to the ambition already visible in their academic outcomes (disadvantaged P8 +0.26 vs −0.57 national; in 2024 our disadvantaged pupils outperformed national non-disadvantaged pupils by +0.09).",
       phrase: "Seven, three, two, zero — a school that has become more inclusive and more proactive without abandoning firm boundaries."
+    },
+    /* INTERNAL DATA — OFSTED.xlsx (internal suspension / lesson-removal log) */
+    internal: {
+      definition: "Internal suspension is an in-house support mechanism that keeps pupils in school and learning on site — it is not an external or fixed-term exclusion. Learning continues, relationships hold, and safeguarding oversight is maintained.",
+      years: ["2022–23", "2023–24", "2024–25", "2025–26"],
+      total: [1403, 1191, 1108, 943],
+      perDay: [7.4, 6.3, 5.8, 5.3],
+      roll: [633, 666, 701, 895],
+      perPupil: [2.22, 1.79, 1.58, 1.05],
+      keyStats: [
+        ["−33%", "internal suspensions over four years — falling every single year (1,403 → 943)"],
+        ["−52%", "per pupil on roll: 2.22 → 1.05 — behaviour improving faster than the school is growing"],
+        ["+41%", "roll growth over the same period (633 → 895) — the reduction is genuine, not cohort size"],
+        ["7.4 → 5.3", "average lesson removals per day — a calmer, more settled school, day in day out"]
+      ],
+      messages: [
+        "Sustained, embedded trend: internal suspensions have fallen every year for four consecutive years — not a single-year dip.",
+        "Improvement outpaces growth: the roll rose over 40% while per-pupil removals more than halved.",
+        "Calmer daily picture: fewer pupils removed from lessons on a typical day reflects reduced low-level disruption and a purposeful climate.",
+        "Inclusive by design: internal suspension keeps pupils on site with teaching, work and pastoral support — the non-exclusionary alternative that our zero-PEX year is built on.",
+        "Interventions driving it: consistent routines and the coaching-based teaching model, the Emmaus Centre, restorative practice, daily pastoral briefings, adaptive-teaching CPD for SEND, and structured family engagement."
+      ],
+      vulnerable: "PP and SEND pupils are over-represented among lesson removals (PP 67% and SEND 38% of removals vs 39% and 22% of the roll — EHCP 13%). We name this openly and read it protectively: internal suspension is used deliberately to keep our most vulnerable pupils on site and supported, in preference to the external exclusion these groups are nationally far more likely to receive. The pattern is closely monitored, with targeted intervention to narrow the gap while sustaining a non-exclusionary response."
     }
   },
 

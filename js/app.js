@@ -345,64 +345,37 @@ function renderYears() {
     options: { maintainAspectRatio: false, scales: { y: { max: 100, title: { display: true, text: "% on/above track (E&M)" } } } } });
 }
 
-/* ================= CLIMATE (attendance & behaviour) ================= */
-function renderClimate() {
-  const at = ASCC.attendance, be = ASCC.behaviour;
-  el("view-climate").appendChild(h(`
+/* ================= ATTENDANCE ================= */
+function renderAttendance() {
+  const at = ASCC.attendance;
+  el("view-attendance").appendChild(h(`
     <div class="view-head">
-      <h2>Attendance &amp; Behaviour</h2>
-      <p>Above-national attendance and below-national suspensions, in a top-quintile deprivation context — sustained direction of travel across multiple years, not a single good year.</p>
+      <h2>Attendance</h2>
+      <p>Above national, above similar schools, and improving at four times the DfE's required rate — in a top-quintile deprivation context. Attendance and safeguarding run on one machinery, led by the DSL.</p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      <div class="card stat"><div class="num">92.41%</div><div class="lbl">Overall attendance (FFT, to 22 May)</div><div class="ctx">+0.78 vs national · +2.22 vs similar FSM6 schools</div></div>
+      <div class="card stat"><div class="num">4×</div><div class="lbl">DfE improvement expectation beaten</div><div class="ctx">2.21% actual vs 0.5% minimum required</div></div>
+      <div class="card stat"><div class="num">+9.13</div><div class="lbl">EHCP attendance vs national EHCP</div><div class="ctx">90.03% — the culture works hardest for those who need it most</div></div>
+      <div class="card stat"><div class="num">+7.2</div><div class="lbl">Club members vs non-members</div><div class="ctx">Enrichment is the engine — see the Enrichment page</div></div>
     </div>
     <div class="grid cols-2" style="margin-bottom:18px">
       <div class="card chart-card"><h3>Attendance vs benchmarks (2025/26, FFT to 22 May)</h3><div class="chart-wrap" id="cc-att"></div>
-        <p class="note">Improvement vs DfE baseline expectation: <strong>2.21% actual vs 0.5% minimum</strong> — more than four times the required rate.</p></div>
+        <p class="note">Pre-pandemic recovery is virtually complete: 92.41% vs 92.6% in 2018/19 — a gap of 0.19 points, ahead of most similar schools.</p></div>
       <div class="card chart-card"><h3>Vulnerable groups vs national equivalents</h3><div class="chart-wrap" id="cc-groups"></div>
-        <p class="note">EHCP pupils attend <strong>9.13 points above</strong> the national EHCP figure. SEN Support (84.44%) is the named gap — targets: ≥87.5% and PA &lt;35% by Jan 2027, every pupil &lt;90% with a named contact and plan.</p></div>
-      <div class="card chart-card"><h3>Suspension rate per 100 pupils</h3><div class="chart-wrap" id="cc-susp"></div>
-        <p class="note">${be.conduct}</p></div>
-      <div class="card chart-card"><h3>Year 11 suspensions by half term</h3><div class="chart-wrap" id="cc-y11s"></div>
-        <p class="note">${be.y11TrendNote}</p></div>
+        <p class="note">EHCP pupils attend <strong>9.13 points above</strong> the national EHCP figure; FSM6 +1.70. SEN Support (84.44%) is the named gap — targets: ≥87.5% and PA &lt;35% by Jan 2027, every pupil &lt;90% with a named contact and plan.</p></div>
     </div>
     <div class="grid cols-2">
       <div class="card">
         <h3>Known lines to hold</h3>
         <ul style="margin-left:18px;font-size:0.88rem">
-          <li style="margin-bottom:8px"><strong>Year 11 attendance (78.6% SIMS in-year; 2.17 below national on FFT):</strong> exam pressure, anxiety and a small number of entrenched cases predating current systems. Response: audit of every incoming Y11 below 90%, Attendance Contracts with every Y10 PA/SA family before September, home visits for every severely absent pupil logged on CPOMs.</li>
+          <li style="margin-bottom:8px"><strong>Year 11 attendance (78.6% SIMS in-year; 2.17 below national on FFT):</strong> exam pressure, anxiety and a small number of entrenched cases predating current systems. Response: audit of every incoming Y11 below 90%, Attendance Contracts with every Y10 PA/SA family before September, home visits for every severely absent pupil logged on CPOMs. Counterpoint: 64% of this Y11 improved their attendance vs their own Y10 year — against the national trend.</li>
           <li style="margin-bottom:8px"><strong>Persistent absence (20.9%):</strong> target &lt;20% by Jan 2027 with attendance ambassadors and individual targets set by Oct 2026.</li>
-          <li style="margin-bottom:8px"><strong>Suspension disproportionality (FSM, boys, EHCP, Black Caribbean):</strong> named priority, plans due end of HT6, reviewed HT1/HT2 — we found it, we named it, we own it.</li>
           <li><strong>DfE data discrepancy:</strong> ${at.dfeNote}</li>
         </ul>
       </div>
       <div class="card chart-card"><h3>In-year attendance by year group (SIMS)</h3><div class="chart-wrap" id="cc-byyear"></div>
         <p class="note">SIMS in-year figure (90.03% overall) differs from the FFT/DfE benchmarked 92.41% — known platform discrepancies are documented with an explanation ready for inspectors.</p></div>
-    </div>
-
-    <div class="card" style="margin-top:18px;border-left:5px solid var(--gold)">
-      <h3>Behaviour — the four-year story</h3>
-      <p class="sef-headline" style="margin-top:10px">${be.fourYear.headline}</p>
-      <div class="grid cols-4" style="margin:14px 0">
-        ${be.fourYear.keyStats.map(k => `
-          <div class="card stat" style="box-shadow:none"><div class="num" style="font-size:1.6rem">${k[0]}</div><div class="lbl">${k[1]}</div></div>`).join("")}
-      </div>
-      <div class="grid cols-2">
-        <div class="chart-card"><h4 style="margin-top:0">Suspensions & pupils suspended, by year</h4><div class="chart-wrap" id="cc-fy-susp"></div></div>
-        <div class="chart-card"><h4 style="margin-top:0">Permanent exclusions vs national average</h4><div class="chart-wrap" id="cc-fy-pex"></div></div>
-      </div>
-      <div class="sef-cols" style="margin-top:16px">
-        <div>
-          <h4>How the system works</h4>
-          <ul style="margin-left:18px;font-size:0.85rem">${be.fourYear.system.map(s => `<li style="margin-bottom:7px">${s}</li>`).join("")}</ul>
-        </div>
-        <div>
-          <h4>Permanent exclusions — every decision accounted for</h4>
-          <table class="prio"><tr><th>Year</th><th>PEX</th><th>Context</th></tr>
-            ${be.fourYear.pexStory.map(p => `<tr><td style="white-space:nowrap">${p[0]}</td><td><strong>${p[1]}</strong></td><td style="font-size:0.8rem">${p[2]}</td></tr>`).join("")}
-          </table>
-        </div>
-      </div>
-      <h4>The line we hold on disproportionality</h4>
-      <p style="font-size:0.87rem">${be.fourYear.honesty}</p>
-      <span class="phrase">“${be.fourYear.phrase}”</span>
     </div>
 
     <div class="card safeg-card" style="margin-top:18px">
@@ -432,15 +405,96 @@ function renderClimate() {
     { label: "All Saints", data: at.groups.map(x => x[1]), backgroundColor: BRAND.purple, borderRadius: 6 },
     { label: "National equivalent", data: at.groups.map(x => x[2]), backgroundColor: BRAND.grey, borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, scales: { y: { min: 75, max: 95 } } } });
+  makeChart("cc-byyear", { type: "bar", data: { labels: at.byYearSims.map(x => x[0]), datasets: [
+    { label: "Attendance %", data: at.byYearSims.map(x => x[1]), backgroundColor: at.byYearSims.map(x => x[1] < 85 ? BRAND.amber : BRAND.purple), borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 70, max: 100 } } } });
+}
+
+/* ================= BEHAVIOUR ================= */
+function renderBehaviour() {
+  const be = ASCC.behaviour;
+  el("view-behaviour").appendChild(h(`
+    <div class="view-head">
+      <h2>Behaviour</h2>
+      <p>${be.fourYear.headline}</p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      ${be.fourYear.keyStats.map(k => `
+        <div class="card stat"><div class="num" style="font-size:1.6rem">${k[0]}</div><div class="lbl">${k[1]}</div></div>`).join("")}
+    </div>
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card"><h3>Fixed-term suspensions &amp; pupils suspended, by year</h3><div class="chart-wrap" id="cc-fy-susp"></div>
+        <p class="note">319 → 183 → 143: a 43.9% sustained fall from the 2023–24 peak, on course for the lowest full-year total in the dataset.</p></div>
+      <div class="card chart-card"><h3>Permanent exclusions vs national average</h3><div class="chart-wrap" id="cc-fy-pex"></div>
+        <p class="note">Below the national average since 2024–25; zero this year. Every past decision accounted for below.</p></div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-600)">
+      <h3>Inside the classroom — the internal behaviour log</h3>
+      <p class="sef-headline" style="margin-top:10px">${be.internal.definition}</p>
+      <div class="grid cols-4" style="margin:14px 0">
+        ${be.internal.keyStats.map(k => `
+          <div class="card stat" style="box-shadow:none"><div class="num" style="font-size:1.5rem">${k[0]}</div><div class="lbl">${k[1]}</div></div>`).join("")}
+      </div>
+      <div class="grid cols-2">
+        <div class="chart-card"><h4 style="margin-top:0">Internal suspensions — falling every year for four years</h4><div class="chart-wrap" id="cc-int-total"></div></div>
+        <div class="chart-card"><h4 style="margin-top:0">Per pupil on roll — halved while the school grew 41%</h4><div class="chart-wrap" id="cc-int-pp"></div></div>
+      </div>
+      <div class="sef-cols" style="margin-top:16px">
+        <div>
+          <h4>Key messages</h4>
+          <ul style="margin-left:18px;font-size:0.85rem">${be.internal.messages.map(m => `<li style="margin-bottom:7px">${m}</li>`).join("")}</ul>
+        </div>
+        <div>
+          <h4>Vulnerable groups — addressed openly</h4>
+          <p style="font-size:0.85rem">${be.internal.vulnerable}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card"><h3>Suspension rate per 100 pupils</h3><div class="chart-wrap" id="cc-susp"></div>
+        <p class="note">${be.conduct}</p></div>
+      <div class="card chart-card"><h3>Year 11 suspensions by half term</h3><div class="chart-wrap" id="cc-y11s"></div>
+        <p class="note">${be.y11TrendNote}</p></div>
+    </div>
+
+    <div class="card" style="border-left:5px solid var(--gold)">
+      <h3>How the system works — and every decision accounted for</h3>
+      <div class="sef-cols" style="margin-top:14px">
+        <div>
+          <h4>How the system works</h4>
+          <ul style="margin-left:18px;font-size:0.85rem">${be.fourYear.system.map(s => `<li style="margin-bottom:7px">${s}</li>`).join("")}</ul>
+        </div>
+        <div>
+          <h4>Permanent exclusions — every decision accounted for</h4>
+          <table class="prio"><tr><th>Year</th><th>PEX</th><th>Context</th></tr>
+            ${be.fourYear.pexStory.map(p => `<tr><td style="white-space:nowrap">${p[0]}</td><td><strong>${p[1]}</strong></td><td style="font-size:0.8rem">${p[2]}</td></tr>`).join("")}
+          </table>
+        </div>
+      </div>
+      <h4>The line we hold on disproportionality</h4>
+      <p style="font-size:0.87rem">${be.fourYear.honesty}</p>
+      <p style="font-size:0.85rem;margin-top:8px">The community feels the difference: 100% of surveyed parents say the school promotes a safe and respectful environment; 91% of the pupil panel agree the school encourages kindness and respect.</p>
+      <span class="phrase">“${be.fourYear.phrase}”</span>
+    </div>
+  `));
+  const iv = be.internal;
+  makeChart("cc-int-total", { type: "bar", data: { labels: iv.years, datasets: [
+    { label: "Internal suspensions", data: iv.total, backgroundColor: BRAND.purple, borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } } });
+  makeChart("cc-int-pp", { type: "line", data: { labels: iv.years, datasets: [
+    { label: "Internal suspensions per pupil", data: iv.perPupil, borderColor: BRAND.purple, backgroundColor: BRAND.purple, tension: 0.3, pointRadius: 5, yAxisID: "y" },
+    { label: "Pupils on roll", data: iv.roll, borderColor: BRAND.gold, backgroundColor: BRAND.gold, borderDash: [6, 4], tension: 0.3, pointRadius: 4, yAxisID: "y1" } ] },
+    options: { maintainAspectRatio: false, scales: {
+      y: { title: { display: true, text: "Per pupil" }, min: 0 },
+      y1: { position: "right", title: { display: true, text: "Roll" }, grid: { drawOnChartArea: false } } } } });
   makeChart("cc-susp", { type: "bar", data: { labels: ["All Saints", "National"], datasets: [
     { label: "Suspensions per 100 pupils", data: [be.suspensionRate.ascc, be.suspensionRate.national], backgroundColor: [BRAND.purple, BRAND.grey], borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } } } });
   makeChart("cc-y11s", { type: "line", data: { labels: be.y11Trend.map(x => x[0]), datasets: [
     { label: "Y11 suspensions", data: be.y11Trend.map(x => x[1]), borderColor: BRAND.purple, backgroundColor: "rgba(76,35,115,0.12)", fill: true, tension: 0.3, pointRadius: 5 } ] },
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } } } });
-  makeChart("cc-byyear", { type: "bar", data: { labels: at.byYearSims.map(x => x[0]), datasets: [
-    { label: "Attendance %", data: at.byYearSims.map(x => x[1]), backgroundColor: at.byYearSims.map(x => x[1] < 85 ? BRAND.amber : BRAND.purple), borderRadius: 6 } ] },
-    options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 70, max: 100 } } } });
   const fy = be.fourYear;
   makeChart("cc-fy-susp", { type: "bar", data: { labels: fy.years, datasets: [
     { label: "Suspensions", data: fy.suspensions, backgroundColor: BRAND.purple, borderRadius: 6 },
@@ -1089,7 +1143,7 @@ function escapeHtml(s) {
 /* ---------------- Render map ---------------- */
 const RENDER = {
   dashboard: renderDashboard, sef: renderSef, results: renderResults,
-  years: renderYears, climate: renderClimate, enrichment: renderEnrichment,
+  years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, enrichment: renderEnrichment,
   voice: renderVoice, graph: renderGraph, framework: renderFramework,
   media: renderMedia, ask: renderAsk
 };
