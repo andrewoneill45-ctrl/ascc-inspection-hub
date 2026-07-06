@@ -100,6 +100,10 @@ function renderDashboard() {
         <p class="note">2025 is a SISRA estimate (provisional); 2026 is a prediction. 2023 &amp; 2024 are published.</p>
       </div>
     </div>
+    <div class="card" style="margin-top:18px;border-left:5px solid var(--green)">
+      <h3>Evidence-led, innovation-minded</h3>
+      <p style="font-size:0.9rem">Every improvement lever in this SEF maps to the <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">EEF Teaching &amp; Learning Toolkit</a>: the Active Ingredients coaching model draws on <strong>metacognition (+8 months — the Toolkit's highest-impact strand)</strong>; Thinking Reading and the Y7 Fluency Pilot on <strong>reading comprehension (+7)</strong> and <strong>phonics (+5)</strong>; the oracy pillar on <strong>oral language (high impact)</strong>; Y11 intervention on <strong>small-group (+4)</strong> and <strong>one-to-one tuition (+5)</strong>; book-quality priorities on <strong>feedback (+6)</strong>. And where the evidence base is still catching up — the extended enrichment day, the phone-free culture, staff-wellbeing flexibility — All Saints is the school national media and the DfE come to see. Each SEF area below carries its EEF citations.</p>
+    </div>
     <div class="card" style="margin-top:18px">
       <h3>Inspection context — what this school is</h3>
       <p style="font-size:0.9rem">${s.name} is a ${s.type} in ${s.la} (${s.address}). Previous inspection: <strong>${s.lastOfsted}</strong>. Motto: <strong>${s.motto}</strong> — <em>${s.mottoMeaning}</em>. ${c.onRoll} pupils on roll across ${s.years}. The school is nationally known for the extended enrichment day, phone-free culture, staff-wellbeing innovation and system leadership — see <a href="#" onclick="gotoView('media');return false;">Innovation &amp; Press</a>.</p>
@@ -133,7 +137,7 @@ function renderSef() {
   v.appendChild(h(`
     <div class="view-head">
       <h2>Self-Evaluation — July 2026</h2>
-      <p>Eight evaluation areas mapped to the renewed framework toolkit. Every identified weakness carries a named owner, milestone and success measure — <em>nothing is sitting unaddressed</em>.</p>
+      <p>Eight evaluation areas mapped to the renewed framework toolkit. Every identified weakness carries a named owner, milestone and success measure — <em>nothing is sitting unaddressed</em>. And every improvement lever is anchored to the <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">EEF Teaching &amp; Learning Toolkit</a>: evidence-led where the evidence exists, innovation-minded where the school is ahead of it.</p>
     </div>
     <div id="sef-list"></div>
   `));
@@ -142,6 +146,15 @@ function renderSef() {
     const evid = a.evidence.map(x => `<li>${x}</li>`).join("");
     const dev = a.development.map(x => `<li>${x}</li>`).join("");
     const prio = a.priorities.map(p => `<tr><td>${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td></tr>`).join("");
+    const eef = a.eef ? `
+      <h4>Evidence base — EEF Teaching &amp; Learning Toolkit</h4>
+      <div class="eef-grid">
+        ${a.eef.map(e => `
+          <a class="eef-card" href="${e.url}" target="_blank" rel="noopener">
+            <div class="eef-head"><span class="eef-strand">${e.strand}</span><span class="eef-impact">${e.impact}</span></div>
+            <div class="eef-action">${e.action}</div>
+          </a>`).join("")}
+      </div>` : "";
     const phrases = a.phrases ? `<h4>Phrases that land</h4>` + a.phrases.map(p => `<span class="phrase">“${p}”</span>`).join("") : "";
     const note = a.note ? `<span style="font-size:0.72rem;color:var(--muted);font-style:italic">${a.note}</span>` : "";
     const item = h(`
@@ -159,6 +172,7 @@ function renderSef() {
           </div>
           <h4>Priorities to January 2027</h4>
           <table class="prio"><tr><th>Priority / action</th><th>Owner</th><th>Milestone</th></tr>${prio}</table>
+          ${eef}
           ${phrases}
         </div>
       </div>`);

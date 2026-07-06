@@ -78,6 +78,11 @@ var ASCC = {
         ["Maintain exceptional teaching standards in the Bethlehem Centre", "BHO / new KPI appointment", "Bi-weekly checkpoints"],
         ["Robust, systematic process for prompt identification of need", "BHO / LPA", "Half-termly checkpoints"],
         ["Romero Centre as a 'keeping up, not catching up' provision", "BHO / RWI", "Half-termly checkpoints"]
+      ],
+      eef: [
+        { strand: "Teaching assistant interventions", impact: "+4 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistant-interventions", action: "Bethlehem & Romero Centre staff deliver structured, trained interventions — the model EEF finds effective, not generic in-class support." },
+        { strand: "Small group tuition", impact: "+4 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition", action: "Romero Centre 'keeping up, not catching up' provision runs on small-group teaching." },
+        { strand: "Individualised instruction", impact: "+4 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/individualised-instruction", action: "Pupil passports shape department planning; adaptive teaching strand in every SoW." }
       ]
     },
     {
@@ -100,6 +105,13 @@ var ASCC = {
         ["Raise consistency & quality of books (presentation, live feedback, pupil response)", "CDA / NGI / JAN", "Sept, Nov & Jan"],
         ["Strengthen adaptive teaching for SEND, disadvantaged and LPA pupils", "NGI / BHO / JAN", "CPD Sept; reviewed Oct–Jan"],
         ["Increase % of pupils reading at/above age-related expectations", "NGI / LOS / JST", "Reading tests through the year"]
+      ],
+      eef: [
+        { strand: "Metacognition & self-regulation", impact: "+8 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation", action: "The Active Ingredients coaching model builds explicit modelling, questioning and responsive teaching — the highest-impact strand in the Toolkit (upgraded May 2025)." },
+        { strand: "Reading comprehension strategies", impact: "+7 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reading-comprehension-strategies", action: "Thinking Reading and explicit comprehension strategies target the 54% below age-related expectations (upgraded May 2025)." },
+        { strand: "Oral language interventions", impact: "High impact", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions", action: "Oracy written into every Scheme of Work as a Curriculum Pillar; ASCC is an Oracy Education Commission case study." },
+        { strand: "Feedback", impact: "+6 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback", action: "Live feedback and pupil response is a named book-quality priority, verified through SLT scrutiny." },
+        { strand: "Phonics", impact: "+5 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/phonics", action: "Y7 Fluency Pilot applies decoding & fluency evidence for older struggling readers." }
       ]
     },
     {
@@ -121,6 +133,12 @@ var ASCC = {
         ["Improve Science outcomes (target VA +0.3 or better)", "JAN / GSH", "Jan 2027"],
         ["Clearer tracking of intervention impact", "JAN", "Trial July 2026, expand Sept"],
         ["Clear expectations for work completed outside lessons", "JAN / CDA / BFO", "Oct & Jan checkpoints"]
+      ],
+      eef: [
+        { strand: "Small group tuition", impact: "+4 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition", action: "Year 11 intervention programmes run as targeted small groups triggered by data drops." },
+        { strand: "One to one tuition", impact: "+5 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/one-to-one-tuition", action: "Individual tuition deployed for borderline English & Maths pupils identified by mock analysis." },
+        { strand: "Oral language interventions", impact: "High impact", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions", action: "Pre-teaching of Tier 3 vocabulary (Bedrock) closes the vocabulary gap before it becomes an attainment gap." },
+        { strand: "Homework (secondary)", impact: "+5 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/homework", action: "Clear expectations for work completed outside lessons — a named priority to January 2027." }
       ]
     },
     {
@@ -142,6 +160,9 @@ var ASCC = {
         ["Contact all Y10 PA/SA families before September; Attendance Contracts agreed", "DMG / HOKS / HOY", "July 2026"],
         ["SEN Support attendance ≥87.5% and PA <35% by Jan 2027", "DMG / BHO / LPA", "September 2026"],
         ["Whole-school Persistent Absence below 20% by Jan 2027", "DMG / HOKS / HOY / Tutors", "October half-term review"]
+      ],
+      eef: [
+        { strand: "Parental engagement", impact: "Updated May 2025", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/parental-engagement", action: "Attendance Contracts agreed with families, home visits and named contacts — attendance work built on the parental-engagement evidence base." }
       ]
     },
     {
@@ -163,6 +184,10 @@ var ASCC = {
         ["Monitor and address male over-representation in suspensions", "BFO / MEH / DHA", "End of HT6"],
         ["Reduce EHCP suspension rate through enhanced support", "BFO / MEH / DHA / BHO / LPA", "Ongoing"],
         ["Strengthen restorative/reintegration package", "BFO / MEH / SIG", "End of HT6"]
+      ],
+      eef: [
+        { strand: "Behaviour interventions", impact: "Updated May 2025", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/behaviour-interventions", action: "EEF finds targeted approaches for persistent cases most promising — exactly our model: consistent whole-school policy plus enhanced support for the small group driving most incidents." },
+        { strand: "Social & emotional learning", impact: "Updated May 2025", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/social-and-emotional-learning", action: "The restorative reintegration package for suspended pupils builds SEL skills rather than relying on sanction alone." }
       ]
     },
     {
@@ -184,6 +209,12 @@ var ASCC = {
         ["Track the impact of every trip, event and programme", "DWI / RFU", "Live from Sept"],
         ["Strengthen whole-school mentoring system", "DWI / MWI", "Centralised tracking"]
       ],
+      eef: [
+        { strand: "Extending school time", impact: "Updated May 2025", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/extending-school-time", action: "The extended enrichment day is structured and enriched — the conditions EEF identifies for extended time to pay off — and we innovated here before most of the sector." },
+        { strand: "Arts participation", impact: "+3 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/arts-participation", action: "Schola Cantorum, music tech, drama and arts clubs give every pupil sustained arts participation." },
+        { strand: "Physical activity", impact: "Updated May 2025", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/physical-activity", action: "Daily sport and activity within the extended day — wellbeing and engagement benefits beyond attainment." },
+        { strand: "Social & emotional learning", impact: "Updated May 2025", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/social-and-emotional-learning", action: "Elev:8 develops character, confidence and self-regulation deliberately, not incidentally." }
+      ],
       phrases: ["Opportunity is planned, not left to chance", "Every pupil, especially the disadvantaged, gets the enrichment", "We look after our staff so they can look after our pupils"]
     },
     {
@@ -203,6 +234,10 @@ var ASCC = {
         ["Named examples of governance challenge ready to cite", "Headteacher / Chair of Governors", "Before first call"],
         ["Leadership 'opening 60–90 seconds' script agreed and rehearsed with SLT", "Headteacher", "Before first call"],
         ["Confirm Exceptional grade against 2026 outcomes", "SLT", "Autumn 2026 review"]
+      ],
+      eef: [
+        { strand: "Effective Professional Development (guidance report)", impact: "Guidance", url: "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/effective-professional-development", action: "The Active Ingredients coaching cycle mirrors the EEF's PD mechanisms: build knowledge, motivate, develop techniques, embed practice." },
+        { strand: "EEF tiered Pupil Premium model", impact: "Guidance", url: "https://educationendowmentfoundation.org.uk/guidance-for-teachers/using-pupil-premium", action: "PP strategy follows the EEF tiers: quality-first teaching, targeted academic support, wider strategies (attendance & enrichment)." }
       ]
     }
   ],
