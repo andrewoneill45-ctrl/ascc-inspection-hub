@@ -217,7 +217,7 @@ var ASCC = {
     },
     {
       id: "personal", area: "Personal Development & Well-being", grade: "Exceptional", scale: 5,
-      note: "Upgraded from Strong, July 2026, on new evidence — confirm with SLT before the call",
+      note: "Confirmed by the Headteacher, July 2026",
       headline: "A rich, deliberate personal development offer — enrichment, Elev:8, careers and character — reaches every pupil including the disadvantaged, with participation tracked pupil-by-pupil and impact evidenced at scale. The DfE's enrichment framework and the refreshed Gatsby benchmarks both arrived after this school already met them.",
       evidence: [
         "Every pupil attends at least 4 trips a year (2 Curriculum Enhancement Days, 2 Activity Days) plus whole-school celebration days (Culture, All Saints, Feast, Sports).",
@@ -233,7 +233,7 @@ var ASCC = {
         "The Exceptional case in one line: all 8 DfE enrichment benchmarks met before the framework existed; 45% of roll in tracked clubs at PP/SEN parity; Elev:8 inverted the national Y8 dip (91% participation); Gatsby 100% on personal guidance and needs-of-each-pupil; 94% belonging from 416 pupil voices; 99% of parents value the offer. Transformational for disadvantaged pupils — with receipts."
       ],
       exceptional: [
-        ["Test 1 — Exceptionally high standards, sustained", "The offer predates the frameworks that now measure it: all 8 DfE enrichment benchmarks met on publication day; Gatsby at 92% on two identical Compass+ runs, with 100% on personal guidance and needs-of-each-pupil; 30 dated careers/PSHCE events delivered including a whole-cohort work experience week; every pupil guaranteed 4+ trips a year. This is an entitlement architecture, sustained across years — not an events calendar."],
+        ["Test 1 — Exceptionally high standards, sustained", "The toolkit's Strong wording — 'an entitlement for every pupil… leaders track participation… including disadvantaged pupils and those with SEND' — is not just met but exceeded: all 8 DfE enrichment benchmarks met on publication day; Gatsby at 92% on two identical Compass+ runs, with 100% on personal guidance and needs-of-each-pupil; 30 dated careers/PSHCE events delivered including a whole-cohort work experience week; every pupil guaranteed 4+ trips a year; Student Ambassadors giving pupil voice a structured route into provision. An entitlement architecture, sustained across years — not an events calendar."],
         ["Test 2 — Transformational impact on disadvantaged pupils", "Participation is tracked pupil-by-pupil and reaches near-parity: PP pupils 34% of club members (39% of roll), SEN 21% (22%). Club membership is associated with +7.2 points of school attendance (+12.1 for SEN members). Aspiration programmes are reserved for disadvantage: Brilliant Club at 70% disadvantaged ending in an Oxford graduation, EY Foundation and Girls' Network PP-only, Aquinas stretch at 24.5% PP. Elev:8 turned the national disengagement year into our most-engaged cohort (91%). And the community confirms it: 94% of 416 pupils felt they belong; 99% of parents value the offer."],
         ["Test 3 — No significant area unaddressed", "The two named gaps — KS3 curriculum-careers embedding (Gatsby BM4) and universal British Values articulation — are dated, owned (RFU/careers lead; DWI/NKE) and scheduled into September's Schemes of Work. Found by our own evaluation, twice."]
       ],
@@ -257,7 +257,8 @@ var ASCC = {
       evidence: [
         "The Strong-standard foundation is exceeded, not just met: 'leaders use their detailed and insightful analysis of school performance to evaluate the effectiveness of their provision' — this portal, the SEF and the named-owner priority architecture are that analysis, made visible.",
         "Staff expertise as the driver of improvement: the Active Ingredients cycle (54 reflections, 40 coached targets, 45% choosing the school's own priority) plus whole-staff reading training at 92%.",
-        "External validation: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; leaders speak nationally; Headteachers' Roundtable co-chair; Secondary Headteacher of the Year (Pearson National Teaching Awards)."
+        "Workload managed by named trade-off, not policy sentiment: subject leader and SLT coaching meetings reduced, subject leads protected from Activities Week for scheme-of-work development, the SLT duty rota adjusted to release senior time — decisions with names and dates.",
+        "External validation: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; leaders present through the DfE system-leadership network, the IRIS Connect CPD Exchange and the CST SEND & Inclusion Conference; Headteachers' Roundtable co-chair; Secondary Headteacher of the Year (Pearson National Teaching Awards)."
       ],
       exceptional: [
         ["Test 1 — “Exceptionally high standards of leadership and governance have been sustained … leading to continued improvement and/or sustained high standards in all areas of the school's work.” (toolkit wording)", "Sustained across every domain at once: outcomes above national three consecutive years; attendance above national and similar schools after two years of improvement; PEX 7 → 3 → 2 → 0 and internal removals falling four straight years through 41% roll growth; safeguarding audited 'exemplary'. Every evaluation area in this SEF independently self-assesses Strong or Exceptional, each with its own live action plan — leadership impact across the whole school's work, not one strong department carrying the picture."],
@@ -853,7 +854,7 @@ var ASCC = {
 
   /* ---------- Student & Parent Voice (2025-26 surveys) ---------- */
   voice: {
-    intro: "Nearly 700 survey responses across six instruments this year — two parent surveys (Y7 n=52, Y10 n=30), a whole-school pupil panel (n=43), Culture Day (n=416), All Saints Day (n=97) and Y10 Careers Day (n=33). The pattern is consistent: parents are emphatic, big-event data is outstanding, and the candid pupil panel tells us exactly where to keep improving — in areas we had already named.",
+    intro: "Over 700 survey and panel responses across seven instruments this year — two parent surveys (Y7 n=52, Y10 n=30), a whole-school pupil panel (n=43), Culture Day (n=416), All Saints Day (n=97), Y10 Careers Day (n=33) and a KS3 revision-workshop panel (n=25). The pattern is consistent: parents are emphatic, big-event data is outstanding, and the candid pupil panels tell us exactly where to keep improving — in areas we had already named.",
     parents: {
       n: 82,
       headline: [
@@ -871,7 +872,8 @@ var ASCC = {
     events: [
       ["Culture Day", 416, "90% enjoyed the day (3–4 on a 4-point scale)", "94% said the day made them feel they belonged to the All Saints community"],
       ["All Saints Day", 97, "Pupils' favourite moments: the production, team-building and house events", "Feedback loop live: pupils' suggestions shape next year's day — benchmark 8 in action"],
-      ["Y10 Careers Day", 33, "76% rated the day 4 or 5 out of 5", "Employer sessions (banking, The Economist, data analytics, youth work) cited as eye-opening; pupils asked for more options — which we're adding"]
+      ["Y10 Careers Day", 33, "76% rated the day 4 or 5 out of 5", "Employer sessions (banking, The Economist, data analytics, youth work) cited as eye-opening; pupils asked for more options — which we're adding"],
+      ["KS3 Revision Workshop panel", 25, "Pupils speak the language of the T&L Handbook unprompted: make–do–review, shadow papers, retrieval, flashcards, spaced practice — and say the sessions have made them more confident and less nervous", "Honest flag logged verbatim: several pupils can't yet name their exam boards or find accurate past papers independently — recorded as a named teaching point for every department, with a parent-facing revision guide requested by pupils themselves"]
     ],
     students: {
       n: 43,
@@ -1159,6 +1161,20 @@ var ASCC = {
         "The Headteacher advises the Secretary of State on schools policy; the DSL audits other schools; leaders speak nationally on teaching — development here reaches beyond the building."
       ]
     }
+  },
+
+  /* ---------- T&L Handbook (The All Saints Way) ---------- */
+  handbook: {
+    title: "The All Saints Way — exceptional teaching through consistency",
+    intro: "The Teaching & Learning Handbook (v2) codifies how this school teaches — a shared language, not a lesson script. It opens from John 10:10 and the motto, frames teaching as an act of service ('Service with Colour' — going beyond what is expected), and then builds a four-layer framework from curriculum to classroom. Every teacher's development target, every drop-in, every book look reads against it.",
+    layers: [
+      ["Curriculum Pillars", "What we teach", "Ambitious, carefully sequenced curriculum foundations behind every Curriculum Map and Scheme of Work — kept live through review and refinement."],
+      ["The Active Ingredients", "Why great teaching works", "Seven evidence-informed principles, each with its research base cited in the handbook: Shulman (PCK), Rosenshine (instructional delivery), Black & Wiliam (formative assessment), Lemov and the EEF (relationships & routines), EEF SEND guidance (adaptive teaching), Alexander (dialogic teaching), Quigley and Voice 21 (reading, literacy & oracy)."],
+      ["Coaching & CPD", "How we continually improve", "Whole-school INSET, collaborative sessions, Curriculum Planning & Review, 6-Minute Takeaways, personalised coaching cycles and leadership development — the machinery the Staff Development cycle runs on."],
+      ["The All Saints Way", "What great teaching looks like every day", "Five daily entitlements every pupil should experience in every lesson: Active Participation (cold calling done properly — question, thinking time, cold call, probe, no opt-out — plus SAINT sitting routines and mini-whiteboard checks), Explicit Teaching, Adaptive Teaching & Stretch, Feedback in Books (the 4Ts of live feedback: Time, Target, Transfer, Track — answered by pupils through Correct, Extend, Explain), and Reading, Literacy & Oracy (the R.E.A.D.S framework)."]
+    ],
+    proof: "The handbook is not aspiration — its fingerprints are checkable across this portal: teachers' own development targets quote its language (Rosenshine, wait time, live marking); drop-ins score 80% expected/strong against it (T&L 2.08); pupils on the revision panel describe make–do–review and shadow papers unprompted; 100% of surveyed parents are satisfied with teaching; and outcomes sit at P8 +0.69 with a quarter of staff in their first years. Codify → coach → check → outcomes.",
+    line: "Every Student. Every Classroom. Every Day."
   },
 
   /* ---------- Scenario Lab (what-if / innovation) ---------- */

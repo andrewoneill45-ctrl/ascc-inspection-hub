@@ -392,6 +392,15 @@ function renderStaff() {
       </div>
     </div>
 
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--gold)">
+      <h3>${ASCC.handbook.title}</h3>
+      <p class="sef-headline" style="margin-top:10px">${ASCC.handbook.intro}</p>
+      <div id="st-handbook" style="margin-top:6px"></div>
+      <h4>The proof it's lived, not laminated</h4>
+      <p style="font-size:0.87rem">${ASCC.handbook.proof}</p>
+      <span class="phrase">“${ASCC.handbook.line}”</span>
+    </div>
+
     <div class="card" style="margin-bottom:18px">
       <h3>Real targets, this year (anonymised)</h3>
       <div class="quote-grid" style="margin-top:10px">
@@ -422,6 +431,17 @@ function renderStaff() {
       </div>
     </div>
   `));
+  const hb = el("st-handbook");
+  ASCC.handbook.layers.forEach((l, i) => {
+    hb.appendChild(h(`
+      <div class="bench-row" style="padding:11px 0">
+        <div class="bench-num">${i + 1}</div>
+        <div class="bench-body">
+          <div class="bench-title" style="font-size:0.92rem">${l[0]} <span style="font-size:0.72rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em">· ${l[1]}</span></div>
+          <div class="bench-ev" style="font-size:0.83rem">${l[2]}</div>
+        </div>
+      </div>`));
+  });
   const cyc = el("st-cycle");
   st.cycle.forEach((c, i) => {
     cyc.appendChild(h(`
