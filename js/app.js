@@ -607,7 +607,7 @@ function renderMedia() {
   v.appendChild(h(`
     <div class="view-head">
       <h2>An innovator with a national platform</h2>
-      <p>${total} pieces of national, international, sector and faith-press coverage. All Saints is not just a strong school — it is a school that shapes national policy and practice: the extended enrichment day, the phone-free culture, staff-wellbeing innovation, SEND inclusion, and the Headteacher's DfE School Leader Adviser role and Headteachers' Roundtable co-chairmanship.</p>
+      <p>${total} pieces of national, international, sector and faith-press coverage. All Saints is not just a strong school — it is a school that shapes national policy and practice: the extended enrichment day, the phone-free culture, staff-wellbeing innovation, SEND inclusion, and the Headteacher's role as Schools Policy and Delivery Adviser to the Secretary of State, and the Headteachers' Roundtable co-chairmanship.</p>
     </div>
     <div id="media-groups"></div>
   `));
@@ -693,15 +693,47 @@ async function sendAsk() {
       body: JSON.stringify({ question: q, history: askHistory.slice(-6) })
     });
     if (!res.ok) {
-      const err = await res.text();
+      let errMsg;
+      try { errMsg = (await res.json()).error; } catch { errMsg = await res.text().catch(() => ""); }
       throw new Error(res.status === 404
         ? "The Ask function isn't available. If you're viewing this locally, deploy to Netlify (with ANTHROPIC_API_KEY set) to enable Ask."
-        : `Service error (${res.status}): ${err.slice(0, 200)}`);
+        : `Service error (${res.status}): ${(errMsg || "").slice(0, 200)}`);
     }
-    const data = await res.json();
-    askHistory.push({ role: "user", content: q }, { role: "assistant", content: data.answer });
-    typing.remove();
-    renderAiMessage(msgs, data.answer);
+    let answer = "";
+    const ct = res.headers.get("content-type") || "";
+    if (ct.includes("application/json")) {
+      // non-streaming fallback
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      answer = data.answer || "";
+      typing.remove();
+    } else {
+      // streamed plain text — render live as it arrives
+      const live = h(`<div class="msg ai"><div class="who">Inspection Hub AI</div><div class="bubble"></div></div>`).firstElementChild;
+      const liveBubble = live.querySelector(".bubble");
+      typing.replaceWith(live);
+      el("ask-status").textContent = "Answering…";
+      const reader = res.body.getReader();
+      const dec = new TextDecoder();
+      let lastPaint = 0;
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        answer += dec.decode(value, { stream: true });
+        const now = Date.now();
+        if (now - lastPaint > 120) {           // throttle repaints
+          lastPaint = now;
+          // hide (possibly incomplete) chart blocks during streaming
+          const visible = answer.replace(/```chart[\s\S]*?(```|$)/g, "\n*📊 building chart…*\n");
+          liveBubble.innerHTML = DOMPurify.sanitize(marked.parse(visible));
+          msgs.scrollTop = msgs.scrollHeight;
+        }
+      }
+      live.remove();
+      if (!answer.trim()) throw new Error("Empty response from the service — try again.");
+    }
+    askHistory.push({ role: "user", content: q }, { role: "assistant", content: answer });
+    renderAiMessage(msgs, answer);
   } catch (err) {
     typing.remove();
     msgs.appendChild(h(`<div class="msg ai"><div class="who">Inspection Hub AI</div><div class="bubble"><p><strong>Couldn't answer:</strong> ${escapeHtml(err.message)}</p></div></div>`));

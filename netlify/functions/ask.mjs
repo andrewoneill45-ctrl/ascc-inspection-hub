@@ -14,12 +14,12 @@ All Saints Catholic College, 75 St Charles Square, London W10 6EL. URN 100503. V
 ## Self-evaluation grades (renewed framework 5-point scale)
 - Safeguarding: MET (judged separately). External Whole School Safeguarding Review Jan 2026 found strong leadership, culture, governance oversight, pupil voice, records, curriculum. DSL action plan produced within a month (Feb 2026). Immediate concerns actioned.
 - Inclusion: EXCEPTIONAL (grade to be confirmed by SLT). Y6 transition with primary SENCos; pupil passports for all; SEN referral tracking, CAMHS liaison, 2 successful EHCP applications this year. 2024 P8: EHCP +0.07, SEN K +0.13. Bethlehem Centre, Romero Centre ("keeping up, not catching up"), Deputy SENCo.
-- Curriculum & Teaching: STRONG. Curriculum Pillars from September; coaching-based "Active Ingredients" model; Curriculum Progress Reviews. T&L average 2.08; 80% of drop-in statements expected or strong. Weaknesses owned: 54% of pupils below age-related reading (Autumn 2025) → Y7 Fluency Pilot, Thinking Reading, literacy committee; 24% of staff ITT/ECT → coaching & CPD.
+- Curriculum & Teaching: STRONG. Curriculum Pillars from September; coaching-based "Active Ingredients" model; Curriculum Progress Reviews. T&L average 2.08; 80% of drop-in statements expected or strong. National recognition: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State. Weaknesses owned: 54% of pupils below age-related reading (Autumn 2025) → Y7 Fluency Pilot, Thinking Reading, literacy committee; 24% of staff ITT/ECT → coaching & CPD.
 - Achievement: EXCEPTIONAL (to confirm once 2026 outcomes published). See results below.
 - Attendance: STRONG. 92.41% (FFT to 22 May 2026) vs national 91.63% (+0.78) and similar FSM6 schools 90.19% (+2.22). Improvement 2.21% vs DfE baseline expectation minimum 0.5%. FSM6 attend 88.46% (+1.70 vs national); EHCP attend 90.03% (+9.13 vs national). Pre-pandemic gap nearly closed (92.41 vs 92.6 in 2018/19). Weaknesses: Y11 2.17 below national (7% severely absent); SEN Support 84.44% (−2.32); PA 20.9%.
 - Behaviour: EXCEPTIONAL. Suspensions 2.88 per 100 vs national 3.72, falling four consecutive years. Zero permanent exclusions since Dec 2024 (national 0.04). Y11 suspensions 18 (HT1) → 4 (HT5). 99,194 achievement points vs 34,320 behaviour incidents. Headteacher scrutinises suspension decisions daily. Owned risks: Y9 (9.4%) and Y11 (11.7%) elevated; disproportionality for FSM, boys, EHCP, Black Caribbean pupils (13/82 vs White British 14/200) — named plans due end HT6.
 - Personal Development & Well-being: STRONG. Every pupil: 4+ trips/year (2 Curriculum Enhancement Days, 2 Activity Days) plus whole-school celebration days. ESP and Elev:8 programmes transformational with national scaling potential. Participation tracked via EVOLVE and Class Charts — disadvantaged access evidenced. Weaknesses owned: careers/PSHCE staffing inconsistency; British Values articulation beyond Student Leaders (esp. Y9).
-- Leadership & Governance: EXCEPTIONAL. Toolkit Test 1 (sustained): suspensions falling 4 years, attendance improving 2 years, outcomes above national 3 years; every area Strong/Exceptional with live action plans. Test 2 (transformational for disadvantaged/SEND): disadvantaged P8 above national disadvantaged 3 years running; FSM6 & EHCP attendance above national; resourced Bethlehem/Romero investment; monitored enrichment entitlement. Test 3: every weakness named with owner, deadline, success measure — nothing unaddressed. External validation: DfE School Leader Adviser appointment; Headteachers' Roundtable co-chair; Pearson Secondary Headteacher of the Year; national media platform (Guardian, Times, Telegraph, BBC, Fortune etc.) for the extended day, phone-free culture, staff wellbeing (teacher "lie-ins"), SEND inclusion.
+- Leadership & Governance: EXCEPTIONAL. Toolkit Test 1 (sustained): suspensions falling 4 years, attendance improving 2 years, outcomes above national 3 years; every area Strong/Exceptional with live action plans. Test 2 (transformational for disadvantaged/SEND): disadvantaged P8 above national disadvantaged 3 years running; FSM6 & EHCP attendance above national; resourced Bethlehem/Romero investment; monitored enrichment entitlement. Test 3: every weakness named with owner, deadline, success measure — nothing unaddressed. External validation: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State (his correct, current title — do not call him "School Leader Adviser"); Headteachers' Roundtable co-chair; Pearson Secondary Headteacher of the Year; national media platform (Guardian, Times, Telegraph, BBC, Fortune etc.) for the extended day, phone-free culture, staff wellbeing (teacher "lie-ins"), SEND inclusion.
 
 ## Results (national in brackets; 2025 = SISRA internal estimate, provisional; 2026 = prediction)
 Whole school:
@@ -55,7 +55,7 @@ Report cards replace single-word judgements. Five-point scale: Exceptional / Str
 "Opportunity is planned, not left to chance." / "Every pupil, especially the disadvantaged, gets the enrichment." / "We look after our staff so they can look after our pupils."
 
 ## National profile (innovation evidence)
-60+ media items: Guardian (SEND aspirations feature July 2025; 12-hour day; teacher lie-ins), The Times ("How one head saved a sink school in the shadow of Grenfell"), Telegraph, Evening Standard, Independent, LBC, BBC One Show, Fortune, Business Insider, NY Post, Nine News Australia; Tes & Schools Week (DfE School Leader Adviser secondment, Headteachers' Roundtable co-chair, DfE expert inclusion group); Catholic press (The Tablet, Diocese of Westminster, Aleteia); Pearson National Teaching Awards Secondary Headteacher of the Year 2022; Oracy Education Commission case study; EPI enrichment panel.
+60+ media items: Guardian (SEND aspirations feature July 2025; 12-hour day; teacher lie-ins), The Times ("How one head saved a sink school in the shadow of Grenfell"), Telegraph, Evening Standard, Independent, LBC, BBC One Show, Fortune, Business Insider, NY Post, Nine News Australia; Tes & Schools Week (DfE secondment — now Schools Policy and Delivery Adviser to the Secretary of State, Headteachers' Roundtable co-chair, DfE expert inclusion group); Catholic press (The Tablet, Diocese of Westminster, Aleteia); Pearson National Teaching Awards Secondary Headteacher of the Year 2022; Oracy Education Commission case study; EPI enrichment panel.
 `;
 
 const SYSTEM_PROMPT = `You are the All Saints Catholic College Inspection Hub AI, supporting the Senior Leadership Team during their Ofsted inspection (7–8 July 2026, renewed framework).
@@ -101,6 +101,9 @@ export default async (req) => {
   const messages = [...history, { role: "user", content: question }];
 
   try {
+    // Stream the answer. Netlify's synchronous functions are killed after ~10s
+    // ("Inactivity Timeout"); a streamed response keeps the connection alive
+    // and shows the answer appearing live in the browser.
     const resp = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -110,7 +113,8 @@ export default async (req) => {
       },
       body: JSON.stringify({
         model: process.env.CLAUDE_MODEL || "claude-sonnet-4-5",
-        max_tokens: 2400,
+        max_tokens: 2000,
+        stream: true,
         system: SYSTEM_PROMPT,
         messages
       })
@@ -119,9 +123,51 @@ export default async (req) => {
       const errText = await resp.text();
       return new Response(JSON.stringify({ error: `Claude API error ${resp.status}: ${errText.slice(0, 300)}` }), { status: 502, headers: cors("application/json") });
     }
-    const data = await resp.json();
-    const answer = (data.content || []).filter(c => c.type === "text").map(c => c.text).join("\n");
-    return new Response(JSON.stringify({ answer }), { status: 200, headers: cors("application/json") });
+
+    // Parse Anthropic's SSE stream and forward plain text deltas.
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+    const reader = resp.body.getReader();
+    const stream = new ReadableStream({
+      async start(controller) {
+        let buffer = "";
+        const handleLine = (line) => {
+          if (!line.startsWith("data:")) return;
+          const payload = line.slice(5).trim();
+          if (!payload || payload === "[DONE]") return;
+          try {
+            const ev = JSON.parse(payload);
+            if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta") {
+              controller.enqueue(encoder.encode(ev.delta.text));
+            }
+            if (ev.type === "error") {
+              controller.enqueue(encoder.encode("\n\n**Service error:** " + ((ev.error && ev.error.message) || "unknown")));
+            }
+          } catch { /* ignore partial JSON */ }
+        };
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            buffer = lines.pop(); // keep incomplete line
+            for (const line of lines) handleLine(line);
+          }
+          if (buffer) handleLine(buffer);
+          controller.close();
+        } catch (e) {
+          try { controller.enqueue(encoder.encode("\n\n**Connection error:** " + e.message)); } catch {}
+          try { controller.close(); } catch {}
+        }
+      },
+      cancel() { reader.cancel(); }
+    });
+
+    return new Response(stream, {
+      status: 200,
+      headers: cors("text/plain; charset=utf-8")
+    });
   } catch (e) {
     return new Response(JSON.stringify({ error: "Upstream error: " + e.message }), { status: 502, headers: cors("application/json") });
   }

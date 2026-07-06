@@ -88,7 +88,7 @@ var ASCC = {
         "Curriculum Progress Reviews (CPR) keep Schemes of Work live and continually refined.",
         "Whole-school T&L average 2.08; 80% of lesson drop-in statements rated expected or strong.",
         "2024 outcomes prove the curriculum is landing: Progress 8 +0.69 vs −0.03 national; Attainment 8 5.39 vs 4.59 national.",
-        "National recognition: Headteacher appointed DfE School Leader Adviser; senior leaders invited to speak externally on teaching and learning."
+        "National recognition: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; senior leaders invited to speak externally on teaching and learning."
       ],
       development: [
         "Autumn 2025: 54% of pupils below or significantly below age-related reading expectations — Y7 Fluency Pilot, Thinking Reading and a new literacy committee address this from 2026.",
@@ -193,7 +193,7 @@ var ASCC = {
         "Test 1 (sustained): suspensions falling 4 consecutive years; attendance improving 2 years to above national; outcomes above national for 3 consecutive years. Every area self-assessed Strong or Exceptional with its own live action plan.",
         "Test 2 (transformational impact): disadvantaged P8 above national disadvantaged for 3 years (2024 +0.26 vs −0.57); FSM6 attendance +1.70 vs national; EHCP attendance +9.13 vs national; resourced investment in Bethlehem & Romero Centres; monitored enrichment entitlement.",
         "Test 3 (nothing unaddressed): every honest weakness in this SEF has a named owner, deadline and success measure. Nothing identified is sitting unaddressed.",
-        "External validation: Headteacher appointed DfE School Leader Adviser; leaders speak nationally; Headteachers' Roundtable co-chair; Secondary Headteacher of the Year (Pearson National Teaching Awards)."
+        "External validation: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; leaders speak nationally; Headteachers' Roundtable co-chair; Secondary Headteacher of the Year (Pearson National Teaching Awards)."
       ],
       development: [
         "Gather 2–3 concrete, named examples of governance challenge and leader response — ready to cite with dates and outcomes.",
@@ -311,11 +311,11 @@ var ASCC = {
     // type: pillar (evaluation area) | driver (system/programme) | outcome | risk
     nodes: [
       { id: "leadership", label: "Leadership & Governance", type: "pillar", grade: "Exceptional", size: 17,
-        desc: "Sustained exceptional standards; every weakness owned. DfE School Leader Adviser; national platform.",
+        desc: "Sustained exceptional standards; every weakness owned. Headteacher advises the Secretary of State; national platform.",
         stats: [
           "Every SEF area Strong or Exceptional — each with a live, owned action plan",
           "Sustained: suspensions falling 4 years · attendance rising 2 years · outcomes above national 3 years",
-          "DfE School Leader Adviser · Headteachers' Roundtable co-chair · Secondary Headteacher of the Year",
+          "Schools Policy and Delivery Adviser to the Secretary of State · Headteachers' Roundtable co-chair · Secondary Headteacher of the Year",
           "Toolkit Test 3 met: no significant area unaddressed — every weakness has an owner, date and measure"
         ] },
       { id: "curriculum", label: "Curriculum & Teaching", type: "pillar", grade: "Strong", size: 16,
@@ -412,7 +412,7 @@ var ASCC = {
         desc: "12-hour day, phone-free, teacher lie-ins, DfE adviser role — the school shapes national policy.",
         stats: [
           "60+ national, international, sector and faith-press items",
-          "DfE School Leader Adviser · DfE expert inclusion group · HTRT co-chair",
+          "Schools Policy and Delivery Adviser to the Secretary of State · DfE expert inclusion group · HTRT co-chair",
           "Oracy Education Commission case study · EPI enrichment panel"
         ] },
       { id: "disadv", label: "Disadvantaged Outcomes", type: "outcome", size: 13,
