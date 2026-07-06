@@ -98,7 +98,7 @@ function renderDashboard() {
       <div class="card stat"><div class="num">+0.69</div><div class="lbl">Progress 8, 2024 (published)</div><div class="ctx">vs −0.03 national · 3rd year above national</div></div>
       <div class="card stat"><div class="num">+0.26</div><div class="lbl">Disadvantaged P8, 2024</div><div class="ctx">vs −0.57 national disadvantaged</div></div>
       <div class="card stat"><div class="num">92.41%</div><div class="lbl">Attendance (FFT, May 2026)</div><div class="ctx">+0.78 vs national · +2.22 vs similar schools</div></div>
-      <div class="card stat"><div class="num">0</div><div class="lbl">Permanent exclusions</div><div class="ctx">since Dec 2024 · suspensions 2.88 vs 3.72 national</div></div>
+      <div class="card stat"><div class="num">0</div><div class="lbl">Permanent exclusions this year</div><div class="ctx">7 → 3 → 2 → 0 over four years · suspensions −43.9% from peak</div></div>
     </div>
     <div class="grid cols-4" style="margin-bottom:26px">
       <div class="card stat"><div class="num">${c.fsm.pct}%</div><div class="lbl">Free School Meals (${c.fsm.n} pupils)</div><div class="ctx neutral">FSM6 41.8% — well above national</div></div>
@@ -377,6 +377,34 @@ function renderClimate() {
         <p class="note">SIMS in-year figure (90.03% overall) differs from the FFT/DfE benchmarked 92.41% — known platform discrepancies are documented with an explanation ready for inspectors.</p></div>
     </div>
 
+    <div class="card" style="margin-top:18px;border-left:5px solid var(--gold)">
+      <h3>Behaviour — the four-year story</h3>
+      <p class="sef-headline" style="margin-top:10px">${be.fourYear.headline}</p>
+      <div class="grid cols-4" style="margin:14px 0">
+        ${be.fourYear.keyStats.map(k => `
+          <div class="card stat" style="box-shadow:none"><div class="num" style="font-size:1.6rem">${k[0]}</div><div class="lbl">${k[1]}</div></div>`).join("")}
+      </div>
+      <div class="grid cols-2">
+        <div class="chart-card"><h4 style="margin-top:0">Suspensions & pupils suspended, by year</h4><div class="chart-wrap" id="cc-fy-susp"></div></div>
+        <div class="chart-card"><h4 style="margin-top:0">Permanent exclusions vs national average</h4><div class="chart-wrap" id="cc-fy-pex"></div></div>
+      </div>
+      <div class="sef-cols" style="margin-top:16px">
+        <div>
+          <h4>How the system works</h4>
+          <ul style="margin-left:18px;font-size:0.85rem">${be.fourYear.system.map(s => `<li style="margin-bottom:7px">${s}</li>`).join("")}</ul>
+        </div>
+        <div>
+          <h4>Permanent exclusions — every decision accounted for</h4>
+          <table class="prio"><tr><th>Year</th><th>PEX</th><th>Context</th></tr>
+            ${be.fourYear.pexStory.map(p => `<tr><td style="white-space:nowrap">${p[0]}</td><td><strong>${p[1]}</strong></td><td style="font-size:0.8rem">${p[2]}</td></tr>`).join("")}
+          </table>
+        </div>
+      </div>
+      <h4>The line we hold on disproportionality</h4>
+      <p style="font-size:0.87rem">${be.fourYear.honesty}</p>
+      <span class="phrase">“${be.fourYear.phrase}”</span>
+    </div>
+
     <div class="card safeg-card" style="margin-top:18px">
       <h3>Safeguarding — a culture, not a folder</h3>
       <p class="sef-headline" style="margin-top:10px">${ASCC.safeguardingReport.headline}</p>
@@ -413,6 +441,15 @@ function renderClimate() {
   makeChart("cc-byyear", { type: "bar", data: { labels: at.byYearSims.map(x => x[0]), datasets: [
     { label: "Attendance %", data: at.byYearSims.map(x => x[1]), backgroundColor: at.byYearSims.map(x => x[1] < 85 ? BRAND.amber : BRAND.purple), borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 70, max: 100 } } } });
+  const fy = be.fourYear;
+  makeChart("cc-fy-susp", { type: "bar", data: { labels: fy.years, datasets: [
+    { label: "Suspensions", data: fy.suspensions, backgroundColor: BRAND.purple, borderRadius: 6 },
+    { label: "Individual pupils", data: fy.pupils, backgroundColor: BRAND.gold, borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true } } } });
+  makeChart("cc-fy-pex", { type: "bar", data: { labels: fy.years, datasets: [
+    { label: "All Saints PEX", data: fy.pex, backgroundColor: fy.pex.map(v => v === 0 ? BRAND.green : BRAND.purple), borderRadius: 6 },
+    { label: "National average", data: fy.pexNational, backgroundColor: BRAND.grey, borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } } });
 }
 
 /* ================= ENRICHMENT ================= */

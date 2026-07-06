@@ -169,12 +169,13 @@ var ASCC = {
     },
     {
       id: "behaviour", area: "Behaviour", grade: "Exceptional", scale: 5,
-      headline: "Suspensions below national average and falling, permanent exclusions at zero, and a calm, purposeful environment day to day — sustained direction of travel, not a single good year.",
+      headline: "Suspensions below national average and down 43.9% from the 2023–24 peak, permanent exclusions at zero (7 → 3 → 2 → 0 over four years), and a calm, purposeful environment day to day — sustained direction of travel, not a single good year.",
       evidence: [
-        "Suspension rate 2.88 per 100 pupils vs national 3.72 — falling for four consecutive years.",
-        "Zero permanent exclusions since December 2024 (national rate 0.04).",
-        "Year 11 suspensions fell from 18 in HT1 to 4 by HT5 within this year.",
-        "Low-level behaviour resolved without escalation; Behaviour Policy applied consistently; Headteacher personally scrutinises suspension decisions daily."
+        "Suspension rate 2.88 per 100 pupils vs national 3.72; suspensions 319 (2023–24 peak) → 183 → 143 (HT1–5) — a 43.9% sustained reduction, on course for the lowest full-year total in the dataset.",
+        "Permanent exclusions 7 → 3 → 2 → 0 across four years — below national average; every past PEX involved a serious safeguarding risk (drugs, a weapon, serious assault) after prior intervention.",
+        "8.3% of the cohort suspended this year vs ~17% in 2023–24; days lost to suspension down 61% from the peak; repeat-suspension rate down from 77.9% to a stable 67.0%.",
+        "Graduated system: Emmaus Centre internal provision and structured off-site direction as alternatives; every suspension authorised by the Headteacher (SENCo/DSL joining where relevant) and followed by a reintegration meeting.",
+        "Year 11 suspensions fell from 18 in HT1 to 4 by HT5 within this year; low-level behaviour resolved without escalation."
       ],
       development: [
         "Year 9 (9.4%) and Year 11 (11.7%, improving) suspension rates elevated vs Y7 (2.8%) and Y10 (4.4%) — a known national pattern for Y9.",
@@ -225,7 +226,7 @@ var ASCC = {
       id: "leadership", area: "Leadership & Governance", grade: "Exceptional", scale: 5,
       headline: "Exceptionally high standards of leadership and governance sustained over time: leaders at every level drive improvement across every evaluation area, with transformational impact on disadvantaged pupils, those with SEND, and those facing other barriers.",
       evidence: [
-        "Test 1 (sustained): suspensions falling 4 consecutive years; attendance improving 2 years to above national; outcomes above national for 3 consecutive years. Every area self-assessed Strong or Exceptional with its own live action plan.",
+        "Test 1 (sustained): suspensions down 43.9% from the 2023–24 peak and permanent exclusions 7 → 3 → 2 → 0 over four years; attendance improving 2 years to above national; outcomes above national for 3 consecutive years. Every area self-assessed Strong or Exceptional with its own live action plan.",
         "Test 2 (transformational impact): disadvantaged P8 above national disadvantaged for 3 years (2024 +0.26 vs −0.57); FSM6 attendance +1.70 vs national; EHCP attendance +9.13 vs national; resourced investment in Bethlehem & Romero Centres; monitored enrichment entitlement.",
         "Test 3 (nothing unaddressed): every honest weakness in this SEF has a named owner, deadline and success measure. Nothing identified is sitting unaddressed.",
         "External validation: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; leaders speak nationally; Headteachers' Roundtable co-chair; Secondary Headteacher of the Year (Pearson National Teaching Awards)."
@@ -342,7 +343,39 @@ var ASCC = {
     y11TrendNote: "Y11 suspensions by half term (HT1 and HT5 figures from SEF; interim values interpolated for display — quote HT1=18 → HT5=4).",
     byYearPct: [ ["Y7", 2.8], ["Y8", 6.5], ["Y9", 9.4], ["Y10", 4.4], ["Y11", 11.7] ],
     byYearNote: "Y8 figure interpolated for display. Y9 elevation is a known national pattern; Y11 improving sharply in-year.",
-    conduct: "99,194 achievement points vs 34,320 behaviour incidents logged this year (roughly 3:1 positive); 142 pupils with one or more suspension; 258.5 days lost; zero permanent exclusions."
+    conduct: "99,194 achievement points vs 34,320 behaviour incidents logged this year (roughly 3:1 positive); zero permanent exclusions this year.",
+    /* BEHAVIOUR — OFSTED.docx (four-year analysis) */
+    fourYear: {
+      years: ["2022–23", "2023–24", "2024–25", "2025–26 (HT1–5)"],
+      suspensions: [262, 319, 183, 143],
+      pupils: [112, 142, 88, 75],
+      pex: [7, 3, 2, 0],
+      pexNational: [2, 2, 3, null],
+      repeatRate: [77.9, null, 67.0, 67.0],
+      cohortPct: [null, 17, null, 8.3],
+      headline: "Suspensions have fallen 43.9% from the 2023–24 peak — 319 → 183 → 143 — sustained across two years and on course for the lowest full-year total in the dataset. Days lost to suspension are down 61% from the peak. Permanent exclusions: seven, three, two, zero.",
+      keyStats: [
+        ["43.9%", "fall in suspensions from the 2023–24 peak, sustained into this year"],
+        ["8.3%", "of the cohort suspended this year (HT1–5) — down from ~17% in 2023–24"],
+        ["61%", "reduction in school days lost to suspension from the peak year"],
+        ["7 → 3 → 2 → 0", "permanent exclusions over four years — now below the national average"]
+      ],
+      system: [
+        "Every suspension is authorised personally by the Headteacher; the Headteacher and Assistant Headteacher scrutinise every incident, with the SENCo and DSL joining where SEND or safeguarding is relevant. No suspension without senior oversight.",
+        "Suspension is never a first response: it sits inside a graduated system of intervention, restorative practice and pastoral support. Most behaviour is de-escalated long before this point.",
+        "The Emmaus Centre (internal provision) and structured off-site direction give meaningful alternatives to suspension — pupils keep accessing education while reflecting within clear boundaries.",
+        "Every suspension aims to end in a reintegration meeting — a clear, positive route back into learning. A second suspension for the same pupil is treated as a signal to review provision, not to repeat the sanction.",
+        "Repeat-suspension rate down from 77.9% (2022–23) to 67.0%, stable for two years — individually adapted pastoral plans for every repeat-suspended pupil."
+      ],
+      pexStory: [
+        ["2022–23", 7, "All but two arose from a single drugs incident involving a group of Y10 pupils — one isolated event, not a pattern — plus two siblings following a robbery of a peer after exhaustive pastoral support. The starting point for the rebuilding of behaviour systems."],
+        ["2023–24", 3, "Persistent defiance culminating in a serious physical incident; a knife on site; drugs on site. Each followed prior intervention and support."],
+        ["2024–25", 2, "Drugs on site; a serious physical assault on a peer. First year below the national average."],
+        ["2025–26", 0, "None. High expectations held through relationships, structure and timely intervention — not escalation. Permanent exclusion remains available; it has not been needed."]
+      ],
+      honesty: "The disproportionate representation of PP and SEND pupils in suspensions is a known, named challenge — it reflects concentrated, complex need, and it points to where we improve next: not lowering expectations, but matching the pastoral support around vulnerable pupils to the ambition already visible in their academic outcomes (disadvantaged P8 +0.26 vs −0.57 national; in 2024 our disadvantaged pupils outperformed national non-disadvantaged pupils by +0.09).",
+      phrase: "Seven, three, two, zero — a school that has become more inclusive and more proactive without abandoning firm boundaries."
+    }
   },
 
   /* ---------- Connections graph ---------- */
@@ -353,7 +386,7 @@ var ASCC = {
         desc: "Sustained exceptional standards; every weakness owned. Headteacher advises the Secretary of State; national platform.",
         stats: [
           "Every SEF area Strong or Exceptional — each with a live, owned action plan",
-          "Sustained: suspensions falling 4 years · attendance rising 2 years · outcomes above national 3 years",
+          "Sustained: suspensions −43.9% from peak · PEX 7→3→2→0 · attendance rising 2 years · outcomes above national 3 years",
           "Schools Policy and Delivery Adviser to the Secretary of State · Headteachers' Roundtable co-chair · Secondary Headteacher of the Year",
           "Toolkit Test 3 met: no significant area unaddressed — every weakness has an owner, date and measure"
         ] },
@@ -382,12 +415,12 @@ var ASCC = {
           "PA 20.9% — target <20% by Jan 2027 with ambassadors & individual targets"
         ] },
       { id: "behaviour", label: "Behaviour", type: "pillar", grade: "Exceptional", size: 15,
-        desc: "2.88/100 suspensions vs 3.72; zero permanent exclusions since Dec 2024.",
+        desc: "Suspensions −43.9% from peak; PEX 7 → 3 → 2 → 0; 2.88/100 vs 3.72 national.",
         stats: [
-          "Suspensions 2.88 per 100 vs 3.72 national — falling four consecutive years",
-          "Zero permanent exclusions since December 2024 (national 0.04)",
-          "Y11 suspensions 18 (HT1) → 4 (HT5) within this year",
-          "99,194 achievement points vs 34,320 incidents — roughly 3:1 positive"
+          "Suspensions 319 → 183 → 143: down 43.9% from the 2023–24 peak, sustained",
+          "Permanent exclusions 7 → 3 → 2 → 0 over four years — now below national average",
+          "8.3% of cohort suspended (was ~17% in 2023–24); days lost down 61%",
+          "Every suspension authorised by the Headteacher; Emmaus Centre + reintegration meetings"
         ] },
       { id: "personal", label: "Personal Development", type: "pillar", grade: "Strong", size: 14,
         desc: "4+ trips per pupil per year; ESP & Elev:8; tracked entitlement.",
