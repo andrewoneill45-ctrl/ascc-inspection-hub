@@ -176,7 +176,7 @@ var ASCC = {
         "Suspension rate 2.88 per 100 pupils vs national 3.72; suspensions 319 (2023–24 peak) → 183 → 143 (HT1–5) — a 43.9% sustained reduction, on course for the lowest full-year total in the dataset.",
         "Permanent exclusions 7 → 3 → 2 → 0 across four years — below national average; every past PEX involved a serious safeguarding risk (drugs, a weapon, serious assault) after prior intervention.",
         "8.3% of the cohort suspended this year vs ~17% in 2023–24; days lost to suspension down 61% from the peak; repeat-suspension rate down from 77.9% to a stable 67.0%.",
-        "Graduated system: Emmaus Centre internal provision and structured off-site direction as alternatives; every suspension authorised by the Headteacher (SENCo/DSL joining where relevant) and followed by a reintegration meeting.",
+        "Graduated system: Emmaus Centre internal provision and 59 short reciprocal off-site directions (1–5 days, formal agreements with Kensington Aldridge Academy and Holland Park, parents always consulted) as the alternatives that made zero PEX possible; every suspension authorised by the Headteacher (SENCo/DSL joining where relevant) and followed by a reintegration meeting.",
         "Year 11 suspensions fell from 18 in HT1 to 4 by HT5 within this year; low-level behaviour resolved without escalation.",
         "The community feels it: 100% of parents say the school promotes a safe and respectful environment (81/82); 91% of the pupil panel agree the school encourages kindness and respect."
       ],
@@ -401,6 +401,27 @@ var ASCC = {
         "Interventions driving it: consistent routines and the coaching-based teaching model, the Emmaus Centre, restorative practice, daily pastoral briefings, adaptive-teaching CPD for SEND, and structured family engagement."
       ],
       vulnerable: "PP and SEND pupils are over-represented among lesson removals (PP 67% and SEND 38% of removals vs 39% and 22% of the roll — EHCP 13%). We name this openly and read it protectively: internal suspension is used deliberately to keep our most vulnerable pupils on site and supported, in preference to the external exclusion these groups are nationally far more likely to receive. The pattern is closely monitored, with targeted intervention to narrow the gap while sustaining a non-exclusionary response."
+    },
+    /* OSD — OFSTED.docx (off-site directions) */
+    osd: {
+      headline: "Off-site direction is how this school stopped permanently excluding children. 59 short, reciprocal placements this year (1–5 days) with Kensington Aldridge Academy and Holland Park — a supportive intervention under DfE guidance, not a disciplinary sanction — and permanent exclusions fell to zero.",
+      keyStats: [
+        ["59", "off-site directions across 2025–26 — every one short (1–5 days), every one with parents fully consulted"],
+        ["2", "formal reciprocal partnerships (KAA & Holland Park) — we place and receive; the Headteacher visited both to verify consistent expectations"],
+        ["14", "placements under SEND arrangements — 12 SEN Support, just 2 EHCP: pupils with the most complex needs stay in mainstream"],
+        ["0", "permanent exclusions this year — OSD and the Emmaus Centre are the machinery behind the zero"]
+      ],
+      byYear: { labels: ["Year 7", "Year 8", "Year 9", "Year 10", "Year 11"], counts: [7, 10, 24, 12, 6] },
+      byYearNote: "Year 9 accounts for the largest share (24) — deliberate additional pastoral focus on a cohort in a well-recognised period of behavioural adjustment. Year 7 (7) evidences strong transition support; Year 11 (6) reflects prioritisation of exam preparation.",
+      byTerm: { labels: ["Autumn 1", "Autumn 2", "Spring 1", "Spring 2", "Summer 1"], counts: [12, 14, 10, 5, 18], send: [3, 4, 4, 0, 3] },
+      byTermNote: "Use is responsive to need across the year — falling to its lowest in Spring 2 (5), with SEND placements at zero that term, as early intervention embedded. Every placed pupil remains enrolled and supported by both schools throughout, with focused behavioural and pastoral input and a planned, considered return to ASCC.",
+      framing: [
+        "Supportive intervention, not sanction: designed under DfE guidance for reflection and re-engagement, with curriculum continuity and safeguarding written into a formal agreement with each partner school.",
+        "Safeguarding-led: pupils stay enrolled, connected to learning and under the pastoral oversight of two schools — avoiding the isolation and lost learning of suspension.",
+        "Reciprocal and quality-assured: we receive as well as place; the Headteacher personally visited both partners to confirm expectations are applied consistently.",
+        "Graduated by design: SEN Support pupils access short, early placements (12); EHCP use is minimal (2) because embedded support plans keep the most complex needs in mainstream.",
+        "It works: one of our most effective tools for improving behaviour and reducing exclusion — reflected directly in the fall of permanent exclusions to zero."
+      ]
     }
   },
 

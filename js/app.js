@@ -452,6 +452,23 @@ function renderBehaviour() {
       </div>
     </div>
 
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--green)">
+      <h3>Off-site direction — how we stopped permanent exclusion</h3>
+      <p class="sef-headline" style="margin-top:10px">${be.osd.headline}</p>
+      <div class="grid cols-4" style="margin:14px 0">
+        ${be.osd.keyStats.map(k => `
+          <div class="card stat" style="box-shadow:none"><div class="num" style="font-size:1.5rem">${k[0]}</div><div class="lbl">${k[1]}</div></div>`).join("")}
+      </div>
+      <div class="grid cols-2">
+        <div class="chart-card"><h4 style="margin-top:0">Placements by year group</h4><div class="chart-wrap" id="cc-osd-year"></div>
+          <p class="note">${be.osd.byYearNote}</p></div>
+        <div class="chart-card"><h4 style="margin-top:0">Placements by term — all pupils vs SEND</h4><div class="chart-wrap" id="cc-osd-term"></div>
+          <p class="note">${be.osd.byTermNote}</p></div>
+      </div>
+      <h4>Why this is a safeguarding-led model</h4>
+      <ul style="margin-left:18px;font-size:0.85rem">${be.osd.framing.map(f => `<li style="margin-bottom:7px">${f}</li>`).join("")}</ul>
+    </div>
+
     <div class="grid cols-2" style="margin-bottom:18px">
       <div class="card chart-card"><h3>Suspension rate per 100 pupils</h3><div class="chart-wrap" id="cc-susp"></div>
         <p class="note">${be.conduct}</p></div>
@@ -489,6 +506,14 @@ function renderBehaviour() {
     options: { maintainAspectRatio: false, scales: {
       y: { title: { display: true, text: "Per pupil" }, min: 0 },
       y1: { position: "right", title: { display: true, text: "Roll" }, grid: { drawOnChartArea: false } } } } });
+  makeChart("cc-osd-year", { type: "bar", data: { labels: be.osd.byYear.labels, datasets: [
+    { label: "Off-site directions", data: be.osd.byYear.counts,
+      backgroundColor: be.osd.byYear.labels.map(l => l === "Year 9" ? BRAND.gold : BRAND.purple), borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } } });
+  makeChart("cc-osd-term", { type: "line", data: { labels: be.osd.byTerm.labels, datasets: [
+    { label: "All placements", data: be.osd.byTerm.counts, borderColor: BRAND.purple, backgroundColor: "rgba(76,35,115,0.10)", fill: true, tension: 0.3, pointRadius: 5 },
+    { label: "of which SEND", data: be.osd.byTerm.send, borderColor: BRAND.gold, backgroundColor: BRAND.gold, borderDash: [6, 4], tension: 0.3, pointRadius: 4 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true } } } });
   makeChart("cc-susp", { type: "bar", data: { labels: ["All Saints", "National"], datasets: [
     { label: "Suspensions per 100 pupils", data: [be.suspensionRate.ascc, be.suspensionRate.national], backgroundColor: [BRAND.purple, BRAND.grey], borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } } } });
