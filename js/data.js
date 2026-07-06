@@ -310,45 +310,191 @@ var ASCC = {
   graph: {
     // type: pillar (evaluation area) | driver (system/programme) | outcome | risk
     nodes: [
-      { id: "leadership", label: "Leadership & Governance", type: "pillar", grade: "Exceptional", size: 30, desc: "Sustained exceptional standards; every weakness owned. DfE School Leader Adviser; national platform." },
-      { id: "curriculum", label: "Curriculum & Teaching", type: "pillar", grade: "Strong", size: 26, desc: "Pillars + Active Ingredients coaching; T&L 2.08; 80% expected/strong." },
-      { id: "achievement", label: "Achievement", type: "pillar", grade: "Exceptional", size: 28, desc: "P8 +0.69 (2024); 3 years above national; 2026 pred 82% 4+ E&M." },
-      { id: "attendance", label: "Attendance", type: "pillar", grade: "Strong", size: 24, desc: "92.41% — above national & similar schools; +2.21 vs baseline expectation." },
-      { id: "behaviour", label: "Behaviour", type: "pillar", grade: "Exceptional", size: 24, desc: "2.88/100 suspensions vs 3.72; zero permanent exclusions since Dec 2024." },
-      { id: "personal", label: "Personal Development", type: "pillar", grade: "Strong", size: 22, desc: "4+ trips per pupil per year; ESP & Elev:8; tracked entitlement." },
-      { id: "inclusion", label: "Inclusion", type: "pillar", grade: "Exceptional", size: 24, desc: "Bethlehem & Romero Centres; pupil passports; EHCP P8 +0.07, SEN K +0.13 (2024)." },
-      { id: "safeguarding", label: "Safeguarding", type: "pillar", grade: "Met", size: 20, desc: "External review Jan 2026 → action plan Feb 2026. Met." },
-      { id: "ethos", label: "Catholic Ethos", type: "driver", size: 20, desc: "Orare, Laborare, Servire — shapes culture, care and community. The 'why' behind every system." },
-      { id: "coaching", label: "Coaching & Staff Development", type: "driver", size: 18, desc: "Active Ingredients model; CPD for 24% ITT/ECT staff; staff wellbeing (flexible working, national coverage)." },
-      { id: "data", label: "Intelligent Assessment & Data", type: "driver", size: 18, desc: "Data drops, SISRA, Bedrock SAS, reading tests → targeted, evaluated intervention." },
-      { id: "enrichment", label: "Enrichment: ESP & Elev:8", type: "driver", size: 17, desc: "Extended day, no phones, enrichment for all — nationally covered innovation." },
-      { id: "pastoral", label: "Pastoral & Attendance Systems", type: "driver", size: 17, desc: "Home visits, Attendance Contracts, CPOMs, HOY/HOKS structure." },
-      { id: "innovation", label: "National Profile & Innovation", type: "driver", size: 18, desc: "12-hour day, phone-free, teacher lie-ins, DfE adviser role, Headteachers' Roundtable — the school shapes national policy." },
-      { id: "disadv", label: "Disadvantaged Outcomes", type: "outcome", size: 20, desc: "P8 +0.26 vs −0.57 national (2024); 3 years above national; enrichment entitlement tracked." },
-      { id: "send-out", label: "SEND Progress & Care", type: "outcome", size: 17, desc: "EHCP attendance +9.13 vs national; positive P8 2024; specialist centres." },
-      { id: "reading", label: "Reading & Literacy", type: "risk", size: 15, desc: "54% below age-related expectations (Aut 25) → Y7 Fluency Pilot, Thinking Reading, literacy committee." },
-      { id: "gap", label: "Disadvantaged Gap (in-school)", type: "risk", size: 15, desc: "0.57 → 0.80 → 1.14* — driven by non-disadvantaged surge; levers: adaptive teaching, attendance, intervention." },
-      { id: "y11att", label: "Year 11 Attendance", type: "risk", size: 14, desc: "2.17 below national; 7% severely absent; audit + contracts + home visits underway." },
-      { id: "dispro", label: "Suspension Disproportionality", type: "risk", size: 14, desc: "FSM, boys, EHCP, Black Caribbean over-represented — named plans due end HT6." }
+      { id: "leadership", label: "Leadership & Governance", type: "pillar", grade: "Exceptional", size: 17,
+        desc: "Sustained exceptional standards; every weakness owned. DfE School Leader Adviser; national platform.",
+        stats: [
+          "Every SEF area Strong or Exceptional — each with a live, owned action plan",
+          "Sustained: suspensions falling 4 years · attendance rising 2 years · outcomes above national 3 years",
+          "DfE School Leader Adviser · Headteachers' Roundtable co-chair · Secondary Headteacher of the Year",
+          "Toolkit Test 3 met: no significant area unaddressed — every weakness has an owner, date and measure"
+        ] },
+      { id: "curriculum", label: "Curriculum & Teaching", type: "pillar", grade: "Strong", size: 16,
+        desc: "Pillars + Active Ingredients coaching; T&L 2.08; 80% expected/strong.",
+        stats: [
+          "T&L average 2.08 — 80% of lesson drop-in statements expected or strong",
+          "Curriculum Pillars in every SoW from September; CPR cycle keeps SoW live",
+          "24% of staff ITT/ECT — developed through the Active Ingredients coaching model",
+          "Proof it lands: 2024 P8 +0.69, A8 5.39 vs 4.59 national"
+        ] },
+      { id: "achievement", label: "Achievement", type: "pillar", grade: "Exceptional", size: 17,
+        desc: "P8 +0.69 (2024); 3 years above national; 2026 pred 82% 4+ E&M.",
+        stats: [
+          "P8 journey: +0.12 → +0.69 → +0.76* → +0.74* (2026 pred)",
+          "A8 5.39 (2024) vs 4.59 national · 2026 pred 82% 4+ E&M — best ever",
+          "Disadvantaged P8 +0.26 vs −0.57 national (2024)",
+          "Outcomes hold while KS2 priors fall: 105.5 → 101.5 across four cohorts"
+        ] },
+      { id: "attendance", label: "Attendance", type: "pillar", grade: "Strong", size: 15,
+        desc: "92.41% — above national & similar schools; +2.21 vs baseline expectation.",
+        stats: [
+          "92.41% vs 91.63% national and 90.19% similar FSM6 schools (FFT, May 26)",
+          "Improvement 2.21% vs DfE minimum expectation of 0.5% — over 4× required",
+          "FSM6 88.46% (+1.70 vs national) · EHCP 90.03% (+9.13 vs national)",
+          "PA 20.9% — target <20% by Jan 2027 with ambassadors & individual targets"
+        ] },
+      { id: "behaviour", label: "Behaviour", type: "pillar", grade: "Exceptional", size: 15,
+        desc: "2.88/100 suspensions vs 3.72; zero permanent exclusions since Dec 2024.",
+        stats: [
+          "Suspensions 2.88 per 100 vs 3.72 national — falling four consecutive years",
+          "Zero permanent exclusions since December 2024 (national 0.04)",
+          "Y11 suspensions 18 (HT1) → 4 (HT5) within this year",
+          "99,194 achievement points vs 34,320 incidents — roughly 3:1 positive"
+        ] },
+      { id: "personal", label: "Personal Development", type: "pillar", grade: "Strong", size: 14,
+        desc: "4+ trips per pupil per year; ESP & Elev:8; tracked entitlement.",
+        stats: [
+          "Every pupil: 4+ trips a year plus whole-school celebration days",
+          "ESP & Elev:8 transformational — real potential for national scaling",
+          "Participation tracked (EVOLVE, Class Charts stars) — disadvantaged access evidenced",
+          "“Opportunity is planned, not left to chance”"
+        ] },
+      { id: "inclusion", label: "Inclusion", type: "pillar", grade: "Exceptional", size: 15,
+        desc: "Bethlehem & Romero Centres; pupil passports; EHCP P8 +0.07, SEN K +0.13 (2024).",
+        stats: [
+          "EHCP 9.83% (88 pupils) & SEN 22% — well above national, rising yearly",
+          "2024 P8: EHCP +0.07 · SEN Support +0.13 — positive progress at scale of need",
+          "Bethlehem & Romero Centres · pupil passports for every SEN pupil · Deputy SENCo",
+          "2 successful EHCP applications this year — swift, accurate identification"
+        ] },
+      { id: "safeguarding", label: "Safeguarding", type: "pillar", grade: "Met", size: 13,
+        desc: "External review Jan 2026 → action plan Feb 2026. Met.",
+        stats: [
+          "External Whole School Safeguarding Review (Jan 2026): strong leadership, culture, governance, pupil voice, records, curriculum",
+          "DSL action plan produced within one month (Feb 2026)",
+          "Immediate concerns already actioned; remainder tracked and ongoing"
+        ] },
+      { id: "ethos", label: "Catholic Ethos", type: "driver", size: 13,
+        desc: "Orare, Laborare, Servire — shapes culture, care and community. The 'why' behind every system.",
+        stats: [
+          "Orare, Laborare, Servire — to pray, to work, to serve",
+          "Shapes behaviour culture, pastoral care and service to community",
+          "Lived daily: prayer & liturgy, Schola Cantorum, Faith in Action, The Mission"
+        ] },
+      { id: "coaching", label: "Coaching & Staff Development", type: "driver", size: 12,
+        desc: "Active Ingredients model; CPD for 24% ITT/ECT staff; staff wellbeing innovation.",
+        stats: [
+          "Active Ingredients coaching model in every subject",
+          "24% ITT/ECT staff developed into consistent practitioners through CPD",
+          "Staff wellbeing innovation (flexible working, 'lie-ins') — nationally covered retention strategy"
+        ] },
+      { id: "data", label: "Intelligent Assessment & Data", type: "driver", size: 12,
+        desc: "Data drops, SISRA, Bedrock SAS, reading tests → targeted, evaluated intervention.",
+        stats: [
+          "Data drops + SISRA + Bedrock SAS + reading tests at KS3 & KS4",
+          "KS3 E&M on-track Mich→Lent: Y7 49→59% · Y8 38→65% · Y9 27→44%",
+          "Y11 mock A8 trajectory: 4.14 → 4.56 → 4.98 predicted"
+        ] },
+      { id: "enrichment", label: "Enrichment: ESP & Elev:8", type: "driver", size: 12,
+        desc: "Extended day, no phones, enrichment for all — nationally covered innovation.",
+        stats: [
+          "Extended enrichment day and phone-free culture",
+          "Covered by Guardian, Times, Fortune, BBC, international press",
+          "Enrichment is a monitored entitlement, not an offer for those who turn up"
+        ] },
+      { id: "pastoral", label: "Pastoral & Attendance Systems", type: "driver", size: 12,
+        desc: "Home visits, Attendance Contracts, CPOMs, HOY/HOKS structure.",
+        stats: [
+          "Home visits for every severely absent pupil, logged on CPOMs",
+          "Attendance Contracts agreed with every Y10 PA/SA family before September",
+          "External agency referral/support for every pupil below 50% attendance"
+        ] },
+      { id: "innovation", label: "National Profile & Innovation", type: "driver", size: 12,
+        desc: "12-hour day, phone-free, teacher lie-ins, DfE adviser role — the school shapes national policy.",
+        stats: [
+          "60+ national, international, sector and faith-press items",
+          "DfE School Leader Adviser · DfE expert inclusion group · HTRT co-chair",
+          "Oracy Education Commission case study · EPI enrichment panel"
+        ] },
+      { id: "disadv", label: "Disadvantaged Outcomes", type: "outcome", size: 13,
+        desc: "P8 +0.26 vs −0.57 national (2024); 3 years above national; enrichment entitlement tracked.",
+        stats: [
+          "Disadvantaged P8 above national disadvantaged three years running",
+          "2024: P8 +0.26 vs −0.57 · 4+ E&M 66% vs 43% national",
+          "FSM6 attendance 88.46% — +1.70 vs national FSM6",
+          "In a top-quintile deprivation context (FSM6 41.8%)"
+        ] },
+      { id: "send-out", label: "SEND Progress & Care", type: "outcome", size: 12,
+        desc: "EHCP attendance +9.13 vs national; positive P8 2024; specialist centres.",
+        stats: [
+          "EHCP attendance 90.03% — +9.13 vs national EHCP figure",
+          "2024 P8: EHCP +0.07 · SEN Support +0.13",
+          "Bethlehem Centre (exceptional teaching) · Romero Centre (keeping up, not catching up)"
+        ] },
+      { id: "reading", label: "Reading & Literacy", type: "risk", size: 10,
+        desc: "54% below age-related expectations (Aut 25) → Y7 Fluency Pilot, Thinking Reading, literacy committee.",
+        stats: [
+          "54% of pupils below/significantly below age-related reading (Autumn 2025)",
+          "Response: Y7 Fluency Pilot · Thinking Reading · new literacy committee · Bedrock",
+          "Success measure: % at expected/above rising through 2026-27; TR graduations"
+        ] },
+      { id: "gap", label: "Disadvantaged Gap (in-school)", type: "risk", size: 10,
+        desc: "0.57 → 0.80 → 1.14* — driven by non-disadvantaged surge; levers: adaptive teaching, attendance, intervention.",
+        stats: [
+          "In-school gap: 0.57 (2023) → 0.80 (2024) → 1.14* (2025 SISRA)",
+          "Context: disadvantaged pupils remain ABOVE national disadvantaged throughout",
+          "Partly driven by non-disadvantaged surge (P8 +1.06 in 2024)",
+          "Levers: adaptive teaching strand in every SoW · attendance · targeted intervention"
+        ] },
+      { id: "y11att", label: "Year 11 Attendance", type: "risk", size: 10,
+        desc: "2.17 below national; 7% severely absent; audit + contracts + home visits underway.",
+        stats: [
+          "Y11 attendance 2.17 points below national (3.17 in spring term)",
+          "7% severely absent — exam anxiety + small entrenched group predating current systems",
+          "A8 by attendance: 5.22 (95%+) vs 3.53 (<90%) — why this matters",
+          "Response: cause-coded audit of every sub-90% pupil · contracts · home visits"
+        ] },
+      { id: "dispro", label: "Suspension Disproportionality", type: "risk", size: 10,
+        desc: "FSM, boys, EHCP, Black Caribbean over-represented — named plans due end HT6.",
+        stats: [
+          "FSM pupils, boys, EHCP and Black Caribbean pupils suspended at higher rates than peers",
+          "Self-identified through our own analysis — not raised by anyone external",
+          "Named owners (BFO/MEH/DHA), plans due end HT6, reviewed HT1/HT2"
+        ] }
     ],
     // types: drives (solid), evidences (dashed), watches (dotted risk), underpins (ethos)
     links: [
-      { s: "ethos", t: "leadership", type: "underpins" }, { s: "ethos", t: "behaviour", type: "underpins" },
-      { s: "ethos", t: "personal", type: "underpins" }, { s: "ethos", t: "inclusion", type: "underpins" },
-      { s: "leadership", t: "curriculum", type: "drives" }, { s: "leadership", t: "attendance", type: "drives" },
-      { s: "leadership", t: "behaviour", type: "drives" }, { s: "leadership", t: "safeguarding", type: "drives" },
-      { s: "leadership", t: "innovation", type: "drives" }, { s: "coaching", t: "curriculum", type: "drives" },
-      { s: "curriculum", t: "achievement", type: "drives" }, { s: "data", t: "achievement", type: "drives" },
-      { s: "data", t: "curriculum", type: "drives" }, { s: "pastoral", t: "attendance", type: "drives" },
-      { s: "attendance", t: "achievement", type: "drives" }, { s: "behaviour", t: "achievement", type: "drives" },
-      { s: "enrichment", t: "personal", type: "drives" }, { s: "enrichment", t: "disadv", type: "drives" },
-      { s: "inclusion", t: "send-out", type: "drives" }, { s: "pastoral", t: "send-out", type: "drives" },
-      { s: "achievement", t: "disadv", type: "evidences" }, { s: "attendance", t: "disadv", type: "evidences" },
-      { s: "innovation", t: "enrichment", type: "evidences" }, { s: "innovation", t: "coaching", type: "evidences" },
-      { s: "curriculum", t: "reading", type: "watches" }, { s: "achievement", t: "gap", type: "watches" },
-      { s: "attendance", t: "y11att", type: "watches" }, { s: "behaviour", t: "dispro", type: "watches" },
-      { s: "inclusion", t: "reading", type: "watches" }, { s: "safeguarding", t: "pastoral", type: "evidences" },
-      { s: "personal", t: "behaviour", type: "drives" }, { s: "inclusion", t: "curriculum", type: "drives" }
+      { s: "ethos", t: "leadership", type: "underpins", why: "Servant leadership rooted in the mission — the moral purpose behind every strategic decision." },
+      { s: "ethos", t: "behaviour", type: "underpins", why: "The calm, respectful culture flows from the ethos: sanction always paired with reconciliation." },
+      { s: "ethos", t: "personal", type: "underpins", why: "Faith in action — worship, service and community shape the personal development offer." },
+      { s: "ethos", t: "inclusion", type: "underpins", why: "Every child known and valued: inclusion as a gospel imperative, not a compliance exercise." },
+      { s: "leadership", t: "curriculum", type: "drives", why: "Leaders built the Pillars and the CPR cycle; SLT book scrutiny and drop-ins quality-assure it." },
+      { s: "leadership", t: "attendance", type: "drives", why: "Leadership resourced an enhanced attendance team — DfE improvement baseline beaten more than 4×." },
+      { s: "leadership", t: "behaviour", type: "drives", why: "The Headteacher personally scrutinises suspension decisions daily; policy applied consistently." },
+      { s: "leadership", t: "safeguarding", type: "drives", why: "Leaders commissioned the external review themselves and had an action plan within a month." },
+      { s: "leadership", t: "innovation", type: "drives", why: "System leadership: DfE adviser secondment, HTRT co-chair, national media platform." },
+      { s: "coaching", t: "curriculum", type: "drives", why: "Active Ingredients coaching turns a 24% ITT/ECT staff body into consistent practitioners." },
+      { s: "curriculum", t: "achievement", type: "drives", why: "The sequenced curriculum lands as results: P8 +0.69, A8 5.39 vs 4.59 national (2024)." },
+      { s: "data", t: "achievement", type: "drives", why: "Data drops trigger targeted intervention: Y11 mock A8 4.14 → 4.56 → 4.98 predicted." },
+      { s: "data", t: "curriculum", type: "drives", why: "Reading and assessment data reshape Schemes of Work — the adaptive-teaching strand came from data." },
+      { s: "pastoral", t: "attendance", type: "drives", why: "Home visits, Attendance Contracts and CPOMs logging drive 92.41% — above national." },
+      { s: "attendance", t: "achievement", type: "drives", why: "Attendance is achievement: Y11 A8 5.22 above 95% attendance vs 3.53 below 90%." },
+      { s: "behaviour", t: "achievement", type: "drives", why: "Calm classrooms protect learning time — suspensions 2.88 vs 3.72 national, zero PEX." },
+      { s: "enrichment", t: "personal", type: "drives", why: "The extended day delivers 4+ trips and clubs for every pupil — tracked, not assumed." },
+      { s: "enrichment", t: "disadv", type: "drives", why: "Enrichment is a monitored entitlement: EVOLVE data proves disadvantaged pupils access it equally." },
+      { s: "inclusion", t: "send-out", type: "drives", why: "Passports, specialist centres and the Deputy SENCo convert need into progress: EHCP P8 +0.07." },
+      { s: "pastoral", t: "send-out", type: "drives", why: "The pastoral system works hardest for those who need it most: EHCP attendance +9.13 vs national." },
+      { s: "personal", t: "behaviour", type: "drives", why: "Belonging reduces disruption — engaged pupils with 4+ trips a year behave and attend." },
+      { s: "inclusion", t: "curriculum", type: "drives", why: "Pupil passports shape department planning; adaptive teaching CPD whole-staff from September." },
+      { s: "achievement", t: "disadv", type: "evidences", why: "Disadvantaged P8 +0.26 vs −0.57 national (2024) — three consecutive years above national." },
+      { s: "attendance", t: "disadv", type: "evidences", why: "FSM6 attendance 88.46%, +1.70 above the national FSM6 figure." },
+      { s: "innovation", t: "enrichment", type: "evidences", why: "The 12-hour day and phone-free culture are the innovations the national press covers." },
+      { s: "innovation", t: "coaching", type: "evidences", why: "Teacher 'lie-ins' and flexible working: retention innovation with Guardian/Schools Week coverage." },
+      { s: "safeguarding", t: "pastoral", type: "evidences", why: "Safeguarding and attendance share one machinery: CPOMs, home visits, escalation pathways." },
+      { s: "curriculum", t: "reading", type: "watches", why: "54% below reading age (Aut 25) → Fluency Pilot, Thinking Reading, literacy committee from 2026." },
+      { s: "achievement", t: "gap", type: "watches", why: "Gap 0.57→0.80→1.14* is named and owned — while disadvantaged pupils stay above national." },
+      { s: "attendance", t: "y11att", type: "watches", why: "Y11 sits 2.17 below national — audit, contracts and home visits all in train now." },
+      { s: "behaviour", t: "dispro", type: "watches", why: "Disproportionality self-identified; named owners, plans due end HT6, reviewed HT1/HT2." },
+      { s: "inclusion", t: "reading", type: "watches", why: "Romero Centre reading fluency provision — keeping up, not catching up." }
     ]
   },
 

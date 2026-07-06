@@ -375,8 +375,8 @@ function renderGraph() {
         <div class="graph-legend" id="graph-legend"></div>
       </div>
       <div class="card" id="graph-detail">
-        <h3>Node detail</h3>
-        <p class="placeholder">Hover or click a node to see its evidence line and connections.</p>
+        <h3>Talk across the school</h3>
+        <p class="placeholder">Click any node to bring up its key data and every intersection — the lines a leader can walk an inspector along. Hover to preview; drag to rearrange.</p>
       </div>
     </div>
   `));
@@ -388,7 +388,7 @@ function renderGraph() {
     `<div class="row"><span class="legend-dot" style="background:${s.fill};border:2px solid ${s.stroke}"></span>${s.text}</div>`)));
 
   const svg = el("graph-svg");
-  const W = svg.clientWidth || 900, H = 640;
+  const W = Math.max(svg.clientWidth || 0, 1000), H = 760;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   const NS = "http://www.w3.org/2000/svg";
 
@@ -424,7 +424,7 @@ function renderGraph() {
     const t = document.createElementNS(NS, "text");
     t.textContent = n.label;
     t.setAttribute("text-anchor", "middle");
-    t.setAttribute("font-size", "11");
+    t.setAttribute("font-size", "10");
     t.setAttribute("font-weight", "650");
     t.setAttribute("fill", "#2a1245");
     t.setAttribute("pointer-events", "none");
@@ -467,21 +467,37 @@ function renderGraph() {
     links.forEach(l => l.el.setAttribute("stroke-opacity", l.hidden ? 0 : 0.55));
     nodes.forEach(m => m.el.setAttribute("opacity", 1));
     const d = el("graph-detail");
-    d.innerHTML = `<h3>Node detail</h3><p class="placeholder">Hover or click a node to see its evidence line and connections.</p>`;
+    d.innerHTML = `<h3>Talk across the school</h3><p class="placeholder">Click any node to bring up its key data and every intersection — the lines a leader can walk an inspector along. Hover to preview; drag to rearrange.</p>`;
   }
   function showDetail(n) {
     const st = NODE_STYLE[n.type];
+    const stats = (n.stats || []).map(s => `<li>${s}</li>`).join("");
     const conns = links.filter(l => l.s === n.id || l.t === n.id).map(l => {
       const other = l.s === n.id ? byId[l.t] : byId[l.s];
-      const dir = l.s === n.id ? "→" : "←";
-      return `<li><span style="color:${EDGE_STYLE[l.type].color};font-weight:700">${EDGE_STYLE[l.type].label}</span> ${dir} ${other.label}</li>`;
+      const es = EDGE_STYLE[l.type];
+      return `
+        <div class="conn" data-node="${other.id}">
+          <div class="conn-head">
+            <span class="conn-type" style="color:${es.color}">${es.label}</span>
+            <span class="conn-target">${other.label}</span>
+          </div>
+          ${l.why ? `<div class="conn-why">${l.why}</div>` : ""}
+        </div>`;
     }).join("");
     el("graph-detail").innerHTML = `
       <span class="type-tag" style="color:${st.stroke}">${st.text}${n.grade ? " · " + n.grade : ""}</span>
       <h3>${n.label}</h3>
-      <p style="font-size:0.85rem">${n.desc}</p>
-      <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:12px">Connections</h4>
-      <ul>${conns}</ul>`;
+      <p style="font-size:0.84rem">${n.desc}</p>
+      <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Key data</h4>
+      <ul class="node-stats">${stats}</ul>
+      <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Intersections — the lines to walk</h4>
+      <div class="conn-list">${conns}</div>`;
+    el("graph-detail").querySelectorAll(".conn").forEach(c => {
+      c.addEventListener("click", () => {
+        const m = byId[c.dataset.node];
+        if (m) { pinned = m; showDetail(m); highlight(m); }
+      });
+    });
   }
 
   // filters
@@ -515,7 +531,7 @@ function renderGraph() {
     links.forEach(l => {
       const dx = l.b.x - l.a.x, dy = l.b.y - l.a.y;
       const d = Math.sqrt(dx * dx + dy * dy) || 1;
-      const target = 130 + (l.a.size + l.b.size);
+      const target = 165 + (l.a.size + l.b.size);
       const f = (d - target) * 0.012;
       const fx = dx / d * f, fy = dy / d * f;
       if (!l.a.fixed) { l.a.vx += fx; l.a.vy += fy; }
@@ -524,7 +540,7 @@ function renderGraph() {
     // centre gravity + integrate
     nodes.forEach(n => {
       if (!n.fixed) {
-        n.vx += (W / 2 - n.x) * 0.0035; n.vy += (H / 2 - n.y) * 0.0035;
+        n.vx += (W / 2 - n.x) * 0.0022; n.vy += (H / 2 - n.y) * 0.0028;
         n.vx *= 0.82; n.vy *= 0.82;
         n.x += n.vx * alpha * 2.2; n.y += n.vy * alpha * 2.2;
       }
