@@ -995,14 +995,14 @@ const askHistory = [];
 function renderAsk() {
   el("view-ask").appendChild(h(`
     <div class="view-head">
-      <h2>✦ Ask the Hub</h2>
+      <h2>✦ Ask the Portal</h2>
       <p>Interrogate the school's data in plain English. Answers are grounded in the SEF, results and the renewed Ofsted framework — and always make the strongest evidenced case for All Saints. Ask for a chart and you'll get one.</p>
     </div>
     <div class="ask-layout">
       <div class="ask-panel">
         <div class="ask-messages" id="ask-messages">
           <div class="msg ai">
-            <div class="who">Inspection Hub AI</div>
+            <div class="who">Portal AI</div>
             <div class="bubble"><p>I hold the full July 2026 SEF, three years of results, current mock and KS3 data, attendance and behaviour analysis, and the renewed Ofsted framework. Ask me anything — a killer statistic, a line to take, a chart for a meeting, or a rehearsal answer to a hard inspector question.</p></div>
           </div>
         </div>
@@ -1042,7 +1042,7 @@ async function sendAsk() {
   if (!q || btn.disabled) return;
   ta.value = "";
   msgs.appendChild(h(`<div class="msg user"><div class="who">You</div><div class="bubble">${escapeHtml(q)}</div></div>`));
-  const typing = h(`<div class="msg ai"><div class="who">Inspection Hub AI</div><div class="bubble typing"><span></span><span></span><span></span></div></div>`).firstElementChild;
+  const typing = h(`<div class="msg ai"><div class="who">Portal AI</div><div class="bubble typing"><span></span><span></span><span></span></div></div>`).firstElementChild;
   msgs.appendChild(typing);
   msgs.scrollTop = msgs.scrollHeight;
   btn.disabled = true;
@@ -1070,7 +1070,7 @@ async function sendAsk() {
       typing.remove();
     } else {
       // streamed plain text — render live as it arrives
-      const live = h(`<div class="msg ai"><div class="who">Inspection Hub AI</div><div class="bubble"></div></div>`).firstElementChild;
+      const live = h(`<div class="msg ai"><div class="who">Portal AI</div><div class="bubble"></div></div>`).firstElementChild;
       const liveBubble = live.querySelector(".bubble");
       typing.replaceWith(live);
       el("ask-status").textContent = "Answering…";
@@ -1097,7 +1097,7 @@ async function sendAsk() {
     renderAiMessage(msgs, answer);
   } catch (err) {
     typing.remove();
-    msgs.appendChild(h(`<div class="msg ai"><div class="who">Inspection Hub AI</div><div class="bubble"><p><strong>Couldn't answer:</strong> ${escapeHtml(err.message)}</p></div></div>`));
+    msgs.appendChild(h(`<div class="msg ai"><div class="who">Portal AI</div><div class="bubble"><p><strong>Couldn't answer:</strong> ${escapeHtml(err.message)}</p></div></div>`));
   }
   btn.disabled = false;
   el("ask-status").textContent = "";
@@ -1107,7 +1107,7 @@ async function sendAsk() {
 function renderAiMessage(msgs, text) {
   // Split out ```chart blocks
   const parts = text.split(/```chart\s*([\s\S]*?)```/g);
-  const container = h(`<div class="msg ai"><div class="who">Inspection Hub AI</div><div class="bubble"></div></div>`).firstElementChild;
+  const container = h(`<div class="msg ai"><div class="who">Portal AI</div><div class="bubble"></div></div>`).firstElementChild;
   const bubble = container.querySelector(".bubble");
   parts.forEach((part, i) => {
     if (i % 2 === 0) {

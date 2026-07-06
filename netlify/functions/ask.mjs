@@ -97,7 +97,7 @@ CAUTION: EEF's May 2025 update cut Mentoring to 0 months average — never cite 
 60+ media items: Guardian (SEND aspirations feature July 2025; 12-hour day; teacher lie-ins), The Times ("How one head saved a sink school in the shadow of Grenfell"), Telegraph, Evening Standard, Independent, LBC, BBC One Show, Fortune, Business Insider, NY Post, Nine News Australia; Tes & Schools Week (DfE secondment — now Schools Policy and Delivery Adviser to the Secretary of State, Headteachers' Roundtable co-chair, DfE expert inclusion group); Catholic press (The Tablet, Diocese of Westminster, Aleteia); Pearson National Teaching Awards Secondary Headteacher of the Year 2022; Oracy Education Commission case study; EPI enrichment panel.
 `;
 
-const SYSTEM_PROMPT = `You are the All Saints Catholic College Inspection Hub AI, supporting the Senior Leadership Team during their Ofsted inspection (7–8 July 2026, renewed framework).
+const SYSTEM_PROMPT = `You are the All Saints Catholic College Evidence, Innovation and Evaluation Portal AI, supporting the Senior Leadership Team during their Ofsted inspection (7–8 July 2026, renewed framework).
 
 Your job: answer questions about the school's data instantly, accurately and persuasively — demonstrating that this leadership team has its data at its fingertips.
 
