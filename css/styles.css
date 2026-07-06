@@ -78,7 +78,7 @@ header.topbar {
 .topbar .title .hub-sub { font-family: var(--serif); font-size: 1.15rem; color: var(--gold-light); font-weight: 600; letter-spacing: 0.03em; white-space: nowrap; }
 
 nav.tabs { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 66px; z-index: 40; }
-.tabs-inner { max-width: 1280px; margin: 0 auto; display: flex; overflow-x: auto; padding: 0 14px; }
+.tabs-inner { max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; padding: 0 14px; }
 .tabs button {
   border: 0; background: none; padding: 14px 15px; font-size: 0.86rem; font-weight: 550;
   color: var(--muted); cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent;
@@ -86,6 +86,23 @@ nav.tabs { background: #fff; border-bottom: 1px solid var(--line); position: sti
 }
 .tabs button:hover { color: var(--purple-700); }
 .tabs button.active { color: var(--purple-800); border-bottom-color: var(--gold); font-weight: 650; }
+
+/* dropdown groups */
+.dd { position: relative; }
+.dd .caret { font-size: 0.7em; opacity: 0.6; margin-left: 2px; display: inline-block; transition: transform 0.2s; }
+.dd.open .caret { transform: rotate(180deg); }
+.dd-menu {
+  display: none; position: absolute; top: calc(100% - 2px); left: 8px; min-width: 220px;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg);
+  padding: 6px; z-index: 60;
+}
+.dd.open .dd-menu { display: block; animation: fadeUp 0.18s ease; }
+.dd-menu button {
+  display: block; width: 100%; text-align: left; padding: 10px 14px; border-radius: 8px;
+  border-bottom: 0; font-size: 0.86rem;
+}
+.dd-menu button:hover { background: var(--purple-50); }
+.dd-menu button.active { background: var(--purple-100); color: var(--purple-800); border-bottom: 0; font-weight: 650; }
 
 main { max-width: 1280px; margin: 0 auto; padding: 30px 22px 80px; }
 section.view { display: none; animation: fadeUp 0.35s ease; }

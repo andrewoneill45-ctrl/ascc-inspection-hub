@@ -36,15 +36,33 @@ const rendered = {};
 function initApp() {
   if (appInitialised) return;
   appInitialised = true;
-  document.getElementById("tabs").addEventListener("click", e => {
+  const tabs = document.getElementById("tabs");
+  tabs.addEventListener("click", e => {
+    const ddBtn = e.target.closest(".dd-btn");
+    if (ddBtn) {
+      const dd = ddBtn.parentElement;
+      const wasOpen = dd.classList.contains("open");
+      tabs.querySelectorAll(".dd").forEach(d => d.classList.remove("open"));
+      if (!wasOpen) dd.classList.add("open");
+      return;
+    }
     const btn = e.target.closest("button[data-view]");
     if (!btn) return;
+    tabs.querySelectorAll(".dd").forEach(d => d.classList.remove("open"));
     showView(btn.dataset.view);
+  });
+  document.addEventListener("click", e => {
+    if (!e.target.closest("#tabs .dd")) tabs.querySelectorAll(".dd").forEach(d => d.classList.remove("open"));
   });
   showView("dashboard");
 }
 function showView(name) {
-  document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("active", b.dataset.view === name));
+  document.querySelectorAll(".tabs button[data-view]").forEach(b => b.classList.toggle("active", b.dataset.view === name));
+  // highlight a group button when one of its children is the active view
+  document.querySelectorAll(".tabs .dd").forEach(dd => {
+    const owns = !!dd.querySelector(`button[data-view="${name}"]`);
+    dd.querySelector(".dd-btn").classList.toggle("active", owns);
+  });
   document.querySelectorAll("section.view").forEach(s => s.classList.toggle("active", s.id === "view-" + name));
   if (!rendered[name]) { RENDER[name](); rendered[name] = true; }
   window.scrollTo({ top: 0 });
