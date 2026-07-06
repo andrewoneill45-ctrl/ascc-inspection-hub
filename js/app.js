@@ -407,9 +407,16 @@ function renderEnrichment() {
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
       <div class="card stat"><div class="num">8 / 8</div><div class="lbl">DfE enrichment benchmarks met</div><div class="ctx">Framework published 15 June 2026 — we already met it</div></div>
-      <div class="card stat"><div class="num">${c.total}</div><div class="lbl">Clubs running this year</div><div class="ctx neutral">${c.attendances.toLocaleString()} attendances logged on Class Charts</div></div>
-      <div class="card stat"><div class="num">${c.uniquePupils}</div><div class="lbl">Pupils in at least one club (${c.pctOfRoll}% of roll)</div><div class="ctx neutral">Plus compulsory P7 Enrichment & 4+ trips for every pupil</div></div>
-      <div class="card stat"><div class="num">${c.ppShare}%</div><div class="lbl">of club members are Pupil Premium</div><div class="ctx">vs ${c.ppSchool}% of the school — near-perfect parity</div></div>
+      <div class="card stat"><div class="num">${c.uniquePupils}</div><div class="lbl">Pupils in at least one club (${c.pctOfRoll}% of roll)</div><div class="ctx">84% sustained across both halves of the year</div></div>
+      <div class="card stat"><div class="num">${c.attendances.toLocaleString()}</div><div class="lbl">Club attendances logged (${c.total} clubs)</div><div class="ctx">Per-half-term rate more than doubled after Elev:8 expansion</div></div>
+      <div class="card stat"><div class="num">+7.2</div><div class="lbl">Attendance gap: club members vs non-members</div><div class="ctx">94.5% vs 87.3% · SEN members +12.1 · PP members +9.4</div></div>
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card"><h3>Enrichment is the engine of attendance</h3><div class="chart-wrap" id="en-impact"></div>
+        <p class="note">${c.impact.note}</p></div>
+      <div class="card chart-card"><h3>% of each year group in at least one club</h3><div class="chart-wrap" id="en-byyear"></div>
+        <p class="note">${c.byYear.note}</p></div>
     </div>
 
     <div class="card" style="margin-bottom:18px">
@@ -417,11 +424,13 @@ function renderEnrichment() {
       <div id="bench-list"></div>
     </div>
 
-    <div class="grid cols-2" style="margin-bottom:18px">
-      <div class="card chart-card"><h3>Biggest clubs by membership</h3><div class="chart-wrap" id="en-clubs"></div>
-        <p class="note">${c.breadth}</p></div>
+    <div class="grid cols-3" style="margin-bottom:18px">
+      <div class="card chart-card"><h3>Biggest clubs (summer term)</h3><div class="chart-wrap" id="en-clubs"></div>
+        <p class="note">${c.topNote} ${c.breadth}</p></div>
       <div class="card chart-card"><h3>Who enrichment reaches (benchmark 5)</h3><div class="chart-wrap" id="en-parity"></div>
         <p class="note">${c.note}</p></div>
+      <div class="card chart-card"><h3>A growing offer — attendances per half term</h3><div class="chart-wrap" id="en-growth"></div>
+        <p class="note">${c.growth.note}</p></div>
     </div>
 
     <div class="card" style="margin-bottom:18px">
@@ -473,14 +482,24 @@ function renderEnrichment() {
       </div>`));
   });
 
+  makeChart("en-impact", { type: "bar", data: { labels: c.impact.labels, datasets: [
+    { label: "Club members — school attendance %", data: c.impact.members, backgroundColor: BRAND.purple, borderRadius: 6 },
+    { label: "Non-members", data: c.impact.nonMembers, backgroundColor: BRAND.grey, borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { min: 75, max: 100 } } } });
+  makeChart("en-byyear", { type: "bar", data: { labels: c.byYear.labels, datasets: [
+    { label: "% of cohort in at least one club", data: c.byYear.pct,
+      backgroundColor: c.byYear.labels.map(l => l === "Year 8" ? BRAND.gold : BRAND.purple), borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { max: 100 } } } });
   makeChart("en-clubs", { type: "bar", data: { labels: c.top.map(x => x[0]), datasets: [
-    { label: "Members", data: c.top.map(x => x[1]), backgroundColor: BRAND.purple, borderRadius: 5 },
-    { label: "Attendances logged", data: c.top.map(x => x[2]), backgroundColor: BRAND.gold, borderRadius: 5 } ] },
-    options: { maintainAspectRatio: false, indexAxis: "y", scales: { x: { beginAtZero: true } } } });
+    { label: "Members", data: c.top.map(x => x[1]), backgroundColor: c.top.map(x => x[0].includes("Elev:8") ? BRAND.gold : BRAND.purple), borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true } } } });
   makeChart("en-parity", { type: "bar", data: { labels: ["Pupil Premium", "SEN"], datasets: [
     { label: "% of school roll", data: [c.ppSchool, c.senSchool], backgroundColor: BRAND.grey, borderRadius: 6 },
     { label: "% of club members", data: [c.ppShare, c.senShare], backgroundColor: BRAND.purple, borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 50 } } } });
+  makeChart("en-growth", { type: "bar", data: { labels: c.growth.labels, datasets: [
+    { label: "Logged attendances per half term", data: c.growth.perHT, backgroundColor: [BRAND.purpleFaint, BRAND.purple], borderRadius: 6 } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } } } });
   const dip = ASCC.enrichment.y8DipChart;
   makeChart("en-dip", { type: "bar", data: { labels: dip.labels, datasets: [
     { label: "Matched attendance change (pts) vs last year", data: dip.deltas, backgroundColor: dip.deltas.map(d => d < -1 ? BRAND.red : (d >= 0 ? BRAND.green : BRAND.purpleLight)), borderRadius: 6 } ] },

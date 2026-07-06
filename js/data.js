@@ -197,8 +197,10 @@ var ASCC = {
       headline: "A rich, deliberate personal development offer — trips, enrichment, ESP and Elev:8 — reaches every pupil including the disadvantaged, alongside a well-planned PSHCE curriculum and a genuine focus on staff wellbeing.",
       evidence: [
         "Every pupil attends at least 4 trips a year (2 Curriculum Enhancement Days, 2 Activity Days) plus whole-school celebration days (Culture, All Saints, Feast, Sports).",
-        "Elev:8 and ESP programmes are transformational, with real potential for national scaling.",
-        "Participation tracked (EVOLVE trip attendance, Class Charts club 'stars') — disadvantaged pupils demonstrably access the same offer.",
+        "All 8 DfE Enrichment Framework benchmarks met (framework published June 2026 — our provision predates it). 404 pupils (45% of roll) in clubs, 3,695 logged attendances, 84% sustaining participation across the year.",
+        "Enrichment is the engine of attendance: club members attend school at 94.5% vs 87.3% for non-members — +9.4 points for PP members and +12.1 for SEN members.",
+        "Elev:8 is transformational and measurable: 91% of the whole Year 8 cohort in clubs — the national 'dip' year is now our most engaged year group.",
+        "Participation tracked (EVOLVE trip attendance, Class Charts club 'stars') with PP/SEN/EAL flags — disadvantaged pupils demonstrably access the same offer.",
         "Student voice shows pupils recognise and value the opportunities and can generally articulate school values."
       ],
       development: [
@@ -540,16 +542,34 @@ var ASCC = {
     intro: "The DfE's Enrichment Framework was published on 15 June 2026. All Saints didn't have to change anything to meet it — the extended enrichment day, tracked club participation and Elev:8 already deliver every benchmark. The framework caught up with us.",
     frameworkUrl: "https://www.gov.uk/government/publications/the-enrichment-framework-for-schools-and-colleges/enrichment-benchmarks",
     clubs: {
-      total: 31, uniquePupils: 350, pctOfRoll: 39.0, attendances: 1723,
-      ppShare: 35.1, ppSchool: 39.3, senShare: 20.3, senSchool: 22.0,
-      note: "Class Charts club 'stars' — every attendance logged. Participation mirrors the school's profile: PP pupils are 39.3% of the roll and 35.1% of club members; SEN 22.0% of roll, 20.3% of members. Enrichment reaches the pupils national data says are most likely to miss out.",
+      total: 35, uniquePupils: 404, pctOfRoll: 45.0, attendances: 3695,
+      sustained: 84,
+      ppShare: 34.4, ppSchool: 39.3, senShare: 20.5, senSchool: 22.0,
+      note: "Class Charts club 'stars' — every attendance logged, full year (HT1–6). Participation mirrors the school's profile: PP pupils are 39.3% of the roll and 34.4% of club members; SEN 22.0% of roll, 20.5% of members; participation spans every prior-attainment band (63% of higher, 54% of middle, ~40% of lower prior attainers). Enrichment reaches the pupils national data says are most likely to miss out — and we can prove it pupil by pupil.",
       top: [
-        ["Basketball", 62, 141], ["Volleyball", 54, 138], ["KS3 Cooking", 49, 159],
-        ["Netball", 45, 147], ["Y7 Boys Football", 43, 175], ["Maths Homework Support", 39, 116],
-        ["Theatre Design", 36, 137], ["Y8 Boys Football (Elev:8)", 36, 116], ["Dodgeball", 36, 57],
-        ["Girls Football", 35, 91]
+        ["Basketball", 57, 132], ["Table Tennis (Elev:8)", 52, 135], ["Volleyball", 51, 129],
+        ["KS3 Cooking", 48, 151], ["Y7 Boys Football", 43, 175], ["Netball", 41, 137],
+        ["Maths Homework Support", 39, 116], ["Y8 Boys Football (Elev:8)", 36, 116],
+        ["Girls Football", 36, 94], ["Making the Leap (Elev:8)", 27, 83]
       ],
-      breadth: "31 clubs spanning sport (basketball, volleyball, netball, dodgeball, football for boys and girls, cycling), arts (art, theatre design, dance, K-Pop, choir, music ensemble, creative writing), academics (maths problem-solving, EAL & maths homework support, book club, MFL, history, film & philosophy), and life skills (cooking, Green Club)."
+      topNote: "HT5–6 membership. Table Tennis (Elev:8) launched this term and was instantly the school's second-biggest club.",
+      breadth: "35 clubs by the summer term, spanning sport (basketball, volleyball, netball, dodgeball, table tennis, football for boys and girls, cycling), arts (art, theatre design ×2, ReAct Theatre, dance, K-Pop, choir, music ensemble, creative writing), academics (maths problem-solving, EAL & maths homework support, book club, MFL, history, film & philosophy), and life skills (cooking ×3, gardening, Green Club, Making the Leap).",
+      growth: {
+        labels: ["HT1–4 (avg per half term)", "HT5–6 (avg per half term)"],
+        perHT: [431, 986],
+        note: "Six new Elev:8 clubs launched for the summer term (Table Tennis, Making the Leap, ReAct Theatre, Gardening, Art, Theatre Design) — and logged club attendances per half term more than doubled, from ~431 to ~986. The offer is growing and pupils are voting with their feet."
+      },
+      byYear: {
+        labels: ["Year 7", "Year 8", "Year 9", "Year 10", "Year 11"],
+        pct: [73, 91, 29, 21, 4],
+        note: "Year 8 — the 'dip' year — is now the school's most-engaged year group: 91% of the entire cohort attended at least one club, against 73% in Y7. That inversion of the national engagement curve is Elev:8 working in real time. KS4 participation shifts by design into revision, intervention and Sports Studies programmes as exam season arrives."
+      },
+      impact: {
+        labels: ["All pupils", "Pupil Premium", "SEN", "10+ club visits"],
+        members: [94.52, 92.41, 92.65, 95.49],
+        nonMembers: [87.28, 82.99, 80.55, null],
+        note: "School attendance of club members vs non-members (full year, n=897). Club members attend 7.2 points better overall; for PP pupils the gap is +9.4 and for SEN pupils +12.1. Pupils with 10+ logged club visits attend at 95.49%. We present this as association, not simple causation — but belonging drives attendance, and enrichment is how this school builds belonging. It is the engine of the whole-school attendance strategy."
+      }
     },
     categories: [
       { cat: "Civic engagement", dfe: "Volunteering, debating, school democracy, community engagement", ascc: "Faith in Action & The Mission (service programmes), student leadership & student voice, Green Club sustainability projects, house system and inter-house democracy." },
@@ -573,13 +593,13 @@ var ASCC = {
         evidence: "Student voice surveys shape the club list (K-Pop, film & philosophy and dodgeball all came from pupil demand); Student Leaders run activities with staff support; clubs are built on staff expertise from theatre design to cycling." },
       { n: 5, title: "Accessible and engaging for all", status: "Met",
         indicator: "Equitable, inclusive, accessible — with participation monitored and barriers addressed, especially for SEND and disadvantaged pupils.",
-        evidence: "The strongest card we hold: participation is tracked pupil-by-pupil with PP/SEN flags. PP pupils are 35% of club members (39% of roll); SEN 20% (22% of roll) — near-perfect parity. Free uniform/PE kit for all, funded places and free Y11 prom tickets remove cost barriers. This is a monitored entitlement, not an open offer." },
+        evidence: "The strongest card we hold: participation is tracked pupil-by-pupil with PP/SEN/EAL flags and prior-attainment bands. 404 pupils (45% of the roll) attended clubs this year; PP pupils are 34% of members (39% of roll), SEN 21% (22%) — near parity — and participation spans every KS2 band. Club members attend school 7.2 points better than non-members (SEN members +12.1). Free uniform/PE kit for all, funded places and free Y11 prom tickets remove cost barriers. A monitored entitlement, not an open offer." },
       { n: 6, title: "Works in partnership", status: "Met",
         indicator: "Partnerships broaden the offer; feedback processes exist; signposting beyond the school's own offer.",
         evidence: "PGL Liddington residential; London businesses host the London Leaders day; West London Zone, GRIT Mentoring, Latimer Community Art Therapy and Catholic Children's Society enrich provision; Schola Cantorum tours internationally; EVOLVE manages external trip quality." },
       { n: 7, title: "Outcomes-focused", status: "Met",
         indicator: "Pupil outcomes considered in design; effective systems (including MIS) collect and monitor outcome-related data.",
-        evidence: "Exactly what Class Charts delivers: 1,723 logged club attendances against a named baseline of all 898 pupils with PP/SEN flags — participation cross-referenced with attendance, behaviour and progress data. Compass+ tracks careers outcomes from September." },
+        evidence: "Exactly what Class Charts delivers: 3,695 logged club attendances across the year against a named baseline of all 898 pupils with PP/SEN/EAL flags and KS2 bands — participation cross-referenced with whole-school attendance (members 94.5% vs non-members 87.3%). 84% of participants sustained their involvement across both halves of the year. Compass+ tracks careers outcomes from September." },
       { n: 8, title: "Continually improving", status: "Met",
         indicator: "Feedback gathered from pupils, parents, staff and partners; the offer continuously improves.",
         evidence: "Impact tracking for every trip, event and programme is a named SEF priority (DWI/RFU, live from September); Elev:8 itself is the proof of continuous improvement — a whole-year-group redesign built from our own participation and attendance data." }
@@ -589,7 +609,7 @@ var ASCC = {
       what: "Elev:8 is a year-long programme that redesigns Year 8 around enrichment: a whole-cohort PGL Liddington residential in HT1, compulsory weekly P7 Enrichment (creative arts, STEM, literacy & spoken word, sport, enterprise & coding), aspiration assemblies with role models, the London Leaders business challenge (stars earned for attendance, effort and club participation; top 20 win an immersive leadership day in central London), and inter-house music and sport competitions.",
       why: "Research by Professor John Jerrim (UCL Institute of Education) shows pupil engagement falls off a cliff between the end of Year 7 and Year 8 — the 'Year 8 dip'. We see it in our own data: matched-pupil attendance falls 2.29 points as pupils move from Y7 into Y8, the biggest drop of any transition. Most schools notice the dip; we redesigned the year around it.",
       aheadOfCurve: "Elev:8 was designed before the DfE published its Enrichment Framework (15 June 2026) — and it delivers the framework's benchmarks by design: all five activity categories, a residential, pupil leadership, outcome tracking through stars, and equitable access for a year group where 39% are Pupil Premium. Evidence-led (Jerrim, EEF extending-school-time conditions) and innovation-minded (nobody else is doing this for Year 8).",
-      clubsNow: "Elev:8-badged clubs are already among the school's biggest: Y8 Boys Football (36 members — 21 PP, 13 SEN), Y8 Girls Football (19), and two Elev:8 cooking strands (39 combined)."
+      clubsNow: "Elev:8 is already reshaping the data. Six new Elev:8 clubs launched for the summer term — Table Tennis was instantly the school's second-biggest club (52 members) — alongside Y8 Boys Football (36 members: 21 PP, 13 SEN), Making the Leap (27) and three cooking strands. Result: 91% of the whole Year 8 cohort attended at least one club this year, the highest of any year group — the 'dip' year is now the most engaged year in the school."
     },
     y8DipChart: {
       labels: ["Y7 → Y8", "Y8 → Y9", "Y9 → Y10", "Y10 → Y11"],
