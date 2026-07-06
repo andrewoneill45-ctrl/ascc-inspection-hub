@@ -199,8 +199,9 @@ var ASCC = {
       ]
     },
     {
-      id: "personal", area: "Personal Development & Well-being", grade: "Strong", scale: 4,
-      headline: "A rich, deliberate personal development offer — trips, enrichment, ESP and Elev:8 — reaches every pupil including the disadvantaged, alongside a well-planned PSHCE curriculum and a genuine focus on staff wellbeing.",
+      id: "personal", area: "Personal Development & Well-being", grade: "Exceptional", scale: 5,
+      note: "Upgraded from Strong, July 2026, on new evidence — confirm with SLT before the call",
+      headline: "A rich, deliberate personal development offer — enrichment, Elev:8, careers and character — reaches every pupil including the disadvantaged, with participation tracked pupil-by-pupil and impact evidenced at scale. The DfE's enrichment framework and the refreshed Gatsby benchmarks both arrived after this school already met them.",
       evidence: [
         "Every pupil attends at least 4 trips a year (2 Curriculum Enhancement Days, 2 Activity Days) plus whole-school celebration days (Culture, All Saints, Feast, Sports).",
         "All 8 DfE Enrichment Framework benchmarks met (framework published June 2026 — our provision predates it). 404 pupils (45% of roll) in clubs, 3,695 logged attendances, 84% sustaining participation across the year.",
@@ -210,8 +211,9 @@ var ASCC = {
         "Voice data at scale: 94% of 416 Culture Day respondents said the day made them feel they belong to the All Saints community; 99% of parents call the enrichment offer valuable; 91% of the pupil panel agree the school encourages kindness, respect and helping others."
       ],
       development: [
-        "Careers/PSHCE staffing has been inconsistent; impact tracking light on data — Compass+ and Class Charts close this from September.",
-        "Confidence that every pupil (not just Student Leaders) can articulate British Values fluently needs strengthening, particularly in Year 9."
+        "Careers/PSHCE staffing has been inconsistent historically — now substantially answered: Compass+ run twice with identical scores (92% average), 30 events logged and delivered, tracking live. KS3 curriculum-careers embedding (Gatsby BM4, 75%) is the named remaining gap, in SoW from September.",
+        "Confidence that every pupil (not just Student Leaders) can articulate British Values fluently needs strengthening, particularly in Year 9.",
+        "The Exceptional case in one line: all 8 DfE enrichment benchmarks met before the framework existed; 45% of roll in tracked clubs at PP/SEN parity; Elev:8 inverted the national Y8 dip (91% participation); Gatsby 100% on personal guidance and needs-of-each-pupil; 94% belonging from 416 pupil voices; 99% of parents value the offer. Transformational for disadvantaged pupils — with receipts."
       ],
       priorities: [
         ["Consistent PSHCE delivery in form time; planned careers programme per year group", "RFU / careers lead", "Live for Sept"],
@@ -503,7 +505,7 @@ var ASCC = {
           "8.3% of cohort suspended (was ~17% in 2023–24); days lost down 61%",
           "Every suspension authorised by the Headteacher; Emmaus Centre + reintegration meetings"
         ] },
-      { id: "personal", label: "Personal Development", type: "pillar", grade: "Strong", size: 14,
+      { id: "personal", label: "Personal Development", type: "pillar", grade: "Exceptional", size: 14,
         desc: "4+ trips per pupil per year; ESP & Elev:8; tracked entitlement; Gatsby 92%.",
         stats: [
           "Every pupil: 4+ trips a year; 30 careers/PSHCE events delivered incl. whole-Y10 work experience week",

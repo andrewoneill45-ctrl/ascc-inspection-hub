@@ -123,6 +123,12 @@ function renderDashboard() {
       <div class="card stat"><div class="num">92.41%</div><div class="lbl">Attendance (FFT, May 2026)</div><div class="ctx">+0.78 vs national · +2.22 vs similar schools</div></div>
       <div class="card stat"><div class="num">0</div><div class="lbl">Permanent exclusions this year</div><div class="ctx">7 → 3 → 2 → 0 over four years · suspensions −43.9% from peak</div></div>
     </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      <div class="card stat"><div class="num">100%</div><div class="lbl">of surveyed parents say their child feels safe — and 100% would recommend the school</div><div class="ctx">82/82, Y7 & Y10 · safeguarding audit: “exemplary”</div></div>
+      <div class="card stat"><div class="num">45%</div><div class="lbl">of the roll in tracked clubs — members attend +7.2 points better</div><div class="ctx">SEN members +12.1 · Elev:8 Y8 at 91% participation</div></div>
+      <div class="card stat"><div class="num">8/8</div><div class="lbl">DfE enrichment benchmarks met · Gatsby careers at 92%</div><div class="ctx">Both frameworks arrived after we already met them</div></div>
+      <div class="card stat"><div class="num">45%</div><div class="lbl">of teachers freely chose the school's #1 priority as their own target</div><div class="ctx">54 self-reflections · coached targets · reading CPD at 92%</div></div>
+    </div>
     <div class="grid cols-4" style="margin-bottom:26px">
       <div class="card stat"><div class="num">${c.fsm.pct}%</div><div class="lbl">Free School Meals (${c.fsm.n} pupils)</div><div class="ctx neutral">FSM6 41.8% — well above national</div></div>
       <div class="card stat"><div class="num">${c.ehcp.pct}%</div><div class="lbl">EHC Plans (${c.ehcp.n} pupils)</div><div class="ctx neutral">Well above average, rising each year</div></div>
@@ -151,7 +157,8 @@ function renderDashboard() {
             <li style="margin-bottom:6px"><strong>Thinking Reading & Y7 Fluency Pilot</strong> → reading comprehension <strong>+7</strong>, phonics <strong>+5</strong> — answering our own reading data (54% below age-related).</li>
             <li style="margin-bottom:6px"><strong>Oracy in every Scheme of Work</strong> → oral language (high impact); national Oracy Commission case study.</li>
             <li style="margin-bottom:6px"><strong>Y11 intervention</strong> → small-group <strong>+4</strong> / one-to-one <strong>+5</strong>; book priorities → feedback <strong>+6</strong>.</li>
-            <li><strong>Elev:8</strong> → built on Professor John Jerrim's research on the Year 8 engagement dip — visible in our own matched data (−2.29pts Y7→Y8).</li>
+            <li style="margin-bottom:6px"><strong>Elev:8</strong> → built on Professor John Jerrim's research on the Year 8 engagement dip — visible in our own matched data (−2.29pts Y7→Y8).</li>
+            <li><strong>Staff development</strong> → EEF Effective PD mechanisms end-to-end: 54 narrative self-reflections, coached targets, drop-ins against each teacher's own goal — 45% chose the school's #1 priority themselves.</li>
           </ul>
         </div>
         <div>
@@ -161,6 +168,7 @@ function renderDashboard() {
             <li style="margin-bottom:6px"><strong>Elev:8</strong> — no other school has redesigned Year 8 around the engagement dip: residential, compulsory P7 enrichment, London Leaders.</li>
             <li style="margin-bottom:6px"><strong>Phone-free culture</strong> — national and international coverage before the policy debate caught up.</li>
             <li style="margin-bottom:6px"><strong>Teacher 'lie-ins' & flexible working</strong> — retention innovation the Education Secretary later endorsed.</li>
+            <li style="margin-bottom:6px"><strong>Emmanuel</strong> — £400k of secured capital for a reintegration hub and literacy pathway, business-cased from our own data triangulation.</li>
             <li><strong>System leadership</strong> — Headteacher advises the Secretary of State; DSL audits other schools' safeguarding.</li>
           </ul>
         </div>
