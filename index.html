@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ASCC Inspection Hub · All Saints Catholic College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;550;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+</head>
+<body>
+
+  <!-- ================= LOGIN ================= -->
+  <div class="login-screen" id="login">
+    <div class="login-card">
+      <img class="crest" src="https://lirp.cdn-website.com/b31b4580/dms3rep/multi/opt/All+Saints+Web+Logo+Purple-1920w.png" alt="All Saints Catholic College">
+      <div class="motto">Orare · Laborare · Servire</div>
+      <h1>Inspection Hub</h1>
+      <p class="sub">Senior Leadership Team · Ofsted 2026<br>Enter the access password to continue.</p>
+      <form id="login-form">
+        <input type="password" id="password" placeholder="Password" autocomplete="off" autofocus>
+        <button type="submit">Enter the Hub</button>
+      </form>
+      <div class="login-error" id="login-error"></div>
+      <div class="login-foot">All Saints Catholic College · 75 St Charles Square, London W10 6EL<br>Internal use only — contains unpublished, provisional data.</div>
+    </div>
+  </div>
+
+  <!-- ================= APP ================= -->
+  <div class="app" id="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <img class="crest" src="https://lirp.cdn-website.com/b31b4580/dms3rep/multi/opt/All+Saints+Web+Logo+Purple-1920w.png" alt="ASCC">
+        <div class="title">
+          <h1>All Saints Catholic College · Inspection Hub</h1>
+          <span>Orare · Laborare · Servire — Ofsted, July 2026</span>
+        </div>
+        <div class="badge">URN 100503 · RBKC · 896 on roll</div>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <div class="tabs-inner" id="tabs">
+        <button data-view="dashboard" class="active">Dashboard</button>
+        <button data-view="sef">Self-Evaluation</button>
+        <button data-view="results">Results &amp; Trends</button>
+        <button data-view="years">Year Groups</button>
+        <button data-view="climate">Attendance &amp; Behaviour</button>
+        <button data-view="graph">Connections</button>
+        <button data-view="framework">Framework</button>
+        <button data-view="media">Innovation &amp; Press</button>
+        <button data-view="ask">✦ Ask</button>
+      </div>
+    </nav>
+
+    <main>
+      <section class="view active" id="view-dashboard"></section>
+      <section class="view" id="view-sef"></section>
+      <section class="view" id="view-results"></section>
+      <section class="view" id="view-years"></section>
+      <section class="view" id="view-climate"></section>
+      <section class="view" id="view-graph"></section>
+      <section class="view" id="view-framework"></section>
+      <section class="view" id="view-media"></section>
+      <section class="view" id="view-ask"></section>
+    </main>
+
+    <footer>
+      <div class="motto">Orare · Laborare · Servire</div>
+      All Saints Catholic College — Inspection Hub. Internal SLT preparation tool.<br>
+      2025 figures are internal SISRA estimates (provisional); 2026 figures are predictions. Confirmed data: 2023 &amp; 2024 published results.
+    </footer>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
