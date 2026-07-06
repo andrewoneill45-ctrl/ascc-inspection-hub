@@ -738,31 +738,39 @@ function renderCareers() {
   const ca = ASCC.careers;
   el("view-careers").appendChild(h(`
     <div class="view-head">
-      <h2>Careers — measured against the Gatsby Benchmarks</h2>
+      <h2>Careers — guidance nobody here has to buy</h2>
       <p>${ca.intro} <a href="https://www.gatsbybenchmarks.org.uk/" target="_blank" rel="noopener">Gatsby Benchmarks →</a></p>
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
       ${ca.tiles.map(t => `<div class="card stat"><div class="num">${t[0]}</div><div class="lbl">${t[1]}</div></div>`).join("")}
     </div>
-    <div class="card chart-card" style="margin-bottom:18px">
-      <h3>Compass+ score by benchmark (March 2026)</h3>
-      <div class="chart-wrap" id="ca-scores"></div>
-      <p class="note">${ca.scoresNote}</p>
-    </div>
     <div class="card" style="margin-bottom:18px">
-      <h3>Benchmark by benchmark — evidence and named gaps</h3>
-      <div id="ca-bench"></div>
+      <h3>What careers looks like for a pupil here</h3>
+      <div class="grid cols-2" style="margin-top:10px">
+        ${ca.offer.map(o => `
+          <div style="border-left:4px solid var(--purple-500);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.92rem">${o[0]}</div>
+            <div style="font-size:0.85rem;margin-top:3px">${o[1]}</div>
+          </div>`).join("")}
+      </div>
     </div>
-    <div class="grid cols-2">
-      <div class="card" style="border-left:5px solid var(--gold)">
-        <h3>Why the 75% is a strength, not a weakness</h3>
-        <p style="font-size:0.88rem">${ca.honest}</p>
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card">
+        <h3>Compass+ score by benchmark (March 2026)</h3>
+        <div class="chart-wrap" id="ca-scores"></div>
+        <p class="note">${ca.scoresNote}</p>
       </div>
       <div class="card" style="border-left:5px solid var(--green)">
         <h3>The pupil voice check</h3>
         <p style="font-size:0.88rem">${ca.voiceTie}</p>
-        <p style="font-size:0.82rem;color:var(--muted);margin-top:8px">See the <a href="#" onclick="gotoView('voice');return false;">Student &amp; Parent Voice</a> page for the full Careers Day feedback, and <a href="#" onclick="gotoView('enrichment');return false;">Enrichment</a> for London Leaders.</p>
+        <p style="font-size:0.82rem;color:var(--muted);margin-top:8px">See <a href="#" onclick="gotoView('voice');return false;">Student &amp; Parent Voice</a> for the full Careers Day feedback, and <a href="#" onclick="gotoView('enrichment');return false;">Enrichment</a> for London Leaders.</p>
+        <h4>Development plan</h4>
+        <p style="font-size:0.83rem">${ca.devplan}</p>
       </div>
+    </div>
+    <div class="card">
+      <h3>Benchmark by benchmark — the evidence</h3>
+      <div id="ca-bench"></div>
     </div>
   `));
   const bl = el("ca-bench");
@@ -773,13 +781,12 @@ function renderCareers() {
         <div class="bench-body">
           <div class="bench-title">${b.title} <span class="pill ${b.score === 100 ? "met" : "strong"}">${b.score}%</span></div>
           <div class="bench-ev">${b.evidence}</div>
-          ${b.gap ? `<div class="bench-ind" style="margin-top:5px;color:#7a5c10;font-style:normal"><strong>Named gap → response:</strong> ${b.gap}</div>` : ""}
         </div>
       </div>`));
   });
   makeChart("ca-scores", { type: "bar", data: { labels: ca.scores.labels, datasets: [
     { label: "Compass+ score %", data: ca.scores.pct,
-      backgroundColor: ca.scores.pct.map(v => v === 100 ? BRAND.green : (v >= 85 ? BRAND.purple : BRAND.gold)), borderRadius: 6 } ] },
+      backgroundColor: ca.scores.pct.map(v => v === 100 ? BRAND.green : BRAND.purple), borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 100 } } } });
 }
 

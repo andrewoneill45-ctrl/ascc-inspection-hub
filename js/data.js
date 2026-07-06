@@ -809,42 +809,43 @@ var ASCC = {
 
   /* ---------- Careers: Compass+ vs Gatsby Benchmarks ---------- */
   careers: {
-    intro: "Careers provision self-assessed twice this year on Compass+ (December 2025 and March 2026) against the refreshed 2024 Gatsby Benchmarks — the tougher framework that became the statutory expectation for all secondary schools from September 2025. Average score across all eight benchmarks: 92%, with three at 100% and none below 75%.",
+    intro: "In a school where 44% of pupils are FSM, careers guidance cannot be left to families to buy privately — so here, every pupil gets it. Personal guidance for all, destinations tracked into the long term, employer days pupils quote by name, and a business-leadership programme inside the extended day. Measured against the refreshed 2024 Gatsby Benchmarks — the tougher framework that only became statutory in September 2025 — the programme scores 92% overall, with full marks on the benchmarks that matter most for this community.",
+    offer: [
+      ["Personal guidance — every pupil", "1:1 careers guidance for all, with the advice given to each pupil systematically tracked. Gatsby Benchmark 8: 100%."],
+      ["Built for this community", "Aspirations raised, stereotypes challenged, diverse role models and alumni; personalised support for disadvantaged and SEND pupils; destinations followed beyond the school gate — sustained and longer-term. Benchmark 3 (the inclusion benchmark): 100%."],
+      ["Employers pupils remember", "Y10 Careers Day with banking, The Economist, data analytics and youth work — rated 4–5/5 by 76% of pupils, sessions quoted by name in feedback."],
+      ["The world of work inside the school day", "London Leaders (Elev:8): stars earned for effort and participation, top 20 winning an immersive leadership day with central-London businesses."]
+    ],
     tiles: [
-      ["92%", "average score across all eight Gatsby Benchmarks (Compass+, March 2026)"],
-      ["3 × 100%", "benchmarks fully achieved — including Personal Guidance for every pupil"],
-      ["0", "benchmarks below 75% — every gap specific, named and planned"],
-      ["2", "full Compass+ evaluations this year (Dec & Mar) — evaluation itself is Benchmark 1 evidence"]
+      ["100%", "Personal guidance (Benchmark 8) — every pupil, tracked"],
+      ["100%", "Addressing the needs of each pupil (Benchmark 3) — the inclusion benchmark"],
+      ["92%", "average across all eight refreshed Gatsby Benchmarks"],
+      ["2", "full Compass+ evaluations this year, identical scores — a stable, honestly-scored programme"]
     ],
     scores: {
       labels: ["1. Stable programme", "2. Career & LMI", "3. Needs of each pupil", "4. Curriculum links", "5. Employer encounters", "6. Workplace experiences", "7. FE & HE encounters", "8. Personal guidance"],
       pct: [100, 95, 100, 75, 88, 87, 90, 100]
     },
-    scoresNote: "Both evaluations returned identical scores — a stable, honestly-scored baseline. National context: schools nationally average 5.96 of 8 benchmarks fully achieved on self-report; we publish our rigorous self-assessment openly, with the sub-question evidence behind every score.",
+    scoresNote: "Self-assessed rigorously and conservatively on Compass+, twice this year (December and March), against the refreshed 2024 benchmarks — with sub-question evidence behind every score. No benchmark sits below 75%.",
     benchmarks: [
       { n: 1, title: "A stable careers programme", score: 100,
         evidence: "Trained Careers Leader; explicit backing of Headteacher and governors; programme published on the website in accessible formats; linked to the school development plan; sequenced learning outcomes; evaluated with feedback from pupils, parents, teachers, support staff, advisers AND employers — every sub-question achieved." },
       { n: 2, title: "Learning from career and labour market information", score: 95,
-        evidence: "Almost all pupils (91–99%) at KS3 and KS4 access good-quality, current LMI; parents actively encouraged and supported to use it, with tailored information sent home; almost all staff equipped to reference it.",
-        gap: "One item 'in progress': confidence that pupils actively use LMI in decisions — the pupil-facing follow-through, tracked from September." },
+        evidence: "Almost all pupils (91–99%) at KS3 and KS4 access good-quality, current labour-market information; parents actively encouraged and supported to use it, with tailored information sent home; almost all staff equipped to reference it." },
       { n: 3, title: "Addressing the needs of each pupil", score: 100,
         evidence: "The inclusion benchmark — full marks. Aspirations actively raised, stereotypes challenged, diverse role models showcased (all 'strongly agree'); alumni used; every pupil's participation, advice and destinations systematically recorded and shared; personalised support for disadvantaged and SEND pupils; sustained AND longer-term destination data used to evaluate the programme." },
       { n: 4, title: "Linking curriculum learning to careers", score: 75,
-        evidence: "Careers visible in most Year 9+ curriculum time and for most staff.",
-        gap: "The named gap: careers embedded in only a few Y7 lessons (1–25%) and some Y8 (26–50%). Response: careers written into Schemes of Work alongside the oracy pillar from September, with staff CPD — exactly the SEF careers priority (RFU/careers lead, live for September)." },
+        evidence: "Careers visible in most Year 9+ curriculum time and for most staff — with KS3 embedding scheduled into Schemes of Work from September alongside the oracy pillar." },
       { n: 5, title: "Encounters with employers and employees", score: 88,
-        evidence: "Meaningful employer encounters running across year groups — the Y10 Careers Day (banking, The Economist, data analytics, youth work) rated 4–5/5 by 76% of pupils.",
-        gap: "'In progress': sharing a clear purpose with employer AND pupils before every encounter — structured encounter briefs from September." },
+        evidence: "Meaningful employer encounters running across year groups — the Y10 Careers Day (banking, The Economist, data analytics, youth work) rated 4–5/5 by 76% of pupils." },
       { n: 6, title: "Experiences of workplaces", score: 87,
-        evidence: "Workplace experiences established — London Leaders immersive business days extend reach.",
-        gap: "Some pupils (26–50%) have a meaningful workplace experience so far — the expansion target, building on the employer network and Elev:8 London Leaders model." },
+        evidence: "Workplace experiences established and expanding through the employer network — with London Leaders immersive business days extending reach through the extended day." },
       { n: 7, title: "Encounters with further and higher education", score: 90,
-        evidence: "Most pupils encounter universities and higher technical/FE providers; strong post-16 transition support.",
-        gap: "'In progress': extending encounters to every pupil with a clear shared purpose — bookings tracked on Compass+ from September." },
+        evidence: "Most pupils encounter universities and higher technical/FE providers, with strong post-16 transition support." },
       { n: 8, title: "Personal guidance", score: 100,
         evidence: "Every pupil accesses personal careers guidance — full marks on every sub-question. In a school where 44% are FSM, individual guidance is not left to families to buy privately." }
     ],
-    honest: "The gaps are not vague: Compass+ names the exact sub-questions, and each one already has a response in the SEF's careers priority (planned careers programme per year group, careers/PSHCE consistency, Compass+ tracking — live for September). We found the gaps ourselves, twice, and published them. That is Benchmark 1 behaviour: a stable programme that evaluates itself honestly.",
+    devplan: "Compass+ names the specific next steps, and each already sits in the SEF careers priority (live for September): careers embedded into KS3 Schemes of Work with staff CPD; structured purpose-briefs for every employer and FE/HE encounter; workplace experiences extended to more pupils via the employer network and London Leaders; pupil use of labour-market information tracked. Found by our own evaluation, twice — that is what Benchmark 1 calls a stable programme.",
     voiceTie: "Pupil voice backs the scores: 76% rated Y10 Careers Day 4–5/5, with employer sessions cited by name — 'banking… gave me a real understanding of what to do to achieve it.'"
   },
 
