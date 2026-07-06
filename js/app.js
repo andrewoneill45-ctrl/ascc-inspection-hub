@@ -34,7 +34,7 @@ document.getElementById("login-form").addEventListener("submit", async e => {
 let appInitialised = false;
 const rendered = {};
 const VIEW_TITLES = {
-  dashboard: "Dashboard", sef: "Self-Evaluation", send: "SEND — Interventions & Impact", results: "Results & Trends",
+  dashboard: "Dashboard", sef: "Self-Evaluation", send: "SEND — Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
   years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour",
   enrichment: "Enrichment", careers: "Careers & Gatsby Benchmarks", voice: "Student & Parent Voice", graph: "Connections",
   scenarios: "Scenario Lab", governors: "Governors' Challenge",
@@ -342,6 +342,77 @@ function renderSend() {
   makeChart("sd-gal", { type: "bar", data: { labels: s.galilee.gains.labels, datasets: [
     { label: "Percentage-point gain, pre → post", data: s.galilee.gains.pct, backgroundColor: BRAND.gold, borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 50 } } } });
+}
+
+/* ================= STAFF DEVELOPMENT ================= */
+function renderStaff() {
+  const st = ASCC.staff;
+  el("view-staff").appendChild(h(`
+    <div class="view-head">
+      <h2>Staff Development — the engine room</h2>
+      <p>${st.intro}</p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      ${st.tiles.map(t => `<div class="card stat"><div class="num">${t[0]}</div><div class="lbl">${t[1]}</div></div>`).join("")}
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card">
+        <h3>Teachers chose the school's priorities as their own</h3>
+        <div class="chart-wrap" id="st-domains"></div>
+        <p class="note">${st.domains.note}</p>
+      </div>
+      <div class="card">
+        <h3>The development cycle — bespoke to every teacher</h3>
+        <div id="st-cycle"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <h3>Real targets, this year (anonymised)</h3>
+      <div class="quote-grid" style="margin-top:10px">
+        ${st.targets.map(t => `
+          <div class="quote-card">
+            <div class="quote-theme">${t[0]}</div>
+            <div class="quote-text" style="font-size:0.88rem">${t[1]}</div>
+          </div>`).join("")}
+      </div>
+      <p class="note">${st.targetsNote}</p>
+    </div>
+
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Evidence base — EEF</h3>
+        <div class="eef-grid" style="margin-top:10px">
+          ${st.eef.map(e => `
+            <a class="eef-card" href="${e.url}" target="_blank" rel="noopener">
+              <div class="eef-head"><span class="eef-strand">${e.strand}</span><span class="eef-impact">${e.impact}</span></div>
+              <div class="eef-action">${e.action}</div>
+            </a>`).join("")}
+        </div>
+      </div>
+      <div class="card" style="border-left:5px solid var(--gold)">
+        <h3>${st.retention.headline}</h3>
+        <ul style="margin-left:18px;font-size:0.86rem;margin-top:10px">${st.retention.points.map(p => `<li style="margin-bottom:8px">${p}</li>`).join("")}</ul>
+        <span class="phrase">“We look after our staff so they can look after our pupils.”</span>
+      </div>
+    </div>
+  `));
+  const cyc = el("st-cycle");
+  st.cycle.forEach((c, i) => {
+    cyc.appendChild(h(`
+      <div class="bench-row" style="padding:10px 0">
+        <div class="bench-num">${i + 1}</div>
+        <div class="bench-body">
+          <div class="bench-title" style="font-size:0.9rem">${c[0]}</div>
+          <div class="bench-ev" style="font-size:0.82rem">${c[1]}</div>
+        </div>
+      </div>`));
+  });
+  makeChart("st-domains", { type: "bar", data: { labels: st.domains.labels, datasets: [
+    { label: "Draft focus (self-reflection, %)", data: st.domains.draftPct, backgroundColor: BRAND.purpleFaint, borderRadius: 5 },
+    { label: "Final coached target (%)", data: st.domains.finalPct, backgroundColor: BRAND.purple, borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 50, title: { display: true, text: "% of staff" } } } } });
 }
 
 /* ================= RESULTS ================= */
@@ -1482,7 +1553,7 @@ function escapeHtml(s) {
 
 /* ---------------- Render map ---------------- */
 const RENDER = {
-  dashboard: renderDashboard, sef: renderSef, send: renderSend, results: renderResults,
+  dashboard: renderDashboard, sef: renderSef, send: renderSend, staff: renderStaff, results: renderResults,
   years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, enrichment: renderEnrichment,
   careers: renderCareers, voice: renderVoice, graph: renderGraph,
   scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,

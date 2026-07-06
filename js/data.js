@@ -93,7 +93,7 @@ var ASCC = {
       id: "curriculum", area: "Curriculum & Teaching", grade: "Strong", scale: 4,
       headline: "An ambitious curriculum for every pupil, coherently sequenced so knowledge and foundational skills build securely over time, delivered through consistently strong, responsive teaching — despite significantly higher-than-average disadvantage, SEND and EHCPs.",
       evidence: [
-        "Curriculum Pillars (fully implemented from September) and the coaching-based 'Active Ingredients' model give every subject a consistent, evidence-informed approach.",
+        "Curriculum Pillars (fully implemented from September) and the coaching-based 'Active Ingredients' model give every subject a consistent, evidence-informed approach — 54 teachers wrote narrative self-reflections this year and 40 hold coached personal targets, 45% freely choosing adaptive teaching, the school's own named priority (see Staff Development tab).",
         "Curriculum Progress Reviews (CPR) keep Schemes of Work live and continually refined.",
         "Whole-school T&L average 2.08; 80% of lesson drop-in statements rated expected or strong.",
         "2024 outcomes prove the curriculum is landing: Progress 8 +0.69 vs −0.03 national; Attainment 8 5.39 vs 4.59 national.",
@@ -536,11 +536,12 @@ var ASCC = {
           "Lived daily: prayer & liturgy, Schola Cantorum, Faith in Action, The Mission"
         ] },
       { id: "coaching", label: "Coaching & Staff Development", type: "driver", size: 12,
-        desc: "Active Ingredients model; CPD for 24% ITT/ECT staff; staff wellbeing innovation.",
+        desc: "Active Ingredients model; every teacher reflects, chooses, is coached; 45% chose the school's #1 priority.",
         stats: [
-          "Active Ingredients coaching model in every subject",
-          "24% ITT/ECT staff developed into consistent practitioners through CPD",
-          "Staff wellbeing innovation (flexible working, 'lie-ins') — nationally covered retention strategy"
+          "54 narrative self-reflections across the 5 Active Ingredients domains; 40 coached personal targets live",
+          "45% of teachers freely chose adaptive teaching — the SEF's named priority — as their own target; 25% dialogic/questioning (oracy)",
+          "Whole-staff Unlocking Reading: 59 staff, every department, 92% quiz average",
+          "24% ITT/ECT developed into consistency; wellbeing innovation ('lie-ins') nationally covered"
         ] },
       { id: "data", label: "Intelligent Assessment & Data", type: "driver", size: 12,
         desc: "Data drops, SISRA, Bedrock SAS, reading tests → targeted, evaluated intervention.",
@@ -1080,6 +1081,57 @@ var ASCC = {
       ]
     }
   ],
+
+  /* ---------- Staff Development ---------- */
+  staff: {
+    intro: "A quarter of the teaching staff are trainees or early-career — and outcomes sit significantly above national. That is not luck; it is a development machine. Every teacher self-reflects in narrative against the five Active Ingredients domains, drafts a focus with a rationale, sharpens it into a specific target through coaching, and is then seen — half-termly drop-ins and book looks — against that target. Development here is chosen, coached and checked.",
+    tiles: [
+      ["54", "teachers completed narrative self-reflection across all five Active Ingredients domains"],
+      ["40", "specific, personal development targets live — coached from draft to final"],
+      ["45%", "chose adaptive teaching — the school's own #1 named priority, chosen freely"],
+      ["92%", "average staff score on whole-school Unlocking Reading training (59 staff, every department)"]
+    ],
+    domains: {
+      labels: ["Instructional Delivery", "Formative Assessment", "Relationships & Routines", "Adaptive Teaching", "Dialogic & Questioning"],
+      draftPct: [22, 13, 9, 35, 20],
+      finalPct: [13, 15, 3, 45, 25],
+      note: "Draft focus (self-reflection, n=54) vs final target (n=40), % of staff. The movement between draft and final is the coaching conversation at work — and the destination is the school's improvement plan: 45% landed on adaptive teaching (the SEF's named lever for SEN Support and disadvantaged pupils) and 25% on dialogic teaching & questioning (the oracy pillar). Teachers chose the school's priorities as their own."
+    },
+    cycle: [
+      ["Reflect", "Every teacher writes a narrative self-assessment against the five Active Ingredients domains — sentences, not tick-boxes. 54 completed this year, from ECTs to senior leaders."],
+      ["Choose", "Each drafts a focus area with a written rationale — honest ones: 'I don't always gather the evidence'; 'I don't always adapt resources to stretch the high attainers'."],
+      ["Sharpen", "A coaching conversation turns the focus into a specific, observable target: 'worked examples and thinking aloud for complex tasks', 'wait time then targeted questioning', 'live marking with actionable feedback'."],
+      ["Practise & be seen", "Half-termly lesson drop-ins and book looks are read against each teacher's own target — T&L average 2.08, with 80% of statements expected or strong."],
+      ["Learn together", "Whole-staff strands run alongside: Unlocking Reading Modules 1+2 completed by 59 staff across every department at a 92% quiz average — reading as everyone's job, provably understood."],
+      ["Show the impact", "The model's fingerprints are in the outcomes: P8 +0.69 vs −0.03 national with a quarter of staff in their first years of teaching — and 100% of surveyed parents satisfied with teaching."]
+    ],
+    targets: [
+      ["Adaptive Teaching", "Scaffolding adjusted to pupil proficiency for Y11 walking-talking-mocks — support faded as pupils grow."],
+      ["Adaptive Teaching", "Research and trial adaptive strategies in 9X2 to stretch and challenge every pupil, not just support the middle."],
+      ["Instructional Delivery", "Rosenshine when modelling complex tasks: break into steps, think aloud, worked examples, check understanding."],
+      ["Instructional Delivery", "Guided practice before independence — 'I do, we do' before 'you do'."],
+      ["Dialogic & Questioning", "Pupil-specific questions with proper wait time, then targeted — every pupil expecting to be asked."],
+      ["Formative Assessment", "Prioritise live marking and actionable feedback; build pupil self-assessment and reflection."],
+      ["Formative Assessment", "Teach misconceptions deliberately — pupils identify mistakes and articulate why they're wrong."],
+      ["Adaptive Teaching", "Zero pairs for negative numbers across year groups — one concept, taught consistently, measured." ]
+    ],
+    targetsNote: "Real targets from this year's forms (anonymised). Note the language — Rosenshine, wait time, worked examples, live marking, misconception teaching: an evidence-literate staff body writing its own EEF-aligned development plan.",
+    eef: [
+      { strand: "EEF Effective Professional Development (guidance report)", impact: "Guidance", url: "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/effective-professional-development", action: "The cycle hits all four PD mechanisms: build knowledge (whole-staff modules), motivate (self-chosen goals with rationale), develop techniques (coaching + modelling), embed practice (drop-ins against the personal target)." },
+      { strand: "Metacognition & self-regulation", impact: "+8 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation", action: "Modelling, thinking aloud and worked examples run through the instructional-delivery targets — the Toolkit's highest-impact strand." },
+      { strand: "Feedback", impact: "+6 months", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback", action: "Live marking, actionable feedback and pupil self-assessment are recurring personal targets." },
+      { strand: "Oral language interventions", impact: "High impact", url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions", action: "A quarter of staff chose dialogic teaching & questioning — the classroom end of the oracy pillar." }
+    ],
+    retention: {
+      headline: "Develop them, and keep them: the wellbeing offer that made national news.",
+      points: [
+        "Flexible working and teacher 'lie-ins' — covered by the Guardian, Schools Week and LBC, later endorsed by the Education Secretary — built to make working here sustainable.",
+        "24% of teaching staff are ITTs or ECTs: the school deliberately grows its own, with the coaching architecture to make new teachers consistent fast.",
+        "Recruitment and retention practice referenced at the Education Business Awards 2025; staff wellbeing named in the SEF: 'we look after our staff so they can look after our pupils.'",
+        "The Headteacher advises the Secretary of State on schools policy; the DSL audits other schools; leaders speak nationally on teaching — development here reaches beyond the building."
+      ]
+    }
+  },
 
   /* ---------- Scenario Lab (what-if / innovation) ---------- */
   scenarios: {
