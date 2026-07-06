@@ -287,6 +287,13 @@ a.media-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); 
 .perm-title { font-size: 0.78rem; font-weight: 750; color: var(--purple-800); text-transform: uppercase; letter-spacing: 0.05em; }
 .perm-text { font-size: 0.8rem; color: var(--ink); margin-top: 4px; line-height: 1.5; }
 
+/* ---------- Voice ---------- */
+.quote-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.quote-card { background: var(--purple-50); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; }
+.quote-theme { font-size: 0.66rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 6px; }
+.quote-text { font-family: var(--serif); font-size: 0.95rem; color: var(--purple-900); line-height: 1.45; flex: 1; }
+.quote-who { font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
+
 /* framework */
 .scale-row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .scale-row:last-child { border-bottom: 0; }

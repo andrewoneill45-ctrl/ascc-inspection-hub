@@ -53,7 +53,8 @@ var ASCC = {
         "Immediate concerns from the review already actioned; remaining actions tracked and ongoing.",
         "All 145 staff trained (KCSIE annual, Prevent, online safety, FGM); 12 Level 3-trained DSL/DDSLs; compliant, audited Single Central Record; every member of staff knows the 5 Rs.",
         "Culture is verifiable: pupil voice confirms all children know who to talk to; CPOMS evidences rapid follow-up, including appropriately challenging social care; Securus monitors digital safety; monthly online-safety newsletters reach every family.",
-        "System leadership: the DSL audited a Westminster primary's safeguarding (June 2026) and spoke at a national attendance conference — practice strong enough that other schools borrow it. See the full culture picture on the Attendance & Behaviour tab."
+        "System leadership: the DSL audited a Westminster primary's safeguarding (June 2026) and spoke at a national attendance conference — practice strong enough that other schools borrow it. See the full culture picture on the Attendance & Behaviour tab.",
+        "Parent voice is unanimous: 100% of surveyed parents (82/82, Y7 and Y10) say their child feels safe at school; 99% say the school promotes a safe and respectful environment."
       ],
       development: ["Persistent absence (20.9%) as a safeguarding-adjacent priority."],
       priorities: [
@@ -95,6 +96,7 @@ var ASCC = {
         "Curriculum Progress Reviews (CPR) keep Schemes of Work live and continually refined.",
         "Whole-school T&L average 2.08; 80% of lesson drop-in statements rated expected or strong.",
         "2024 outcomes prove the curriculum is landing: Progress 8 +0.69 vs −0.03 national; Attainment 8 5.39 vs 4.59 national.",
+        "Parents agree: 100% satisfied with the quality of teaching (76% 'very satisfied'); 96% say their child is appropriately challenged (Y7 & Y10 surveys, n=82).",
         "National recognition: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; senior leaders invited to speak externally on teaching and learning."
       ],
       development: [
@@ -175,7 +177,8 @@ var ASCC = {
         "Permanent exclusions 7 → 3 → 2 → 0 across four years — below national average; every past PEX involved a serious safeguarding risk (drugs, a weapon, serious assault) after prior intervention.",
         "8.3% of the cohort suspended this year vs ~17% in 2023–24; days lost to suspension down 61% from the peak; repeat-suspension rate down from 77.9% to a stable 67.0%.",
         "Graduated system: Emmaus Centre internal provision and structured off-site direction as alternatives; every suspension authorised by the Headteacher (SENCo/DSL joining where relevant) and followed by a reintegration meeting.",
-        "Year 11 suspensions fell from 18 in HT1 to 4 by HT5 within this year; low-level behaviour resolved without escalation."
+        "Year 11 suspensions fell from 18 in HT1 to 4 by HT5 within this year; low-level behaviour resolved without escalation.",
+        "The community feels it: 100% of parents say the school promotes a safe and respectful environment (81/82); 91% of the pupil panel agree the school encourages kindness and respect."
       ],
       development: [
         "Year 9 (9.4%) and Year 11 (11.7%, improving) suspension rates elevated vs Y7 (2.8%) and Y10 (4.4%) — a known national pattern for Y9.",
@@ -202,7 +205,7 @@ var ASCC = {
         "Enrichment is the engine of attendance: club members attend school at 94.5% vs 87.3% for non-members — +9.4 points for PP members and +12.1 for SEN members.",
         "Elev:8 is transformational and measurable: 91% of the whole Year 8 cohort in clubs — the national 'dip' year is now our most engaged year group.",
         "Participation tracked (EVOLVE trip attendance, Class Charts club 'stars') with PP/SEN/EAL flags — disadvantaged pupils demonstrably access the same offer.",
-        "Student voice shows pupils recognise and value the opportunities and can generally articulate school values."
+        "Voice data at scale: 94% of 416 Culture Day respondents said the day made them feel they belong to the All Saints community; 99% of parents call the enrichment offer valuable; 91% of the pupil panel agree the school encourages kindness, respect and helping others."
       ],
       development: [
         "Careers/PSHCE staffing has been inconsistent; impact tracking light on data — Compass+ and Class Charts close this from September.",
@@ -623,7 +626,7 @@ var ASCC = {
         evidence: "Club offer published to families each term; Class Charts stars and EVOLVE records celebrate and evidence participation; London Leaders rewards conduct, effort and club attendance with a central-London leadership day; assemblies and awards evenings celebrate enrichment achievement." },
       { n: 4, title: "Shaped by the school community", status: "Met",
         indicator: "Pupil, parent and staff voice shapes the offer; pupil leadership encouraged; staff interests and capacity considered.",
-        evidence: "Student voice surveys shape the club list (K-Pop, film & philosophy and dodgeball all came from pupil demand); Student Leaders run activities with staff support; clubs are built on staff expertise from theatre design to cycling." },
+        evidence: "Student voice surveys shape the club list (K-Pop, film & philosophy and dodgeball all came from pupil demand); Student Leaders run activities with staff support; clubs are built on staff expertise from theatre design to cycling. Voice is collected at scale — 416 Culture Day responses, 97 All Saints Day, plus parent surveys — and pupils' suggestions visibly shape the next event." },
       { n: 5, title: "Accessible and engaging for all", status: "Met",
         indicator: "Equitable, inclusive, accessible — with participation monitored and barriers addressed, especially for SEND and disadvantaged pupils.",
         evidence: "The strongest card we hold: participation is tracked pupil-by-pupil with PP/SEN/EAL flags and prior-attainment bands. 404 pupils (45% of the roll) attended clubs this year; PP pupils are 34% of members (39% of roll), SEN 21% (22%) — near parity — and participation spans every KS2 band. Club members attend school 7.2 points better than non-members (SEN members +12.1). Free uniform/PE kit for all, funded places and free Y11 prom tickets remove cost barriers. A monitored entitlement, not an open offer." },
@@ -650,6 +653,60 @@ var ASCC = {
       improved: [32, 53, 46, 64],
       note: "Matched-pupil attendance change vs the same pupils last year (to 22 May). The Y7→Y8 transition shows the steepest fall — the national 'Year 8 dip' Jerrim documents, visible in our own data. Elev:8 is the structural answer. At the other end, 64% of Year 11 pupils improved their attendance on last year — against the national trend of decline into exam year."
     }
+  },
+
+  /* ---------- Student & Parent Voice (2025-26 surveys) ---------- */
+  voice: {
+    intro: "Nearly 700 survey responses across six instruments this year — two parent surveys (Y7 n=52, Y10 n=30), a whole-school pupil panel (n=43), Culture Day (n=416), All Saints Day (n=97) and Y10 Careers Day (n=33). The pattern is consistent: parents are emphatic, big-event data is outstanding, and the candid pupil panel tells us exactly where to keep improving — in areas we had already named.",
+    parents: {
+      n: 82,
+      headline: [
+        ["100%", "of parents say their child feels safe at school (82/82 — every single response, both year groups)"],
+        ["100%", "would recommend All Saints to other parents (84% 'very likely')"],
+        ["100%", "satisfied with the quality of teaching (76% 'very satisfied')"],
+        ["99%", "say enrichment opportunities are valuable (82% 'very valuable')"]
+      ],
+      themes: {
+        labels: ["Child feels safe", "Safe & respectful environment", "Would recommend", "Teaching quality", "Enrichment valuable", "Appropriately challenged", "Communication effective", "Views listened to", "Child happy"],
+        pct: [100, 99, 100, 100, 99, 94, 95, 94, 95]
+      },
+      themesNote: "Combined Y7 + Y10 parent surveys (n=82), % positive ('yes' or satisfied/likely and above). Y7 transition from primary rated 4 or 5 out of 5 by 87% of parents; 29 of 30 Y10 parents call reports and parents' evenings 'very helpful'."
+    },
+    events: [
+      ["Culture Day", 416, "90% enjoyed the day (3–4 on a 4-point scale)", "94% said the day made them feel they belonged to the All Saints community"],
+      ["All Saints Day", 97, "Pupils' favourite moments: the production, team-building and house events", "Feedback loop live: pupils' suggestions shape next year's day — benchmark 8 in action"],
+      ["Y10 Careers Day", 33, "76% rated the day 4 or 5 out of 5", "Employer sessions (banking, The Economist, data analytics, youth work) cited as eye-opening; pupils asked for more options — which we're adding"]
+    ],
+    students: {
+      n: 43,
+      positives: [
+        ["91%", "agree the school encourages kindness, respect and helping others"],
+        ["100%", "feel safe at school at least sometimes — 70% 'often' or 'always'"],
+        ["74%", "agree people are treated fairly here regardless of gender, race or faith"],
+        ["72%", "feel comfortable being themselves at school"]
+      ],
+      honest: [
+        ["Only 37% say their opinions are 'often/always' listened to", "Already a named SEF priority: student voice opportunities embedded across the year (DWI/NKE), with the Culture Day 'you said, we listened' loop as the model."],
+        ["51% are certain who to talk to about a worry or idea", "Safeguarding team visibility campaign from September — the safeguarding review found children do know the team; this tells us to keep reinforcing it every term with every cohort."],
+        ["56% say staff deal with unkind behaviour 'often/always'", "Feeds the restorative-practice strand and the behaviour communication plan — pupils see the sanction, we need them to see the follow-through."]
+      ],
+      honestNote: "A deliberately candid 43-pupil panel — small n, unfiltered answers. We publish it to inspectors unprompted: every flag it raises was already a named, owned priority before the survey closed. That is what a listening school looks like."
+    },
+    quotes: [
+      { theme: "Safety & safeguarding", who: "Year 7 parent", text: "Safeguarding and informing about current ongoing situations." },
+      { theme: "Safety & safeguarding", who: "Pupil, whole-school panel", text: "What does the school do well? Keeping students safe. The safeguarding team." },
+      { theme: "Teaching", who: "Pupil, whole-school panel", text: "The school organises and teaches a subject really well and clearly — and the events are simply outstanding." },
+      { theme: "Teaching", who: "Year 7 parent", text: "They helped boost confidence in all subjects." },
+      { theme: "Teaching", who: "Year 10 parent", text: "Helping children to understand how to be successful for their GCSEs — keeping parents informed about gradual steps of expected revision and learning." },
+      { theme: "Belonging & enrichment", who: "Pupil, Culture Day", text: "Everyone gets a chance to feel proud of who they are and where they come from." },
+      { theme: "Belonging & enrichment", who: "Pupil, Culture Day", text: "To serve as a reminder that our diversity brings us closer together." },
+      { theme: "Belonging & enrichment", who: "Pupil, whole-school panel", text: "The school makes sure everyone feels accepted no matter what." },
+      { theme: "Behaviour & values", who: "Pupil, whole-school panel", text: "Not tolerating discrimination or racism, because of race or religion. Includes everyone." },
+      { theme: "Behaviour & values", who: "Pupil, whole-school panel", text: "Being kind to one another to establish a community of kindness and harmony." },
+      { theme: "Transition & communication", who: "Year 7 parent", text: "Relaying information and making the transition from primary easy." },
+      { theme: "Transition & communication", who: "Year 7 parent", text: "Communication from the school has always been excellent." },
+      { theme: "Careers", who: "Year 10 pupil, Careers Day", text: "Banking — I wanted to do it in the past, and this gave me a real understanding of what to do to achieve it." }
+    ]
   },
 
   /* ---------- Safeguarding culture (July 2026 report) ---------- */

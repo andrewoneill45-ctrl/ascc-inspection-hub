@@ -561,6 +561,71 @@ function renderEnrichment() {
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } } } });
 }
 
+/* ================= STUDENT & PARENT VOICE ================= */
+function renderVoice() {
+  const v = ASCC.voice;
+  el("view-voice").appendChild(h(`
+    <div class="view-head">
+      <h2>Student &amp; Parent Voice</h2>
+      <p>${v.intro}</p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      ${v.parents.headline.map(x => `
+        <div class="card stat"><div class="num">${x[0]}</div><div class="lbl">${x[1]}</div></div>`).join("")}
+    </div>
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card">
+        <h3>Parents on the school, theme by theme (n=${v.parents.n})</h3>
+        <div class="chart-wrap" id="vc-parents"></div>
+        <p class="note">${v.parents.themesNote}</p>
+      </div>
+      <div class="card">
+        <h3>Whole-school event voice</h3>
+        ${v.events.map(e => `
+          <div style="padding:12px 0;border-bottom:1px solid var(--line)">
+            <div style="font-weight:650;color:var(--purple-900)">${e[0]} <span style="font-size:0.75rem;color:var(--muted);font-weight:500">· ${e[1]} responses</span></div>
+            <div style="font-size:0.85rem;margin-top:3px">${e[2]}</div>
+            <div style="font-size:0.85rem;color:var(--green);font-weight:550;margin-top:2px">${e[3]}</div>
+          </div>`).join("")}
+        <p class="note">416 pupils responded to Culture Day alone — voice collected at scale, not from a hand-picked panel.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:18px">
+      <h3>In their own words</h3>
+      <div class="quote-grid">
+        ${v.quotes.map(q => `
+          <div class="quote-card">
+            <div class="quote-theme">${q.theme}</div>
+            <div class="quote-text">“${q.text}”</div>
+            <div class="quote-who">— ${q.who}</div>
+          </div>`).join("")}
+      </div>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>The candid panel — what pupils affirm (n=${v.students.n})</h3>
+        ${v.students.positives.map(x => `
+          <div style="display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)">
+            <span style="font-family:var(--serif);font-size:1.35rem;font-weight:650;color:var(--purple-800);min-width:64px">${x[0]}</span>
+            <span style="font-size:0.87rem">${x[1]}</span>
+          </div>`).join("")}
+      </div>
+      <div class="card" style="border-left:5px solid var(--gold)">
+        <h3>…and what they told us to improve</h3>
+        ${v.students.honest.map(x => `
+          <div style="padding:9px 0;border-bottom:1px solid var(--line)">
+            <div style="font-size:0.87rem;font-weight:650;color:#7a5c10">${x[0]}</div>
+            <div style="font-size:0.82rem;margin-top:3px">${x[1]}</div>
+          </div>`).join("")}
+        <p class="note">${v.students.honestNote}</p>
+      </div>
+    </div>
+  `));
+  makeChart("vc-parents", { type: "bar", data: { labels: v.parents.themes.labels, datasets: [
+    { label: "% positive", data: v.parents.themes.pct, backgroundColor: BRAND.purple, borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { min: 80, max: 100 } } } });
+}
+
 /* ================= CONNECTIONS GRAPH ================= */
 const EDGE_STYLE = {
   drives:    { color: "#4c2373", dash: null,      label: "Drives / feeds" },
@@ -1025,7 +1090,8 @@ function escapeHtml(s) {
 const RENDER = {
   dashboard: renderDashboard, sef: renderSef, results: renderResults,
   years: renderYears, climate: renderClimate, enrichment: renderEnrichment,
-  graph: renderGraph, framework: renderFramework, media: renderMedia, ask: renderAsk
+  voice: renderVoice, graph: renderGraph, framework: renderFramework,
+  media: renderMedia, ask: renderAsk
 };
 
 /* Auto-unlock for the current browser session (runs after all declarations) */
