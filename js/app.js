@@ -127,7 +127,7 @@ function renderDashboard() {
       <div class="card stat"><div class="num">100%</div><div class="lbl">of surveyed parents say their child feels safe — and 100% would recommend the school</div><div class="ctx">82/82, Y7 & Y10 · safeguarding audit: “exemplary”</div></div>
       <div class="card stat"><div class="num">45%</div><div class="lbl">of the roll in tracked clubs — members attend +7.2 points better</div><div class="ctx">SEN members +12.1 · Elev:8 Y8 at 91% participation</div></div>
       <div class="card stat"><div class="num">8/8</div><div class="lbl">DfE enrichment benchmarks met · Gatsby careers at 92%</div><div class="ctx">Both frameworks arrived after we already met them</div></div>
-      <div class="card stat"><div class="num">45%</div><div class="lbl">of teachers freely chose the school's #1 priority as their own target</div><div class="ctx">54 self-reflections · coached targets · reading CPD at 92%</div></div>
+      <div class="card stat"><div class="num">45%</div><div class="lbl">of teachers freely chose the school's #1 priority as their own target</div><div class="ctx">Codified handbook → coaching → T&L 2.08 → 100% parent satisfaction</div></div>
     </div>
     <div class="grid cols-4" style="margin-bottom:26px">
       <div class="card stat"><div class="num">${c.fsm.pct}%</div><div class="lbl">Free School Meals (${c.fsm.n} pupils)</div><div class="ctx neutral">FSM6 41.8% — well above national</div></div>
