@@ -198,6 +198,13 @@ td.bad { color: var(--red); font-weight: 650; }
 #graph-svg-wrap { background: linear-gradient(160deg, #fdfcff, var(--purple-50)); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; position: relative; }
 #graph-svg { display: block; width: 100%; height: min(64vh, 680px); min-height: 480px; cursor: grab; }
 #graph-svg:active { cursor: grabbing; }
+.graph-zoom { position: absolute; top: 12px; right: 12px; display: flex; flex-direction: column; gap: 6px; }
+.graph-zoom button {
+  width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line); background: rgba(255,255,255,0.95);
+  color: var(--purple-800); font-size: 1rem; font-weight: 650; cursor: pointer; box-shadow: var(--shadow);
+  font-family: var(--font); transition: background 0.15s, border-color 0.15s;
+}
+.graph-zoom button:hover { background: var(--purple-50); border-color: var(--purple-500); }
 .graph-legend { position: absolute; left: 14px; bottom: 12px; background: rgba(255,255,255,0.92); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font-size: 0.72rem; }
 .graph-legend .row { display: flex; align-items: center; gap: 8px; margin: 3px 0; }
 .legend-line { width: 26px; height: 0; border-top: 2.5px solid; }

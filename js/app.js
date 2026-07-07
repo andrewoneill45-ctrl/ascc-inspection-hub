@@ -1112,6 +1112,11 @@ function renderGraph() {
     <div class="graph-layout">
       <div id="graph-svg-wrap">
         <svg id="graph-svg"></svg>
+        <div class="graph-zoom">
+          <button id="gz-in" title="Zoom in">＋</button>
+          <button id="gz-out" title="Zoom out">－</button>
+          <button id="gz-fit" title="Reset view">⤢</button>
+        </div>
         <div class="graph-legend" id="graph-legend"></div>
       </div>
       <div class="card" id="graph-detail">
@@ -1131,8 +1136,26 @@ function renderGraph() {
 
   const svg = el("graph-svg");
   const W = Math.max(svg.clientWidth || 0, 1200), H = 680;
-  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   const NS = "http://www.w3.org/2000/svg";
+
+  /* ----- zoom & pan (viewBox camera) ----- */
+  let vb = { x: 0, y: 0, w: W, h: H };
+  function applyVB() { svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`); }
+  applyVB();
+  function zoomAt(factor, cx, cy) {                    // cx/cy in world coords
+    const nw = Math.min(Math.max(vb.w / factor, W / 4), W * 1.6);
+    const scale = nw / vb.w;
+    vb.x = cx - (cx - vb.x) * scale;
+    vb.y = cy - (cy - vb.y) * scale;
+    vb.w = nw; vb.h = vb.h * scale;
+    applyVB();
+  }
+  svg.addEventListener("wheel", ev => {
+    ev.preventDefault();
+    const pt = svgPoint(ev);
+    zoomAt(ev.deltaY < 0 ? 1.18 : 1 / 1.18, pt.x, pt.y);
+  }, { passive: false });
+  let panning = null;
   // soft drop shadow for root nodes
   svg.insertAdjacentHTML("beforeend",
     `<defs><filter id="nodeShadow" x="-60%" y="-60%" width="220%" height="220%">
@@ -1273,25 +1296,43 @@ function renderGraph() {
     nodes.filter(n => n.level === 1 && n.kids).slice().forEach(expandNode);
   }
   function collapseAll() { nodes.filter(n => !n.level && n.expanded).slice().forEach(collapseNode); }
+  svg.addEventListener("pointerdown", ev => {
+    if (dragging) return;                                  // a node grabbed its own pointerdown first
+    panning = { x: ev.clientX, y: ev.clientY, vx: vb.x, vy: vb.y };
+    svg.setPointerCapture(ev.pointerId);
+  });
   svg.addEventListener("pointermove", ev => {
-    if (!dragging) return;
-    // forgiving click: only becomes a drag after real movement (14px), so wobbly clicks on small dots still register
-    if (Math.abs(ev.clientX - dragStart.x) + Math.abs(ev.clientY - dragStart.y) > 14) dragStart.moved = true;
-    if (dragStart.moved) {
-      const pt = svgPoint(ev);
-      dragging.x = pt.x; dragging.y = pt.y; kick();
+    if (dragging) {
+      // forgiving click: only becomes a drag after real movement (14px), so wobbly clicks on small dots still register
+      if (Math.abs(ev.clientX - dragStart.x) + Math.abs(ev.clientY - dragStart.y) > 14) dragStart.moved = true;
+      if (dragStart.moved) {
+        const pt = svgPoint(ev);
+        dragging.x = pt.x; dragging.y = pt.y; kick();
+      }
+      return;
+    }
+    if (panning) {                                         // drag empty canvas to pan
+      const k = vb.w / svg.clientWidth;
+      vb.x = panning.vx - (ev.clientX - panning.x) * k;
+      vb.y = panning.vy - (ev.clientY - panning.y) * k;
+      applyVB();
     }
   });
   svg.addEventListener("pointerup", () => {
-    if (!dragging) return;
-    if (!dragStart.moved) {
-      const n = dragging;
-      if (!n.level) { pin(n); toggleExpand(n); }          // root: pin + break into sub-categories
-      else if (n.level === 1) { toggleExpand(n); pin(rootOf(n)); }  // category: break into data points
-      else pin(rootOf(n));                                 // data point: focus its root
+    if (dragging) {
+      if (!dragStart.moved) {
+        const n = dragging;
+        if (!n.level) { pin(n); toggleExpand(n); }          // root: pin + break into sub-categories
+        else if (n.level === 1) { toggleExpand(n); pin(rootOf(n)); }  // category: break into data points
+        else pin(rootOf(n));                                 // data point: focus its root
+      }
+      dragging.fixed = false; dragging = null;
     }
-    dragging.fixed = false; dragging = null;
+    panning = null;
   });
+  el("gz-in").addEventListener("click", () => zoomAt(1.3, vb.x + vb.w / 2, vb.y + vb.h / 2));
+  el("gz-out").addEventListener("click", () => zoomAt(1 / 1.3, vb.x + vb.w / 2, vb.y + vb.h / 2));
+  el("gz-fit").addEventListener("click", () => { vb = { x: 0, y: 0, w: W, h: H }; applyVB(); });
   function pin(n) {
     if (pinned) pinned.halo.setAttribute("opacity", 0);
     pinned = n;

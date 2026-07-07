@@ -695,7 +695,21 @@ var ASCC = {
       { s: "leadership", t: "emmanuel", type: "drives", why: "Leaders converted a data-triangulated need into £400k of secured RBKC capital, value-engineered by £150–175k." },
       { s: "emmanuel", t: "reading", type: "drives", why: "The adapted Y7–8 literacy pathway: daily decoding, fluency and Tier 2/3 vocabulary – for the 66 pupils reading 4+ years behind." },
       { s: "emmanuel", t: "send-out", type: "drives", why: "Reintegration hub + multi-agency space (EP, SaLT, OT) – the next layer of the graduated SEND response." },
-      { s: "emmanuel", t: "y11att", type: "watches", why: "Anxiety-driven absence is the hub's core cohort – interrupting the cycle before it hardens into KS4 patterns." }
+      { s: "emmanuel", t: "y11att", type: "watches", why: "Anxiety-driven absence is the hub's core cohort – interrupting the cycle before it hardens into KS4 patterns." },
+      { s: "enrichment", t: "attendance", type: "drives", why: "The engine claim, evidenced: club members attend 7.2 points better (SEN members +12.1); 10+ visits associates with 95.5%." },
+      { s: "safeguarding", t: "attendance", type: "drives", why: "One machinery, one leader: the DSL runs both; home visits, CME escalation and contracts serve safeguarding and attendance at once." },
+      { s: "leadership", t: "coaching", type: "drives", why: "Leaders built the Active Ingredients cycle and protect its time with named workload trade-offs." },
+      { s: "coaching", t: "reading", type: "drives", why: "Whole-staff Unlocking Reading CPD: 59 staff across every department at a 92% average – reading as everyone's pedagogy." },
+      { s: "data", t: "attendance", type: "drives", why: "Per-pupil trackers with two years of attendance and pastoral notes make every absence pattern visible and owned." },
+      { s: "data", t: "behaviour", type: "drives", why: "The internal log and suspension analysis are what let leaders prove four-year improvement and spot disproportionality themselves." },
+      { s: "pastoral", t: "behaviour", type: "drives", why: "Reintegration meetings, OSD placements and repeat-suspension provision reviews are pastoral machinery applied to behaviour." },
+      { s: "pastoral", t: "y11att", type: "watches", why: "Attendance Contracts with every Y10 PA/SA family before September target next year's Y11 risk directly." },
+      { s: "curriculum", t: "personal", type: "drives", why: "PSHCE, British Values, oracy and careers are taught through the curriculum – personal development is timetabled, not bolted on." },
+      { s: "inclusion", t: "dispro", type: "watches", why: "EHCP over-representation in suspensions is met with enhanced support plans, not lowered expectations." },
+      { s: "disadv", t: "gap", type: "watches", why: "The one number that qualifies the headline: disadvantaged pupils beat national while the in-school gap widens – named, owned, levered." },
+      { s: "innovation", t: "emmanuel", type: "evidences", why: "The innovation habit at capital scale: the same evidence-first discipline as Elev:8, now in bricks." },
+      { s: "emmanuel", t: "behaviour", type: "drives", why: "Seven pupils account for a third of suspensions; the hub is built to interrupt exactly that removal-and-return cycle." },
+      { s: "achievement", t: "send-out", type: "evidences", why: "EHCP +0.07 and SEN Support +0.13 Progress 8 (2024): the achievement data validates the SEND model." }
     ]
   },
 
