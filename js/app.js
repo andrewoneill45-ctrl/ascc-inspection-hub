@@ -63,6 +63,14 @@ function initApp() {
     if (!e.target.closest("#tabs .dd")) tabs.querySelectorAll(".dd").forEach(d => d.classList.remove("open"));
   });
 
+  /* Crest → Dashboard */
+  const crest = document.querySelector("header.topbar img.crest");
+  if (crest) {
+    crest.style.cursor = "pointer";
+    crest.title = "Back to Dashboard";
+    crest.addEventListener("click", () => showView("dashboard"));
+  }
+
   /* Export to PDF: browser print dialog with A4-landscape print styles */
   el("export-pdf").addEventListener("click", () => window.print());
   window.addEventListener("beforeprint", () => {
