@@ -1115,8 +1115,10 @@ function renderGraph() {
         <div class="graph-legend" id="graph-legend"></div>
       </div>
       <div class="card" id="graph-detail">
-        <h3>Talk across the school</h3>
-        <p class="placeholder">Click any node to bring up its key data, a live chart and every intersection – the lines a leader can walk an inspector along. Double-click to burst it into satellite data points.</p>
+        <div class="gd-empty">
+          <h3>Talk across the school</h3>
+          <p class="placeholder">Click any node to pin its key data, live chart and intersections here. Click again to break it into sub-categories, and those into data points.</p>
+        </div>
       </div>
     </div>
   `));
@@ -1128,9 +1130,14 @@ function renderGraph() {
     `<div class="row"><span class="legend-dot" style="background:${s.fill};border:2px solid ${s.stroke}"></span>${s.text}</div>`)));
 
   const svg = el("graph-svg");
-  const W = Math.max(svg.clientWidth || 0, 1000), H = 760;
+  const W = Math.max(svg.clientWidth || 0, 1200), H = 680;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   const NS = "http://www.w3.org/2000/svg";
+  // soft drop shadow for root nodes
+  svg.insertAdjacentHTML("beforeend",
+    `<defs><filter id="nodeShadow" x="-60%" y="-60%" width="220%" height="220%">
+       <feDropShadow dx="0" dy="1.2" stdDeviation="1.6" flood-color="#2a1245" flood-opacity="0.35"/>
+     </filter></defs>`);
 
   const nodes = ASCC.graph.nodes.map(n => ({ ...n,
     x: W / 2 + (Math.random() - 0.5) * W * 0.7,
@@ -1172,9 +1179,13 @@ function renderGraph() {
     halo.setAttribute("opacity", 0);
     const c = document.createElementNS(NS, "circle");
     c.setAttribute("r", nodeR(n));
-    if (lvl === 0) { c.setAttribute("fill", st.fill); c.setAttribute("stroke", n.type === "risk" ? st.stroke : "#ffffff"); c.setAttribute("stroke-width", 2); }
+    if (lvl === 0) { c.setAttribute("fill", st.fill); c.setAttribute("stroke", n.type === "risk" ? st.stroke : "#ffffff"); c.setAttribute("stroke-width", 2); c.setAttribute("filter", "url(#nodeShadow)"); }
     else if (lvl === 1) { c.setAttribute("fill", st.fill); c.setAttribute("fill-opacity", 0.55); c.setAttribute("stroke", st.fill); c.setAttribute("stroke-width", 1.4); }
     else { c.setAttribute("fill", "#fff"); c.setAttribute("stroke", st.fill); c.setAttribute("stroke-width", 1.4); }
+    // generous invisible hit target: small dots stay easy to click
+    const hit = document.createElementNS(NS, "circle");
+    hit.setAttribute("r", Math.max(nodeR(n) + 9, 16));
+    hit.setAttribute("fill", "transparent");
     const t = document.createElementNS(NS, "text");
     t.textContent = n.label;
     t.setAttribute("text-anchor", "middle");
@@ -1182,11 +1193,21 @@ function renderGraph() {
     t.setAttribute("font-weight", lvl === 0 ? "600" : lvl === 1 ? "650" : "500");
     t.setAttribute("fill", lvl === 0 ? "#5c5266" : lvl === 1 ? "#4c2373" : "#8b7f97");
     t.setAttribute("pointer-events", "none");
-    g.appendChild(halo); g.appendChild(c); g.appendChild(t);
+    t.setAttribute("paint-order", "stroke");
+    t.setAttribute("stroke", "#fdfcff");
+    t.setAttribute("stroke-width", "2.6");
+    t.setAttribute("stroke-linejoin", "round");
+    g.appendChild(halo); g.appendChild(hit); g.appendChild(c); g.appendChild(t);
     gNodes.appendChild(g);
     n.el = g; n.circle = c; n.text = t; n.halo = halo; n.r = nodeR(n);
-    g.addEventListener("mouseenter", () => { if (!pinned) { const r = rootOf(n); showDetail(r); highlight(r); } });
-    g.addEventListener("mouseleave", () => { if (!pinned) clearHighlight(); });
+    g.addEventListener("mouseenter", () => {
+      c.setAttribute("r", nodeR(n) + 1.6);
+      if (!pinned) { const r = rootOf(n); showDetail(r); highlight(r); }
+    });
+    g.addEventListener("mouseleave", () => {
+      c.setAttribute("r", nodeR(n));
+      if (!pinned) clearHighlight();
+    });
     g.addEventListener("pointerdown", ev => {
       ev.preventDefault();
       dragging = n; n.fixed = true;
@@ -1294,7 +1315,7 @@ function renderGraph() {
     links.forEach(l => l.el.setAttribute("stroke-opacity", l.hidden ? 0 : 0.32));
     nodes.forEach(m => m.el.setAttribute("opacity", 1));
     const d = el("graph-detail");
-    d.innerHTML = `<h3>Talk across the school</h3><p class="placeholder">Click any node to bring up its key data and every intersection – the lines a leader can walk an inspector along. Hover to preview; drag to rearrange.</p>`;
+    d.innerHTML = `<div class="gd-empty"><h3>Talk across the school</h3><p class="placeholder">Click any node to pin its key data, live chart and intersections here. Click again to break it into sub-categories, and those into data points.</p></div>`;
   }
   let sparkInstance = null;
   function renderSpark(spec) {
@@ -1341,18 +1362,29 @@ function renderGraph() {
         </div>`;
     }).join("");
     el("graph-detail").innerHTML = `
-      <span class="type-tag" style="color:${st.stroke}">${st.text}${n.grade ? " · " + n.grade : ""}</span>
-      <h3>${n.label}</h3>
-      <p style="font-size:0.84rem">${n.desc}</p>
-      <div class="graph-detail-actions">
-        ${ex.children ? `<button id="gd-expand">${n.expanded ? "⊖ Collapse satellites" : "⊕ Expand satellites"}</button>` : ""}
-        <button id="gd-ai">✦ AI infographic</button>
+      <div class="gd-head">
+        <span class="gd-dot" style="background:${st.fill};border-color:${st.stroke}"></span>
+        <div class="gd-titles">
+          <span class="type-tag" style="color:${st.stroke}">${st.text}${n.grade ? " · " + n.grade : ""}</span>
+          <h3>${n.label}</h3>
+        </div>
+        <div class="graph-detail-actions">
+          ${(ASCC.graphTree || {})[n.id] || ex.children ? `<button id="gd-expand">${n.expanded ? "⊖ Collapse" : "⊕ Break apart"}</button>` : ""}
+          <button id="gd-ai">✦ AI infographic</button>
+        </div>
       </div>
-      ${ex.spark ? `<div class="graph-spark-card"><div class="graph-spark-title">${ex.spark.title}</div><div id="graph-spark"></div></div>` : ""}
-      <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Key data</h4>
-      <ul class="node-stats">${stats}</ul>
-      <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Intersections – the lines to walk</h4>
-      <div class="conn-list">${conns}</div>`;
+      <div class="gd-grid">
+        <div class="gd-col">
+          <p class="gd-desc">${n.desc}</p>
+          <div class="gd-h">Key data</div>
+          <ul class="node-stats">${stats}</ul>
+        </div>
+        ${ex.spark ? `<div class="gd-col graph-spark-card"><div class="graph-spark-title">${ex.spark.title}</div><div id="graph-spark"></div></div>` : ""}
+        <div class="gd-col">
+          <div class="gd-h">Intersections – the lines to walk</div>
+          <div class="conn-list">${conns}</div>
+        </div>
+      </div>`;
     renderSpark(ex.spark);
     const xb = el("gd-expand");
     if (xb) xb.addEventListener("click", () => toggleExpand(n));
