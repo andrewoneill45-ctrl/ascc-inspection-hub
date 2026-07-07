@@ -840,6 +840,29 @@ var ASCC = {
         line: "Stretch is not reserved for the privileged: a quarter of Aquinas participants are Pupil Premium, and SEND pupils take part. The same graduate ASAs delivering structured SEND support run the most-able programme — one team, the whole ability range."
       }
     },
+    allchild: {
+      headline: "AllChild (formerly West London Zone) — a Link Worker embedded in the school, wrapping a two-year ecosystem of support around the Year 9 pupils most at risk of poor social, emotional and academic outcomes.",
+      tiles: [
+        ["30", "Year 9 pupils on the two-year AllChild Impact Programme (plus 5 in AllChild counselling)"],
+        ["7 + 5", "hours per pupil per term of Link Worker support plus specialist partner sessions"],
+        ["3", "family interactions per pupil per term — parents co-author each child's goals"],
+        ["4", "specialist partners this year: therapeutic woodwork, counselling, spoken word, ReAct drama"]
+      ],
+      outcomes: {
+        labels: ["Emotional literacy & regulation", "Communication & social skills", "Self-management & coping", "Identity & self-esteem", "Other"],
+        pct: [31.3, 28.1, 28.1, 9.4, 3.1],
+        note: "Short-term outcomes the cohort worked on in spring — a formal framework where each termly goal is a stepping stone to social, emotional, attendance and attainment pathway outcomes by the end of the two years. Goals are agreed three ways: pupil, Link Worker, parent."
+      },
+      engagement: "The Link Worker's own words: pupils who previously showed multiple disengaged behaviours 'now seek me or their teachers out to show us how many stars they have got in a week, or try increasingly hard to focus in lessons.' The reward currency they're chasing is our own Class Charts stars — the AllChild programme and the school's engagement systems reinforcing each other by design.",
+      vignette: "One Year 9 pupil, managing difficult experiences at home, had a termly goal — agreed between his Link Worker and his mother — of expressing his feelings. Through therapeutic partner sessions he now shares feelings openly, works for rewards in lessons, and reflects on his behaviour when points are given. His parent wrote to thank the Link Worker: 'he speaks enthusiastically about those moments — they are important to him.'",
+      intersections: [
+        ["Attendance", "Family interactions and trusted-adult relationships target exactly the anxiety-driven, home-rooted absence the attendance strategy names — and the Emmanuel reintegration hub will formalise."],
+        ["Engagement & behaviour", "Pupils chase Class Charts stars in lessons; goals address the emotional regulation behind behaviour points — the restorative arm of the behaviour system, delivered by a partner."],
+        ["Outcomes", "Termly SEMH goals ladder into attainment pathway outcomes across the two years — Year 9 (our highest-OSD, lowest-engagement year) is precisely the right cohort."],
+        ["Enrichment & voice", "ReAct drama (an AllChild partner) runs as an Elev:8 club; AllChild pupils co-designed stop-and-search recommendations with the Met, presenting at New Scotland Yard — citizenship, leadership and public speaking for the pupils least likely to get them."]
+      ],
+      community: "Beyond the gate: AllChild community days link families to local services over free food; the school sat in the first AllChild Schools Conference with the Reach Foundation. The partnership makes the school's inclusion work a neighbourhood project, not just a timetabled one."
+    },
     emmanuel: {
       tagline: "Emmanuel — “God with us”. The next build: a dedicated SEN provision, funded and evidenced.",
       what: "A 55m² modular SEN provision building with three functions: a reintegration hub for pupils whose anxiety-driven (SEMH/autism) absence keeps them out of mainstream — managed, relational transitions from non-attendance and part-time timetables back to full-time education; a centralised multi-agency intervention space (educational psychology, speech & language, occupational therapy) aligned with the Government's 'Every Child Achieving and Thriving' White Paper; and an adapted Y7–8 literacy pathway — daily, low-cognitive-load lessons with explicit decoding, fluency and Tier 2/3 vocabulary pre-teaching, so pupils keep up rather than catch up.",
@@ -905,7 +928,8 @@ var ASCC = {
       { theme: "Behaviour & values", who: "Pupil, whole-school panel", text: "Being kind to one another to establish a community of kindness and harmony." },
       { theme: "Transition & communication", who: "Year 7 parent", text: "Relaying information and making the transition from primary easy." },
       { theme: "Transition & communication", who: "Year 7 parent", text: "Communication from the school has always been excellent." },
-      { theme: "Careers", who: "Year 10 pupil, Careers Day", text: "Banking — I wanted to do it in the past, and this gave me a real understanding of what to do to achieve it." }
+      { theme: "Careers", who: "Year 10 pupil, Careers Day", text: "Banking — I wanted to do it in the past, and this gave me a real understanding of what to do to achieve it." },
+      { theme: "Targeted support", who: "Parent of a pupil on the AllChild Impact Programme", text: "Thank you for the support and care you have been giving my son. He speaks enthusiastically about those moments — they are important to him. Thank you for all your work and dedication." }
     ]
   },
 
@@ -985,7 +1009,7 @@ var ASCC = {
     ],
     permeates: [
       ["Attendance", "Safeguarding and attendance are one machinery: home visits for every severely absent pupil logged on CPOMS, external agency support for every pupil below 50%, and the DSL leads both."],
-      ["Inclusion & SEND", "16 external partnerships (CAMHS ×2 boroughs, art therapy, NHS SaLT & OT, autism outreach, West London Zone, GRIT) wrap around vulnerable pupils; EHCP pupils attend 9.13 points above national."],
+      ["Inclusion & SEND", "16 external partnerships (CAMHS ×2 boroughs, art therapy, NHS SaLT & OT, autism outreach, AllChild — formerly West London Zone — with an embedded Link Worker, GRIT) wrap around vulnerable pupils; EHCP pupils attend 9.13 points above national."],
       ["Curriculum", "Online safety, Prevent themes and healthy relationships taught through PSHCE; monthly family newsletters extend the curriculum home."],
       ["Community", "Supermarket vouchers, free uniform and PE kit for every family (alumni-funded), free Y11 prom tickets, Catholic Children's Society funds — dignity as safeguarding."],
       ["Transition", "Vulnerable incoming Y7 pupils identified before arrival; Y6 transition meetings carry structured safeguarding and attendance questions."],
@@ -1056,6 +1080,7 @@ var ASCC = {
     ],
     pastoral: [
       { label: "Machinery", kids: ["Home visits → CPOMS", "Attendance Contracts", "Agency support <50% att."] },
+      { label: "AllChild Link Worker", kids: ["30 Y9s, 2-yr programme", "7h + 5h per pupil per term", "3 family interactions/term"] },
       { label: "Proof", kids: ["Members 94.5% vs 87.3%", "EHCP +9.13 vs national"] }
     ],
     innovation: [

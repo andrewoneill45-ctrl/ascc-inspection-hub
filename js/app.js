@@ -341,6 +341,31 @@ function renderSend() {
       <p style="font-size:0.9rem">${s.closing}</p>
     </div>
 
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--green)">
+      <h3>AllChild — the embedded Link Worker</h3>
+      <p class="sef-headline" style="margin-top:10px">${s.allchild.headline}</p>
+      <div class="grid cols-4" style="margin:14px 0">
+        ${s.allchild.tiles.map(t => `
+          <div class="card stat" style="box-shadow:none"><div class="num" style="font-size:1.5rem">${t[0]}</div><div class="lbl">${t[1]}</div></div>`).join("")}
+      </div>
+      <div class="grid cols-2">
+        <div class="chart-card"><h4 style="margin-top:0">What the cohort worked on this term</h4><div class="chart-wrap" id="sd-allchild" style="height:230px"></div>
+          <p class="note">${s.allchild.outcomes.note}</p></div>
+        <div>
+          <h4 style="margin-top:0">Engagement, in the Link Worker's words</h4>
+          <p style="font-size:0.86rem">${s.allchild.engagement}</p>
+          <h4>One pupil's term (anonymised)</h4>
+          <p style="font-size:0.86rem">${s.allchild.vignette}</p>
+        </div>
+      </div>
+      <h4>Where it intersects</h4>
+      <div class="perm-grid">
+        ${s.allchild.intersections.map(x => `
+          <div class="perm-card"><div class="perm-title">${x[0]}</div><div class="perm-text">${x[1]}</div></div>`).join("")}
+      </div>
+      <p class="note" style="margin-top:10px">${s.allchild.community}</p>
+    </div>
+
     <div class="card elev8-card">
       <div class="elev8-head">
         <h3>${s.emmanuel.tagline}</h3>
@@ -363,6 +388,10 @@ function renderSend() {
     { label: "Entry (seconds — lower is better)", data: s.freshStart.pairs.before, backgroundColor: BRAND.grey, borderRadius: 5 },
     { label: "July 2026", data: s.freshStart.pairs.after, backgroundColor: BRAND.green, borderRadius: 5 } ] },
     options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: "Speed Sound time (s)" } } } } });
+  makeChart("sd-allchild", { type: "doughnut", data: { labels: s.allchild.outcomes.labels, datasets: [
+    { label: "% of cohort goals", data: s.allchild.outcomes.pct,
+      backgroundColor: [BRAND.purple, BRAND.gold, BRAND.purpleLight, BRAND.green, BRAND.grey] } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { position: "right", labels: { boxWidth: 10, font: { size: 10 } } } } } });
   makeChart("sd-gal", { type: "bar", data: { labels: s.galilee.gains.labels, datasets: [
     { label: "Percentage-point gain, pre → post", data: s.galilee.gains.pct, backgroundColor: BRAND.gold, borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 50 } } } });
