@@ -1105,7 +1105,7 @@ function renderGraph() {
       <button data-t="watches">Risks</button>
       <button data-t="underpins">Ethos</button>
       <span style="flex:1"></span>
-      <button id="gf-expand" class="gf-action">⊕ Expand all</button>
+      <button id="gf-expand" class="gf-action">⊕ Show all themes</button>
       <button id="gf-collapse" class="gf-action">⊖ Collapse all</button>
       <button id="gf-ai" class="gf-action gf-ai">✦ AI infographic of the whole system</button>
     </div>
@@ -1162,9 +1162,36 @@ function renderGraph() {
        <feDropShadow dx="0" dy="1.2" stdDeviation="1.6" flood-color="#2a1245" flood-opacity="0.35"/>
      </filter></defs>`);
 
-  const nodes = ASCC.graph.nodes.map(n => ({ ...n,
-    x: W / 2 + (Math.random() - 0.5) * W * 0.7,
-    y: H / 2 + (Math.random() - 0.5) * H * 0.7, vx: 0, vy: 0 }));
+  /* ----- thematic regions: related nodes gravitate together ----- */
+  const CLUSTERS = {
+    mission:   { x: 0.50, y: 0.44, label: "" },
+    people:    { x: 0.50, y: 0.16, label: "PEOPLE & LEADERSHIP" },
+    standards: { x: 0.83, y: 0.36, label: "STANDARDS" },
+    climate:   { x: 0.17, y: 0.36, label: "CLIMATE" },
+    included:  { x: 0.20, y: 0.80, label: "SAFE & INCLUDED" },
+    character: { x: 0.80, y: 0.80, label: "CHARACTER & ENRICHMENT" }
+  };
+  Object.values(CLUSTERS).forEach(cl => {
+    if (!cl.label) return;
+    const t = document.createElementNS(NS, "text");
+    t.textContent = cl.label;
+    t.setAttribute("x", cl.x * W); t.setAttribute("y", cl.y * H);
+    t.setAttribute("text-anchor", "middle");
+    t.setAttribute("font-size", "26");
+    t.setAttribute("font-weight", "800");
+    t.setAttribute("letter-spacing", "4");
+    t.setAttribute("fill", "#4c2373");
+    t.setAttribute("opacity", "0.07");
+    t.setAttribute("pointer-events", "none");
+    svg.appendChild(t);
+  });
+
+  const nodes = ASCC.graph.nodes.map(n => {
+    const cl = CLUSTERS[n.cluster] || CLUSTERS.mission;
+    return { ...n,
+      x: cl.x * W + (Math.random() - 0.5) * 140,
+      y: cl.y * H + (Math.random() - 0.5) * 120, vx: 0, vy: 0 };
+  });
   const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
   const links = ASCC.graph.links.map(l => ({ ...l, a: byId[l.s], b: byId[l.t] }));
 
@@ -1292,8 +1319,8 @@ function renderGraph() {
     if (pinned === r) showDetail(r);
   }
   function expandAll() {
+    // themes only: the argument points stay behind a deliberate click, so the map aggregates instead of exploding
     nodes.filter(n => !n.level).forEach(expandNode);
-    nodes.filter(n => n.level === 1 && n.kids).slice().forEach(expandNode);
   }
   function collapseAll() { nodes.filter(n => !n.level && n.expanded).slice().forEach(collapseNode); }
   svg.addEventListener("pointerdown", ev => {
@@ -1481,16 +1508,19 @@ function renderGraph() {
     links.forEach(l => {
       const dx = l.b.x - l.a.x, dy = l.b.y - l.a.y;
       const d = Math.sqrt(dx * dx + dy * dy) || 1;
-      const target = l.leafLink ? (l.b.level === 2 ? 36 : 66) : 165 + (l.a.size + l.b.size);
+      const target = l.leafLink ? (l.b.level === 2 ? 36 : 62) : 150 + (l.a.size + l.b.size);
       const f = (d - target) * (l.leafLink ? (l.b.level === 2 ? 0.08 : 0.055) : 0.012);
       const fx = dx / d * f, fy = dy / d * f;
       if (!l.a.fixed) { l.a.vx += fx; l.a.vy += fy; }
       if (!l.b.fixed) { l.b.vx -= fx; l.b.vy -= fy; }
     });
-    // centre gravity (roots only) + integrate
+    // cluster gravity (roots pulled to their thematic region) + integrate
     nodes.forEach(n => {
       if (!n.fixed) {
-        if (!n.level) { n.vx += (W / 2 - n.x) * 0.0022; n.vy += (H / 2 - n.y) * 0.0028; }
+        if (!n.level) {
+          const cl = CLUSTERS[n.cluster] || CLUSTERS.mission;
+          n.vx += (cl.x * W - n.x) * 0.0042; n.vy += (cl.y * H - n.y) * 0.0048;
+        }
         n.vx *= 0.82; n.vy *= 0.82;
         n.x += n.vx * alpha * 2.2; n.y += n.vy * alpha * 2.2;
       }

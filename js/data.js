@@ -494,7 +494,7 @@ var ASCC = {
   graph: {
     // type: pillar (evaluation area) | driver (system/programme) | outcome | risk
     nodes: [
-      { id: "leadership", label: "Leadership & Governance", type: "pillar", grade: "Exceptional", size: 17,
+      { id: "leadership", cluster: "people", label: "Leadership & Governance", type: "pillar", grade: "Exceptional", size: 17,
         desc: "Sustained exceptional standards; every weakness owned. Headteacher advises the Secretary of State; national platform.",
         stats: [
           "Every SEF area Strong or Exceptional – each with a live, owned action plan",
@@ -502,7 +502,7 @@ var ASCC = {
           "Schools Policy and Delivery Adviser to the Secretary of State · Headteachers' Roundtable co-chair · Secondary Headteacher of the Year",
           "Toolkit Test 3 met: no significant area unaddressed – every weakness has an owner, date and measure"
         ] },
-      { id: "curriculum", label: "Curriculum & Teaching", type: "pillar", grade: "Strong", size: 16,
+      { id: "curriculum", cluster: "standards", label: "Curriculum & Teaching", type: "pillar", grade: "Strong", size: 16,
         desc: "Pillars + Active Ingredients coaching; T&L 2.08; 80% expected/strong.",
         stats: [
           "T&L average 2.08 – 80% of lesson drop-in statements expected or strong",
@@ -510,7 +510,7 @@ var ASCC = {
           "24% of staff ITT/ECT – developed through the Active Ingredients coaching model",
           "Proof it lands: 2024 P8 +0.69, A8 5.39 vs 4.59 national"
         ] },
-      { id: "achievement", label: "Achievement", type: "pillar", grade: "Exceptional", size: 17,
+      { id: "achievement", cluster: "standards", label: "Achievement", type: "pillar", grade: "Exceptional", size: 17,
         desc: "P8 +0.69 (2024); 3 years above national; 2026 pred 82% 4+ E&M.",
         stats: [
           "P8 journey: +0.12 → +0.69 → +0.76* → +0.74* (2026 pred)",
@@ -518,7 +518,7 @@ var ASCC = {
           "Disadvantaged P8 +0.26 vs −0.57 national (2024)",
           "Outcomes hold while KS2 priors fall: 105.5 → 101.5 across four cohorts"
         ] },
-      { id: "attendance", label: "Attendance", type: "pillar", grade: "Strong", size: 15,
+      { id: "attendance", cluster: "climate", label: "Attendance", type: "pillar", grade: "Strong", size: 15,
         desc: "92.41% – above national & similar schools; +2.21 vs baseline expectation.",
         stats: [
           "92.41% vs 91.63% national and 90.19% similar FSM6 schools (FFT, May 26)",
@@ -526,7 +526,7 @@ var ASCC = {
           "FSM6 88.46% (+1.70 vs national) · EHCP 90.03% (+9.13 vs national)",
           "PA 20.9% – target <20% by Jan 2027 with ambassadors & individual targets"
         ] },
-      { id: "behaviour", label: "Behaviour", type: "pillar", grade: "Exceptional", size: 15,
+      { id: "behaviour", cluster: "climate", label: "Behaviour", type: "pillar", grade: "Exceptional", size: 15,
         desc: "Suspensions −43.9% from peak; PEX 7 → 3 → 2 → 0; 2.88/100 vs 3.72 national.",
         stats: [
           "Suspensions 319 → 183 → 143: down 43.9% from the 2023–24 peak, sustained",
@@ -534,7 +534,7 @@ var ASCC = {
           "8.3% of cohort suspended (was ~17% in 2023–24); days lost down 61%",
           "Every suspension authorised by the Headteacher; Emmaus Centre + reintegration meetings"
         ] },
-      { id: "personal", label: "Personal Development", type: "pillar", grade: "Exceptional", size: 14,
+      { id: "personal", cluster: "character", label: "Personal Development", type: "pillar", grade: "Exceptional", size: 14,
         desc: "4+ trips per pupil per year; ESP & Elev:8; tracked entitlement; Gatsby 92%.",
         stats: [
           "Every pupil: 4+ trips a year; 30 careers/PSHCE events delivered incl. whole-Y10 work experience week",
@@ -543,7 +543,7 @@ var ASCC = {
           "St Thomas Aquinas Award: 53 Y10 pupils, a quarter PP – university-style stretch",
           "“Opportunity is planned, not left to chance”"
         ] },
-      { id: "inclusion", label: "Inclusion", type: "pillar", grade: "Exceptional", size: 15,
+      { id: "inclusion", cluster: "included", label: "Inclusion", type: "pillar", grade: "Exceptional", size: 15,
         desc: "Bethlehem & Romero Centres; pupil passports; EHCP P8 +0.07, SEN K +0.13 (2024).",
         stats: [
           "EHCP 9.83% (88 pupils) & SEN 22% – well above national, rising yearly",
@@ -552,21 +552,21 @@ var ASCC = {
           "50+ mapped provisions at £0 to families – Fresh Start 3× faster recall; Galilee +27–44pp; 1:1 NHS-target speech therapy for 17 EHCP pupils",
           "Emmanuel next: £400k RBKC-funded reintegration hub + adapted literacy pathway"
         ] },
-      { id: "safeguarding", label: "Safeguarding", type: "pillar", grade: "Met", size: 13,
+      { id: "safeguarding", cluster: "included", label: "Safeguarding", type: "pillar", grade: "Met", size: 13,
         desc: "External review Jan 2026 → action plan Feb 2026. Met.",
         stats: [
           "External Whole School Safeguarding Review (Jan 2026): strong leadership, culture, governance, pupil voice, records, curriculum",
           "DSL action plan produced within one month (Feb 2026)",
           "Immediate concerns already actioned; remainder tracked and ongoing"
         ] },
-      { id: "ethos", label: "Catholic Ethos", type: "driver", size: 13,
+      { id: "ethos", cluster: "mission", label: "Catholic Ethos", type: "driver", size: 13,
         desc: "Orare, Laborare, Servire – shapes culture, care and community. The 'why' behind every system.",
         stats: [
           "Orare, Laborare, Servire – to pray, to work, to serve",
           "Shapes behaviour culture, pastoral care and service to community",
           "Lived daily: prayer & liturgy, Schola Cantorum, Faith in Action, The Mission"
         ] },
-      { id: "coaching", label: "Coaching & Staff Development", type: "driver", size: 12,
+      { id: "coaching", cluster: "people", label: "Coaching & Staff Development", type: "driver", size: 12,
         desc: "Active Ingredients model; every teacher reflects, chooses, is coached; 45% chose the school's #1 priority.",
         stats: [
           "54 narrative self-reflections across the 5 Active Ingredients domains; 40 coached personal targets live",
@@ -574,14 +574,14 @@ var ASCC = {
           "Whole-staff Unlocking Reading: 59 staff, every department, 92% quiz average",
           "24% ITT/ECT developed into consistency; wellbeing innovation ('lie-ins') nationally covered"
         ] },
-      { id: "data", label: "Intelligent Assessment & Data", type: "driver", size: 12,
+      { id: "data", cluster: "standards", label: "Intelligent Assessment & Data", type: "driver", size: 12,
         desc: "Data drops, SISRA, Bedrock SAS, reading tests → targeted, evaluated intervention.",
         stats: [
           "Data drops + SISRA + Bedrock SAS + reading tests at KS3 & KS4",
           "KS3 E&M on-track Mich→Lent: Y7 49→59% · Y8 38→65% · Y9 27→44%",
           "Y11 mock A8 trajectory: 4.14 → 4.56 → 4.98 predicted"
         ] },
-      { id: "enrichment", label: "Enrichment: ESP & Elev:8", type: "driver", size: 12,
+      { id: "enrichment", cluster: "character", label: "Enrichment: ESP & Elev:8", type: "driver", size: 12,
         desc: "Extended day, no phones, enrichment for all – nationally covered innovation.",
         stats: [
           "404 pupils (45% of roll) in clubs; 3,695 logged attendances; 35 clubs; all 8 DfE benchmarks met",
@@ -589,21 +589,21 @@ var ASCC = {
           "Y8 (Elev:8) is the most-engaged cohort: 91% in clubs – the national 'dip' year inverted",
           "Covered by Guardian, Times, Fortune, BBC, international press"
         ] },
-      { id: "pastoral", label: "Pastoral & Attendance Systems", type: "driver", size: 12,
+      { id: "pastoral", cluster: "climate", label: "Pastoral & Attendance Systems", type: "driver", size: 12,
         desc: "Home visits, Attendance Contracts, CPOMs, HOY/HOKS structure.",
         stats: [
           "Home visits for every severely absent pupil, logged on CPOMs",
           "Attendance Contracts agreed with every Y10 PA/SA family before September",
           "External agency referral/support for every pupil below 50% attendance"
         ] },
-      { id: "innovation", label: "National Profile & Innovation", type: "driver", size: 12,
+      { id: "innovation", cluster: "people", label: "National Profile & Innovation", type: "driver", size: 12,
         desc: "12-hour day, phone-free, teacher lie-ins, DfE adviser role – the school shapes national policy.",
         stats: [
           "60+ national, international, sector and faith-press items",
           "Schools Policy and Delivery Adviser to the Secretary of State · DfE expert inclusion group · HTRT co-chair",
           "Oracy Education Commission case study · EPI enrichment panel"
         ] },
-      { id: "disadv", label: "Disadvantaged Outcomes", type: "outcome", size: 13,
+      { id: "disadv", cluster: "standards", label: "Disadvantaged Outcomes", type: "outcome", size: 13,
         desc: "P8 +0.26 vs −0.57 national (2024); 3 years above national; enrichment entitlement tracked.",
         stats: [
           "Disadvantaged P8 above national disadvantaged three years running",
@@ -611,14 +611,14 @@ var ASCC = {
           "FSM6 attendance 88.46% – +1.70 vs national FSM6",
           "In a top-quintile deprivation context (FSM6 41.8%)"
         ] },
-      { id: "send-out", label: "SEND Progress & Care", type: "outcome", size: 12,
+      { id: "send-out", cluster: "included", label: "SEND Progress & Care", type: "outcome", size: 12,
         desc: "EHCP attendance +9.13 vs national; positive P8 2024; specialist centres.",
         stats: [
           "EHCP attendance 90.03% – +9.13 vs national EHCP figure",
           "2024 P8: EHCP +0.07 · SEN Support +0.13",
           "Bethlehem Centre (exceptional teaching) · Romero Centre (keeping up, not catching up)"
         ] },
-      { id: "reading", label: "Reading & Literacy", type: "risk", size: 10,
+      { id: "reading", cluster: "standards", label: "Reading & Literacy", type: "risk", size: 10,
         desc: "54% below age-related expectations (Aut 25) → whole-staff training, Fresh Start, Fluency Pilot, Emmanuel pathway.",
         stats: [
           "54% below age-related reading (Aut 25); GL Cycle 1: 66 Y7–8 pupils significantly below (SAS<85), mean deficit 51.8 months",
@@ -626,7 +626,7 @@ var ASCC = {
           "Fresh Start impact measured: Speed Sound recall up to 3× faster (71s → 19s)",
           "Next: Emmanuel adapted literacy pathway – daily, low-cognitive-load, keep up not catch up"
         ] },
-      { id: "gap", label: "Disadvantaged Gap (in-school)", type: "risk", size: 10,
+      { id: "gap", cluster: "standards", label: "Disadvantaged Gap (in-school)", type: "risk", size: 10,
         desc: "0.57 → 0.80 → 1.14* – driven by non-disadvantaged surge; levers: adaptive teaching, attendance, intervention.",
         stats: [
           "In-school gap: 0.57 (2023) → 0.80 (2024) → 1.14* (2025 SISRA)",
@@ -634,7 +634,7 @@ var ASCC = {
           "Partly driven by non-disadvantaged surge (P8 +1.06 in 2024)",
           "Levers: adaptive teaching strand in every SoW · attendance · targeted intervention"
         ] },
-      { id: "y11att", label: "Year 11 Attendance", type: "risk", size: 10,
+      { id: "y11att", cluster: "climate", label: "Year 11 Attendance", type: "risk", size: 10,
         desc: "2.17 below national; 7% severely absent; audit + contracts + home visits underway.",
         stats: [
           "Y11 attendance 2.17 points below national (3.17 in spring term)",
@@ -642,14 +642,14 @@ var ASCC = {
           "A8 by attendance: 5.22 (95%+) vs 3.53 (<90%) – why this matters",
           "Response: cause-coded audit of every sub-90% pupil · contracts · home visits"
         ] },
-      { id: "dispro", label: "Suspension Disproportionality", type: "risk", size: 10,
+      { id: "dispro", cluster: "climate", label: "Suspension Disproportionality", type: "risk", size: 10,
         desc: "FSM, boys, EHCP, Black Caribbean over-represented – named plans due end HT6.",
         stats: [
           "FSM pupils, boys, EHCP and Black Caribbean pupils suspended at higher rates than peers",
           "Self-identified through our own analysis – not raised by anyone external",
           "Named owners (BFO/MEH/DHA), plans due end HT6, reviewed HT1/HT2"
         ] },
-      { id: "emmanuel", label: "Emmanuel (next build)", type: "driver", size: 12,
+      { id: "emmanuel", cluster: "included", label: "Emmanuel (next build)", type: "driver", size: 12,
         desc: "£400k RBKC-funded SEN provision: reintegration hub, multi-agency space, adapted Y7–8 literacy pathway.",
         stats: [
           "£400k high-needs capital secured (RBKC agreement) + ~£103k school; 55m² modular build",
