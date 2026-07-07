@@ -34,7 +34,7 @@ document.getElementById("login-form").addEventListener("submit", async e => {
 let appInitialised = false;
 const rendered = {};
 const VIEW_TITLES = {
-  dashboard: "Dashboard", sef: "Self-Evaluation", send: "SEND – Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
+  dashboard: "Dashboard", sef: "Self-Evaluation", pshe: "PSHE & Life Curriculum", send: "SEND – Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
   years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour",
   enrichment: "Enrichment", careers: "Careers & Gatsby Benchmarks", voice: "Student & Parent Voice", graph: "Connections",
   briefings: "Briefing – Staff",
@@ -279,6 +279,42 @@ function renderSef() {
   });
 }
 
+/* ================= PSHE / LIFE CURRICULUM ================= */
+function renderPshe() {
+  const p = ASCC.pshe;
+  el("view-pshe").appendChild(h(`
+    <div class="view-head">
+      <h2>PSHE &amp; Life Curriculum – found weak, rebuilt strong</h2>
+      <p>${p.intro}</p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      ${p.tiles.map(t => `<div class="card stat"><div class="num" style="font-size:1.6rem">${t[0]}</div><div class="lbl">${t[1]}</div></div>`).join("")}
+    </div>
+    <div class="card" style="margin-bottom:18px">
+      <h3>The five-year journey</h3>
+      <table class="data" style="margin-top:8px">
+        <tr><th>Year</th><th>Theme</th><th>What is taught</th></tr>
+        ${p.journey.map(j => `<tr><td style="white-space:nowrap;font-weight:650">${j[0]}</td><td style="white-space:nowrap;font-weight:650;color:var(--purple-700)">${j[1]}</td><td style="font-size:0.83rem">${j[2]}</td></tr>`).join("")}
+      </table>
+      <p class="note">${p.journeyNote}</p>
+    </div>
+    <div class="card" style="margin-bottom:18px">
+      <h3>Built like the main curriculum, because it is one</h3>
+      <div class="grid cols-2" style="margin-top:10px">
+        ${p.design.map(d => `
+          <div style="border-left:4px solid var(--purple-500);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.92rem">${d[0]}</div>
+            <div style="font-size:0.85rem;margin-top:3px">${d[1]}</div>
+          </div>`).join("")}
+      </div>
+    </div>
+    <div class="card" style="border-left:5px solid var(--green)">
+      <h3>Where it lands</h3>
+      <p style="font-size:0.9rem">${p.closing}</p>
+    </div>
+  `));
+}
+
 /* ================= SEND ================= */
 function renderSend() {
   const s = ASCC.send;
@@ -348,6 +384,19 @@ function renderSend() {
     <div class="card" style="border-left:5px solid var(--green);margin-bottom:18px">
       <h3>Where it lands</h3>
       <p style="font-size:0.9rem">${s.closing}</p>
+    </div>
+
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-500)">
+      <h3>Lego Therapy – an EHCP outcome, made buildable</h3>
+      <p class="sef-headline" style="margin-top:10px">${s.lego.headline}</p>
+      <div class="grid cols-2" style="margin-top:12px">
+        ${s.lego.points.map(x => `
+          <div style="border-left:4px solid var(--purple-500);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.9rem">${x[0]}</div>
+            <div style="font-size:0.84rem;margin-top:3px">${x[1]}</div>
+          </div>`).join("")}
+      </div>
+      <span class="phrase">“${s.lego.line}”</span>
     </div>
 
     <div class="card" style="margin-bottom:18px;border-left:5px solid var(--green)">
@@ -1905,7 +1954,7 @@ function escapeHtml(s) {
 
 /* ---------------- Render map ---------------- */
 const RENDER = {
-  dashboard: renderDashboard, sef: renderSef, send: renderSend, staff: renderStaff, results: renderResults,
+  dashboard: renderDashboard, sef: renderSef, pshe: renderPshe, send: renderSend, staff: renderStaff, results: renderResults,
   years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, enrichment: renderEnrichment,
   careers: renderCareers, voice: renderVoice, graph: renderGraph,
   briefings: renderBriefings, scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,

@@ -230,7 +230,7 @@ var ASCC = {
         "Voice data at scale: 94% of 416 Culture Day respondents said the day made them feel they belong to the All Saints community; 99% of parents call the enrichment offer valuable; 91% of the pupil panel agree the school encourages kindness, respect and helping others."
       ],
       development: [
-        "Careers/PSHCE staffing has been inconsistent historically – now substantially answered: Compass+ run twice with identical scores (92% average), 30 events logged and delivered, tracking live. KS3 curriculum-careers embedding (Gatsby BM4, 75%) is the named remaining gap, in SoW from September.",
+        "Careers/PSHCE staffing has been inconsistent historically – now substantially answered: five complete PSHE schemes of work (173 sequenced lessons, Y7–11, misconception-led, pillar-tagged, termly-assessed – see the Curriculum tab), Compass+ run twice with identical scores (92% average), 30 events logged and delivered, tracking live. KS3 curriculum-careers embedding (Gatsby BM4, 75%) is the named remaining gap, with careers-tagged PSHE lessons now in every year's scheme.",
         "Confidence that every pupil (not just Student Leaders) can articulate British Values fluently needs strengthening, particularly in Year 9.",
         "The Exceptional case in one line: all 8 DfE enrichment benchmarks met before the framework existed; 45% of roll in tracked clubs at PP/SEN parity; Elev:8 inverted the national Y8 dip (91% participation); Gatsby 100% on personal guidance and needs-of-each-pupil; 94% belonging from 416 pupil voices; 99% of parents value the offer. Transformational for disadvantaged pupils – with receipts."
       ],
@@ -854,6 +854,16 @@ var ASCC = {
         line: "Stretch is not reserved for the privileged: a quarter of Aquinas participants are Pupil Premium, and SEND pupils take part. The same graduate ASAs delivering structured SEND support run the most-able programme – one team, the whole ability range."
       }
     },
+    lego: {
+      headline: "Lego Therapy – nine pupils, three small groups, six sessions each: an evidence-based intervention (LeGoff & Sherman, 2006) where every pupil's therapy goals are written directly from their own EHCP Section E outcomes.",
+      points: [
+        ["EHCP-anchored, not generic", "Each pupil's plan maps their EHCP outcomes ('engage in short turn-taking conversations', 'coping skills in real social situations') to specific, observable Lego Therapy goals: perspective-taking, collaborative problem-solving, tolerating differing opinions, dialogical exchanges."],
+        ["Structured to teach communication", "Pupils rotate engineer, builder and supplier roles, so every child must give, interpret and clarify instructions; the adult's role is deliberately minimal – draw attention to the problem, prompt pupils towards their own solution."],
+        ["Session-by-session evidence", "Every session is logged and every pupil's goals reviewed against observed behaviour: initiating interactions unprompted ('where does it go?'), asking clarifying questions, offering help when a peer's build collapses, expressing frustration verbally – 'with a sigh and a smile' – rather than physically."],
+        ["Pupils reflecting on their own growth", "By session five, groups were comparing how communication differed between free-build and structured sessions – metacognition about their own social skills – and closed with exit surveys. Attendance across the groups was near-perfect."]
+      ],
+      line: "This is what the provision map looks like at pupil level: a named child, an EHCP outcome, a measurable goal, six logged sessions and observed change. Nine times over."
+    },
     allchild: {
       headline: "AllChild (formerly West London Zone) – a Link Worker embedded in the school, wrapping a two-year ecosystem of support around the Year 9 pupils most at risk of poor social, emotional and academic outcomes.",
       tiles: [
@@ -889,6 +899,32 @@ var ASCC = {
       case: "The business case is triangulated from our own 2025–26 datasets: GL reading tests found 66 Y7–8 pupils significantly below expected (SAS<85 – one in six), nine of them functionally pre-reading (SAS<70), with a mean deficit of 51.8 months; 27 Y7–8 pupils sit below 85% attendance (78% of them Pupil Premium); and seven pupils account for over a third of all suspensions. Nine children appear in two or more of those datasets – the named priority cohort. The proposal even evidences its own diagnostic gap: the two highest-priority children couldn't be reading-tested because of their attendance – exactly what a reintegration hub exists to fix.",
       line: "This is what evidence-led innovation looks like at capital scale: the same triangulation discipline as Elev:8, applied to a building – identified need, secured funding, value-engineered design, measurable outcomes named before a brick is laid."
     }
+  },
+
+  /* ---------- PSHE / Life Curriculum ---------- */
+  pshe: {
+    intro: "The SEF named PSHCE consistency as an honest weakness. This is the answer, built: five complete schemes of work, Years 7 to 11, 173 sequenced lessons – every one carrying learning objectives, misconception-led adaptive teaching, curriculum pillar tags, Tier 3 vocabulary, homework and a revision-and-assessment lesson each half term, with pupil understanding tracked through a termly PSHE survey.",
+    tiles: [
+      ["173", "sequenced lessons across five complete schemes of work, Y7 to Y11"],
+      ["Every lesson", "carries misconceptions and scaffolds – the same adaptive-teaching discipline as the main curriculum"],
+      ["6 pillar tags", "per lesson where relevant: Careers, Citizenship, British Values, Health & Wellbeing, Digital Literacy, Economic Education"],
+      ["Termly", "assessment plus a tracked PSHE survey – impact measured, not assumed"]
+    ],
+    journey: [
+      ["Year 7", "Foundations", "Identity and self-awareness · healthy balanced lifestyle · online safety and digital citizenship · first aid and protected characteristics · bullying and respectful relationships · environmental awareness"],
+      ["Year 8", "Navigating adolescence", "Emotional literacy · relationships and communication (statutory RSE) · equal opportunities and diversity · substance abuse and peer pressure · media influence and body image · responsibility and financial literacy"],
+      ["Year 9", "Looking outward", "Mental health and wellbeing · active citizenship · global issues · careers and employability skills · digital footprint and online reputation · health and first aid"],
+      ["Year 10", "Real-world readiness", "Financial management and budgeting · crime and the community · responsible citizenship and civil life · career exploration and work experience · revision techniques and managing stress"],
+      ["Year 11", "Preparing for adulthood", "The transition to adult life · healthy lifestyle choices · financial literacy: taxes and payslips · online safety and digital footprint · revision techniques and managing exam stress"]
+    ],
+    journeyNote: "A deliberate five-year spiral: from knowing yourself (Y7) to running your adult life (Y11). RSE delivered statutorily in Y8 and revisited; careers threads through Y9 and Y10 to meet Gatsby Benchmark 4; British Values tagged lesson-by-lesson – the named Year 9 articulation priority now has a taught backbone, not just assemblies.",
+    design: [
+      ["Misconception-led", "Every lesson names the misconception to defeat ('tax is stealing', 'saving is only for the rich') and the scaffold to reach every pupil – PSHE taught with the same rigour as Maths."],
+      ["Literacy built in", "Tier 3 vocabulary specified per lesson at 'all pupils / some pupils' levels – the whole-school reading strategy running through personal development."],
+      ["Pillar-tagged", "Lessons tagged to Careers, Citizenship, Fundamental British Values, Health & Wellbeing, Digital Literacy and Economic Education – coverage is auditable at a glance."],
+      ["Measured", "A revision and assessment lesson closes every half term, and the tracked PSHE survey shows what pupils actually retained – feeding the next scheme revision."]
+    ],
+    closing: "Where it lands across the portal: Gatsby BM4's KS3 gap is answered by the careers-tagged lessons now in every year's scheme; the British Values priority gets taught content, not exhortation; and the pupil panel's honest flags (knowing who to talk to, revision skills) each have a named lesson home. Found weak, rebuilt strong, tracked termly."
   },
 
   /* ---------- Student & Parent Voice (2025-26 surveys) ---------- */
