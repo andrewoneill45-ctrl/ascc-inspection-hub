@@ -1058,7 +1058,7 @@ function renderGraph() {
   el("view-graph").appendChild(h(`
     <div class="view-head">
       <h2>How it all connects</h2>
-      <p>The school as a living system: ethos and leadership drive the engines, the engines power the evaluation areas and signature outcomes, and every named risk hangs off the area that owns it. Click a node to pin its data, chart and intersections in the sidebar; <strong>double-click (or use ⊕) to expand it into its satellite data points</strong>; drag anything to rearrange.</p>
+      <p>The school as a living system, three levels deep. <strong>Click any node and it breaks into its sub-categories; click a sub-category and it breaks into data points</strong> — dots shrinking as the detail sharpens. The sidebar pins the selected area's chart, key data and intersections. Drag anything; collapse by clicking an open node again.</p>
     </div>
     <div class="graph-filters" id="graph-filters">
       <button data-t="all" class="on">All connections</button>
@@ -1104,9 +1104,11 @@ function renderGraph() {
   const gNodes = document.createElementNS(NS, "g");
   svg.appendChild(gLinks); svg.appendChild(gNodes);
 
-  // Supernotes-style: small solid dots, hairline edges, quiet labels
-  const nodeR = n => n.leaf ? 4.5 : 6 + n.size * 0.45;
+  // Supernotes-style: dots shrink as they break — root → category → data point
+  const nodeR = n => n.level === 2 ? 3.2 : n.level === 1 ? 6.2 : 6 + n.size * 0.45;
+  const FONT = ["9.5", "8.3", "7.4"];
   const extras = ASCC.graphExtras || {};
+  const trees = ASCC.graphTree || {};
 
   function materialiseLink(l) {
     const st = EDGE_STYLE[l.type];
@@ -1121,6 +1123,7 @@ function renderGraph() {
   }
   function materialiseNode(n) {
     const st = NODE_STYLE[n.type];
+    const lvl = n.level || 0;
     const g = document.createElementNS(NS, "g");
     g.style.cursor = "pointer";
     const halo = document.createElementNS(NS, "circle");
@@ -1131,68 +1134,84 @@ function renderGraph() {
     halo.setAttribute("opacity", 0);
     const c = document.createElementNS(NS, "circle");
     c.setAttribute("r", nodeR(n));
-    c.setAttribute("fill", n.leaf ? "#fff" : st.fill);
-    c.setAttribute("stroke", n.leaf ? st.fill : (n.type === "risk" ? st.stroke : "#ffffff"));
-    c.setAttribute("stroke-width", n.leaf ? 1.8 : 2);
+    if (lvl === 0) { c.setAttribute("fill", st.fill); c.setAttribute("stroke", n.type === "risk" ? st.stroke : "#ffffff"); c.setAttribute("stroke-width", 2); }
+    else if (lvl === 1) { c.setAttribute("fill", st.fill); c.setAttribute("fill-opacity", 0.55); c.setAttribute("stroke", st.fill); c.setAttribute("stroke-width", 1.4); }
+    else { c.setAttribute("fill", "#fff"); c.setAttribute("stroke", st.fill); c.setAttribute("stroke-width", 1.4); }
     const t = document.createElementNS(NS, "text");
     t.textContent = n.label;
     t.setAttribute("text-anchor", "middle");
-    t.setAttribute("font-size", n.leaf ? "8.2" : "9.5");
-    t.setAttribute("font-weight", n.leaf ? "550" : "600");
-    t.setAttribute("fill", n.leaf ? "#8b7f97" : "#5c5266");
+    t.setAttribute("font-size", FONT[lvl]);
+    t.setAttribute("font-weight", lvl === 0 ? "600" : lvl === 1 ? "650" : "500");
+    t.setAttribute("fill", lvl === 0 ? "#5c5266" : lvl === 1 ? "#4c2373" : "#8b7f97");
     t.setAttribute("pointer-events", "none");
     g.appendChild(halo); g.appendChild(c); g.appendChild(t);
     gNodes.appendChild(g);
     n.el = g; n.circle = c; n.text = t; n.halo = halo; n.r = nodeR(n);
-    const target = n.leaf ? byId[n.parent] : n;
-    g.addEventListener("mouseenter", () => { if (!pinned) { showDetail(target); highlight(target); } });
+    g.addEventListener("mouseenter", () => { if (!pinned) { const r = rootOf(n); showDetail(r); highlight(r); } });
     g.addEventListener("mouseleave", () => { if (!pinned) clearHighlight(); });
-    g.addEventListener("dblclick", ev => { ev.preventDefault(); if (!n.leaf) toggleExpand(n); });
     g.addEventListener("pointerdown", ev => {
       ev.preventDefault();
       dragging = n; n.fixed = true;
-      dragStart = { x: ev.clientX, y: ev.clientY, moved: false, t: Date.now() };
+      dragStart = { x: ev.clientX, y: ev.clientY, moved: false };
       svg.setPointerCapture(ev.pointerId);
     });
   }
   links.forEach(materialiseLink);
   nodes.forEach(materialiseNode);
 
-  /* ----- expandable satellites ----- */
-  function toggleExpand(n) {
-    if (n.expanded) collapseNode(n); else expandNode(n);
-    if (pinned === n) showDetail(n);
+  /* ----- hierarchical expansion: root → categories → data points ----- */
+  function rootOf(n) { return n.level ? byId[n.root] : n; }
+  function spawn(parent, spec, level, i, count) {
+    const ang = (i / count) * Math.PI * 2 + (level === 2 ? 0.5 : 0);
+    const dist = level === 1 ? 64 : 36;
+    const kid = {
+      id: `${parent.id}__${level}_${i}`, label: typeof spec === "string" ? spec : spec.label,
+      kids: typeof spec === "string" ? null : spec.kids,
+      level, parent: parent.id, root: parent.level ? parent.root : parent.id,
+      type: parent.type, size: 4,
+      x: parent.x + Math.cos(ang) * dist, y: parent.y + Math.sin(ang) * dist, vx: 0, vy: 0
+    };
+    nodes.push(kid); byId[kid.id] = kid;
+    const l = { s: parent.id, t: kid.id, type: "leaf", a: parent, b: kid, leafLink: true };
+    links.push(l);
+    materialiseLink(l); materialiseNode(kid);
+    return kid;
   }
-  function expandNode(n) {
-    const kids = (extras[n.id] || {}).children;
-    if (!kids || n.expanded) return;
+  function expandNode(n) {           // works for roots (tree/flat) and categories (kids)
+    if (n.expanded) return;
+    const specs = n.level === 1 ? n.kids
+      : (trees[n.id] || ((extras[n.id] || {}).children || []).map(x => x));
+    if (!specs || !specs.length) return;
     n.expanded = true;
-    kids.forEach((label, i) => {
-      const ang = (i / kids.length) * Math.PI * 2;
-      const leaf = { id: `${n.id}__leaf${i}`, label, leaf: true, parent: n.id, type: n.type, size: 4,
-        x: n.x + Math.cos(ang) * 46, y: n.y + Math.sin(ang) * 46, vx: 0, vy: 0 };
-      nodes.push(leaf); byId[leaf.id] = leaf;
-      const l = { s: n.id, t: leaf.id, type: "leaf", a: n, b: leaf, leafLink: true };
-      links.push(l);
-      materialiseLink(l); materialiseNode(leaf);
-    });
+    specs.forEach((s, i) => spawn(n, s, (n.level || 0) + 1, i, specs.length));
     kick();
   }
   function collapseNode(n) {
     if (!n.expanded) return;
     n.expanded = false;
+    const doomed = new Set();
+    const mark = id => nodes.forEach(m => { if (m.parent === id) { doomed.add(m.id); mark(m.id); } });
+    mark(n.id);
     for (let i = links.length - 1; i >= 0; i--) {
       const l = links[i];
-      if (l.leafLink && l.s === n.id) { l.el.remove(); links.splice(i, 1); }
+      if (l.leafLink && (doomed.has(l.t) || doomed.has(l.s))) { l.el.remove(); links.splice(i, 1); }
     }
     for (let i = nodes.length - 1; i >= 0; i--) {
       const m = nodes[i];
-      if (m.leaf && m.parent === n.id) { m.el.remove(); delete byId[m.id]; nodes.splice(i, 1); }
+      if (doomed.has(m.id)) { m.el.remove(); delete byId[m.id]; nodes.splice(i, 1); }
     }
     kick();
   }
-  function expandAll() { nodes.filter(n => !n.leaf && extras[n.id] && extras[n.id].children).forEach(expandNode); }
-  function collapseAll() { nodes.filter(n => !n.leaf && n.expanded).slice().forEach(collapseNode); }
+  function toggleExpand(n) {
+    if (n.expanded) collapseNode(n); else expandNode(n);
+    const r = rootOf(n);
+    if (pinned === r) showDetail(r);
+  }
+  function expandAll() {
+    nodes.filter(n => !n.level).forEach(expandNode);
+    nodes.filter(n => n.level === 1 && n.kids).slice().forEach(expandNode);
+  }
+  function collapseAll() { nodes.filter(n => !n.level && n.expanded).slice().forEach(collapseNode); }
   svg.addEventListener("pointermove", ev => {
     if (!dragging) return;
     if (Math.abs(ev.clientX - dragStart.x) + Math.abs(ev.clientY - dragStart.y) > 6) dragStart.moved = true;
@@ -1203,7 +1222,12 @@ function renderGraph() {
   });
   svg.addEventListener("pointerup", () => {
     if (!dragging) return;
-    if (!dragStart.moved) pin(dragging.leaf ? byId[dragging.parent] : dragging);
+    if (!dragStart.moved) {
+      const n = dragging;
+      if (!n.level) { pin(n); toggleExpand(n); }          // root: pin + break into sub-categories
+      else if (n.level === 1) { toggleExpand(n); pin(rootOf(n)); }  // category: break into data points
+      else pin(rootOf(n));                                 // data point: focus its root
+    }
     dragging.fixed = false; dragging = null;
   });
   function pin(n) {
@@ -1249,10 +1273,17 @@ function renderGraph() {
       if (spec.type === "line") Object.assign(base, { tension: 0.3, pointRadius: 4, fill: false, borderDash: s.dash ? [6, 4] : undefined });
       return base;
     });
+    datasets.forEach(d => { if (spec.type === "bar") d.maxBarThickness = 22; });
     sparkInstance = new Chart(canvas, {
       type: spec.type, data: { labels: spec.labels, datasets },
-      options: { maintainAspectRatio: false, plugins: { legend: { display: spec.series.length > 1 || spec.type === "doughnut", labels: { boxWidth: 10, font: { size: 9 } } } },
-        scales: spec.type === "doughnut" ? {} : { y: { min: spec.min, ticks: { font: { size: 9 } } }, x: { ticks: { font: { size: 9 } } } } }
+      options: {
+        maintainAspectRatio: false, devicePixelRatio: 2,
+        plugins: { legend: { display: spec.series.length > 1 || spec.type === "doughnut", position: "bottom",
+          labels: { boxWidth: 9, boxHeight: 9, font: { size: 9, weight: "600" }, padding: 8 } } },
+        scales: spec.type === "doughnut" ? {} : {
+          y: { min: spec.min, border: { display: false }, grid: { color: "#efe9f5" }, ticks: { font: { size: 9 }, maxTicksLimit: 5 } },
+          x: { border: { display: false }, grid: { display: false }, ticks: { font: { size: 9, weight: "600" } } } }
+      }
     });
   }
   function showDetail(n) {
@@ -1288,7 +1319,7 @@ function renderGraph() {
     const xb = el("gd-expand");
     if (xb) xb.addEventListener("click", () => toggleExpand(n));
     el("gd-ai").addEventListener("click", () => {
-      askPortal(`Create an infographic-style briefing on "${n.label}" at All Saints: a punchy headline, the 4-6 most powerful statistics as a formatted list, one or two charts of the key trends, the connections to other areas of the school, the honest caveat, and the single phrase a leader should say to an inspector. Make it visual and tight.`);
+      askPortal(`Create a crisp infographic-style briefing on "${n.label}" at All Saints. Format: a bold one-line headline; the 4-6 most powerful statistics as a tight bold list; one or two clean charts (max 5 bars/points each, brand colours, no clutter); the two strongest intersections with other areas; the honest caveat in one sentence; and the single phrase a leader should say to an inspector. No padding — every element earns its place.`);
     });
     el("graph-detail").querySelectorAll(".conn").forEach(c => {
       c.addEventListener("click", () => {
@@ -1321,30 +1352,31 @@ function renderGraph() {
   function tick() {
     alpha *= 0.985;
     if (alpha < 0.005) { running = false; return; }
-    // repulsion (leaves repel gently so satellites cluster, not scatter)
+    // tiered repulsion: roots spread, categories orbit, data points nestle
     for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
       const a = nodes[i], b = nodes[j];
       let dx = b.x - a.x, dy = b.y - a.y;
       let d2 = dx * dx + dy * dy || 1; const d = Math.sqrt(d2);
-      const rep = ((a.leaf || b.leaf) ? 900 : 5200) / d2;
+      const maxLvl = Math.max(a.level || 0, b.level || 0);
+      const rep = (maxLvl === 2 ? 320 : maxLvl === 1 ? 950 : 5200) / d2;
       const rx = dx / d * rep, ry = dy / d * rep;
       if (!a.fixed) { a.vx -= rx; a.vy -= ry; }
       if (!b.fixed) { b.vx += rx; b.vy += ry; }
     }
-    // springs
+    // springs (shorter and stiffer as the hierarchy descends)
     links.forEach(l => {
       const dx = l.b.x - l.a.x, dy = l.b.y - l.a.y;
       const d = Math.sqrt(dx * dx + dy * dy) || 1;
-      const target = l.leafLink ? 52 : 165 + (l.a.size + l.b.size);
-      const f = (d - target) * (l.leafLink ? 0.05 : 0.012);
+      const target = l.leafLink ? (l.b.level === 2 ? 36 : 66) : 165 + (l.a.size + l.b.size);
+      const f = (d - target) * (l.leafLink ? (l.b.level === 2 ? 0.08 : 0.055) : 0.012);
       const fx = dx / d * f, fy = dy / d * f;
       if (!l.a.fixed) { l.a.vx += fx; l.a.vy += fy; }
       if (!l.b.fixed) { l.b.vx -= fx; l.b.vy -= fy; }
     });
-    // centre gravity + integrate
+    // centre gravity (roots only) + integrate
     nodes.forEach(n => {
       if (!n.fixed) {
-        n.vx += (W / 2 - n.x) * 0.0022; n.vy += (H / 2 - n.y) * 0.0028;
+        if (!n.level) { n.vx += (W / 2 - n.x) * 0.0022; n.vy += (H / 2 - n.y) * 0.0028; }
         n.vx *= 0.82; n.vy *= 0.82;
         n.x += n.vx * alpha * 2.2; n.y += n.vy * alpha * 2.2;
       }

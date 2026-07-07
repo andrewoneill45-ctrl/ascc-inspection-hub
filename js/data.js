@@ -993,6 +993,104 @@ var ASCC = {
     ]
   },
 
+  /* ---------- Graph hierarchy: click a node → sub-categories → data points ---------- */
+  graphTree: {
+    attendance: [
+      { label: "Headline", kids: ["92.41% (FFT May 26)", "+0.78 vs national", "+2.22 vs similar schools", "4× DfE improvement expectation"] },
+      { label: "Vulnerable groups", kids: ["EHCP 90.03% (+9.13)", "FSM6 88.46% (+1.70)", "SEN K 84.44% — named gap"] },
+      { label: "By year group", kids: ["Y7 95.3%", "Y8 92.5%", "Y9 91.5%", "Y10 90.9%", "Y11 78.6%"] },
+      { label: "Response", kids: ["Attendance Contracts pre-Sept", "Home visits → CPOMS", "PA <20% target by Jan 27"] }
+    ],
+    behaviour: [
+      { label: "Suspensions", kids: ["319 → 183 → 143 (−43.9%)", "2.88/100 vs 3.72 national", "8.3% of cohort (was ~17%)"] },
+      { label: "Permanent exclusions", kids: ["7 → 3 → 2 → 0", "Below national since 24–25", "Every decision accounted for"] },
+      { label: "Inside classrooms", kids: ["Internal log −33% in 4 yrs", "Per pupil 2.22 → 1.05", "7.4 → 5.3 removals/day"] },
+      { label: "Alternatives to exclusion", kids: ["Emmaus Centre", "OSD: 59 placements, 1–5 days", "Reintegration after every suspension"] }
+    ],
+    enrichment: [
+      { label: "Reach", kids: ["404 pupils · 45% of roll", "3,695 logged attendances", "84% sustained all year"] },
+      { label: "Equity", kids: ["PP 34% of members (39% roll)", "SEN 21% (22% roll)", "Members +7.2 attendance"] },
+      { label: "Elev:8", kids: ["Y8 91% participation", "6 new summer clubs", "PGL residential launch"] }
+    ],
+    achievement: [
+      { label: "Progress", kids: ["P8 +0.12 → +0.69 → +0.76*", "2026 pred +0.74", "vs national −0.03"] },
+      { label: "Attainment", kids: ["A8 5.39 vs 4.59 (2024)", "4+ E&M 75% vs 65%", "82% predicted 2026 — best ever"] },
+      { label: "Against the odds", kids: ["KS2 priors falling 105.5 → 101.5", "Disadv. beat national non-disadv. 2024", "Top-quintile deprivation"] }
+    ],
+    inclusion: [
+      { label: "Provision map", kids: ["50+ interventions · £0 to families", "Bethlehem & Romero Centres", "Graduate ASAs both ends"] },
+      { label: "Measured impact", kids: ["Fresh Start 3× faster (71s→19s)", "Galilee +27–44pp", "SaLT: 17 EHCP pupils, NHS targets"] },
+      { label: "Next", kids: ["Emmanuel £400k build", "Aquinas Award 53 (24.5% PP)"] }
+    ],
+    curriculum: [
+      { label: "Codified", kids: ["T&L Handbook v2", "Curriculum Pillars", "7 Active Ingredients, research-cited"] },
+      { label: "Checked", kids: ["T&L 2.08 · 80% strong", "CPR keeps SoW live", "Drop-ins vs own targets"] },
+      { label: "Believed", kids: ["100% parent satisfaction", "Pupils speak the pedagogy", "Reading CPD 92% (59 staff)"] }
+    ],
+    personal: [
+      { label: "Frameworks met", kids: ["8/8 DfE benchmarks", "Gatsby 92% · two runs", "100% personal guidance"] },
+      { label: "Delivered", kids: ["30 events 2025–26", "Whole-Y10 work experience", "4+ trips every pupil"] },
+      { label: "Felt", kids: ["94% belonging (n=416)", "99% parents value it", "Aquinas 24.5% PP"] }
+    ],
+    leadership: [
+      { label: "Sustained", kids: ["Outcomes > national 3 yrs", "PEX 7→3→2→0", "Attendance rising 2 yrs"] },
+      { label: "Transformational", kids: ["Disadv P8 +0.26 vs −0.57", "EHCP attendance +9.13", "£400k Emmanuel secured"] },
+      { label: "National reach", kids: ["Advises Secretary of State", "HTRT co-chair", "DSL audits other schools"] }
+    ],
+    safeguarding: [
+      { label: "Verdict", kids: ["External audit: “exemplary”", "Action plan within a month"] },
+      { label: "Culture", kids: ["145 staff trained, annual", "5 Rs known by all", "100% parents: child feels safe"] },
+      { label: "Systems", kids: ["CPOMS live records", "Securus digital monitoring", "Monthly family newsletters"] }
+    ],
+    ethos: [
+      { label: "Lived daily", kids: ["Prayer in lessons", "Faith in Action & The Mission", "Service with Colour"] }
+    ],
+    coaching: [
+      { label: "The cycle", kids: ["54 narrative reflections", "40 coached targets", "Drop-ins vs own goals"] },
+      { label: "Ownership", kids: ["45% chose the school's priority", "25% chose dialogic/oracy"] },
+      { label: "Whole-staff", kids: ["Reading CPD 92%", "6-Minute Takeaways", "CPR cycles"] }
+    ],
+    data: [
+      { label: "KS4 machine", kids: ["1 row per pupil, all joined", "20 SLT-mentored Y11s", "65 → shoulder revision groups"] },
+      { label: "KS3 effect", kids: ["E&M on-track Y8 38→65%", "Y7 49→59% · Y9 27→44%"] }
+    ],
+    pastoral: [
+      { label: "Machinery", kids: ["Home visits → CPOMS", "Attendance Contracts", "Agency support <50% att."] },
+      { label: "Proof", kids: ["Members 94.5% vs 87.3%", "EHCP +9.13 vs national"] }
+    ],
+    innovation: [
+      { label: "Firsts", kids: ["12-hour day", "Phone-free early", "Teacher lie-ins", "Elev:8"] },
+      { label: "Platform", kids: ["60+ media items", "Guardian · Times · Fortune · BBC", "Frameworks followed us"] }
+    ],
+    disadv: [
+      { label: "Outcomes", kids: ["P8 +0.26 vs −0.57 (2024)", "Beat national non-disadv.", "3 years above national"] },
+      { label: "Experience", kids: ["FSM6 attendance +1.70", "Enrichment at parity", "PP-only aspiration programmes"] }
+    ],
+    "send-out": [
+      { label: "Care", kids: ["EHCP attendance +9.13", "2 of 59 OSDs EHCP", "Specialist centres ×2"] },
+      { label: "Progress", kids: ["EHCP P8 +0.07 (2024)", "SEN K +0.13 (2024)", "Measured interventions"] }
+    ],
+    reading: [
+      { label: "The need", kids: ["54% below age-related", "66 pupils SAS<85", "9 functionally pre-reading"] },
+      { label: "The response", kids: ["59 staff trained · 92%", "Fresh Start 3× faster", "R.E.A.D.S in every subject", "Emmanuel pathway next"] }
+    ],
+    gap: [
+      { label: "The numbers", kids: ["0.57 → 0.80 → 1.14*", "Disadv. still above national"] },
+      { label: "The levers", kids: ["Adaptive teaching in every SoW", "Attendance engine", "Targeted intervention"] }
+    ],
+    y11att: [
+      { label: "The risk", kids: ["2.17 below national", "7% severely absent"] },
+      { label: "The counterpoint", kids: ["64% improved vs their Y10", "A8 5.22 vs 3.53 by attendance"] }
+    ],
+    dispro: [
+      { label: "Named openly", kids: ["FSM · boys · EHCP · Black Caribbean", "Self-identified internally", "Plans due end HT6"] }
+    ],
+    emmanuel: [
+      { label: "Funded", kids: ["£400k RBKC secured", "55m² modular", "£150–175k value-engineered"] },
+      { label: "Evidenced", kids: ["66 readers SAS<85", "27 below 85% attendance", "9-child priority cohort"] }
+    ]
+  },
+
   /* ---------- Graph extras: expandable satellites + sidebar charts per node ---------- */
   graphExtras: {
     leadership: {
