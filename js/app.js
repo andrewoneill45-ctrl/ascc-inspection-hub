@@ -1,4 +1,4 @@
-/* All Saints Catholic College — Inspection Hub app */
+/* All Saints Catholic College – Inspection Hub app */
 (() => {
 "use strict";
 
@@ -25,7 +25,7 @@ document.getElementById("login-form").addEventListener("submit", async e => {
     sessionStorage.setItem("ascc_auth", PASS_HASH);
     unlock();
   } else {
-    document.getElementById("login-error").textContent = "Incorrect password — please try again.";
+    document.getElementById("login-error").textContent = "Incorrect password – please try again.";
     document.getElementById("password").value = "";
   }
 });
@@ -34,12 +34,12 @@ document.getElementById("login-form").addEventListener("submit", async e => {
 let appInitialised = false;
 const rendered = {};
 const VIEW_TITLES = {
-  dashboard: "Dashboard", sef: "Self-Evaluation", send: "SEND — Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
+  dashboard: "Dashboard", sef: "Self-Evaluation", send: "SEND – Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
   years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour",
   enrichment: "Enrichment", careers: "Careers & Gatsby Benchmarks", voice: "Student & Parent Voice", graph: "Connections",
-  briefings: "Briefing — Staff",
+  briefings: "Briefing – Staff",
   scenarios: "Scenario Lab", governors: "Governors' Challenge",
-  framework: "Renewed Framework", media: "Innovation & Press", ask: "Ask the Portal — AI conversation"
+  framework: "Renewed Framework", media: "Innovation & Press", ask: "Ask the Portal – AI conversation"
 };
 function initApp() {
   if (appInitialised) return;
@@ -96,7 +96,7 @@ function showView(name) {
   // print header + PDF filename follow the current page
   const t = VIEW_TITLES[name] || name;
   const ph = el("ph-section"); if (ph) ph.textContent = t;
-  document.title = `ASCC Portal — ${t}`;
+  document.title = `ASCC Portal – ${t}`;
   window.scrollTo({ top: 0 });
 }
 window.gotoView = showView;
@@ -133,22 +133,22 @@ function renderDashboard() {
       <div class="card stat"><div class="num">0</div><div class="lbl">Permanent exclusions this year</div><div class="ctx">7 → 3 → 2 → 0 over four years · suspensions −43.9% from peak</div></div>
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
-      <div class="card stat"><div class="num">100%</div><div class="lbl">of surveyed parents say their child feels safe — and 100% would recommend the school</div><div class="ctx">82/82, Y7 & Y10 · safeguarding audit: “exemplary”</div></div>
-      <div class="card stat"><div class="num">45%</div><div class="lbl">of the roll in tracked clubs — members attend +7.2 points better</div><div class="ctx">SEN members +12.1 · Elev:8 Y8 at 91% participation</div></div>
+      <div class="card stat"><div class="num">100%</div><div class="lbl">of surveyed parents say their child feels safe – and 100% would recommend the school</div><div class="ctx">82/82, Y7 & Y10 · safeguarding audit: “exemplary”</div></div>
+      <div class="card stat"><div class="num">45%</div><div class="lbl">of the roll in tracked clubs – members attend +7.2 points better</div><div class="ctx">SEN members +12.1 · Elev:8 Y8 at 91% participation</div></div>
       <div class="card stat"><div class="num">8/8</div><div class="lbl">DfE enrichment benchmarks met · Gatsby careers at 92%</div><div class="ctx">Both frameworks arrived after we already met them</div></div>
       <div class="card stat"><div class="num">45%</div><div class="lbl">of teachers freely chose the school's #1 priority as their own target</div><div class="ctx">Codified handbook → coaching → T&L 2.08 → 100% parent satisfaction</div></div>
     </div>
     <div class="grid cols-4" style="margin-bottom:26px">
-      <div class="card stat"><div class="num">${c.fsm.pct}%</div><div class="lbl">Free School Meals (${c.fsm.n} pupils)</div><div class="ctx neutral">FSM6 41.8% — well above national</div></div>
+      <div class="card stat"><div class="num">${c.fsm.pct}%</div><div class="lbl">Free School Meals (${c.fsm.n} pupils)</div><div class="ctx neutral">FSM6 41.8% – well above national</div></div>
       <div class="card stat"><div class="num">${c.ehcp.pct}%</div><div class="lbl">EHC Plans (${c.ehcp.n} pupils)</div><div class="ctx neutral">Well above average, rising each year</div></div>
       <div class="card stat"><div class="num">${c.eal.pct}%</div><div class="lbl">English as an Additional Language</div><div class="ctx neutral">${c.eal.n} pupils</div></div>
-      <div class="card stat"><div class="num">Top 20%</div><div class="lbl">Deprivation nationally (IDACI)</div><div class="ctx neutral">Local FSM6 60.4% — well above average</div></div>
+      <div class="card stat"><div class="num">Top 20%</div><div class="lbl">Deprivation nationally (IDACI)</div><div class="ctx neutral">Local FSM6 60.4% – well above average</div></div>
     </div>
     <div class="grid cols-2">
       <div class="card">
-        <h3>Self-evaluation summary — renewed framework</h3>
+        <h3>Self-evaluation summary – renewed framework</h3>
         <div id="dash-sef"></div>
-        <p class="note">Click any area for the full evidence base and priorities — or open the <a href="#" onclick="gotoView('sef');return false;">Self-Evaluation</a> tab.</p>
+        <p class="note">Click any area for the full evidence base and priorities – or open the <a href="#" onclick="gotoView('sef');return false;">Self-Evaluation</a> tab.</p>
       </div>
       <div class="card chart-card">
         <h3>Progress 8 vs national</h3>
@@ -162,30 +162,30 @@ function renderDashboard() {
         <div>
           <h4 style="color:var(--green)">Where we follow the evidence</h4>
           <ul style="margin-left:18px;font-size:0.86rem">
-            <li style="margin-bottom:6px"><strong>Active Ingredients coaching</strong> → EEF metacognition, <strong>+8 months</strong> — the Toolkit's highest-impact strand.</li>
-            <li style="margin-bottom:6px"><strong>Thinking Reading & Y7 Fluency Pilot</strong> → reading comprehension <strong>+7</strong>, phonics <strong>+5</strong> — answering our own reading data (54% below age-related).</li>
+            <li style="margin-bottom:6px"><strong>Active Ingredients coaching</strong> → EEF metacognition, <strong>+8 months</strong> – the Toolkit's highest-impact strand.</li>
+            <li style="margin-bottom:6px"><strong>Thinking Reading & Y7 Fluency Pilot</strong> → reading comprehension <strong>+7</strong>, phonics <strong>+5</strong> – answering our own reading data (54% below age-related).</li>
             <li style="margin-bottom:6px"><strong>Oracy in every Scheme of Work</strong> → oral language (high impact); national Oracy Commission case study.</li>
             <li style="margin-bottom:6px"><strong>Y11 intervention</strong> → small-group <strong>+4</strong> / one-to-one <strong>+5</strong>; book priorities → feedback <strong>+6</strong>.</li>
-            <li style="margin-bottom:6px"><strong>Elev:8</strong> → built on Professor John Jerrim's research on the Year 8 engagement dip — visible in our own matched data (−2.29pts Y7→Y8).</li>
-            <li><strong>Staff development</strong> → EEF Effective PD mechanisms end-to-end: 54 narrative self-reflections, coached targets, drop-ins against each teacher's own goal — 45% chose the school's #1 priority themselves.</li>
+            <li style="margin-bottom:6px"><strong>Elev:8</strong> → built on Professor John Jerrim's research on the Year 8 engagement dip – visible in our own matched data (−2.29pts Y7→Y8).</li>
+            <li><strong>Staff development</strong> → EEF Effective PD mechanisms end-to-end: 54 narrative self-reflections, coached targets, drop-ins against each teacher's own goal – 45% chose the school's #1 priority themselves.</li>
           </ul>
         </div>
         <div>
           <h4 style="color:var(--gold)">Where we lead the evidence</h4>
           <ul style="margin-left:18px;font-size:0.86rem">
-            <li style="margin-bottom:6px"><strong>The extended enrichment day</strong> — running years before the DfE's Enrichment Framework (June 2026); we already meet all <strong>8 benchmarks</strong>. Covered by Guardian, Times, Fortune, BBC.</li>
-            <li style="margin-bottom:6px"><strong>Elev:8</strong> — no other school has redesigned Year 8 around the engagement dip: residential, compulsory P7 enrichment, London Leaders.</li>
-            <li style="margin-bottom:6px"><strong>Phone-free culture</strong> — national and international coverage before the policy debate caught up.</li>
-            <li style="margin-bottom:6px"><strong>Teacher 'lie-ins' & flexible working</strong> — retention innovation the Education Secretary later endorsed.</li>
-            <li style="margin-bottom:6px"><strong>Emmanuel</strong> — £400k of secured capital for a reintegration hub and literacy pathway, business-cased from our own data triangulation.</li>
-            <li><strong>System leadership</strong> — Headteacher advises the Secretary of State; DSL audits other schools' safeguarding.</li>
+            <li style="margin-bottom:6px"><strong>The extended enrichment day</strong> – running years before the DfE's Enrichment Framework (June 2026); we already meet all <strong>8 benchmarks</strong>. Covered by Guardian, Times, Fortune, BBC.</li>
+            <li style="margin-bottom:6px"><strong>Elev:8</strong> – no other school has redesigned Year 8 around the engagement dip: residential, compulsory P7 enrichment, London Leaders.</li>
+            <li style="margin-bottom:6px"><strong>Phone-free culture</strong> – national and international coverage before the policy debate caught up.</li>
+            <li style="margin-bottom:6px"><strong>Teacher 'lie-ins' & flexible working</strong> – retention innovation the Education Secretary later endorsed.</li>
+            <li style="margin-bottom:6px"><strong>Emmanuel</strong> – £400k of secured capital for a reintegration hub and literacy pathway, business-cased from our own data triangulation.</li>
+            <li><strong>System leadership</strong> – Headteacher advises the Secretary of State; DSL audits other schools' safeguarding.</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="card" style="margin-top:18px">
-      <h3>Inspection context — what this school is</h3>
-      <p style="font-size:0.9rem">${s.name} is a ${s.type} in ${s.la} (${s.address}). Previous inspection: <strong>${s.lastOfsted}</strong>. Motto: <strong>${s.motto}</strong> — <em>${s.mottoMeaning}</em>. ${c.onRoll} pupils on roll across ${s.years}. The school is nationally known for the extended enrichment day, phone-free culture, staff-wellbeing innovation and system leadership — see <a href="#" onclick="gotoView('media');return false;">Innovation &amp; Press</a>.</p>
+      <h3>Inspection context – what this school is</h3>
+      <p style="font-size:0.9rem">${s.name} is a ${s.type} in ${s.la} (${s.address}). Previous inspection: <strong>${s.lastOfsted}</strong>. Motto: <strong>${s.motto}</strong> – <em>${s.mottoMeaning}</em>. ${c.onRoll} pupils on roll across ${s.years}. The school is nationally known for the extended enrichment day, phone-free culture, staff-wellbeing innovation and system leadership – see <a href="#" onclick="gotoView('media');return false;">Innovation &amp; Press</a>.</p>
     </div>
   `));
   const dashSef = el("dash-sef");
@@ -215,8 +215,8 @@ function renderSef() {
   const v = el("view-sef");
   v.appendChild(h(`
     <div class="view-head">
-      <h2>Self-Evaluation — July 2026</h2>
-      <p>Eight evaluation areas, each pinned to the renewed framework's toolkit tests: every Exceptional grade argues all three tests — <em>sustained exceptionally high standards · transformational impact on disadvantaged pupils and those with SEND · nothing significant unaddressed</em> — with the evidence beneath each; and every Strong grade states, on the record, exactly what is holding it there. Every improvement lever is anchored to the <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">EEF Toolkit</a>: evidence-led where the evidence exists, innovation-minded where the school is ahead of it.</p>
+      <h2>Self-Evaluation – July 2026</h2>
+      <p>Eight evaluation areas, each pinned to the renewed framework's toolkit tests: every Exceptional grade argues all three tests – <em>sustained exceptionally high standards · transformational impact on disadvantaged pupils and those with SEND · nothing significant unaddressed</em> – with the evidence beneath each; and every Strong grade states, on the record, exactly what is holding it there. Every improvement lever is anchored to the <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">EEF Toolkit</a>: evidence-led where the evidence exists, innovation-minded where the school is ahead of it.</p>
     </div>
     <div id="sef-list"></div>
   `));
@@ -226,7 +226,7 @@ function renderSef() {
     const dev = a.development.map(x => `<li>${x}</li>`).join("");
     const prio = a.priorities.map(p => `<tr><td>${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td></tr>`).join("");
     const eef = a.eef ? `
-      <h4>Evidence base — EEF Teaching &amp; Learning Toolkit</h4>
+      <h4>Evidence base – EEF Teaching &amp; Learning Toolkit</h4>
       <div class="eef-grid">
         ${a.eef.map(e => `
           <a class="eef-card" href="${e.url}" target="_blank" rel="noopener">
@@ -238,7 +238,7 @@ function renderSef() {
     const note = a.note ? `<span style="font-size:0.72rem;color:var(--muted);font-style:italic">${a.note}</span>` : "";
     const exc = a.exceptional ? `
       <div class="exc-block">
-        <div class="exc-title">Why Exceptional — pinned to the framework toolkit</div>
+        <div class="exc-title">Why Exceptional – pinned to the framework toolkit</div>
         ${a.exceptional.map(t => `
           <div class="exc-test">
             <div class="exc-test-name">${t[0]}</div>
@@ -247,7 +247,7 @@ function renderSef() {
       </div>` : "";
     const rationale = a.gradeRationale ? `
       <div class="exc-block" style="border-color:var(--purple-500);background:var(--purple-50)">
-        <div class="exc-title" style="color:var(--purple-800)">Why this grade — calibration, on the record</div>
+        <div class="exc-title" style="color:var(--purple-800)">Why this grade – calibration, on the record</div>
         <div class="exc-test-ev" style="margin-top:6px">${a.gradeRationale}</div>
       </div>` : "";
     const item = h(`
@@ -263,7 +263,7 @@ function renderSef() {
           ${rationale}
           <div class="sef-cols">
             <div><h4>Headline evidence</h4><ul>${evid}</ul></div>
-            <div class="dev"><h4>We know, we act — development areas</h4><ul>${dev}</ul></div>
+            <div class="dev"><h4>We know, we act – development areas</h4><ul>${dev}</ul></div>
           </div>
           <h4>Priorities to January 2027</h4>
           <table class="prio"><tr><th>Priority / action</th><th>Owner</th><th>Milestone</th></tr>${prio}</table>
@@ -284,7 +284,7 @@ function renderSend() {
   const s = ASCC.send;
   el("view-send").appendChild(h(`
     <div class="view-head">
-      <h2>SEND — interventions &amp; impact</h2>
+      <h2>SEND – interventions &amp; impact</h2>
       <p>${s.intro}</p>
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
@@ -292,7 +292,7 @@ function renderSend() {
     </div>
 
     <div class="card" style="margin-bottom:18px">
-      <h3>The provision map — a graduated response you can hold in your hand</h3>
+      <h3>The provision map – a graduated response you can hold in your hand</h3>
       <div class="grid cols-2" style="margin-top:10px">
         <div>
           <table class="data"><tr><th>Area of concern</th><th>Provisions</th><th>What's in it</th></tr>
@@ -306,7 +306,7 @@ function renderSend() {
 
     <div class="grid cols-2" style="margin-bottom:18px">
       <div class="card chart-card">
-        <h3>Fresh Start phonics — measured pupil by pupil</h3>
+        <h3>Fresh Start phonics – measured pupil by pupil</h3>
         <div class="chart-wrap" id="sd-fs"></div>
         <p class="note">${s.freshStart.pairsNote}</p>
       </div>
@@ -320,7 +320,7 @@ function renderSend() {
 
     <div class="grid cols-2" style="margin-bottom:18px">
       <div class="card chart-card">
-        <h3>Galilee literacy — pre/post assessment gains</h3>
+        <h3>Galilee literacy – pre/post assessment gains</h3>
         <div class="chart-wrap" id="sd-gal"></div>
         <p class="note">${s.galilee.gainsNote}</p>
       </div>
@@ -334,7 +334,7 @@ function renderSend() {
     </div>
 
     <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-600)">
-      <h3>Academic Support Assistants — one graduate team, the whole ability range</h3>
+      <h3>Academic Support Assistants – one graduate team, the whole ability range</h3>
       <p class="sef-headline" style="margin-top:10px">${s.asa.headline}</p>
       <div class="grid cols-4" style="margin:14px 0">
         ${s.asa.aquinas.stats.map(x => `
@@ -351,7 +351,7 @@ function renderSend() {
     </div>
 
     <div class="card" style="margin-bottom:18px;border-left:5px solid var(--green)">
-      <h3>AllChild — the embedded Link Worker</h3>
+      <h3>AllChild – the embedded Link Worker</h3>
       <p class="sef-headline" style="margin-top:10px">${s.allchild.headline}</p>
       <div class="grid cols-4" style="margin:14px 0">
         ${s.allchild.tiles.map(t => `
@@ -394,7 +394,7 @@ function renderSend() {
     { label: "Pupils", data: s.map.biggest.map(x => x[1]), backgroundColor: BRAND.purple, borderRadius: 5 } ] },
     options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true } } } });
   makeChart("sd-fs", { type: "bar", data: { labels: s.freshStart.pairs.labels, datasets: [
-    { label: "Entry (seconds — lower is better)", data: s.freshStart.pairs.before, backgroundColor: BRAND.grey, borderRadius: 5 },
+    { label: "Entry (seconds – lower is better)", data: s.freshStart.pairs.before, backgroundColor: BRAND.grey, borderRadius: 5 },
     { label: "July 2026", data: s.freshStart.pairs.after, backgroundColor: BRAND.green, borderRadius: 5 } ] },
     options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: "Speed Sound time (s)" } } } } });
   makeChart("sd-allchild", { type: "doughnut", data: { labels: s.allchild.outcomes.labels, datasets: [
@@ -411,7 +411,7 @@ function renderStaff() {
   const st = ASCC.staff;
   el("view-staff").appendChild(h(`
     <div class="view-head">
-      <h2>Staff Development — the engine room</h2>
+      <h2>Staff Development – the engine room</h2>
       <p>${st.intro}</p>
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
@@ -425,7 +425,7 @@ function renderStaff() {
         <p class="note">${st.domains.note}</p>
       </div>
       <div class="card">
-        <h3>The development cycle — bespoke to every teacher</h3>
+        <h3>The development cycle – bespoke to every teacher</h3>
         <div id="st-cycle"></div>
       </div>
     </div>
@@ -453,7 +453,7 @@ function renderStaff() {
 
     <div class="grid cols-2">
       <div class="card">
-        <h3>Evidence base — EEF</h3>
+        <h3>Evidence base – EEF</h3>
         <div class="eef-grid" style="margin-top:10px">
           ${st.eef.map(e => `
             <a class="eef-card" href="${e.url}" target="_blank" rel="noopener">
@@ -509,12 +509,12 @@ function renderResults() {
       <div class="card chart-card"><h3>Attainment 8 vs national</h3><div class="chart-wrap" id="rc-a8"></div></div>
       <div class="card chart-card"><h3>Progress 8 vs national</h3><div class="chart-wrap" id="rc-p8"></div></div>
       <div class="card chart-card"><h3>4+ &amp; 5+ in English &amp; Maths</h3><div class="chart-wrap" id="rc-em"></div>
-        <p class="note">4+ E&amp;M has held at 74–75% (national 65%) despite falling KS2 priors — and 2026 is predicted at <strong>82%</strong>, which would be the school's best ever.</p></div>
+        <p class="note">4+ E&amp;M has held at 74–75% (national 65%) despite falling KS2 priors – and 2026 is predicted at <strong>82%</strong>, which would be the school's best ever.</p></div>
       <div class="card chart-card"><h3>Disadvantaged Progress 8 vs national disadvantaged</h3><div class="chart-wrap" id="rc-dis"></div>
         <p class="note">${r.gapNote}</p></div>
     </div>
     <div class="card" style="margin-bottom:18px">
-      <h3>SEND outcomes — small cohorts, honest picture</h3>
+      <h3>SEND outcomes – small cohorts, honest picture</h3>
       <div class="chart-wrap" id="rc-sen" style="height:260px"></div>
       <p class="note">${r.senNote}</p>
     </div>
@@ -523,7 +523,7 @@ function renderResults() {
       <table class="data" id="rc-subjects">
         <tr><th>Subject</th><th>Pupils</th><th>4+ %</th><th>5+ %</th><th>7+ %</th><th>Residual</th></tr>
       </table>
-      <p class="note">Standouts: Sports Studies residual +2.35, Food &amp; Nutrition +1.44, Spanish +0.54 (100% 4+ and 5+), RE +0.31. Focus subjects: English Language (−0.54) and Combined Science (−0.42) — both carry named priorities and intervention plans in the SEF.</p>
+      <p class="note">Standouts: Sports Studies residual +2.35, Food &amp; Nutrition +1.44, Spanish +0.54 (100% 4+ and 5+), RE +0.31. Focus subjects: English Language (−0.54) and Combined Science (−0.42) – both carry named priorities and intervention plans in the SEF.</p>
     </div>
   `));
   const ws = r.wholeSchool;
@@ -568,12 +568,12 @@ function renderYears() {
     </div>
     <div class="grid cols-2" style="margin-bottom:18px">
       <div class="card chart-card">
-        <h3>Year 11 — mock-to-exam trajectory (Average A8)</h3>
+        <h3>Year 11 – mock-to-exam trajectory (Average A8)</h3>
         <div class="chart-wrap" id="yc-y11"></div>
         <p class="note">${y11.trajectory.note}</p>
       </div>
       <div class="card chart-card">
-        <h3>Year 11 — attendance is achievement (Average A8 by attendance band)</h3>
+        <h3>Year 11 – attendance is achievement (Average A8 by attendance band)</h3>
         <div class="chart-wrap" id="yc-att"></div>
         <p class="note">${y11.attendanceNote}</p>
       </div>
@@ -581,7 +581,7 @@ function renderYears() {
     <div class="grid cols-3" style="margin-bottom:18px">
       <div class="card stat"><div class="num">82%</div><div class="lbl">2026 predicted 4+ English &amp; Maths</div><div class="ctx">Best ever, from KS2 prior of 101.5</div></div>
       <div class="card stat"><div class="num">5.01</div><div class="lbl">2026 predicted Attainment 8</div><div class="ctx neutral">P8 prediction +0.74 (SISRA)</div></div>
-      <div class="card stat"><div class="num">48%</div><div class="lbl">Y11 Pupil Premium</div><div class="ctx neutral">EAL 46% · SEN 22% — a high-need cohort</div></div>
+      <div class="card stat"><div class="num">48%</div><div class="lbl">Y11 Pupil Premium</div><div class="ctx neutral">EAL 46% · SEN 22% – a high-need cohort</div></div>
     </div>
     <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-600)">
       <h3>${ASCC.y11.machinery.headline}</h3>
@@ -595,12 +595,12 @@ function renderYears() {
     </div>
 
     <div class="card" style="margin-bottom:18px">
-      <h3>Year 10 — Lenten 2026 snapshot</h3>
+      <h3>Year 10 – Lenten 2026 snapshot</h3>
       <div class="chart-wrap" id="yc-y10" style="height:220px"></div>
       <p class="note">${y10.note}</p>
     </div>
     <div class="card" style="margin-bottom:18px;border-left:5px solid var(--gold)">
-      <h3>Primary transition — risk mapped before it arrives</h3>
+      <h3>Primary transition – risk mapped before it arrives</h3>
       <p class="sef-headline" style="margin-top:10px">${ASCC.transition.headline}</p>
       <div class="grid cols-2" style="margin-top:12px">
         <div class="chart-card"><h4 style="margin-top:0">KS4 attendance by feeder primary (8+ pupils)</h4><div class="chart-wrap" id="yc-feeder" style="height:300px"></div>
@@ -614,7 +614,7 @@ function renderYears() {
 
     <div class="grid cols-2">
       <div class="card chart-card">
-        <h3>KS3 — % on/above track in English &amp; Maths</h3>
+        <h3>KS3 – % on/above track in English &amp; Maths</h3>
         <div class="chart-wrap" id="yc-ks3"></div>
         <p class="note">${ks3.emOnTrack.note}</p>
       </div>
@@ -623,7 +623,7 @@ function renderYears() {
         <table class="data"><tr><th>Year</th><th>Pupils</th><th>PP</th><th>EAL</th><th>SEN</th><th>Attendance</th><th>Avg KS2</th></tr>
         ${ks3.profiles.map(p => `<tr><td>${p.year}</td><td>${p.n}</td><td>${p.pp}</td><td>${p.eal}</td><td>${p.sen}</td><td>${p.att}</td><td>${p.ks2}</td></tr>`).join("")}
         </table>
-        <p class="note">Y7 KS2 average of 108 is the strongest intake in years, with 95% attendance — evidence that the school's reputation and transition work are compounding.</p>
+        <p class="note">Y7 KS2 average of 108 is the strongest intake in years, with 95% attendance – evidence that the school's reputation and transition work are compounding.</p>
       </div>
     </div>
   `));
@@ -654,35 +654,35 @@ function renderAttendance() {
   el("view-attendance").appendChild(h(`
     <div class="view-head">
       <h2>Attendance</h2>
-      <p>Above national, above similar schools, and improving at four times the DfE's required rate — in a top-quintile deprivation context. Attendance and safeguarding run on one machinery, led by the DSL.</p>
+      <p>Above national, above similar schools, and improving at four times the DfE's required rate – in a top-quintile deprivation context. Attendance and safeguarding run on one machinery, led by the DSL.</p>
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
       <div class="card stat"><div class="num">92.41%</div><div class="lbl">Overall attendance (FFT, to 22 May)</div><div class="ctx">+0.78 vs national · +2.22 vs similar FSM6 schools</div></div>
       <div class="card stat"><div class="num">4×</div><div class="lbl">DfE improvement expectation beaten</div><div class="ctx">2.21% actual vs 0.5% minimum required</div></div>
-      <div class="card stat"><div class="num">+9.13</div><div class="lbl">EHCP attendance vs national EHCP</div><div class="ctx">90.03% — the culture works hardest for those who need it most</div></div>
-      <div class="card stat"><div class="num">+7.2</div><div class="lbl">Club members vs non-members</div><div class="ctx">Enrichment is the engine — see the Enrichment page</div></div>
+      <div class="card stat"><div class="num">+9.13</div><div class="lbl">EHCP attendance vs national EHCP</div><div class="ctx">90.03% – the culture works hardest for those who need it most</div></div>
+      <div class="card stat"><div class="num">+7.2</div><div class="lbl">Club members vs non-members</div><div class="ctx">Enrichment is the engine – see the Enrichment page</div></div>
     </div>
     <div class="grid cols-2" style="margin-bottom:18px">
       <div class="card chart-card"><h3>Attendance vs benchmarks (2025/26, FFT to 22 May)</h3><div class="chart-wrap" id="cc-att"></div>
-        <p class="note">Pre-pandemic recovery is virtually complete: 92.41% vs 92.6% in 2018/19 — a gap of 0.19 points, ahead of most similar schools.</p></div>
+        <p class="note">Pre-pandemic recovery is virtually complete: 92.41% vs 92.6% in 2018/19 – a gap of 0.19 points, ahead of most similar schools.</p></div>
       <div class="card chart-card"><h3>Vulnerable groups vs national equivalents</h3><div class="chart-wrap" id="cc-groups"></div>
-        <p class="note">EHCP pupils attend <strong>9.13 points above</strong> the national EHCP figure; FSM6 +1.70. SEN Support (84.44%) is the named gap — targets: ≥87.5% and PA &lt;35% by Jan 2027, every pupil &lt;90% with a named contact and plan.</p></div>
+        <p class="note">EHCP pupils attend <strong>9.13 points above</strong> the national EHCP figure; FSM6 +1.70. SEN Support (84.44%) is the named gap – targets: ≥87.5% and PA &lt;35% by Jan 2027, every pupil &lt;90% with a named contact and plan.</p></div>
     </div>
     <div class="grid cols-2">
       <div class="card">
         <h3>Known lines to hold</h3>
         <ul style="margin-left:18px;font-size:0.88rem">
-          <li style="margin-bottom:8px"><strong>Year 11 attendance (78.6% SIMS in-year; 2.17 below national on FFT):</strong> exam pressure, anxiety and a small number of entrenched cases predating current systems. Response: audit of every incoming Y11 below 90%, Attendance Contracts with every Y10 PA/SA family before September, home visits for every severely absent pupil logged on CPOMs. Counterpoint: 64% of this Y11 improved their attendance vs their own Y10 year — against the national trend.</li>
+          <li style="margin-bottom:8px"><strong>Year 11 attendance (78.6% SIMS in-year; 2.17 below national on FFT):</strong> exam pressure, anxiety and a small number of entrenched cases predating current systems. Response: audit of every incoming Y11 below 90%, Attendance Contracts with every Y10 PA/SA family before September, home visits for every severely absent pupil logged on CPOMs. Counterpoint: 64% of this Y11 improved their attendance vs their own Y10 year – against the national trend.</li>
           <li style="margin-bottom:8px"><strong>Persistent absence (20.9%):</strong> target &lt;20% by Jan 2027 with attendance ambassadors and individual targets set by Oct 2026.</li>
           <li><strong>DfE data discrepancy:</strong> ${at.dfeNote}</li>
         </ul>
       </div>
       <div class="card chart-card"><h3>In-year attendance by year group (SIMS)</h3><div class="chart-wrap" id="cc-byyear"></div>
-        <p class="note">SIMS in-year figure (90.03% overall) differs from the FFT/DfE benchmarked 92.41% — known platform discrepancies are documented with an explanation ready for inspectors.</p></div>
+        <p class="note">SIMS in-year figure (90.03% overall) differs from the FFT/DfE benchmarked 92.41% – known platform discrepancies are documented with an explanation ready for inspectors.</p></div>
     </div>
 
     <div class="card safeg-card" style="margin-top:18px">
-      <h3>Safeguarding — a culture, not a folder</h3>
+      <h3>Safeguarding – a culture, not a folder</h3>
       <p class="sef-headline" style="margin-top:10px">${ASCC.safeguardingReport.headline}</p>
       <div class="sef-cols">
         <div>
@@ -733,15 +733,15 @@ function renderBehaviour() {
     </div>
 
     <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-600)">
-      <h3>Inside the classroom — the internal behaviour log</h3>
+      <h3>Inside the classroom – the internal behaviour log</h3>
       <p class="sef-headline" style="margin-top:10px">${be.internal.definition}</p>
       <div class="grid cols-4" style="margin:14px 0">
         ${be.internal.keyStats.map(k => `
           <div class="card stat" style="box-shadow:none"><div class="num" style="font-size:1.5rem">${k[0]}</div><div class="lbl">${k[1]}</div></div>`).join("")}
       </div>
       <div class="grid cols-2">
-        <div class="chart-card"><h4 style="margin-top:0">Internal suspensions — falling every year for four years</h4><div class="chart-wrap" id="cc-int-total"></div></div>
-        <div class="chart-card"><h4 style="margin-top:0">Per pupil on roll — halved while the school grew 41%</h4><div class="chart-wrap" id="cc-int-pp"></div></div>
+        <div class="chart-card"><h4 style="margin-top:0">Internal suspensions – falling every year for four years</h4><div class="chart-wrap" id="cc-int-total"></div></div>
+        <div class="chart-card"><h4 style="margin-top:0">Per pupil on roll – halved while the school grew 41%</h4><div class="chart-wrap" id="cc-int-pp"></div></div>
       </div>
       <div class="sef-cols" style="margin-top:16px">
         <div>
@@ -749,14 +749,14 @@ function renderBehaviour() {
           <ul style="margin-left:18px;font-size:0.85rem">${be.internal.messages.map(m => `<li style="margin-bottom:7px">${m}</li>`).join("")}</ul>
         </div>
         <div>
-          <h4>Vulnerable groups — addressed openly</h4>
+          <h4>Vulnerable groups – addressed openly</h4>
           <p style="font-size:0.85rem">${be.internal.vulnerable}</p>
         </div>
       </div>
     </div>
 
     <div class="card" style="margin-bottom:18px;border-left:5px solid var(--green)">
-      <h3>Off-site direction — how we stopped permanent exclusion</h3>
+      <h3>Off-site direction – how we stopped permanent exclusion</h3>
       <p class="sef-headline" style="margin-top:10px">${be.osd.headline}</p>
       <div class="grid cols-4" style="margin:14px 0">
         ${be.osd.keyStats.map(k => `
@@ -765,7 +765,7 @@ function renderBehaviour() {
       <div class="grid cols-2">
         <div class="chart-card"><h4 style="margin-top:0">Placements by year group</h4><div class="chart-wrap" id="cc-osd-year"></div>
           <p class="note">${be.osd.byYearNote}</p></div>
-        <div class="chart-card"><h4 style="margin-top:0">Placements by term — all pupils vs SEND</h4><div class="chart-wrap" id="cc-osd-term"></div>
+        <div class="chart-card"><h4 style="margin-top:0">Placements by term – all pupils vs SEND</h4><div class="chart-wrap" id="cc-osd-term"></div>
           <p class="note">${be.osd.byTermNote}</p></div>
       </div>
       <h4>Why this is a safeguarding-led model</h4>
@@ -780,14 +780,14 @@ function renderBehaviour() {
     </div>
 
     <div class="card" style="border-left:5px solid var(--gold)">
-      <h3>How the system works — and every decision accounted for</h3>
+      <h3>How the system works – and every decision accounted for</h3>
       <div class="sef-cols" style="margin-top:14px">
         <div>
           <h4>How the system works</h4>
           <ul style="margin-left:18px;font-size:0.85rem">${be.fourYear.system.map(s => `<li style="margin-bottom:7px">${s}</li>`).join("")}</ul>
         </div>
         <div>
-          <h4>Permanent exclusions — every decision accounted for</h4>
+          <h4>Permanent exclusions – every decision accounted for</h4>
           <table class="prio"><tr><th>Year</th><th>PEX</th><th>Context</th></tr>
             ${be.fourYear.pexStory.map(p => `<tr><td style="white-space:nowrap">${p[0]}</td><td><strong>${p[1]}</strong></td><td style="font-size:0.8rem">${p[2]}</td></tr>`).join("")}
           </table>
@@ -839,11 +839,11 @@ function renderEnrichment() {
   const en = ASCC.enrichment, c = en.clubs, e8 = en.elev8;
   el("view-enrichment").appendChild(h(`
     <div class="view-head">
-      <h2>Enrichment — meeting every DfE benchmark</h2>
+      <h2>Enrichment – meeting every DfE benchmark</h2>
       <p>${en.intro} <a href="${en.frameworkUrl}" target="_blank" rel="noopener">DfE Enrichment Benchmarks →</a></p>
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
-      <div class="card stat"><div class="num">8 / 8</div><div class="lbl">DfE enrichment benchmarks met</div><div class="ctx">Framework published 15 June 2026 — we already met it</div></div>
+      <div class="card stat"><div class="num">8 / 8</div><div class="lbl">DfE enrichment benchmarks met</div><div class="ctx">Framework published 15 June 2026 – we already met it</div></div>
       <div class="card stat"><div class="num">${c.uniquePupils}</div><div class="lbl">Pupils in at least one club (${c.pctOfRoll}% of roll)</div><div class="ctx">84% sustained across both halves of the year</div></div>
       <div class="card stat"><div class="num">${c.attendances.toLocaleString()}</div><div class="lbl">Club attendances logged (${c.total} clubs)</div><div class="ctx">Per-half-term rate more than doubled after Elev:8 expansion</div></div>
       <div class="card stat"><div class="num">+7.2</div><div class="lbl">Attendance gap: club members vs non-members</div><div class="ctx">94.5% vs 87.3% · SEN members +12.1 · PP members +9.4</div></div>
@@ -857,7 +857,7 @@ function renderEnrichment() {
     </div>
 
     <div class="card" style="margin-bottom:18px">
-      <h3>The eight benchmarks — evidence against every one</h3>
+      <h3>The eight benchmarks – evidence against every one</h3>
       <div id="bench-list"></div>
     </div>
 
@@ -866,7 +866,7 @@ function renderEnrichment() {
         <p class="note">${c.topNote} ${c.breadth}</p></div>
       <div class="card chart-card"><h3>Who enrichment reaches (benchmark 5)</h3><div class="chart-wrap" id="en-parity"></div>
         <p class="note">${c.note}</p></div>
-      <div class="card chart-card"><h3>A growing offer — attendances per half term</h3><div class="chart-wrap" id="en-growth"></div>
+      <div class="card chart-card"><h3>A growing offer – attendances per half term</h3><div class="chart-wrap" id="en-growth"></div>
         <p class="note">${c.growth.note}</p></div>
     </div>
 
@@ -879,7 +879,7 @@ function renderEnrichment() {
 
     <div class="card elev8-card" style="margin-bottom:18px">
       <div class="elev8-head">
-        <h3>Elev:8 — ahead of the curve on the Year 8 dip</h3>
+        <h3>Elev:8 – ahead of the curve on the Year 8 dip</h3>
         <span class="elev8-tag">Innovation</span>
       </div>
       <p class="elev8-quote">${e8.tagline}</p>
@@ -900,7 +900,7 @@ function renderEnrichment() {
     </div>
 
     <div class="card chart-card">
-      <h3>The Year 8 dip — in our own matched-pupil data</h3>
+      <h3>The Year 8 dip – in our own matched-pupil data</h3>
       <div class="chart-wrap" id="en-dip"></div>
       <p class="note">${ASCC.enrichment.y8DipChart.note}</p>
     </div>
@@ -920,7 +920,7 @@ function renderEnrichment() {
   });
 
   makeChart("en-impact", { type: "bar", data: { labels: c.impact.labels, datasets: [
-    { label: "Club members — school attendance %", data: c.impact.members, backgroundColor: BRAND.purple, borderRadius: 6 },
+    { label: "Club members – school attendance %", data: c.impact.members, backgroundColor: BRAND.purple, borderRadius: 6 },
     { label: "Non-members", data: c.impact.nonMembers, backgroundColor: BRAND.grey, borderRadius: 6 } ] },
     options: { maintainAspectRatio: false, scales: { y: { min: 75, max: 100 } } } });
   makeChart("en-byyear", { type: "bar", data: { labels: c.byYear.labels, datasets: [
@@ -948,7 +948,7 @@ function renderCareers() {
   const ca = ASCC.careers;
   el("view-careers").appendChild(h(`
     <div class="view-head">
-      <h2>Careers — guidance nobody here has to buy</h2>
+      <h2>Careers – guidance nobody here has to buy</h2>
       <p>${ca.intro} <a href="https://www.gatsbybenchmarks.org.uk/" target="_blank" rel="noopener">Gatsby Benchmarks →</a></p>
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
@@ -979,7 +979,7 @@ function renderCareers() {
       </div>
     </div>
     <div class="card" style="margin-bottom:18px">
-      <h3>The year in careers &amp; personal development — ${ca.events.total} events delivered</h3>
+      <h3>The year in careers &amp; personal development – ${ca.events.total} events delivered</h3>
       <p class="sef-headline" style="margin-top:10px">${ca.events.headline}</p>
       <div class="grid cols-2" style="margin-top:12px">
         ${ca.events.highlights.map(x => `
@@ -991,7 +991,7 @@ function renderCareers() {
       <p class="note">${ca.events.note}</p>
     </div>
     <div class="card">
-      <h3>Benchmark by benchmark — the evidence</h3>
+      <h3>Benchmark by benchmark – the evidence</h3>
       <div id="ca-bench"></div>
     </div>
   `));
@@ -1038,7 +1038,7 @@ function renderVoice() {
             <div style="font-size:0.85rem;margin-top:3px">${e[2]}</div>
             <div style="font-size:0.85rem;color:var(--green);font-weight:550;margin-top:2px">${e[3]}</div>
           </div>`).join("")}
-        <p class="note">416 pupils responded to Culture Day alone — voice collected at scale, not from a hand-picked panel.</p>
+        <p class="note">416 pupils responded to Culture Day alone – voice collected at scale, not from a hand-picked panel.</p>
       </div>
     </div>
     <div class="card" style="margin-bottom:18px">
@@ -1048,13 +1048,13 @@ function renderVoice() {
           <div class="quote-card">
             <div class="quote-theme">${q.theme}</div>
             <div class="quote-text">“${q.text}”</div>
-            <div class="quote-who">— ${q.who}</div>
+            <div class="quote-who">– ${q.who}</div>
           </div>`).join("")}
       </div>
     </div>
     <div class="grid cols-2">
       <div class="card">
-        <h3>The candid panel — what pupils affirm (n=${v.students.n})</h3>
+        <h3>The candid panel – what pupils affirm (n=${v.students.n})</h3>
         ${v.students.positives.map(x => `
           <div style="display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)">
             <span style="font-family:var(--serif);font-size:1.35rem;font-weight:650;color:var(--purple-800);min-width:64px">${x[0]}</span>
@@ -1096,7 +1096,7 @@ function renderGraph() {
   el("view-graph").appendChild(h(`
     <div class="view-head">
       <h2>How it all connects</h2>
-      <p>The school as a living system, three levels deep. <strong>Click any node and it breaks into its sub-categories; click a sub-category and it breaks into data points</strong> — dots shrinking as the detail sharpens. The sidebar pins the selected area's chart, key data and intersections. Drag anything; collapse by clicking an open node again.</p>
+      <p>The school as a living system, three levels deep. <strong>Click any node and it breaks into its sub-categories; click a sub-category and it breaks into data points</strong> – dots shrinking as the detail sharpens. The sidebar pins the selected area's chart, key data and intersections. Drag anything; collapse by clicking an open node again.</p>
     </div>
     <div class="graph-filters" id="graph-filters">
       <button data-t="all" class="on">All connections</button>
@@ -1116,7 +1116,7 @@ function renderGraph() {
       </div>
       <div class="card" id="graph-detail">
         <h3>Talk across the school</h3>
-        <p class="placeholder">Click any node to bring up its key data, a live chart and every intersection — the lines a leader can walk an inspector along. Double-click to burst it into satellite data points.</p>
+        <p class="placeholder">Click any node to bring up its key data, a live chart and every intersection – the lines a leader can walk an inspector along. Double-click to burst it into satellite data points.</p>
       </div>
     </div>
   `));
@@ -1142,7 +1142,7 @@ function renderGraph() {
   const gNodes = document.createElementNS(NS, "g");
   svg.appendChild(gLinks); svg.appendChild(gNodes);
 
-  // Supernotes-style: dots shrink as they break — root → category → data point
+  // Supernotes-style: dots shrink as they break – root → category → data point
   const nodeR = n => n.level === 2 ? 3.2 : n.level === 1 ? 6.2 : 6 + n.size * 0.45;
   const FONT = ["9.5", "8.3", "7.4"];
   const extras = ASCC.graphExtras || {};
@@ -1294,7 +1294,7 @@ function renderGraph() {
     links.forEach(l => l.el.setAttribute("stroke-opacity", l.hidden ? 0 : 0.32));
     nodes.forEach(m => m.el.setAttribute("opacity", 1));
     const d = el("graph-detail");
-    d.innerHTML = `<h3>Talk across the school</h3><p class="placeholder">Click any node to bring up its key data and every intersection — the lines a leader can walk an inspector along. Hover to preview; drag to rearrange.</p>`;
+    d.innerHTML = `<h3>Talk across the school</h3><p class="placeholder">Click any node to bring up its key data and every intersection – the lines a leader can walk an inspector along. Hover to preview; drag to rearrange.</p>`;
   }
   let sparkInstance = null;
   function renderSpark(spec) {
@@ -1351,13 +1351,13 @@ function renderGraph() {
       ${ex.spark ? `<div class="graph-spark-card"><div class="graph-spark-title">${ex.spark.title}</div><div id="graph-spark"></div></div>` : ""}
       <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Key data</h4>
       <ul class="node-stats">${stats}</ul>
-      <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Intersections — the lines to walk</h4>
+      <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Intersections – the lines to walk</h4>
       <div class="conn-list">${conns}</div>`;
     renderSpark(ex.spark);
     const xb = el("gd-expand");
     if (xb) xb.addEventListener("click", () => toggleExpand(n));
     el("gd-ai").addEventListener("click", () => {
-      askPortal(`Create a crisp infographic-style briefing on "${n.label}" at All Saints. Format: a bold one-line headline; the 4-6 most powerful statistics as a tight bold list; one or two clean charts (max 5 bars/points each, brand colours, no clutter); the two strongest intersections with other areas; the honest caveat in one sentence; and the single phrase a leader should say to an inspector. No padding — every element earns its place.`);
+      askPortal(`Create a crisp infographic-style briefing on "${n.label}" at All Saints. Format: a bold one-line headline; the 4-6 most powerful statistics as a tight bold list; one or two clean charts (max 5 bars/points each, brand colours, no clutter); the two strongest intersections with other areas; the honest caveat in one sentence; and the single phrase a leader should say to an inspector. No padding – every element earns its place.`);
     });
     el("graph-detail").querySelectorAll(".conn").forEach(c => {
       c.addEventListener("click", () => {
@@ -1381,7 +1381,7 @@ function renderGraph() {
   el("gf-expand").addEventListener("click", expandAll);
   el("gf-collapse").addEventListener("click", collapseAll);
   el("gf-ai").addEventListener("click", () => {
-    askPortal("Create a whole-school infographic briefing of All Saints as one connected system, for an inspector's first ten minutes. Structure: (1) a one-line thesis of how ethos → engines → evaluation areas → outcomes connect; (2) the ten most powerful statistics across the school, formatted boldly; (3) two or three charts — outcomes vs national over time, the behaviour transformation, and enrichment's attendance effect; (4) the named risks and their owners in one tight table; (5) the closing phrase that captures the whole. Make it feel like an infographic in words and charts.");
+    askPortal("Create a whole-school infographic briefing of All Saints as one connected system, for an inspector's first ten minutes. Structure: (1) a one-line thesis of how ethos → engines → evaluation areas → outcomes connect; (2) the ten most powerful statistics across the school, formatted boldly; (3) two or three charts – outcomes vs national over time, the behaviour transformation, and enrichment's attendance effect; (4) the named risks and their owners in one tight table; (5) the closing phrase that captures the whole. Make it feel like an infographic in words and charts.");
   });
 
   // force simulation
@@ -1442,8 +1442,8 @@ function renderGraph() {
 function renderBriefings() {
   el("view-briefings").appendChild(h(`
     <div class="view-head">
-      <h2>Briefings — one page per audience</h2>
-      <p>Aide-memoires for the people who'll be asked about this school: staff, pupils, governors and parents. Pick an audience, then <strong>⤓ Export to PDF</strong> prints that one-pager alone, branded and A4-landscape, ready to photocopy. The pupil and parent pages are deliberately celebratory and honest — nobody is handed a script.</p>
+      <h2>Briefings – one page per audience</h2>
+      <p>Aide-memoires for the people who'll be asked about this school: staff, pupils, governors and parents. Pick an audience, then <strong>⤓ Export to PDF</strong> prints that one-pager alone, branded and A4-landscape, ready to photocopy. The pupil and parent pages are deliberately celebratory and honest – nobody is handed a script.</p>
     </div>
     <div class="graph-filters" id="brief-chips">
       ${ASCC.briefings.map((b, i) => `<button data-b="${b.id}" class="${i === 0 ? "on" : ""}">${b.icon} ${b.audience}</button>`).join("")}
@@ -1479,8 +1479,8 @@ function renderBriefings() {
     document.querySelectorAll("#brief-chips button[data-b]").forEach(x => x.classList.toggle("on", x === b));
     document.querySelectorAll(".briefing").forEach(p => p.classList.toggle("active", p.id === "brief-" + b.dataset.b));
     const br = ASCC.briefings.find(x => x.id === b.dataset.b);
-    const ph = el("ph-section"); if (ph) ph.textContent = `Briefing — ${br.audience}`;
-    document.title = `ASCC Briefing — ${br.audience}`;
+    const ph = el("ph-section"); if (ph) ph.textContent = `Briefing – ${br.audience}`;
+    document.title = `ASCC Briefing – ${br.audience}`;
   });
   el("brief-export").addEventListener("click", () => window.print());
 }
@@ -1495,13 +1495,13 @@ function renderScenarios() {
   const sc = ASCC.scenarios;
   el("view-scenarios").appendChild(h(`
     <div class="view-head">
-      <h2>Scenario Lab — evidence-built, boundary-pushing</h2>
+      <h2>Scenario Lab – evidence-built, boundary-pushing</h2>
       <p>${sc.intro}</p>
     </div>
     <div class="scenario-grid" id="sc-cards"></div>
     <div class="card" style="margin-top:18px;border-left:5px solid var(--purple-600)">
       <h3>Build your own what-if</h3>
-      <p style="font-size:0.85rem;color:var(--muted)">Pick a lever, a group and an outcome — the Portal AI will stress-test the scenario against the school's own data and the EEF evidence base: the case for, the risks, what to measure, and whether it clears the bar we set for Elev:8.</p>
+      <p style="font-size:0.85rem;color:var(--muted)">Pick a lever, a group and an outcome – the Portal AI will stress-test the scenario against the school's own data and the EEF evidence base: the case for, the risks, what to measure, and whether it clears the bar we set for Elev:8.</p>
       <div class="builder-row">
         <label>Change lever
           <select id="sb-lever">${sc.builder.levers.map(x => `<option>${x}</option>`).join("")}</select>
@@ -1529,13 +1529,13 @@ function renderScenarios() {
         <button class="scen-test">⚡ Stress-test this scenario</button>
       </div>`).firstElementChild;
     card.querySelector(".scen-test").addEventListener("click", () => {
-      askPortal(`Stress-test this innovation scenario for All Saints: "${c.title}". Hypothesis: ${c.hypothesis} Give me: (1) the strongest evidence for it from our own data and the EEF toolkit, (2) the three biggest risks and how we'd mitigate them, (3) exactly what we'd measure and the success thresholds, (4) a verdict — does it clear the bar Elev:8 set? Include a chart if useful.`);
+      askPortal(`Stress-test this innovation scenario for All Saints: "${c.title}". Hypothesis: ${c.hypothesis} Give me: (1) the strongest evidence for it from our own data and the EEF toolkit, (2) the three biggest risks and how we'd mitigate them, (3) exactly what we'd measure and the success thresholds, (4) a verdict – does it clear the bar Elev:8 set? Include a chart if useful.`);
     });
     wrap.appendChild(card);
   });
   el("sb-go").addEventListener("click", () => {
     const lever = el("sb-lever").value, group = el("sb-group").value, outcome = el("sb-outcome").value;
-    askPortal(`Scenario Lab what-if: using "${lever}" as the change lever, targeting "${group}", to improve "${outcome}". Design the boldest credible intervention for All Saints: what it looks like in practice, the evidence for it (our own data + EEF), the risks, what we'd measure and the thresholds for scaling or stopping it. Be ambitious but evidence-built — this school runs a 12-hour day and redesigned Year 8, so don't be timid. Include a chart if useful.`);
+    askPortal(`Scenario Lab what-if: using "${lever}" as the change lever, targeting "${group}", to improve "${outcome}". Design the boldest credible intervention for All Saints: what it looks like in practice, the evidence for it (our own data + EEF), the risks, what we'd measure and the thresholds for scaling or stopping it. Be ambitious but evidence-built – this school runs a 12-hour day and redesigned Year 8, so don't be timid. Include a chart if useful.`);
   });
 }
 
@@ -1549,7 +1549,7 @@ function renderGovernors() {
     </div>
     <div id="gov-domains"></div>
     <div class="card" style="border-left:5px solid var(--gold);margin-top:4px">
-      <h3>The challenge log — the one gap to close before the call</h3>
+      <h3>The challenge log – the one gap to close before the call</h3>
       <p style="font-size:0.88rem">${g.challengeNote}</p>
     </div>
   `));
@@ -1567,13 +1567,13 @@ function renderGovernors() {
           <div class="gov-question">“${x.q}”</div>
           <div class="gov-strong"><strong>A strong answer sounds like:</strong> ${x.strong}</div>
           <div class="gov-actions">
-            <button class="gov-look">📄 See the evidence — ${x.look[1]}</button>
+            <button class="gov-look">📄 See the evidence – ${x.look[1]}</button>
             <button class="gov-rehearse">✦ Rehearse with Portal AI</button>
           </div>
         </div>`).firstElementChild;
       row.querySelector(".gov-look").addEventListener("click", () => gotoView(x.look[0]));
       row.querySelector(".gov-rehearse").addEventListener("click", () => {
-        askPortal(`A governor asks: "${x.q}" — give me the strongest evidenced answer, with exact figures, the honest caveats, and the follow-up question a sharp governor would ask next (with its answer).`);
+        askPortal(`A governor asks: "${x.q}" – give me the strongest evidenced answer, with exact figures, the honest caveats, and the follow-up question a sharp governor would ask next (with its answer).`);
       });
       list.appendChild(row);
     });
@@ -1612,7 +1612,7 @@ function renderFramework() {
       <h3>Our self-evaluation against the framework</h3>
       <table class="data">
         <tr><th>Evaluation area</th><th>Self-assessment</th><th>One-line case</th></tr>
-        ${ASCC.sef.map(a => `<tr><td><strong>${a.area}</strong></td><td><span class="pill ${pillClass(a.grade)}">${a.grade}</span></td><td style="font-size:0.82rem">${a.headline.split("—")[0].split(".")[0]}.</td></tr>`).join("")}
+        ${ASCC.sef.map(a => `<tr><td><strong>${a.area}</strong></td><td><span class="pill ${pillClass(a.grade)}">${a.grade}</span></td><td style="font-size:0.82rem">${a.headline.split("–")[0].split(".")[0]}.</td></tr>`).join("")}
       </table>
     </div>
   `));
@@ -1625,7 +1625,7 @@ function renderMedia() {
   v.appendChild(h(`
     <div class="view-head">
       <h2>An innovator with a national platform</h2>
-      <p>${total} pieces of national, international, sector and faith-press coverage. All Saints is not just a strong school — it is a school that shapes national policy and practice: the extended enrichment day, the phone-free culture, staff-wellbeing innovation, SEND inclusion, and the Headteacher's role as Schools Policy and Delivery Adviser to the Secretary of State, and the Headteachers' Roundtable co-chairmanship.</p>
+      <p>${total} pieces of national, international, sector and faith-press coverage. All Saints is not just a strong school – it is a school that shapes national policy and practice: the extended enrichment day, the phone-free culture, staff-wellbeing innovation, SEND inclusion, and the Headteacher's role as Schools Policy and Delivery Adviser to the Secretary of State, and the Headteachers' Roundtable co-chairmanship.</p>
     </div>
     <div id="media-groups"></div>
   `));
@@ -1653,14 +1653,14 @@ function renderAsk() {
   el("view-ask").appendChild(h(`
     <div class="view-head">
       <h2>✦ Ask the Portal</h2>
-      <p>Interrogate the school's data in plain English. Answers are grounded in the SEF, results and the renewed Ofsted framework — and always make the strongest evidenced case for All Saints. Ask for a chart and you'll get one.</p>
+      <p>Interrogate the school's data in plain English. Answers are grounded in the SEF, results and the renewed Ofsted framework – and always make the strongest evidenced case for All Saints. Ask for a chart and you'll get one.</p>
     </div>
     <div class="ask-layout">
       <div class="ask-panel">
         <div class="ask-messages" id="ask-messages">
           <div class="msg ai">
             <div class="who">Portal AI</div>
-            <div class="bubble"><p>I hold the full July 2026 SEF, three years of results, current mock and KS3 data, attendance and behaviour analysis, and the renewed Ofsted framework. Ask me anything — a killer statistic, a line to take, a chart for a meeting, or a rehearsal answer to a hard inspector question.</p></div>
+            <div class="bubble"><p>I hold the full July 2026 SEF, three years of results, current mock and KS3 data, attendance and behaviour analysis, and the renewed Ofsted framework. Ask me anything – a killer statistic, a line to take, a chart for a meeting, or a rehearsal answer to a hard inspector question.</p></div>
           </div>
         </div>
         <div class="ask-status" id="ask-status"></div>
@@ -1676,7 +1676,7 @@ function renderAsk() {
         </div>
         <div class="card">
           <h3>How it works</h3>
-          <p style="font-size:0.8rem;color:var(--muted)">Questions are answered by Claude via a secure Netlify function — the API key never reaches the browser. Responses can include charts, tables and toolkit references. Always verify precise figures against the SEF before quoting to inspectors.</p>
+          <p style="font-size:0.8rem;color:var(--muted)">Questions are answered by Claude via a secure Netlify function – the API key never reaches the browser. Responses can include charts, tables and toolkit references. Always verify precise figures against the SEF before quoting to inspectors.</p>
         </div>
       </div>
     </div>
@@ -1726,7 +1726,7 @@ async function sendAsk() {
       answer = data.answer || "";
       typing.remove();
     } else {
-      // streamed plain text — render live as it arrives
+      // streamed plain text – render live as it arrives
       const live = h(`<div class="msg ai"><div class="who">Portal AI</div><div class="bubble"></div></div>`).firstElementChild;
       const liveBubble = live.querySelector(".bubble");
       typing.replaceWith(live);
@@ -1748,7 +1748,7 @@ async function sendAsk() {
         }
       }
       live.remove();
-      if (!answer.trim()) throw new Error("Empty response from the service — try again.");
+      if (!answer.trim()) throw new Error("Empty response from the service – try again.");
     }
     askHistory.push({ role: "user", content: q }, { role: "assistant", content: answer });
     renderAiMessage(msgs, answer);
