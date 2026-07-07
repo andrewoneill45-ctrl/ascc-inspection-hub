@@ -1184,7 +1184,7 @@ function renderGraph() {
     else { c.setAttribute("fill", "#fff"); c.setAttribute("stroke", st.fill); c.setAttribute("stroke-width", 1.4); }
     // generous invisible hit target: small dots stay easy to click
     const hit = document.createElementNS(NS, "circle");
-    hit.setAttribute("r", Math.max(nodeR(n) + 9, 16));
+    hit.setAttribute("r", Math.max(nodeR(n) + 12, lvl ? 22 : 18));
     hit.setAttribute("fill", "transparent");
     const t = document.createElementNS(NS, "text");
     t.textContent = n.label;
@@ -1202,10 +1202,12 @@ function renderGraph() {
     n.el = g; n.circle = c; n.text = t; n.halo = halo; n.r = nodeR(n);
     g.addEventListener("mouseenter", () => {
       c.setAttribute("r", nodeR(n) + 1.6);
+      if (pinned !== rootOf(n)) halo.setAttribute("opacity", 0.4);   // visible "clickable" ring
       if (!pinned) { const r = rootOf(n); showDetail(r); highlight(r); }
     });
     g.addEventListener("mouseleave", () => {
       c.setAttribute("r", nodeR(n));
+      if (pinned !== rootOf(n) || n.level) halo.setAttribute("opacity", 0);
       if (!pinned) clearHighlight();
     });
     g.addEventListener("pointerdown", ev => {
@@ -1273,7 +1275,8 @@ function renderGraph() {
   function collapseAll() { nodes.filter(n => !n.level && n.expanded).slice().forEach(collapseNode); }
   svg.addEventListener("pointermove", ev => {
     if (!dragging) return;
-    if (Math.abs(ev.clientX - dragStart.x) + Math.abs(ev.clientY - dragStart.y) > 6) dragStart.moved = true;
+    // forgiving click: only becomes a drag after real movement (14px), so wobbly clicks on small dots still register
+    if (Math.abs(ev.clientX - dragStart.x) + Math.abs(ev.clientY - dragStart.y) > 14) dragStart.moved = true;
     if (dragStart.moved) {
       const pt = svgPoint(ev);
       dragging.x = pt.x; dragging.y = pt.y; kick();
