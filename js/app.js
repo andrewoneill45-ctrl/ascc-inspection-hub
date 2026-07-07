@@ -37,6 +37,7 @@ const VIEW_TITLES = {
   dashboard: "Dashboard", sef: "Self-Evaluation", send: "SEND — Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
   years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour",
   enrichment: "Enrichment", careers: "Careers & Gatsby Benchmarks", voice: "Student & Parent Voice", graph: "Connections",
+  briefings: "Briefing — Staff",
   scenarios: "Scenario Lab", governors: "Governors' Challenge",
   framework: "Renewed Framework", media: "Innovation & Press", ask: "Ask the Portal — AI conversation"
 };
@@ -1429,6 +1430,53 @@ function renderGraph() {
   tick();
 }
 
+/* ================= BRIEFINGS (one-pagers) ================= */
+function renderBriefings() {
+  el("view-briefings").appendChild(h(`
+    <div class="view-head">
+      <h2>Briefings — one page per audience</h2>
+      <p>Aide-memoires for the people who'll be asked about this school: staff, pupils, governors and parents. Pick an audience, then <strong>⤓ Export to PDF</strong> prints that one-pager alone, branded and A4-landscape, ready to photocopy. The pupil and parent pages are deliberately celebratory and honest — nobody is handed a script.</p>
+    </div>
+    <div class="graph-filters" id="brief-chips">
+      ${ASCC.briefings.map((b, i) => `<button data-b="${b.id}" class="${i === 0 ? "on" : ""}">${b.icon} ${b.audience}</button>`).join("")}
+      <span style="flex:1"></span>
+      <button id="brief-export" class="gf-action">⤓ Export this briefing to PDF</button>
+    </div>
+    <div id="brief-pages"></div>
+  `));
+  const pages = el("brief-pages");
+  ASCC.briefings.forEach((b, i) => {
+    pages.appendChild(h(`
+      <div class="card briefing ${i === 0 ? "active" : ""}" id="brief-${b.id}">
+        <div class="brief-head">
+          <img src="https://lirp.cdn-website.com/b31b4580/dms3rep/multi/opt/All+Saints+Web+Logo+Purple-1920w.png" alt="ASCC">
+          <div>
+            <div class="brief-title">${b.title}</div>
+            <div class="brief-tag">${b.tagline}</div>
+          </div>
+          <span class="pill exceptional" style="margin-left:auto">${b.audience}</span>
+        </div>
+        <div class="brief-grid">
+          ${b.sections.map(s => `
+            <div class="brief-sec">
+              <div class="brief-sec-h">${s.h}</div>
+              <ul>${s.items.map(x => `<li>${x}</li>`).join("")}</ul>
+            </div>`).join("")}
+        </div>
+        <div class="brief-foot">All Saints Catholic College · Orare, Laborare, Servire · July 2026</div>
+      </div>`));
+  });
+  el("brief-chips").addEventListener("click", e => {
+    const b = e.target.closest("button[data-b]"); if (!b) return;
+    document.querySelectorAll("#brief-chips button[data-b]").forEach(x => x.classList.toggle("on", x === b));
+    document.querySelectorAll(".briefing").forEach(p => p.classList.toggle("active", p.id === "brief-" + b.dataset.b));
+    const br = ASCC.briefings.find(x => x.id === b.dataset.b);
+    const ph = el("ph-section"); if (ph) ph.textContent = `Briefing — ${br.audience}`;
+    document.title = `ASCC Briefing — ${br.audience}`;
+  });
+  el("brief-export").addEventListener("click", () => window.print());
+}
+
 /* ================= SCENARIO LAB ================= */
 window.askPortal = function (q) {
   showView("ask");
@@ -1746,7 +1794,7 @@ const RENDER = {
   dashboard: renderDashboard, sef: renderSef, send: renderSend, staff: renderStaff, results: renderResults,
   years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, enrichment: renderEnrichment,
   careers: renderCareers, voice: renderVoice, graph: renderGraph,
-  scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,
+  briefings: renderBriefings, scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,
   media: renderMedia, ask: renderAsk
 };
 

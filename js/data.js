@@ -1376,6 +1376,110 @@ var ASCC = {
     }
   },
 
+  /* ---------- Briefings: one-page aide-memoires per audience ---------- */
+  briefings: [
+    {
+      id: "staff", audience: "Staff", icon: "👩‍🏫",
+      title: "All Saints in one page — the staff aide-memoire",
+      tagline: "Why this school is so good, how it got here, and how to talk about it. Orare · Laborare · Servire.",
+      sections: [
+        { h: "Who we are", items: [
+          "896 pupils, 11–16, Voluntary Aided Catholic, North Kensington — top-quintile deprivation nationally.",
+          "44% FSM · 39% Pupil Premium · 44% EAL · 22% SEN with EHCPs (9.8%) rising every year.",
+          "Previously Outstanding in every category. Now inspected under the renewed framework: no single word — a report card, area by area."
+        ]},
+        { h: "The trends — five arrows, all pointing the same way", items: [
+          "OUTCOMES: above national three consecutive years — Progress 8 +0.69 vs −0.03 (2024); disadvantaged pupils +0.26 vs −0.57, beating national non-disadvantaged.",
+          "ATTENDANCE: 92.41% — above national and similar schools, improving at 4× the DfE expectation; EHCP pupils +9.13 above their national figure.",
+          "BEHAVIOUR: permanent exclusions 7 → 3 → 2 → 0; suspensions down 43.9% from peak; internal removals falling four straight years while the roll grew 41%.",
+          "ENRICHMENT: all 8 DfE benchmarks met before the framework existed; 45% of the roll in tracked clubs; club members attend +7.2 better; Elev:8 made Y8 our most-engaged year (91%).",
+          "SAFEGUARDING: external audit — “exemplary”; 100% of surveyed parents say their child feels safe."
+        ]},
+        { h: "Why it works — the engine", items: [
+          "Ethos first: every system is Orare, Laborare, Servire made practical — 'Service with Colour'.",
+          "Teaching is codified (T&L Handbook: the All Saints Way), coached (your own chosen target — 45% of us picked the school's #1 priority), and checked (drop-ins against YOUR goal).",
+          "Nothing is untracked: clubs, trips, interventions, attendance, behaviour — pupil by pupil, with PP/SEN flags.",
+          "Weaknesses are named before anyone asks: reading, the disadvantaged gap, Y11 attendance — each with an owner, a date and a measure."
+        ]},
+        { h: "If an inspector asks you…", items: [
+          "Your development target: know it, and how coaching is helping — it's the system working.",
+          "Safeguarding: the 5 Rs (Recognise, Respond, Report, Record, Refer) and who the DSL team are.",
+          "A weakness? Name it, then the response: “we found it, we named it, we own it.”",
+          "Phrases that land: “Opportunity is planned, not left to chance” · “We look after our staff so they can look after our pupils” · “Seven, three, two, zero.”"
+        ]}
+      ]
+    },
+    {
+      id: "pupils", audience: "Pupils", icon: "🎒",
+      title: "Your school in one page",
+      tagline: "Things to be proud of — and if an inspector chats to you, just be yourself and be honest. Your honest experience is the best evidence we have.",
+      sections: [
+        { h: "Things that are true about your school", items: [
+          "Results here are above the national average — and have been for three years running.",
+          "35 clubs ran this year and 404 of you went to at least one — from basketball and K-Pop to cooking and theatre design. Pupils asked for clubs, and the school created them.",
+          "Every single pupil goes on at least 4 trips a year — plus Culture Day, All Saints Day, Sports Day and the Feast.",
+          "94% of pupils said Culture Day made them feel they belong here.",
+          "Year 10 all did a week of work experience; pupils visited Oxford University, Parliament — and some presented their ideas at New Scotland Yard.",
+          "Year 8 has Elev:8 — the residential, Period 7 enrichment and London Leaders — designed just for you."
+        ]},
+        { h: "Good things to know (not lines to learn!)", items: [
+          "Our motto: Orare, Laborare, Servire — to pray, to work, to serve.",
+          "If you're worried about anything, you can talk to your form tutor, Head of Year, or anyone on the safeguarding team — and they will act. Childline is there too.",
+          "If someone is unkind or bullies, tell a member of staff — dealing with it is their job, and they want to know.",
+          "Nobody wants you to give perfect answers. If an inspector asks you something, tell the truth about YOUR experience — the good and anything you'd improve."
+        ]}
+      ]
+    },
+    {
+      id: "governors", audience: "Governors", icon: "🏛️",
+      title: "The governors' one-pager — hold these and you hold the school",
+      tagline: "The renewed framework asks whether you support AND robustly challenge. This page is both.",
+      sections: [
+        { h: "Five numbers to hold", items: [
+          "Progress 8: +0.69 vs −0.03 national (2024) — third consecutive year above national, on falling KS2 priors.",
+          "Disadvantaged P8: +0.26 vs −0.57 — our disadvantaged pupils beat national non-disadvantaged pupils.",
+          "Attendance: 92.41% — above national (+0.78) and similar schools (+2.22); EHCP +9.13.",
+          "Permanent exclusions: 7 → 3 → 2 → 0 — with 59 short reciprocal off-site directions as the mechanism.",
+          "Parents: 100% say their child feels safe; 100% would recommend the school (n=82)."
+        ]},
+        { h: "The three toolkit tests — your language for Exceptional", items: [
+          "Sustained exceptionally high standards: every trend above spans 2–4 years, through 41% roll growth.",
+          "Transformational for disadvantaged/SEND: the numbers above ARE those pupils — plus measured interventions (Fresh Start 3× faster; Galilee +27–44pp).",
+          "Nothing unaddressed: reading, the disadvantaged gap, SEN K attainment, Y11 attendance — all named, owned, dated. Calibration: Curriculum & Attendance are deliberately held at Strong; that is what makes the Exceptionals credible."
+        ]},
+        { h: "Decisions you own — cite them as governance impact", items: [
+          "Emmanuel: £400k RBKC high-needs capital secured against a data-triangulated case; footprint value-engineered by £150–175k.",
+          "Deliberate resourcing: Deputy SENCo, Bethlehem & Romero Centres, enhanced attendance team, graduate ASAs.",
+          "Workload trade-offs approved: coaching meetings reduced, subject leads protected from Activities Week, SLT duty rota adjusted.",
+          "ACTION BEFORE THE CALL: have 2–3 minuted examples of challenge → leader response → outcome ready to cite."
+        ]}
+      ]
+    },
+    {
+      id: "parents", audience: "Parents", icon: "🏡",
+      title: "Your child's school, in one page",
+      tagline: "What All Saints achieved this year — and what it means for your child.",
+      sections: [
+        { h: "What the school achieved this year", items: [
+          "Results above the national average for the third year running — and our disadvantaged pupils outperform the national average for ALL pupils.",
+          "100% of parents surveyed said their child feels safe here, and 100% would recommend the school. An external safeguarding review called our evidence “exemplary”.",
+          "35 clubs, 4+ trips for every child, Culture Day, work experience for all of Year 10, university visits — and 1:1 careers guidance for every pupil, so nothing depends on what a family can afford.",
+          "Free uniform and PE kit available to every family, free Year 11 prom tickets, and support that reaches beyond school through our AllChild partnership."
+        ]},
+        { h: "How you can help your child fly", items: [
+          "Attendance is the single biggest lever: pupils who attend well achieve nearly two grades higher on average. Every school day genuinely counts.",
+          "Ask about clubs — pupils in clubs attend and achieve better, and there's one for every child, free.",
+          "Revision: pupils asked us to help families help them — guidance on flashcards, retrieval and 'make–do–review' is on its way. Testing your child on their flashcards works better than watching them re-read notes.",
+          "Talk to us early: form tutor first, Head of Year next. We act on what parents tell us — the survey said 94% of you feel heard, and we want that at 100%."
+        ]},
+        { h: "If an inspector asks for your view", items: [
+          "Be honest — about what works and what could be better. Honest parent voice is evidence of a school that listens.",
+          "Ofsted also runs Parent View online during any inspection — five minutes, and every response counts."
+        ]}
+      ]
+    }
+  ],
+
   /* ---------- T&L Handbook (The All Saints Way) ---------- */
   handbook: {
     title: "The All Saints Way — exceptional teaching through consistency",
