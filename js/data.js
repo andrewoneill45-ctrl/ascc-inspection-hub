@@ -1034,99 +1034,97 @@ var ASCC = {
   /* ---------- Graph hierarchy: click a node → sub-categories → data points ---------- */
   graphTree: {
     attendance: [
-      { label: "Headline", kids: ["92.41% (FFT May 26)", "+0.78 vs national", "+2.22 vs similar schools", "4× DfE improvement expectation"] },
-      { label: "Vulnerable groups", kids: ["EHCP 90.03% (+9.13)", "FSM6 88.46% (+1.70)", "SEN K 84.44% – named gap"] },
-      { label: "By year group", kids: ["Y7 95.3%", "Y8 92.5%", "Y9 91.5%", "Y10 90.9%", "Y11 78.6%"] },
-      { label: "Response", kids: ["Attendance Contracts pre-Sept", "Home visits → CPOMS", "PA <20% target by Jan 27"] }
+      { label: "Above national, against the odds", kids: ["Beats national AND similar schools", "Improving at 4\u00d7 the DfE expectation", "Pre-pandemic recovery nearly complete"] },
+      { label: "Works hardest for the vulnerable", kids: ["EHCP culture: far above national", "FSM6 above national too", "SEN Support: the named gap, planned"] },
+      { label: "The Year 11 question", kids: ["Anxiety + entrenched cases, not weak systems", "Audits, contracts, home visits", "Counterpoint: most improved on their own Y10"] },
+      { label: "Data you can trust", kids: ["DfE errors found by US", "Escalated and documented", "FFT benchmark is the anchor"] }
     ],
     behaviour: [
-      { label: "Suspensions", kids: ["319 → 183 → 143 (−43.9%)", "2.88/100 vs 3.72 national", "8.3% of cohort (was ~17%)"] },
-      { label: "Permanent exclusions", kids: ["7 → 3 → 2 → 0", "Below national since 24–25", "Every decision accounted for"] },
-      { label: "Inside classrooms", kids: ["Internal log −33% in 4 yrs", "Per pupil 2.22 → 1.05", "7.4 → 5.3 removals/day"] },
-      { label: "Alternatives to exclusion", kids: ["Emmaus Centre", "OSD: 59 placements, 1–5 days", "Reintegration after every suspension"] }
+      { label: "A calmer school, year on year", kids: ["Fewer suspensions, fewer pupils involved", "Calmer classrooms every day", "Four coherent years, not one good one"] },
+      { label: "Inclusion without exclusion", kids: ["Zero PEX: the graduated route", "Emmaus and OSD instead of the gate", "Reintegration, never repetition"] },
+      { label: "Accountable decisions", kids: ["Headteacher authorises every suspension", "Every past PEX explicable", "SENCo and DSL in the room"] },
+      { label: "The equity question", kids: ["Disproportionality self-identified", "Support raised, expectations held", "Owned plans, dated reviews"] }
     ],
     enrichment: [
-      { label: "Reach", kids: ["404 pupils · 45% of roll", "3,695 logged attendances", "84% sustained all year"] },
-      { label: "Equity", kids: ["PP 34% of members (39% roll)", "SEN 21% (22% roll)", "Members +7.2 attendance"] },
-      { label: "Elev:8", kids: ["Y8 91% participation", "6 new summer clubs", "PGL residential launch"] }
+      { label: "An entitlement, not an offer", kids: ["Tracked pupil by pupil", "Parity for PP and SEN", "Cost barriers removed for all"] },
+      { label: "The attendance engine", kids: ["Members attend markedly better", "Belonging is the mechanism", "Next: prescribed for absentees"] },
+      { label: "Elev:8 \u2013 the dip inverted", kids: ["Built from Jerrim + our own data", "Y8 now the most engaged year", "The Elev:9 question"] }
     ],
     achievement: [
-      { label: "Progress", kids: ["P8 +0.12 → +0.69 → +0.76*", "2026 pred +0.74", "vs national −0.03"] },
-      { label: "Attainment", kids: ["A8 5.39 vs 4.59 (2024)", "4+ E&M 75% vs 65%", "82% predicted 2026 – best ever"] },
-      { label: "Against the odds", kids: ["KS2 priors falling 105.5 → 101.5", "Disadv. beat national non-disadv. 2024", "Top-quintile deprivation"] }
+      { label: "Sustained against the odds", kids: ["Three years above national", "Priors fell, standards held", "2026 on trajectory"] },
+      { label: "Disadvantaged pupils thrive", kids: ["Beat national non-disadvantaged", "Sustained, not a spike", "In a top-quintile-deprivation school"] },
+      { label: "The honest edges", kids: ["The gap: named and levered", "SEN Support slide: the plan", "Subject focus: English Language, Science"] }
     ],
     inclusion: [
-      { label: "Provision map", kids: ["50+ interventions · £0 to families", "Bethlehem & Romero Centres", "Graduate ASAs both ends"] },
-      { label: "Measured impact", kids: ["Fresh Start 3× faster (71s→19s)", "Galilee +27–44pp", "SaLT: 17 EHCP pupils, NHS targets"] },
-      { label: "Next", kids: ["Emmanuel £400k build", "Aquinas Award 53 (24.5% PP)"] }
+      { label: "Need rising, provision ahead of it", kids: ["EHCPs up every single year", "50+ provisions, free to families", "Needs known before arrival"] },
+      { label: "Impact you can measure", kids: ["Reading interventions with proof", "Therapy to NHS-written targets", "One graduate team, whole ability range"] },
+      { label: "The next move", kids: ["Emmanuel: funded and evidenced", "SEN Support reversal by 2027"] }
     ],
     curriculum: [
-      { label: "Codified", kids: ["T&L Handbook v2", "Curriculum Pillars", "7 Active Ingredients, research-cited"] },
-      { label: "Checked", kids: ["T&L 2.08 · 80% strong", "CPR keeps SoW live", "Drop-ins vs own targets"] },
-      { label: "Believed", kids: ["100% parent satisfaction", "Pupils speak the pedagogy", "Reading CPD 92% (59 staff)"] }
+      { label: "Codified, not assumed", kids: ["The All Saints Way handbook", "Research-cited ingredients", "One shared language in every drop-in"] },
+      { label: "Checked and believed", kids: ["Teaching verified against own targets", "Parents unanimous on quality", "Pupils speak the pedagogy back"] },
+      { label: "The reading question", kids: ["We found it and screen for it", "Whole-staff CPD, provably landed", "Route to Exceptional is named"] }
     ],
     personal: [
-      { label: "Frameworks met", kids: ["8/8 DfE benchmarks", "Gatsby 92% · two runs", "100% personal guidance"] },
-      { label: "Delivered", kids: ["30 events 2025–26", "Whole-Y10 work experience", "4+ trips every pupil"] },
-      { label: "Felt", kids: ["94% belonging (n=416)", "99% parents value it", "Aquinas 24.5% PP"] }
+      { label: "The frameworks followed us", kids: ["DfE benchmarks met on publication day", "Gatsby: rigorous, twice-run", "Guidance nobody has to buy"] },
+      { label: "Every pupil, by design", kids: ["Trips and events guaranteed", "Aspiration targeted at disadvantage", "Pupil voice shapes the offer"] },
+      { label: "Character in practice", kids: ["Faith lived through service", "DofE, Aquinas, London Leaders", "British Values: the Year 9 push"] }
     ],
     leadership: [
-      { label: "Sustained", kids: ["Outcomes > national 3 yrs", "PEX 7→3→2→0", "Attendance rising 2 yrs"] },
-      { label: "Transformational", kids: ["Disadv P8 +0.26 vs −0.57", "EHCP attendance +9.13", "£400k Emmanuel secured"] },
-      { label: "National reach", kids: ["Advises Secretary of State", "HTRT co-chair", "DSL audits other schools"] }
+      { label: "Sustained, not lucky", kids: ["Every area high or improving", "Through 41% roll growth", "Validated far beyond the gate"] },
+      { label: "Transformational for the vulnerable", kids: ["Resource follows need, visibly", "The outcomes prove the choices", "Ambition at capital scale"] },
+      { label: "Nothing unaddressed", kids: ["Every weakness owned and dated", "Self-identified, not imposed", "Governance challenge on record"] }
     ],
     safeguarding: [
-      { label: "Verdict", kids: ["External audit: “exemplary”", "Action plan within a month"] },
-      { label: "Culture", kids: ["145 staff trained, annual", "5 Rs known by all", "100% parents: child feels safe"] },
-      { label: "Systems", kids: ["CPOMS live records", "Securus digital monitoring", "Monthly family newsletters"] }
+      { label: "A culture, verified", kids: ["\u2018Exemplary\u2019 \u2013 external audit", "Everyone trained, every year", "Children know who to tell"] },
+      { label: "Systems that see", kids: ["Live records, challenged upward", "Digital monitoring in place", "Vigilance logged, never hidden"] },
+      { label: "Beyond the gate", kids: ["Families supported with dignity", "The DSL audits other schools", "Transition starts in Year 6"] }
     ],
     ethos: [
-      { label: "Lived daily", kids: ["Prayer in lessons", "Faith in Action & The Mission", "Service with Colour"] }
+      { label: "Lived daily, not displayed", kids: ["Prayer, work, service", "Service with Colour", "Sanction always with reconciliation"] }
     ],
     coaching: [
-      { label: "The cycle", kids: ["54 narrative reflections", "40 coached targets", "Drop-ins vs own goals"] },
-      { label: "Ownership", kids: ["45% chose the school's priority", "25% chose dialogic/oracy"] },
-      { label: "Whole-staff", kids: ["Reading CPD 92%", "6-Minute Takeaways", "CPR cycles"] }
+      { label: "Chosen, not imposed", kids: ["Teachers picked the school\u2019s priority", "Honest written self-reflection", "Coached from draft to precision"] },
+      { label: "Development that shows", kids: ["Observed against their own goals", "Early-career staff made consistent", "Reading CPD reached everyone"] }
     ],
     data: [
-      { label: "KS4 machine", kids: ["1 row per pupil, all joined", "20 SLT-mentored Y11s", "65 → shoulder revision groups"] },
-      { label: "KS3 effect", kids: ["E&M on-track Y8 38→65%", "Y7 49→59% · Y9 27→44%"] }
+      { label: "No pupil invisible", kids: ["One row per child, all joined", "Notes, not just numbers", "A governors\u2019 view built in"] },
+      { label: "Data that triggers action", kids: ["SLT mentors for the highest-risk", "Revision engineered from mocks", "KS3 gaps closed in-year"] }
     ],
     pastoral: [
-      { label: "Machinery", kids: ["Home visits → CPOMS", "Attendance Contracts", "Agency support <50% att."] },
-      { label: "AllChild Link Worker", kids: ["30 Y9s, 2-yr programme", "7h + 5h per pupil per term", "3 family interactions/term"] },
-      { label: "Proof", kids: ["Members 94.5% vs 87.3%", "EHCP +9.13 vs national"] }
+      { label: "One machinery with safeguarding", kids: ["Home visits, always logged", "Contracts before September", "Agencies pulled in early"] },
+      { label: "AllChild embedded", kids: ["A Link Worker on site", "Families co-author the goals", "Year 9: exactly the right cohort"] }
     ],
     innovation: [
-      { label: "Firsts", kids: ["12-hour day", "Phone-free early", "Teacher lie-ins", "Elev:8"] },
-      { label: "Platform", kids: ["60+ media items", "Guardian · Times · Fortune · BBC", "Frameworks followed us"] }
+      { label: "Ahead of the frameworks", kids: ["Extended day preceded the DfE\u2019s", "Phone-free before the debate", "Retention experiments that stuck"] },
+      { label: "A national platform", kids: ["Press across the world", "Policy influence at the very top", "Other schools come to learn"] }
     ],
     disadv: [
-      { label: "Outcomes", kids: ["P8 +0.26 vs −0.57 (2024)", "Beat national non-disadv.", "3 years above national"] },
-      { label: "Experience", kids: ["FSM6 attendance +1.70", "Enrichment at parity", "PP-only aspiration programmes"] }
+      { label: "The headline", kids: ["Beat national non-disadvantaged", "Sustained three years", "Attendance above national too"] },
+      { label: "How it is done", kids: ["Teaching first \u2013 the EEF tiers", "Enrichment as entitlement", "Aspiration individually targeted"] }
     ],
     "send-out": [
-      { label: "Care", kids: ["EHCP attendance +9.13", "2 of 59 OSDs EHCP", "Specialist centres ×2"] },
-      { label: "Progress", kids: ["EHCP P8 +0.07 (2024)", "SEN K +0.13 (2024)", "Measured interventions"] }
+      { label: "Cared for", kids: ["Attendance far above national", "Kept in mainstream, deliberately", "Two specialist centres"] },
+      { label: "Progressing", kids: ["Positive progress, both groups", "Every intervention measured", "Pupil and parent voice heard"] }
     ],
     reading: [
-      { label: "The need", kids: ["54% below age-related", "66 pupils SAS<85", "9 functionally pre-reading"] },
-      { label: "The response", kids: ["59 staff trained · 92%", "Fresh Start 3× faster", "R.E.A.D.S in every subject", "Emmanuel pathway next"] }
+      { label: "The defining challenge", kids: ["Half arrive below age-related", "A severe tail, years behind", "Where disengagement begins"] },
+      { label: "The whole-school answer", kids: ["Every teacher trained in reading", "Screen, group, teach, measure", "Emmanuel: a daily pathway next"] }
     ],
     gap: [
-      { label: "The numbers", kids: ["0.57 → 0.80 → 1.14*", "Disadv. still above national"] },
-      { label: "The levers", kids: ["Adaptive teaching in every SoW", "Attendance engine", "Targeted intervention"] }
+      { label: "Understand it honestly", kids: ["Both groups sit above national", "Success is what widened it", "Not a failing cohort"] },
+      { label: "Close it deliberately", kids: ["Adaptive teaching lever", "Attendance lever", "Milestones set and reviewed"] }
     ],
     y11att: [
-      { label: "The risk", kids: ["2.17 below national", "7% severely absent"] },
-      { label: "The counterpoint", kids: ["64% improved vs their Y10", "A8 5.22 vs 3.53 by attendance"] }
+      { label: "Diagnose before defending", kids: ["A small, entrenched group", "Anxiety, not apathy", "Predates the current systems"] },
+      { label: "Act, and show it works", kids: ["Audited cause by cause", "Families contracted early", "Most improved on their own Y10"] }
     ],
     dispro: [
-      { label: "Named openly", kids: ["FSM · boys · EHCP · Black Caribbean", "Self-identified internally", "Plans due end HT6"] }
+      { label: "Face it, fix it", kids: ["Found by our own analysis", "Named groups, named owners", "Expectations never lowered"] }
     ],
     emmanuel: [
-      { label: "Funded", kids: ["£400k RBKC secured", "55m² modular", "£150–175k value-engineered"] },
-      { label: "Evidenced", kids: ["66 readers SAS<85", "27 below 85% attendance", "9-child priority cohort"] }
+      { label: "Why build", kids: ["Three datasets, one cohort", "The cycle it interrupts", "Reaches the un-testable children"] },
+      { label: "Why trust it", kids: ["Borough-funded, school-led", "Value-engineered, not gold-plated", "Outcomes named before bricks"] }
     ]
   },
 

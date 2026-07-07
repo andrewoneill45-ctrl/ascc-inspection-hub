@@ -1096,7 +1096,7 @@ function renderGraph() {
   el("view-graph").appendChild(h(`
     <div class="view-head">
       <h2>How it all connects</h2>
-      <p>The school as a living system, three levels deep. <strong>Click any node and it breaks into its sub-categories; click a sub-category and it breaks into data points</strong> – dots shrinking as the detail sharpens. The sidebar pins the selected area's chart, key data and intersections. Drag anything; collapse by clicking an open node again.</p>
+      <p>The school as a living system, three levels deep – and thematic by design. <strong>Click any area and it breaks into its lines of enquiry</strong> (the issues an inspector would probe); <strong>click a line of enquiry and it breaks into the argument</strong> – diagnosis, response, counterpoint. The numbers live below, in the pinned area's chart and key data. Scroll to zoom, drag empty canvas to pan, click an open node to fold it away.</p>
     </div>
     <div class="graph-filters" id="graph-filters">
       <button data-t="all" class="on">All connections</button>
