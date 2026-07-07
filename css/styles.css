@@ -1,4 +1,4 @@
-/* All Saints Catholic College — Inspection Hub
+/* All Saints Catholic College – Inspection Hub
    House style: deep purple (ASCC brand), warm white, gold accent */
 
 :root {
@@ -378,7 +378,7 @@ footer .motto { color: var(--gold); letter-spacing: 0.16em; text-transform: uppe
 /* print header (hidden on screen) */
 #print-header { display: none; }
 
-/* ---------- PRINT / PDF EXPORT — A4 landscape ---------- */
+/* ---------- PRINT / PDF EXPORT – A4 landscape ---------- */
 @media print {
   @page { size: A4 landscape; margin: 9mm 11mm 11mm; }
 
