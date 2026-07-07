@@ -35,7 +35,7 @@ let appInitialised = false;
 const rendered = {};
 const VIEW_TITLES = {
   dashboard: "Dashboard", sef: "Self-Evaluation", pshe: "PSHE & Life Curriculum", send: "SEND – Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
-  years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour",
+  years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour", external: "IDSR & Pupil Premium",
   enrichment: "Enrichment", careers: "Careers & Gatsby Benchmarks", voice: "Student & Parent Voice", graph: "Connections",
   briefings: "Briefing – Staff",
   scenarios: "Scenario Lab", governors: "Governors' Challenge",
@@ -127,7 +127,7 @@ function renderDashboard() {
       <p>${c.keyLine}</p>
     </div>
     <div class="grid cols-4" style="margin-bottom:18px">
-      <div class="card stat"><div class="num">+0.69</div><div class="lbl">Progress 8, 2024 (published)</div><div class="ctx">vs −0.03 national · 3rd year above national</div></div>
+      <div class="card stat"><div class="num">+0.69</div><div class="lbl">Progress 8, 2024 (published)</div><div class="ctx">One of 75 measures Ofsted's own IDSR flags 'Above (sig+)'</div></div>
       <div class="card stat"><div class="num">+0.26</div><div class="lbl">Disadvantaged P8, 2024</div><div class="ctx">vs −0.57 national disadvantaged</div></div>
       <div class="card stat"><div class="num">92.41%</div><div class="lbl">Attendance (FFT, May 2026)</div><div class="ctx">+0.78 vs national · +2.22 vs similar schools</div></div>
       <div class="card stat"><div class="num">0</div><div class="lbl">Permanent exclusions this year</div><div class="ctx">7 → 3 → 2 → 0 over four years · suspensions −43.9% from peak</div></div>
@@ -605,6 +605,63 @@ function renderResults() {
     const resClass = s[5] >= 0.3 ? "good" : (s[5] <= -0.3 ? "bad" : "");
     tbl.appendChild(h(`<tr><td>${s[0]}</td><td>${s[1]}</td><td>${s[2]}</td><td>${s[3]}</td><td>${s[4]}</td><td class="${resClass}">${s[5] > 0 ? "+" : ""}${s[5].toFixed(2)}</td></tr>`));
   });
+}
+
+/* ================= EXTERNAL CASE (IDSR + PP) ================= */
+function renderExternal() {
+  const x = ASCC.external;
+  el("view-external").appendChild(h(`
+    <div class="view-head">
+      <h2>The official picture – Ofsted's IDSR and the Pupil Premium strategy</h2>
+      <p>${x.intro}</p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      ${x.tiles.map(t => `<div class="card stat"><div class="num" style="font-size:1.6rem">${t[0]}</div><div class="lbl">${t[1]}</div></div>`).join("")}
+    </div>
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card">
+        <h3>What Ofsted's own system flagged (2024, school vs national)</h3>
+        <div class="chart-wrap" id="ex-sig"></div>
+        <p class="note">${x.sig.note}</p>
+      </div>
+      <div class="card chart-card">
+        <h3>Where the Pupil Premium money goes – the EEF tiers as a budget</h3>
+        <div class="chart-wrap" id="ex-tiers"></div>
+        <p class="note">${x.pp.tiers.note}</p>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:18px">
+      <h3>Challenge named → loop closed</h3>
+      <p class="sef-headline" style="margin-top:10px">${x.pp.headline}</p>
+      <div class="grid cols-2" style="margin-top:12px">
+        ${x.pp.loops.map(l => `
+          <div style="border-left:4px solid var(--green);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.9rem">${l[0]}</div>
+            <div style="font-size:0.84rem;margin-top:3px">${l[1]}</div>
+          </div>`).join("")}
+      </div>
+    </div>
+    <div class="grid cols-2">
+      <div class="card" style="border-left:5px solid var(--gold)">
+        <h3>The two flags Ofsted's system raised – both already answered</h3>
+        <p style="font-size:0.88rem">${x.pp.honest}</p>
+      </div>
+      <div class="card" style="border-left:5px solid var(--green)">
+        <h3>The triangulation</h3>
+        <p style="font-size:0.9rem">${x.triangle}</p>
+      </div>
+    </div>
+  `));
+  const labels = x.sig.labels.filter((_, i) => x.sig.school[i] !== null);
+  const sch = x.sig.school.filter(v => v !== null);
+  const nat = x.sig.national.filter(v => v !== null);
+  makeChart("ex-sig", { type: "bar", data: { labels, datasets: [
+    { label: "All Saints", data: sch, backgroundColor: BRAND.purple, borderRadius: 5 },
+    { label: "National", data: nat, backgroundColor: BRAND.grey, borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, indexAxis: "y", scales: { x: { beginAtZero: true } } } });
+  makeChart("ex-tiers", { type: "doughnut", data: { labels: x.pp.tiers.labels, datasets: [
+    { label: "£", data: x.pp.tiers.amounts, backgroundColor: [BRAND.purple, BRAND.gold, BRAND.green] } ] },
+    options: { maintainAspectRatio: false, plugins: { legend: { position: "right", labels: { boxWidth: 10, font: { size: 10 } } } } } });
 }
 
 /* ================= YEAR GROUPS ================= */
@@ -1955,7 +2012,7 @@ function escapeHtml(s) {
 /* ---------------- Render map ---------------- */
 const RENDER = {
   dashboard: renderDashboard, sef: renderSef, pshe: renderPshe, send: renderSend, staff: renderStaff, results: renderResults,
-  years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, enrichment: renderEnrichment,
+  years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, external: renderExternal, enrichment: renderEnrichment,
   careers: renderCareers, voice: renderVoice, graph: renderGraph,
   briefings: renderBriefings, scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,
   media: renderMedia, ask: renderAsk

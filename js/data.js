@@ -901,6 +901,36 @@ var ASCC = {
     }
   },
 
+  /* ---------- External case: Ofsted IDSR + Pupil Premium strategy ---------- */
+  external: {
+    intro: "Two documents close the case. The Inspection Data Summary Report is Ofsted's own pre-inspection briefing, generated from national data, released 15 May 2026 – inspectors read it before they arrive. It flags this school 'Above (sig+)' on 75 separate 2024 measures, every row carrying the context tag 'High – FSM'. The Pupil Premium Strategy Statement shows the machinery that produced those flags: £371,950 deployed through the EEF's tiered model, signed off by governors. Their story, our strategy, one picture.",
+    tiles: [
+      ["75", "measures flagged 'Above (sig+)' in Ofsted's own IDSR for 2024 – with zero significant negatives that year"],
+      ["High – FSM", "the context tag Ofsted's system prints on every row: these results happened in one of the most deprived intakes in the country"],
+      ["£371,950", "Pupil Premium budget 2025–26, deployed through the EEF tiers and authorised by the Board of Governors"],
+      ["88.6% vs 87.4%", "FSM attendance vs national FSM in the IDSR's own in-year data – the strategy's named attendance challenge, already answered"]
+    ],
+    sig: {
+      labels: ["Attainment 8", "Disadvantaged A8", "5+ English & Maths", "Disadv. 4+ E&M", "English P8: +0.86", "Open element P8: +1.03", "EBacc language entry"],
+      school: [53.9, 46.5, 61.5, 65.6, null, null, 89.9],
+      national: [45.9, 34.6, 45.9, 43.4, null, null, 71.6],
+      note: "A selection of the 75 'Above (sig+)' flags, school vs national (2024). The pattern Ofsted's own system found: significantly above on whole-school measures, and significantly above AGAIN when it isolates disadvantaged pupils – A8 46.5 vs a national disadvantaged 34.6, 4+ English & Maths 65.6% vs 43.4%. English Progress 8 +0.86, the open element +1.03, EBacc language entry 89.9% vs 71.6%."
+    },
+    pp: {
+      headline: "The Pupil Premium strategy is the mechanism, published and governed: intent rooted in John 10:10, challenges named with data, every activity costed against EEF evidence, reviewed annually by governors.",
+      tiers: { labels: ["Teaching first", "Targeted academic support", "Wider strategies"], amounts: [201416, 104504, 66030],
+        note: "£201,416 on teaching (smaller KS3 classes – reduced by ~10 pupils, the EEF's impact threshold; the coaching CPD model; IRIS Connect), £104,504 on targeted support (ASAs' 1:1 and small-group tuition, compulsory after-school study with a hot supper, Thinking Reading, Bedrock, the PP higher-attainers programme), £66,030 on wider strategies (Extended Schools, Elev:8, the attendance team, uniform, breakfast club, AllChild's two on-site staff). The EEF tiered model, not as a slogan but as a budget." },
+      loops: [
+        ["Named challenge: FSM6 attendance 0.3 below national", "Closed: the IDSR's own in-year data now shows FSM attendance ABOVE national (88.6% vs 87.4%) – the strategy's attendance investment, verified by Ofsted's system within the same cycle."],
+        ["Named challenge: 61% of PP pupils below age-related reading", "In hand, measured: Thinking Reading (graduations targeted to double), Bedrock diagnostics, Fresh Start (3× faster recall), form-time reading (three books a year), whole-staff CPD at 92%."],
+        ["Named challenge: PP attainment gap (predicted 4.63 vs 5.63)", "Attacked through the teaching tier first – smaller classes, coaching – plus the higher-attainers programme, exactly where the Sutton Trust says disadvantage bites hardest."],
+        ["Named challenge: cultural capital and trip costs", "Answered as entitlement: subsidised trips, free uniform and PE kit, Elev:8's residential and London Leaders, clubs at PP parity – participation tracked, not hoped for."]
+      ],
+      honest: "The IDSR hands us two flags and we take both. Destinations for disadvantaged leavers dipped (sustained education 76%, flagged below; 9% of one cohort's destinations not sustained) – which is precisely why personal guidance now scores 100% on Gatsby, every Y10 completes work experience, and sustained AND longer-term destinations are tracked as Benchmark 3 evidence. And the support-staff ratio sat in the lowest 20% in 2024 – answered since by the graduate ASA investment the PP strategy funds. Ofsted's system found two gaps; both already had money and a plan against them."
+    },
+    triangle: "Three independent sources, one picture: Ofsted's IDSR says the outcomes are exceptional in this context (75 sig+ flags, High-FSM on every row). This portal's internal data shows the systems producing them, live. The PP strategy shows the money following the evidence (EEF tiers, governor-signed). External verdict, internal machinery, published strategy – triangulated. That is what 'transformational for disadvantaged pupils' looks like when three different documents agree."
+  },
+
   /* ---------- PSHE / Life Curriculum ---------- */
   pshe: {
     intro: "The SEF named PSHCE consistency as an honest weakness. This is the answer, built: five complete schemes of work, Years 7 to 11, 173 sequenced lessons – every one carrying learning objectives, misconception-led adaptive teaching, curriculum pillar tags, Tier 3 vocabulary, homework and a revision-and-assessment lesson each half term, with pupil understanding tracked through a termly PSHE survey.",
@@ -1598,7 +1628,7 @@ var ASCC = {
         ] },
       { name: "Finance & Resources", icon: "💷",
         questions: [
-          { q: "Show me the Pupil Premium money becoming outcomes. What's the mechanism?", look: ["sef", "Leadership (EEF tiers)"], strong: "EEF tiered model: quality-first teaching (coaching) → targeted support (Y11 small groups, one-to-one) → wider strategies (attendance team, enrichment entitlement). Disadvantaged P8 above national three years running." },
+          { q: "Show me the Pupil Premium money becoming outcomes. What's the mechanism?", look: ["external", "IDSR & Pupil Premium"], strong: "£371,950 through the EEF tiers as a literal budget: £201k teaching (smaller KS3 classes at the EEF threshold, coaching), £105k targeted (ASAs, after-school study with a hot supper, Thinking Reading), £66k wider (Elev:8, attendance team, AllChild). Verified externally: Ofsted's own IDSR flags disadvantaged pupils 'Above (sig+)' on measure after measure." },
           { q: "Every SEND intervention is costed at £0 to families – what does it cost the school, and is that sustainable?", look: ["send", "SEND page"], strong: "Deliberate resourcing decisions (Deputy SENCo, Bethlehem, Romero, trained LSA for SaLT) with impact measured per provision – investment justified by EHCP attendance +9.13 and measured literacy gains." },
           { q: "The roll grew 41% in four years. Where is the growth money going, and what breaks first if it stops?", look: ["dashboard", "Dashboard"], strong: "Growth funded the inclusion architecture and pastoral capacity; per-pupil behaviour metrics improved through growth (internal suspensions per pupil halved) – showing scale managed, not endured." },
           { q: "Free uniform, PE kit, prom tickets, vouchers – generosity or strategy?", look: ["attendance", "Attendance → Safeguarding"], strong: "Strategy: dignity as safeguarding, funded partly by alumni donation; removes the cost barriers the enrichment framework names, and participation parity data proves it works." }
