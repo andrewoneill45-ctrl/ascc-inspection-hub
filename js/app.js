@@ -1044,7 +1044,8 @@ const EDGE_STYLE = {
   drives:    { color: "#4c2373", dash: null,      label: "Drives / feeds" },
   evidences: { color: "#c9a227", dash: "7,5",     label: "Evidences / validates" },
   watches:   { color: "#b3403a", dash: "2,5",     label: "Known risk being managed" },
-  underpins: { color: "#1e7d4f", dash: "12,4",    label: "Ethos underpins" }
+  underpins: { color: "#1e7d4f", dash: "12,4",    label: "Ethos underpins" },
+  leaf:      { color: "#b9b0c4", dash: "1,4",     label: "Expanded data point" }
 };
 const NODE_STYLE = {
   pillar:  { fill: "#4c2373", stroke: "#2a1245", text: "Evaluation area" },
@@ -1057,7 +1058,7 @@ function renderGraph() {
   el("view-graph").appendChild(h(`
     <div class="view-head">
       <h2>How it all connects</h2>
-      <p>The school as a system: Catholic ethos and leadership drive the engines (coaching, data, pastoral systems, enrichment), which power the evaluation areas and signature outcomes. Red dotted links mark the risks we have already named and own. Drag nodes, hover for detail, click to pin.</p>
+      <p>The school as a living system: ethos and leadership drive the engines, the engines power the evaluation areas and signature outcomes, and every named risk hangs off the area that owns it. Click a node to pin its data, chart and intersections in the sidebar; <strong>double-click (or use ⊕) to expand it into its satellite data points</strong>; drag anything to rearrange.</p>
     </div>
     <div class="graph-filters" id="graph-filters">
       <button data-t="all" class="on">All connections</button>
@@ -1065,6 +1066,10 @@ function renderGraph() {
       <button data-t="evidences">Evidences</button>
       <button data-t="watches">Risks</button>
       <button data-t="underpins">Ethos</button>
+      <span style="flex:1"></span>
+      <button id="gf-expand" class="gf-action">⊕ Expand all</button>
+      <button id="gf-collapse" class="gf-action">⊖ Collapse all</button>
+      <button id="gf-ai" class="gf-action gf-ai">✦ AI infographic of the whole system</button>
     </div>
     <div class="graph-layout">
       <div id="graph-svg-wrap">
@@ -1073,7 +1078,7 @@ function renderGraph() {
       </div>
       <div class="card" id="graph-detail">
         <h3>Talk across the school</h3>
-        <p class="placeholder">Click any node to bring up its key data and every intersection — the lines a leader can walk an inspector along. Hover to preview; drag to rearrange.</p>
+        <p class="placeholder">Click any node to bring up its key data, a live chart and every intersection — the lines a leader can walk an inspector along. Double-click to burst it into satellite data points.</p>
       </div>
     </div>
   `));
@@ -1100,23 +1105,25 @@ function renderGraph() {
   svg.appendChild(gLinks); svg.appendChild(gNodes);
 
   // Supernotes-style: small solid dots, hairline edges, quiet labels
-  const nodeR = n => 6 + n.size * 0.45;           // ~10-14px dots
-  links.forEach(l => {
+  const nodeR = n => n.leaf ? 4.5 : 6 + n.size * 0.45;
+  const extras = ASCC.graphExtras || {};
+
+  function materialiseLink(l) {
     const st = EDGE_STYLE[l.type];
     const line = document.createElementNS(NS, "line");
     line.setAttribute("stroke", st.color);
-    line.setAttribute("stroke-width", l.type === "drives" ? 1.7 : 1.4);
-    line.setAttribute("stroke-opacity", 0.32);
+    line.setAttribute("stroke-width", l.type === "drives" ? 1.7 : (l.type === "leaf" ? 1.1 : 1.4));
+    line.setAttribute("stroke-opacity", l.type === "leaf" ? 0.5 : 0.32);
     line.setAttribute("stroke-linecap", "round");
     if (st.dash) line.setAttribute("stroke-dasharray", st.dash);
     gLinks.appendChild(line);
     l.el = line;
-  });
-  nodes.forEach(n => {
+  }
+  function materialiseNode(n) {
     const st = NODE_STYLE[n.type];
     const g = document.createElementNS(NS, "g");
     g.style.cursor = "pointer";
-    const halo = document.createElementNS(NS, "circle");   // selection ring
+    const halo = document.createElementNS(NS, "circle");
     halo.setAttribute("r", nodeR(n) + 5);
     halo.setAttribute("fill", "none");
     halo.setAttribute("stroke", st.stroke);
@@ -1124,29 +1131,68 @@ function renderGraph() {
     halo.setAttribute("opacity", 0);
     const c = document.createElementNS(NS, "circle");
     c.setAttribute("r", nodeR(n));
-    c.setAttribute("fill", st.fill);
-    c.setAttribute("stroke", n.type === "risk" ? st.stroke : "#ffffff");
-    c.setAttribute("stroke-width", 2);
+    c.setAttribute("fill", n.leaf ? "#fff" : st.fill);
+    c.setAttribute("stroke", n.leaf ? st.fill : (n.type === "risk" ? st.stroke : "#ffffff"));
+    c.setAttribute("stroke-width", n.leaf ? 1.8 : 2);
     const t = document.createElementNS(NS, "text");
     t.textContent = n.label;
     t.setAttribute("text-anchor", "middle");
-    t.setAttribute("font-size", "9.5");
-    t.setAttribute("font-weight", "600");
-    t.setAttribute("fill", "#5c5266");
+    t.setAttribute("font-size", n.leaf ? "8.2" : "9.5");
+    t.setAttribute("font-weight", n.leaf ? "550" : "600");
+    t.setAttribute("fill", n.leaf ? "#8b7f97" : "#5c5266");
     t.setAttribute("pointer-events", "none");
     g.appendChild(halo); g.appendChild(c); g.appendChild(t);
     gNodes.appendChild(g);
     n.el = g; n.circle = c; n.text = t; n.halo = halo; n.r = nodeR(n);
-    g.addEventListener("mouseenter", () => { if (!pinned) { showDetail(n); highlight(n); } });
+    const target = n.leaf ? byId[n.parent] : n;
+    g.addEventListener("mouseenter", () => { if (!pinned) { showDetail(target); highlight(target); } });
     g.addEventListener("mouseleave", () => { if (!pinned) clearHighlight(); });
-    // drag / click-to-pin (click detected manually — pointer capture eats click events)
+    g.addEventListener("dblclick", ev => { ev.preventDefault(); if (!n.leaf) toggleExpand(n); });
     g.addEventListener("pointerdown", ev => {
       ev.preventDefault();
       dragging = n; n.fixed = true;
-      dragStart = { x: ev.clientX, y: ev.clientY, moved: false };
+      dragStart = { x: ev.clientX, y: ev.clientY, moved: false, t: Date.now() };
       svg.setPointerCapture(ev.pointerId);
     });
-  });
+  }
+  links.forEach(materialiseLink);
+  nodes.forEach(materialiseNode);
+
+  /* ----- expandable satellites ----- */
+  function toggleExpand(n) {
+    if (n.expanded) collapseNode(n); else expandNode(n);
+    if (pinned === n) showDetail(n);
+  }
+  function expandNode(n) {
+    const kids = (extras[n.id] || {}).children;
+    if (!kids || n.expanded) return;
+    n.expanded = true;
+    kids.forEach((label, i) => {
+      const ang = (i / kids.length) * Math.PI * 2;
+      const leaf = { id: `${n.id}__leaf${i}`, label, leaf: true, parent: n.id, type: n.type, size: 4,
+        x: n.x + Math.cos(ang) * 46, y: n.y + Math.sin(ang) * 46, vx: 0, vy: 0 };
+      nodes.push(leaf); byId[leaf.id] = leaf;
+      const l = { s: n.id, t: leaf.id, type: "leaf", a: n, b: leaf, leafLink: true };
+      links.push(l);
+      materialiseLink(l); materialiseNode(leaf);
+    });
+    kick();
+  }
+  function collapseNode(n) {
+    if (!n.expanded) return;
+    n.expanded = false;
+    for (let i = links.length - 1; i >= 0; i--) {
+      const l = links[i];
+      if (l.leafLink && l.s === n.id) { l.el.remove(); links.splice(i, 1); }
+    }
+    for (let i = nodes.length - 1; i >= 0; i--) {
+      const m = nodes[i];
+      if (m.leaf && m.parent === n.id) { m.el.remove(); delete byId[m.id]; nodes.splice(i, 1); }
+    }
+    kick();
+  }
+  function expandAll() { nodes.filter(n => !n.leaf && extras[n.id] && extras[n.id].children).forEach(expandNode); }
+  function collapseAll() { nodes.filter(n => !n.leaf && n.expanded).slice().forEach(collapseNode); }
   svg.addEventListener("pointermove", ev => {
     if (!dragging) return;
     if (Math.abs(ev.clientX - dragStart.x) + Math.abs(ev.clientY - dragStart.y) > 6) dragStart.moved = true;
@@ -1157,7 +1203,7 @@ function renderGraph() {
   });
   svg.addEventListener("pointerup", () => {
     if (!dragging) return;
-    if (!dragStart.moved) pin(dragging);          // a click, not a drag → pin (sticks until another node is clicked)
+    if (!dragStart.moved) pin(dragging.leaf ? byId[dragging.parent] : dragging);
     dragging.fixed = false; dragging = null;
   });
   function pin(n) {
@@ -1188,10 +1234,32 @@ function renderGraph() {
     const d = el("graph-detail");
     d.innerHTML = `<h3>Talk across the school</h3><p class="placeholder">Click any node to bring up its key data and every intersection — the lines a leader can walk an inspector along. Hover to preview; drag to rearrange.</p>`;
   }
+  let sparkInstance = null;
+  function renderSpark(spec) {
+    if (sparkInstance) { try { sparkInstance.destroy(); } catch {} sparkInstance = null; }
+    if (!spec) return;
+    const wrap = el("graph-spark");
+    if (!wrap) return;
+    const canvas = document.createElement("canvas");
+    wrap.appendChild(canvas);
+    const palette = ["#4c2373", "#c9a227", "#7440ab", "#1e7d4f", "#b3403a", "#b9b0c4"];
+    const datasets = spec.series.map((s, i) => {
+      const color = s.grey ? "#b9b0c4" : (s.green ? "#1e7d4f" : palette[i]);
+      const base = { label: s.label, data: s.data, backgroundColor: spec.type === "doughnut" ? palette : color, borderColor: color, borderRadius: 5 };
+      if (spec.type === "line") Object.assign(base, { tension: 0.3, pointRadius: 4, fill: false, borderDash: s.dash ? [6, 4] : undefined });
+      return base;
+    });
+    sparkInstance = new Chart(canvas, {
+      type: spec.type, data: { labels: spec.labels, datasets },
+      options: { maintainAspectRatio: false, plugins: { legend: { display: spec.series.length > 1 || spec.type === "doughnut", labels: { boxWidth: 10, font: { size: 9 } } } },
+        scales: spec.type === "doughnut" ? {} : { y: { min: spec.min, ticks: { font: { size: 9 } } }, x: { ticks: { font: { size: 9 } } } } }
+    });
+  }
   function showDetail(n) {
     const st = NODE_STYLE[n.type];
+    const ex = extras[n.id] || {};
     const stats = (n.stats || []).map(s => `<li>${s}</li>`).join("");
-    const conns = links.filter(l => l.s === n.id || l.t === n.id).map(l => {
+    const conns = links.filter(l => !l.leafLink && (l.s === n.id || l.t === n.id)).map(l => {
       const other = l.s === n.id ? byId[l.t] : byId[l.s];
       const es = EDGE_STYLE[l.type];
       return `
@@ -1207,10 +1275,21 @@ function renderGraph() {
       <span class="type-tag" style="color:${st.stroke}">${st.text}${n.grade ? " · " + n.grade : ""}</span>
       <h3>${n.label}</h3>
       <p style="font-size:0.84rem">${n.desc}</p>
+      <div class="graph-detail-actions">
+        ${ex.children ? `<button id="gd-expand">${n.expanded ? "⊖ Collapse satellites" : "⊕ Expand satellites"}</button>` : ""}
+        <button id="gd-ai">✦ AI infographic</button>
+      </div>
+      ${ex.spark ? `<div class="graph-spark-card"><div class="graph-spark-title">${ex.spark.title}</div><div id="graph-spark"></div></div>` : ""}
       <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Key data</h4>
       <ul class="node-stats">${stats}</ul>
       <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--purple-700);margin-top:14px">Intersections — the lines to walk</h4>
       <div class="conn-list">${conns}</div>`;
+    renderSpark(ex.spark);
+    const xb = el("gd-expand");
+    if (xb) xb.addEventListener("click", () => toggleExpand(n));
+    el("gd-ai").addEventListener("click", () => {
+      askPortal(`Create an infographic-style briefing on "${n.label}" at All Saints: a punchy headline, the 4-6 most powerful statistics as a formatted list, one or two charts of the key trends, the connections to other areas of the school, the honest caveat, and the single phrase a leader should say to an inspector. Make it visual and tight.`);
+    });
     el("graph-detail").querySelectorAll(".conn").forEach(c => {
       c.addEventListener("click", () => {
         const m = byId[c.dataset.node];
@@ -1219,15 +1298,21 @@ function renderGraph() {
     });
   }
 
-  // filters
+  // filters + toolbar
   el("graph-filters").addEventListener("click", e => {
     const b = e.target.closest("button[data-t]"); if (!b) return;
-    document.querySelectorAll("#graph-filters button").forEach(x => x.classList.toggle("on", x === b));
+    document.querySelectorAll("#graph-filters button[data-t]").forEach(x => x.classList.toggle("on", x === b));
     const t = b.dataset.t;
     links.forEach(l => {
+      if (l.leafLink) return;                       // satellites always visible when expanded
       l.hidden = t !== "all" && l.type !== t;
       l.el.setAttribute("stroke-opacity", l.hidden ? 0 : 0.32);
     });
+  });
+  el("gf-expand").addEventListener("click", expandAll);
+  el("gf-collapse").addEventListener("click", collapseAll);
+  el("gf-ai").addEventListener("click", () => {
+    askPortal("Create a whole-school infographic briefing of All Saints as one connected system, for an inspector's first ten minutes. Structure: (1) a one-line thesis of how ethos → engines → evaluation areas → outcomes connect; (2) the ten most powerful statistics across the school, formatted boldly; (3) two or three charts — outcomes vs national over time, the behaviour transformation, and enrichment's attendance effect; (4) the named risks and their owners in one tight table; (5) the closing phrase that captures the whole. Make it feel like an infographic in words and charts.");
   });
 
   // force simulation
@@ -1236,12 +1321,12 @@ function renderGraph() {
   function tick() {
     alpha *= 0.985;
     if (alpha < 0.005) { running = false; return; }
-    // repulsion
+    // repulsion (leaves repel gently so satellites cluster, not scatter)
     for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
       const a = nodes[i], b = nodes[j];
       let dx = b.x - a.x, dy = b.y - a.y;
       let d2 = dx * dx + dy * dy || 1; const d = Math.sqrt(d2);
-      const rep = 5200 / d2;
+      const rep = ((a.leaf || b.leaf) ? 900 : 5200) / d2;
       const rx = dx / d * rep, ry = dy / d * rep;
       if (!a.fixed) { a.vx -= rx; a.vy -= ry; }
       if (!b.fixed) { b.vx += rx; b.vy += ry; }
@@ -1250,8 +1335,8 @@ function renderGraph() {
     links.forEach(l => {
       const dx = l.b.x - l.a.x, dy = l.b.y - l.a.y;
       const d = Math.sqrt(dx * dx + dy * dy) || 1;
-      const target = 165 + (l.a.size + l.b.size);
-      const f = (d - target) * 0.012;
+      const target = l.leafLink ? 52 : 165 + (l.a.size + l.b.size);
+      const f = (d - target) * (l.leafLink ? 0.05 : 0.012);
       const fx = dx / d * f, fy = dy / d * f;
       if (!l.a.fixed) { l.a.vx += fx; l.a.vy += fy; }
       if (!l.b.fixed) { l.b.vx -= fx; l.b.vy -= fy; }

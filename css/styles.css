@@ -214,9 +214,23 @@ td.bad { color: var(--red); font-weight: 650; }
 .conn-type { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 750; }
 .conn-target { font-size: 0.84rem; font-weight: 650; color: var(--purple-900); }
 .conn-why { font-size: 0.78rem; color: var(--muted); margin-top: 3px; line-height: 1.45; }
-.graph-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.graph-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; align-items: center; }
 .graph-filters button { border: 1.5px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 14px; font-size: 0.78rem; cursor: pointer; font-family: var(--font); color: var(--muted); }
 .graph-filters button.on { border-color: var(--purple-600); color: var(--purple-800); background: var(--purple-100); font-weight: 650; }
+.graph-filters .gf-action { border-color: var(--purple-500); color: var(--purple-800); background: var(--purple-50); font-weight: 600; }
+.graph-filters .gf-action:hover { background: var(--purple-100); }
+.graph-filters .gf-ai { border-color: var(--gold); color: #8a6a0d; background: #fdf7e7; }
+.graph-filters .gf-ai:hover { background: #f7edcd; }
+
+.graph-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+.graph-detail-actions button { border: 1.5px solid var(--purple-500); background: var(--purple-50); color: var(--purple-800); border-radius: 999px; padding: 6px 13px; font-size: 0.76rem; font-weight: 650; cursor: pointer; font-family: var(--font); transition: background 0.15s; }
+.graph-detail-actions button:hover { background: var(--purple-100); }
+.graph-detail-actions #gd-ai { border-color: var(--gold); color: #8a6a0d; background: #fdf7e7; }
+.graph-detail-actions #gd-ai:hover { background: #f7edcd; }
+
+.graph-spark-card { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px 6px; margin-top: 10px; background: #fff; }
+.graph-spark-title { font-size: 0.72rem; font-weight: 700; color: var(--purple-800); margin-bottom: 4px; }
+#graph-spark { position: relative; height: 170px; }
 
 /* ---------- Media ---------- */
 .media-group { margin-bottom: 30px; }

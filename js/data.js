@@ -993,6 +993,94 @@ var ASCC = {
     ]
   },
 
+  /* ---------- Graph extras: expandable satellites + sidebar charts per node ---------- */
+  graphExtras: {
+    leadership: {
+      children: ["Advises Secretary of State", "Every priority has an owner", "Named workload trade-offs", "£400k capital secured"],
+      spark: { title: "Progress 8 under this leadership", type: "line", labels: ["2023", "2024", "2025*", "2026p"], series: [{ label: "ASCC", data: [0.12, 0.69, 0.76, 0.74] }, { label: "National", data: [-0.03, -0.03, null, null], dash: true }] }
+    },
+    curriculum: {
+      children: ["T&L Handbook v2", "Curriculum Pillars", "T&L 2.08 · 80% strong", "Reading CPD 92%"],
+      spark: { title: "Staff development targets by domain (%)", type: "bar", labels: ["Instr.", "Assess.", "Routines", "Adaptive", "Dialogic"], series: [{ label: "Final targets %", data: [13, 15, 3, 45, 25] }] }
+    },
+    achievement: {
+      children: ["P8 +0.69 (2024)", "A8 5.39 vs 4.59", "82% 4+ E&M predicted", "3 yrs above national"],
+      spark: { title: "Progress 8 vs national", type: "bar", labels: ["2023", "2024", "2025*", "2026p"], series: [{ label: "ASCC", data: [0.12, 0.69, 0.76, 0.74] }, { label: "National", data: [-0.03, -0.03, null, null], grey: true }] }
+    },
+    attendance: {
+      children: ["92.41% overall", "EHCP +9.13", "4× DfE expectation", "PA 20.9% → <20%"],
+      spark: { title: "Attendance vs benchmarks (%)", type: "bar", labels: ["ASCC", "National", "Similar"], series: [{ label: "2025/26", data: [92.41, 91.63, 90.19] }], min: 88 }
+    },
+    behaviour: {
+      children: ["PEX 7→3→2→0", "Suspensions −43.9%", "Internal log −33%", "OSD: 59 placements"],
+      spark: { title: "Fixed-term suspensions by year", type: "bar", labels: ["22–23", "23–24", "24–25", "25–26"], series: [{ label: "Suspensions", data: [262, 319, 183, 143] }] }
+    },
+    personal: {
+      children: ["Gatsby 92%", "8/8 DfE benchmarks", "30 events delivered", "Voice: 94% belong"],
+      spark: { title: "Gatsby benchmark scores (%)", type: "bar", labels: ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8"], series: [{ label: "Compass+", data: [100, 95, 100, 75, 88, 87, 90, 100] }] }
+    },
+    inclusion: {
+      children: ["50+ provisions · £0", "SaLT: 17 EHCP pupils", "Aquinas: 53 (24.5% PP)", "Fresh Start 3× faster"],
+      spark: { title: "Fresh Start Speed Sounds (secs, lower = better)", type: "bar", labels: ["A", "B", "C", "D", "E"], series: [{ label: "Entry", data: [63, 42, 56, 71, 57], grey: true }, { label: "July", data: [18, 17, 19, 19, 25], green: true }] }
+    },
+    safeguarding: {
+      children: ["Audit: “exemplary”", "145 staff trained", "100% parents: safe", "5 Rs known by all"],
+      spark: { title: "Parents: child feels safe (n=82)", type: "doughnut", labels: ["Yes", "No"], series: [{ label: "Responses", data: [82, 0] }] }
+    },
+    ethos: {
+      children: ["Orare · Laborare · Servire", "Service with Colour", "Faith in Action"],
+      spark: null
+    },
+    coaching: {
+      children: ["54 self-reflections", "45% chose the priority", "40 coached targets", "6-Minute Takeaways"],
+      spark: { title: "Draft focus → final target (% of staff)", type: "bar", labels: ["Instr.", "Assess.", "Routines", "Adaptive", "Dialogic"], series: [{ label: "Draft", data: [22, 13, 9, 35, 20], grey: true }, { label: "Final", data: [13, 15, 3, 45, 25] }] }
+    },
+    data: {
+      children: ["KS4 trackers: 1 row/pupil", "20 SLT-mentored Y11s", "65 → shoulder groups", "QoB cycles ×3"],
+      spark: { title: "KS3 E&M on-track: Mich → Lent (%)", type: "bar", labels: ["Y7", "Y8", "Y9"], series: [{ label: "Michaelmas", data: [49, 38, 27], grey: true }, { label: "Lenten", data: [59, 65, 44] }] }
+    },
+    enrichment: {
+      children: ["404 pupils (45%)", "3,695 attendances", "Members +7.2 att.", "Elev:8 Y8: 91%"],
+      spark: { title: "% of year group in clubs", type: "bar", labels: ["Y7", "Y8", "Y9", "Y10", "Y11"], series: [{ label: "% in ≥1 club", data: [73, 91, 29, 21, 4] }] }
+    },
+    pastoral: {
+      children: ["Home visits → CPOMS", "Attendance Contracts", "Agency support <50%"],
+      spark: { title: "Attendance: members vs non-members (%)", type: "bar", labels: ["All", "PP", "SEN"], series: [{ label: "Club members", data: [94.52, 92.41, 92.65] }, { label: "Non-members", data: [87.28, 82.99, 80.55], grey: true }], min: 75 }
+    },
+    innovation: {
+      children: ["60+ media items", "12-hour day", "Teacher lie-ins", "Frameworks followed us"],
+      spark: { title: "Media coverage by category", type: "doughnut", labels: ["National", "Education", "International", "Catholic", "Official", "Social"], series: [{ label: "Items", data: [15, 26, 6, 5, 9, 5] }] }
+    },
+    disadv: {
+      children: ["P8 +0.26 vs −0.57", "Beat national non-disadv.", "FSM6 att. +1.70"],
+      spark: { title: "Disadvantaged P8 vs national disadvantaged", type: "bar", labels: ["2023", "2024", "2025*"], series: [{ label: "ASCC disadv.", data: [-0.15, 0.26, -0.01] }, { label: "National disadv.", data: [-0.57, -0.57, null], grey: true }] }
+    },
+    "send-out": {
+      children: ["EHCP att. +9.13", "EHCP P8 +0.07", "2 of 59 OSDs EHCP"],
+      spark: { title: "EHCP attendance vs national EHCP (%)", type: "bar", labels: ["ASCC EHCP", "National EHCP"], series: [{ label: "Attendance", data: [90.03, 80.90] }], min: 70 }
+    },
+    reading: {
+      children: ["54% below age-related", "66 pupils SAS<85", "59 staff trained 92%", "Emmanuel pathway next"],
+      spark: { title: "Galilee literacy gains (pp, pre→post)", type: "bar", labels: ["A", "B", "C", "D"], series: [{ label: "Percentage-point gain", data: [44, 39, 37, 27], green: true }] }
+    },
+    gap: {
+      children: ["0.57 → 0.80 → 1.14*", "Disadv. still above national", "Adaptive teaching lever"],
+      spark: { title: "In-school disadvantaged gap (P8)", type: "line", labels: ["2023", "2024", "2025*"], series: [{ label: "Gap", data: [0.57, 0.80, 1.14] }] }
+    },
+    y11att: {
+      children: ["7% severely absent", "A8 5.22 vs 3.53 by att.", "64% improved vs Y10"],
+      spark: { title: "Y11 average A8 by attendance band", type: "bar", labels: ["<90%", ">93%", ">95%"], series: [{ label: "Average A8", data: [3.53, 5.16, 5.22] }] }
+    },
+    dispro: {
+      children: ["Self-identified", "Plans due end HT6", "Named owners"],
+      spark: null
+    },
+    emmanuel: {
+      children: ["£400k RBKC secured", "55m² modular", "9-child priority cohort", "Y7–8 literacy pathway"],
+      spark: { title: "The triangulated case (Y7–8 pupils flagged)", type: "bar", labels: ["Reading SAS<85", "Att. <85%", "2+ concern areas"], series: [{ label: "Pupils", data: [66, 27, 9] }] }
+    }
+  },
+
   /* ---------- Ofsted renewed framework reference ---------- */
   framework: {
     summary: "From 10 November 2025 Ofsted inspects under the renewed education inspection framework. Single-word overall judgements are gone; schools receive a report card grading each evaluation area on a five-point scale, with safeguarding judged separately as Met / Not met.",
