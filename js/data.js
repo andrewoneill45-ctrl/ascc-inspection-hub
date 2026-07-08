@@ -71,7 +71,8 @@ var ASCC = {
         "SEN referrals tracked with CAMHS liaison and access-arrangement documentation; 2 successful EHCP applications this year – swift, accurate identification of need.",
         "2024 Progress 8: EHCP pupils +0.07, SEN Support +0.13 – positive progress in a school with well-above-average need.",
         "Deliberate resourcing: Deputy SENCo, Bethlehem Centre, Romero Centre ('keeping up, not catching up'), enhanced Attendance team.",
-        "A mapped offer of 50+ provisions, all at £0 to families, with measured impact: Fresh Start pupils reading sounds up to 3× faster; Galilee literacy gains of 27–44 percentage points; NHS-target 1:1 speech therapy for 17 EHCP pupils – see the dedicated SEND tab."
+        "A mapped offer of 50+ provisions, all at £0 to families, with measured impact: Fresh Start pupils reading sounds up to 3× faster; Galilee literacy gains of 27–44 percentage points; NHS-target 1:1 speech therapy for 17 EHCP pupils – see the dedicated SEND tab.",
+        "The SEN Homework Club reaches the hardest overlap – all 33 attendees are Pupil Premium – and its behaviour-log evidence shows negative incidents down 38.5% across the year, with the low- and high-engagement cohorts improving independently (−42.3% / −35.0%). 75% of Thinking Reading pupils met their age-expected reading age this year. See Reading, Literacy & Numeracy."
       ],
       development: [
         "Some books don't always show the intended sequence; some pupils struggle to articulate prior learning – tracked with targeted plans.",
@@ -106,14 +107,15 @@ var ASCC = {
         "2024 outcomes prove the curriculum is landing: Progress 8 +0.69 vs −0.03 national; Attainment 8 5.39 vs 4.59 national.",
         "Parents agree: 100% satisfied with the quality of teaching (76% 'very satisfied'); 96% say their child is appropriately challenged (Y7 & Y10 surveys, n=82).",
         "Reading is everyone's job – and provably understood: 59 staff across every department completed 'Unlocking Reading' Modules 1+2 with an average quiz score of 92% (81% scored 9 or 10/10); 100% correctly identified the Science of Reading's purpose and 98% that their role is to explicitly teach and model reading within their subject.",
+        "And the reading number is now moving: summer 2026 matched-pupil tests show Years 7 and 10 at or above the national mean SAS of 100 (Y7 97.8 → 99.0; Y10 100.2 → 101.6), Y10 'expected & above' up 6.8 points in a year, 75% of Thinking Reading pupils meeting age-expected reading age, 100% of PP pupils on the Y10 English intervention maintaining or improving – and SORA e-book check-outs nearly doubled (254 → 487). See the Reading, Literacy & Numeracy tab.",
         "National recognition: Headteacher appointed Schools Policy and Delivery Adviser to the Secretary of State; senior leaders invited to speak externally on teaching and learning."
       ],
       development: [
-        "Autumn 2025: 54% of pupils below or significantly below age-related reading expectations – Y7 Fluency Pilot, Thinking Reading and a new literacy committee address this from 2026.",
+        "Autumn 2025: 54% of pupils below or significantly below age-related reading expectations – Y7 Fluency Pilot, Thinking Reading and a new literacy committee address this from 2026. Summer 2026 matched tests show the first movement (Y7 & Y10 mean SAS at/above 100); Y8 (60 pupils still to test) and Y9 (summer test pending) are the honest gaps in the picture.",
         "SEN and disadvantaged attainment gap remains live – SoW updated with an explicit adaptive-teaching strand.",
         "24% of teaching staff are ITTs or ECTs – some KS3 inconsistency, addressed through coaching and CPD."
       ],
-      gradeRationale: "Why Strong and not yet Exceptional – held deliberately: the toolkit's Strong standard ('consistently strong, responsive teaching') is comfortably evidenced – arguably exceeded on process: a codified handbook, a coaching cycle where 45% of teachers chose the school's own priority, whole-staff reading CPD at 92%, pupils speaking the pedagogy unprompted, 100% parent satisfaction with teaching. What blocks Exceptional is impact data we will not argue around: 54% below age-related reading, the SEN Support attainment slide, English Language at −0.54, KS3 consistency with 24% early-career staff. THE ROUTE TO EXCEPTIONAL IS NAMED: % reading at/above age-related rising through 2026–27 (tests each term), SEN K A8 recovering against the 3.49 baseline, English Language and Science residuals improving at GCSE 2026, and KS3 on-track consistency holding through the autumn. When those move, this grade moves – reviewed January 2027. Calibration here is what makes our Exceptional grades credible everywhere else.",
+      gradeRationale: "Why Strong and not yet Exceptional – held deliberately: the toolkit's Strong standard ('consistently strong, responsive teaching') is comfortably evidenced – arguably exceeded on process: a codified handbook, a coaching cycle where 45% of teachers chose the school's own priority, whole-staff reading CPD at 92%, pupils speaking the pedagogy unprompted, 100% parent satisfaction with teaching. What blocks Exceptional is impact data we will not argue around: 54% below age-related reading, the SEN Support attainment slide, English Language at −0.54, KS3 consistency with 24% early-career staff. THE ROUTE TO EXCEPTIONAL IS NAMED: % reading at/above age-related rising through 2026–27 (tests each term), SEN K A8 recovering against the 3.49 baseline, English Language and Science residuals improving at GCSE 2026, and KS3 on-track consistency holding through the autumn. The first of those is already moving – summer 2026 matched tests put Y7 and Y10 mean SAS at or above 100, with Y10 'expected & above' up 6.8 points (see Reading, Literacy & Numeracy). When the rest move, this grade moves – reviewed January 2027. Calibration here is what makes our Exceptional grades credible everywhere else.",
       priorities: [
         ["Embed ASCC Pillars in every Scheme of Work, including oracy", "CDA / NGI / JAN", "July, Sept & Dec 2026"],
         ["Raise consistency & quality of books (presentation, live feedback, pupil response)", "CDA / NGI / JAN", "Sept, Nov & Jan"],
@@ -136,7 +138,8 @@ var ASCC = {
         "2024 Progress 8 +0.69 vs −0.03 nationally; the majority of measures significantly above national for three consecutive years.",
         "Disadvantaged pupils 2024 Progress 8 +0.26 vs −0.57 national – sustained in a context of well-above-average deprivation.",
         "2025 (SISRA est.): A8 5.13 vs 4.61 national; P8 estimate +0.76; 2026 prediction: A8 5.01, P8 +0.74, 82% 4+ English & Maths.",
-        "Assessment used intelligently at KS3/KS4 (data drops, reading data, Bedrock SAS) to trigger targeted, evaluated intervention."
+        "Assessment used intelligently at KS3/KS4 (data drops, reading data, Bedrock SAS) to trigger targeted, evaluated intervention.",
+        "Work beyond the lesson is engineered, not exhorted: Compulsory Study (extended day) for targeted PP pupils cut homework-related negative logs 49.2% across the year (80% of tracked pupils improved), and the SEN Homework Club – every attendee Pupil Premium – cut negative incidents 38.5%, with both engagement cohorts improving independently. Maths runs a tiered foundational-numeracy model (two-stage baseline, nurture reteaching written into the SoW, exit-on-impact intervention) with case-level GCSE gains. See Reading, Literacy & Numeracy."
       ],
       development: [
         "In-school gap between disadvantaged and non-disadvantaged has widened over two years even though disadvantaged pupils remain above national – adaptive teaching, attendance and targeted intervention are the levers.",
@@ -619,11 +622,12 @@ var ASCC = {
           "Bethlehem Centre (exceptional teaching) · Romero Centre (keeping up, not catching up)"
         ] },
       { id: "reading", cluster: "standards", label: "Reading & Literacy", type: "risk", size: 10,
-        desc: "54% below age-related expectations (Aut 25) → whole-staff training, Fresh Start, Fluency Pilot, Emmanuel pathway.",
+        desc: "54% below age-related (Aut 25) → whole-staff training, Fresh Start, Fluency Pilot – and summer tests show it moving: Y7 & Y10 mean SAS at/above 100.",
         stats: [
           "54% below age-related reading (Aut 25); GL Cycle 1: 66 Y7–8 pupils significantly below (SAS<85), mean deficit 51.8 months",
-          "Whole-staff 'Unlocking Reading' training: 59 staff, every department, 92% average quiz score",
-          "Fresh Start impact measured: Speed Sound recall up to 3× faster (71s → 19s)",
+          "Moving: summer 2026 matched tests – Y7 SAS 97.8→99.0, Y10 100.2→101.6 (both at/above the national 100); Y10 'expected & above' +6.8pp; SORA e-book check-outs doubled 254→487",
+          "Interventions with receipts: Thinking Reading 75% met age-expected reading age · Fluency 67% improved SAS (⅔ of improvers PP) · Y10 English intervention: 100% of PP pupils maintained/improved",
+          "Whole-staff 'Unlocking Reading': 59 staff, every department, 92% average · Fresh Start Speed Sound recall up to 3× faster",
           "Next: Emmanuel adapted literacy pathway – daily, low-cognitive-load, keep up not catch up"
         ] },
       { id: "gap", cluster: "standards", label: "Disadvantaged Gap (in-school)", type: "risk", size: 10,
@@ -922,7 +926,8 @@ var ASCC = {
         note: "£201,416 on teaching (smaller KS3 classes – reduced by ~10 pupils, the EEF's impact threshold; the coaching CPD model; IRIS Connect), £104,504 on targeted support (ASAs' 1:1 and small-group tuition, compulsory after-school study with a hot supper, Thinking Reading, Bedrock, the PP higher-attainers programme), £66,030 on wider strategies (Extended Schools, Elev:8, the attendance team, uniform, breakfast club, AllChild's two on-site staff). The EEF tiered model, not as a slogan but as a budget." },
       loops: [
         ["Named challenge: FSM6 attendance 0.3 below national", "Closed: the IDSR's own in-year data now shows FSM attendance ABOVE national (88.6% vs 87.4%) – the strategy's attendance investment, verified by Ofsted's system within the same cycle."],
-        ["Named challenge: 61% of PP pupils below age-related reading", "In hand, measured: Thinking Reading (graduations targeted to double), Bedrock diagnostics, Fresh Start (3× faster recall), form-time reading (three books a year), whole-staff CPD at 92%."],
+        ["Named challenge: 61% of PP pupils below age-related reading", "Moving, measured: summer tests show Y7 & Y10 mean SAS at/above 100 and Y10 'expected & above' +6.8pp; ⅔ of Fluency-group improvers are PP; 100% of PP pupils on the Y10 English intervention maintained or improved. Behind it: Thinking Reading (75% met age-expected reading age), Bedrock diagnostics, Fresh Start (3× faster recall), whole-staff CPD at 92%."],
+        ["Named investment: compulsory after-school study with a hot supper", "Impact now logged: homework-related negative logs for the PP Compulsory Study cohort fell 49.2% across the year (305 → 155), with 80% of tracked pupils improving; the SEN Homework Club (all 33 attendees PP) cut negative incidents 38.5%. The targeted tier, verified in the school's own behaviour data."],
         ["Named challenge: PP attainment gap (predicted 4.63 vs 5.63)", "Attacked through the teaching tier first – smaller classes, coaching – plus the higher-attainers programme, exactly where the Sutton Trust says disadvantage bites hardest."],
         ["Named challenge: cultural capital and trip costs", "Answered as entitlement: subsidised trips, free uniform and PE kit, Elev:8's residential and London Leaders, clubs at PP parity – participation tracked, not hoped for."]
       ],
@@ -1261,8 +1266,8 @@ var ASCC = {
       spark: { title: "EHCP attendance vs national EHCP (%)", type: "bar", labels: ["ASCC EHCP", "National EHCP"], series: [{ label: "Attendance", data: [90.03, 80.90] }], min: 70 }
     },
     reading: {
-      children: ["54% below age-related", "66 pupils SAS<85", "59 staff trained 92%", "Emmanuel pathway next"],
-      spark: { title: "Galilee literacy gains (pp, pre→post)", type: "bar", labels: ["A", "B", "C", "D"], series: [{ label: "Percentage-point gain", data: [44, 39, 37, 27], green: true }] }
+      children: ["54% below age-related", "Summer: Y7 & Y10 SAS ≥100", "59 staff trained 92%", "Emmanuel pathway next"],
+      spark: { title: "Mean reading SAS, matched pupils (national = 100)", type: "bar", labels: ["Y7", "Y8", "Y10"], series: [{ label: "Autumn 2025", data: [97.8, 95.3, 100.2], grey: true }, { label: "Summer 2026", data: [99.0, 95.5, 101.6], green: true }], min: 90 }
     },
     gap: {
       children: ["0.57 → 0.80 → 1.14*", "Disadv. still above national", "Adaptive teaching lever"],
@@ -1620,7 +1625,7 @@ var ASCC = {
     domains: [
       { name: "Curriculum & Standards", icon: "📚",
         questions: [
-          { q: "54% of pupils arrived below age-related reading. What did you do within the year, and how will we know it worked?", look: ["sef", "Self-Evaluation → Curriculum"], strong: "Y7 Fluency Pilot, Thinking Reading, literacy committee, Bedrock – with Fresh Start pupils measurably 3× faster and the success measure (% at/above expectations rising) already defined." },
+          { q: "54% of pupils arrived below age-related reading. What did you do within the year, and how will we know it worked?", look: ["foundations", "Reading, Literacy & Numeracy"], strong: "Screen, triangulate, intervene in tiers, measure – and the measure has already moved: summer matched tests put Y7 and Y10 mean SAS at/above the national 100, Y10 'expected & above' up 6.8 points, Thinking Reading pupils at 75% age-expected, Fresh Start recall 3× faster. Y8's partial cohort and Y9's pending test are named honestly." },
           { q: "SEN Support attainment has fallen half a grade a year since 2023. Why, and what changes in September?", look: ["send", "SEND page"], strong: "Named honestly in the SEF; adaptive-teaching strand in every SoW, CPD from September, provision-mapped interventions with pre/post measures – reviewed Oct–Jan." },
           { q: "English Language residual was −0.54 in 2025. What did the department change?", look: ["results", "Results & Trends"], strong: "Class-level analysis completed, SoW finished in January, teacher-level residuals tracked, targeted meetings held – with mock-to-exam trajectory monitored termly." },
           { q: "A quarter of teaching staff are trainees or early-career. How is quality held consistent?", look: ["sef", "Curriculum & Teaching"], strong: "Active Ingredients coaching (EEF metacognition +8), T&L average 2.08 with 80% expected/strong, CPR cycle keeping SoW live." },
@@ -1652,6 +1657,126 @@ var ASCC = {
     challengeNote: "Before the inspection call: log 2–3 real, minuted examples of governor challenge with dates and what leaders changed as a result – the SEF names this as the one leadership gap. The questions above are the raw material; the minutes are the evidence. (Model pattern: 'Governors challenged X on [date] → leaders responded with Y → outcome Z.')"
   },
 
+  /* ---------- Foundational Skills: reading impact, literacy, numeracy, study clubs (Evidence 8 July 2026) ---------- */
+  foundations: {
+    intro: "The SEF names reading as the school's defining challenge – 54% of pupils below age-related expectations in Autumn 2025 – and deliberately holds Curriculum & Teaching at Strong until that number moves. This page is the evidence that it is moving: matched-pupil reading tests autumn to summer, impact intervention by intervention, the whole-school literacy and numeracy strategies behind them, and the extended-day study clubs closing the homework gap for exactly the pupils the toolkit names.",
+    tiles: [
+      ["+6.8pp", "growth in Year 10 pupils reading at 'expected & above' in a single year (52.0% → 58.8%)"],
+      ["≥100", "Years 7 and 10 lifted mean reading SAS to at or above the national average of 100"],
+      ["254 → 487", "e-book check-outs on the SORA platform almost doubled – a reading culture you can count"],
+      ["−49.2%", "homework-related negative logs for pupils on Compulsory Study, Michaelmas → Trinity"]
+    ],
+    reading: {
+      sas: {
+        labels: ["Year 7", "Year 8", "Year 10"],
+        aut: [97.8, 95.3, 100.2],
+        sum: [99.0, 95.5, 101.6],
+        expAut: [47.2, 40.8, 52.0],
+        expSum: [49.1, 40.0, 58.8]
+      },
+      sasNote: "Autumn 2025 vs Summer 2026 Standardised Age Scores (Bedrock reading test), matched pupil by pupil. Years 7 and 10 lifted their mean SAS to at or above the national average of 100 – in the school year the strategy launched. Honest edges published alongside: Year 8 still has 60 pupils to test (its 'expected & above' band dipped 0.8 points on the partial cohort) and Year 9 sits its summer test next. This is the exact success measure the Curriculum grade rationale names – and it is moving.",
+      interventions: [
+        ["Year 7 Fresh Start + Thinking Reading", "75%", "of Thinking Reading pupils met their age-expected reading age by the end of the programme – a direct result of the intervention; 67% of pupils on the foundational-skills programme improved SAS. Graduates move on to the Fluency group with parental permission: decoding secured before fluency, exactly as the Reading House model orders it."],
+        ["Reading Fluency group", "67%", "of fluency pupils improved their SAS at the summer reading test – and two-thirds of the improvers are Pupil Premium. Individualised words and phrases to practise and rehearse, monitored reading aloud, and personal conversations with parents about reading at home – targeted, never generic."],
+        ["Year 10 Science pre-teaching", "83%", "improved or held their Science attainment Michaelmas → Trinity (60% improved or held SAS autumn → summer). Delivered weekly in form time by a Science ASA – who then trained the whole staff in a 6-Minute Takeaway. The Grenfell Teaching Hub is in conversation about rolling pre-teaching beyond Science next year; best practice shared with KAA."],
+        ["Year 10 English intervention", "100%", "of the eight Pupil Premium pupils on the Reciprocal Reading intervention maintained or improved their English outcomes – 79% of the full 24-pupil group did. Literature revision (The Merchant of Venice, Jekyll & Hyde) explicitly designed to work around attendance and behaviour barriers rather than assume them away – and it gave mid-year joiners the texts everyone else had already been taught."]
+      ],
+      identification: "Every pupil sat the Bedrock Reading Test in November 2025, generating a Standardised Age Score. The lowest readers in each cohort are then triangulated against KS2 reading data and English-teacher judgement before any placement – SAS alone never decides. Probing and pathway allocation ran through December; interventions began in January 2026. The pathway itself is sequenced on the Science of Reading and the EEF's Reading House: decoding and phonics secured first, because that is what makes fluency work possible.",
+      routes: [
+        ["Pathway 1 – in-class only", "SAS below expected, but KS2 reading at or above", "High-quality classroom strategies that remove barriers – no withdrawal"],
+        ["Pathway 2 – probe did not confirm", "SAS and KS2 both below, need not confirmed at probe", "In-class strategies plus optional pilot Fluency group (parental consent)"],
+        ["Pathway 2 – highest need", "SAS and KS2 below, confirmed at probe testing", "Read Write Inc. Fresh Start – systematic phonics"],
+        ["Pathway 2 – next tier", "As above, referred as 1:1 capacity allowed", "Thinking Reading (1:1)"],
+        ["Graduation route", "Completed Fresh Start or Thinking Reading", "Fluency group, with parental consent – monitored reading aloud, individualised feedback"]
+      ],
+      routesNote: "Years 7–8 two-pathway model. Year 9 adds Mylexia diagnostic testing – newly implemented – placing pupils on individualised pathways targeting the specific gap (phonics, decoding or grammar), plus a Y9-into-Y10 study skills group. Year 10 runs at scale because the need is at scale: 83% of the identified Reciprocal Reading cohort and 96% of the Science pre-teaching group were below or significantly below on the reading test.",
+      universal: [
+        "Two guided reading sessions a week in tutor time, staff trained to deliver them; purposeful Reading Time in the LRC on rotation; a reading book as standard equipment",
+        "Explicit vocabulary instruction in every subject; a 4-week whole-school spelling drive; the whole-school Spelling Bee built from curriculum leaders' own subject vocabulary",
+        "SAS descriptors reported to parents at Lenten assessments and the 'Take 10' parent bulletin – a shared home-school reading narrative between test points",
+        "DfE Science of Reading training delivered in-school to all staff and assessed (59 staff, 92% average); literacy revisited continually through the 6-Minute Takeaway briefing cycle",
+        "In English: a dedicated Y7 reading lesson (silent reading, journals, oracy), Bedrock for homework, Reciprocal Reading roles, live feedback on foundational skills, SPaG codes consistent across English and MFL"
+      ],
+      takeaways: [
+        ["12 Jan", "Live Feedback & Student Response", "Underpins live feedback driving foundational skills in every classroom"],
+        ["26 Jan", "Teaching Tier 3 Vocabulary: Explicit Vocabulary Instruction", "Direct input to the universal explicit-vocabulary offer"],
+        ["2 Feb", "Developing Oracy: the A-B-C Framework – launch", "Launches the Agree–Build–Challenge structure used across the school"],
+        ["2 Mar", "Live Feedback Loops: English Practice and Impact", "English department case study of live feedback on foundational skills"],
+        ["16 Mar", "Why Literacy Matters: Analysing Reading Test Data", "Whole-staff briefing on the Bedrock/SAS data and classroom implications"],
+        ["20 Apr", "Case Study: Pre-teaching Vocabulary & Impact", "The Y10 Science ASA shares her intervention's impact with all staff"]
+      ],
+      takeawaysNote: "Staff development is the delivery mechanism, not an afterthought: whole-staff Science of Reading training assessed at 92%, then literacy revisited six times across the spring through the 6-Minute Takeaway cycle – plus weekly ASA forums on classroom literacy support (Quigley + DfE) and ECT drop-ins with subject-specific reading strategies, down to National Literacy Trust materials for PE."
+    },
+    literacy: {
+      oracy: {
+        headline: "High-quality talk is fundamental to thinking, reading and writing – so oracy is engineered, not hoped for.",
+        points: [
+          ["The A-B-C Framework, whole-school", "Agree – Build – Challenge: one common language for academic talk, launched through Deputy-Head-led CPD and used across English, reading lessons, tutor activities and PSHCE – the same framework everywhere a discussion happens."],
+          ["Voice 21 and the reading lesson", "Year 7 oracy lessons follow the Voice 21 framework; talk is deliberately sequenced so oral rehearsal feeds writing and writing feeds talk – around Blood Brothers, Shakespeare and structured debate where pupils justify opinions from the text."],
+          ["Public stages, deliberately built", "The St Thomas Aquinas Poetry Award (pupils write, rehearse and perform their own poetry), the Spanish Award (scripts written and performed in Spanish), the English After School Academy, St Catherine Aspire passion-project presentations, and a Midsummer Night's Dream performance – Y10 pupils collected the Aquinas Award at Awards Night on 6 July."]
+        ]
+      },
+      writing: {
+        headline: "Supporting highly academic writing – stretch programmes that take able disadvantaged pupils to university-style writing, with the evidence held in the essays themselves.",
+        points: [
+          ["Brilliant Club Scholars Programme", "16 of the most able Year 9 pupils – eligibility required Pupil Premium or high-deprivation postcode – completed seven PhD-tutor tutorials and a university-style essay, each with a 1:1 draft-feedback meeting, culminating in a graduation at the University of Oxford. Timetabled across P5/P6 on a weekly swap so no group repeatedly missed the same lesson."],
+          ["St George Award", "8 high-achieving Year 10 pupils took a term-long A-Level English taster on Sam Selvon's The Lonely Londoners – postcolonial theory, self-chosen essay titles linked to their own reading, panel presentations – with theatre trips to The Crucible and The Lonely Londoners at Kilburn."]
+        ]
+      },
+      mechanics: [
+        ["Spelling", "Tier 2/3 vocabulary taught explicitly with morphology, etymology, Frayer models and dual coding; Bedrock builds spelling patterns through spaced retrieval; Look–Cover–Write–Check and self-testing strategies taught explicitly (led from MFL); the whole-school Spelling Bee draws its words from each curriculum area's own disciplinary vocabulary."],
+        ["Handwriting", "Presentation held high through the Quality of Books cycle (handwriting, organisation, homework completion), with SEND referrals and reasonable adjustments (laptops, scribes) where handwriting is a barrier. Self-identified next step, on the record: a whole-school explicit handwriting strategy launches September 2026."]
+      ]
+    },
+    numeracy: {
+      intro: "The Maths department's Foundational Skills strategy mirrors the reading model: identify early, teach explicitly, intervene in tiers, remove the scaffolding when it has worked. Focus: fractions, decimals, percentages, ratio and times-tables fluency.",
+      elements: [
+        ["Two-stage baseline", "All pupils sit a September numeracy baseline and a second before October half-term – setting decided on settled evidence, not first-week noise."],
+        ["One curriculum, three depths", "Every set works the same unit of study through Extension, Core or Emerging pathways – curriculum coherence with appropriate challenge, so moving between sets never means a different curriculum."],
+        ["Nurture groups by design", "Smaller groups where reteaching of primary-level foundations is written into the scheme of work as a requirement before dependent topics – not left to teacher discretion."],
+        ["Tiered, responsive intervention", "Compulsory weekly Sparx times-tables homework for every supported pupil; Y10 form-time intervention (sets 1–4) selected live from responsive teaching in lessons; ASA-delivered form-time and after-school support. Pupils exit when they can access the curriculum independently – scaffolds removed, resources redirected."],
+        ["Cross-phase through the Maths Hub", "Maths Hub conference collaboration with primary colleagues feeds directly into the Year 7 scheme of work – built on what KS2 actually secured, not what it assumed."]
+      ],
+      cases: [
+        ["A top-set Year 10 pupil with autism", "Identified through responsive teaching as struggling with specific content despite top-set placement; directed into intervention. Grade 6− (Michaelmas) → 7− (Lenten) → Grade 6 on a full, unamended GCSE paper in Trinity – equivalent to a strong 7 once Year 11 content is covered. Previously gave up when challenged; now visibly perseveres."],
+        ["Foundation-to-Higher mover", "Grade 5 → 6 across the year; moved from Foundation tier (Y9) to Higher tier (Y10) with intervention focused on crossover questions – and exited intervention early because impact was secured. Scaffolds removed when no longer needed."],
+        ["At risk of moving down a set", "Flagged at the end of Y9 as at risk of dropping to Set 4; bespoke small-group intervention on identified gaps produced a marked change in QLA performance on the first full GCSE paper. Early identification preventing regression, not repairing it."]
+      ],
+      casesNote: "Three anonymised case studies from this year's intervention cohort – deliberately spanning the range: the model supports a top-set pupil with SEND, a tier-mover, and a pupil at risk of regression. Intervention here is personalised to need, not reserved for the lowest attainers – and it is exited, which is what makes it scalable."
+    },
+    clubs: {
+      headline: "The extended day, doing targeted work: two compulsory study provisions – one for Pupil Premium pupils, one run through SEN support – both with behaviour-log evidence that the homework gap closed as the year went on.",
+      pp: {
+        title: "Compulsory Study (extended school day) – Pupil Premium",
+        terms: ["Michaelmas", "Lenten", "Trinity"],
+        neg: [305, 232, 155],
+        pwShare: [16.9, 21.6, 23.3],
+        stats: [
+          ["−49.2%", "fall in homework-related negative logs across the year – 305 → 232 → 155, falling every term"],
+          ["80%", "of tracked pupils (12 of 15) showed sustained individual improvement"],
+          ["54%", "of the 28 pupils placed on Compulsory Study are Pupil Premium (18 pupils) – placement decided at Progress & Pastoral meetings"],
+          ["−63%", "in 'online homework not to acceptable standard' – the steepest category fall; 'no online homework' fell 55%, 'no paper homework' 38%"]
+        ],
+        note: "Placed following Michaelmas Progress & Pastoral review; tracked across all three terms via behaviour logs. Read honestly: positive *PW points did not rise in raw numbers (62 → 64 → 47), but as a share of all recorded behaviour they grew every term (16.9% → 21.6% → 23.3%) – negatives fell faster than positives did. The three pupils whose logs rose are named internally with next-step plans."
+      },
+      sen: {
+        title: "SEN Homework Club – all attendees Pupil Premium",
+        terms: ["Term 1", "Term 2", "Term 3"],
+        low: [168, 131, 97],
+        high: [180, 137, 117],
+        stats: [
+          ["−38.5%", "fall in negative incidents across the year for the combined 33-pupil group (348 → 268 → 214)"],
+          ["Both cohorts", "improved independently: low-engagement pupils −42.3%, high-engagement pupils −35.0% – no group masking the other"],
+          ["58%", "of pupils (19 of 33) showed sustained individual improvement across the terms they have data for"],
+          ["33 / 33", "attendees recorded as Pupil Premium – the club reaches exactly the overlap (SEN × disadvantage) where national gaps are widest"]
+        ],
+        note: "Every pupil who attended in any capacity, Years 7–11, from one-session tasters to 86 logged sessions. The two cohorts track slightly different measures (general behaviour incidents for low-engagement, homework-submission incidents for high-engagement) – shown separately, never blended into a single claim. Honest ledger: 9 pupils (27%) saw incidents rise – each identified for further support next term."
+      },
+      closing: "Where it lands: the Achievement priority 'clear expectations for work completed outside lessons' (JAN/CDA/BFO, Oct & Jan checkpoints) now has measured mechanisms behind it, funded through the PP strategy's targeted tier (compulsory after-school study with a hot supper). EEF: homework (secondary) +5 months, extending school time – structured and supervised, exactly the conditions the evidence asks for."
+    },
+    closing: "One page, one claim: the school's biggest named weakness is being answered with the same discipline as its strengths – screened universally, intervened in tiers, measured pupil by pupil, staffed through whole-school CPD, and honest about what hasn't moved yet (Year 8's partial cohort, nine study-club pupils needing more). The Curriculum grade rationale says 'when those move, this grade moves'. The summer tests are the first movement."
+  },
+
   askSuggestions: [
     "Give me the strongest 60-second case for Exceptional leadership",
     "How do I explain the disadvantaged gap widening?",
@@ -1659,7 +1784,8 @@ var ASCC = {
     "What's our answer on Year 11 attendance?",
     "How does our inclusion evidence map to the toolkit?",
     "What do I say about the 2025 SISRA estimates?",
-    "Summarise the reading data and our response",
+    "What impact has the reading strategy had this year?",
+    "Talk me through the study-club homework evidence",
     "What are our safeguarding headlines?"
   ]
 };

@@ -34,7 +34,7 @@ document.getElementById("login-form").addEventListener("submit", async e => {
 let appInitialised = false;
 const rendered = {};
 const VIEW_TITLES = {
-  dashboard: "Dashboard", sef: "Self-Evaluation", pshe: "PSHE & Life Curriculum", send: "SEND – Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
+  dashboard: "Dashboard", sef: "Self-Evaluation", foundations: "Reading, Literacy & Numeracy – Foundational Skills", pshe: "PSHE & Life Curriculum", send: "SEND – Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
   years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour", external: "IDSR & Pupil Premium",
   enrichment: "Enrichment", careers: "Careers & Gatsby Benchmarks", voice: "Student & Parent Voice", graph: "Connections",
   briefings: "Briefing – Staff",
@@ -163,7 +163,7 @@ function renderDashboard() {
           <h4 style="color:var(--green)">Where we follow the evidence</h4>
           <ul style="margin-left:18px;font-size:0.86rem">
             <li style="margin-bottom:6px"><strong>Active Ingredients coaching</strong> → EEF metacognition, <strong>+8 months</strong> – the Toolkit's highest-impact strand.</li>
-            <li style="margin-bottom:6px"><strong>Thinking Reading & Y7 Fluency Pilot</strong> → reading comprehension <strong>+7</strong>, phonics <strong>+5</strong> – answering our own reading data (54% below age-related).</li>
+            <li style="margin-bottom:6px"><strong>Thinking Reading & Y7 Fluency Pilot</strong> → reading comprehension <strong>+7</strong>, phonics <strong>+5</strong> – answering our own reading data (54% below age-related), and now moving it: summer tests put Y7 &amp; Y10 mean SAS at/above the national 100, with 75% of Thinking Reading pupils at age-expected reading age.</li>
             <li style="margin-bottom:6px"><strong>Oracy in every Scheme of Work</strong> → oral language (high impact); national Oracy Commission case study.</li>
             <li style="margin-bottom:6px"><strong>Y11 intervention</strong> → small-group <strong>+4</strong> / one-to-one <strong>+5</strong>; book priorities → feedback <strong>+6</strong>.</li>
             <li style="margin-bottom:6px"><strong>Elev:8</strong> → built on Professor John Jerrim's research on the Year 8 engagement dip – visible in our own matched data (−2.29pts Y7→Y8).</li>
@@ -277,6 +277,165 @@ function renderSef() {
     const head = e.target.closest(".sef-head");
     if (head) head.parentElement.classList.toggle("open");
   });
+}
+
+/* ================= FOUNDATIONAL SKILLS (Reading, Literacy & Numeracy) ================= */
+function renderFoundations() {
+  const f = ASCC.foundations, rd = f.reading, lit = f.literacy, nm = f.numeracy, cl = f.clubs;
+  el("view-foundations").appendChild(h(`
+    <div class="view-head">
+      <h2>Reading, Literacy &amp; Numeracy – the foundational skills case</h2>
+      <p>${f.intro}</p>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:18px">
+      ${f.tiles.map(t => `<div class="card stat"><div class="num" style="font-size:1.6rem">${t[0]}</div><div class="lbl">${t[1]}</div></div>`).join("")}
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card chart-card">
+        <h3>Whole-cohort reading: autumn → summer, matched pupils</h3>
+        <div class="chart-wrap" id="fd-sas"></div>
+        <p class="note">${rd.sasNote}</p>
+      </div>
+      <div class="card chart-card">
+        <h3>Reading at 'expected &amp; above' (%)</h3>
+        <div class="chart-wrap" id="fd-exp"></div>
+        <p class="note">The band the strategy exists to grow – up in Years 7 (+1.8pp) and 10 (+6.8pp); Year 8 shown honestly on a partial cohort (60 pupils still to test). Whole-school culture markers moved with it: SORA e-book check-outs 254 → 487.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--green)">
+      <h3>Intervention headlines – impact with receipts</h3>
+      <div class="grid cols-2" style="margin-top:10px">
+        ${rd.interventions.map(x => `
+          <div style="border-left:4px solid var(--green);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.92rem">${x[0]} <span style="color:var(--green);font-family:'Space Grotesk',sans-serif;font-size:1.05rem;margin-left:6px">${x[1]}</span></div>
+            <div style="font-size:0.85rem;margin-top:3px">${x[2]}</div>
+          </div>`).join("")}
+      </div>
+      <p class="note" style="margin-top:10px">Fresh Start Speed Sound recall (up to 3× faster) and Galilee grammar gains (+27–44pp) are charted pupil-by-pupil on the <a href="#" onclick="gotoView('send');return false;">SEND tab</a> – one reading strategy, evidenced at both whole-cohort and named-pupil level.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <h3>How pupils are identified and placed – triangulated, never SAS alone</h3>
+      <p style="font-size:0.88rem">${rd.identification}</p>
+      <table class="data" style="margin-top:10px">
+        <tr><th>Route</th><th>Criteria</th><th>Primary provision</th></tr>
+        ${rd.routes.map(r => `<tr><td style="white-space:nowrap;font-weight:650">${r[0]}</td><td style="font-size:0.82rem">${r[1]}</td><td style="font-size:0.82rem">${r[2]}</td></tr>`).join("")}
+      </table>
+      <p class="note">${rd.routesNote}</p>
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card">
+        <h3>The universal tier – every subject, every pupil</h3>
+        <ul style="margin-left:18px;font-size:0.85rem;margin-top:8px">${rd.universal.map(u => `<li style="margin-bottom:7px">${u}</li>`).join("")}</ul>
+      </div>
+      <div class="card">
+        <h3>Staff development carrying the strategy</h3>
+        <table class="data" style="margin-top:8px">
+          <tr><th>2026</th><th>6-Minute Takeaway</th><th>Literacy relevance</th></tr>
+          ${rd.takeaways.map(t => `<tr><td style="white-space:nowrap;font-weight:650">${t[0]}</td><td style="font-size:0.8rem;font-weight:600;color:var(--purple-700)">${t[1]}</td><td style="font-size:0.78rem">${t[2]}</td></tr>`).join("")}
+        </table>
+        <p class="note">${rd.takeawaysNote}</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-500)">
+      <h3>Oracy – ${lit.oracy.headline}</h3>
+      <div class="grid cols-3" style="margin-top:10px">
+        ${lit.oracy.points.map(p => `
+          <div style="border-left:4px solid var(--purple-500);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.9rem">${p[0]}</div>
+            <div style="font-size:0.84rem;margin-top:3px">${p[1]}</div>
+          </div>`).join("")}
+      </div>
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:18px">
+      <div class="card" style="border-left:5px solid var(--gold)">
+        <h3>Academic writing – stretch with a university address</h3>
+        <p class="sef-headline" style="margin-top:8px">${lit.writing.headline}</p>
+        ${lit.writing.points.map(p => `
+          <h4>${p[0]}</h4>
+          <p style="font-size:0.85rem">${p[1]}</p>`).join("")}
+      </div>
+      <div class="card">
+        <h3>Spelling &amp; handwriting – the mechanics, held high</h3>
+        ${lit.mechanics.map(m => `
+          <h4>${m[0]}</h4>
+          <p style="font-size:0.85rem">${m[1]}</p>`).join("")}
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--purple-600)">
+      <h3>Foundational numeracy – the same discipline, in Maths</h3>
+      <p style="font-size:0.88rem">${nm.intro}</p>
+      <div class="grid cols-3" style="margin-top:12px;margin-bottom:14px">
+        ${nm.elements.map(e => `
+          <div style="border-left:4px solid var(--purple-600);padding:2px 0 2px 14px">
+            <div style="font-weight:650;color:var(--purple-900);font-size:0.9rem">${e[0]}</div>
+            <div style="font-size:0.83rem;margin-top:3px">${e[1]}</div>
+          </div>`).join("")}
+      </div>
+      <h4>Impact – three case studies spanning the range</h4>
+      <div class="quote-grid" style="margin-top:8px">
+        ${nm.cases.map(c => `
+          <div class="quote-card">
+            <div class="quote-theme">${c[0]}</div>
+            <div class="quote-text" style="font-size:0.85rem">${c[1]}</div>
+          </div>`).join("")}
+      </div>
+      <p class="note">${nm.casesNote}</p>
+    </div>
+
+    <div class="card" style="margin-bottom:18px;border-left:5px solid var(--green)">
+      <h3>The extended day, closing the homework gap</h3>
+      <p class="sef-headline" style="margin-top:8px">${cl.headline}</p>
+      <div class="grid cols-2" style="margin-top:12px">
+        <div class="chart-card">
+          <h4 style="margin-top:0">${cl.pp.title}</h4>
+          <div class="chart-wrap" id="fd-pp" style="height:250px"></div>
+          <div class="grid cols-2" style="margin:10px 0 0">
+            ${cl.pp.stats.map(s => `<div class="card stat" style="box-shadow:none;padding:10px"><div class="num" style="font-size:1.25rem">${s[0]}</div><div class="lbl" style="font-size:0.72rem">${s[1]}</div></div>`).join("")}
+          </div>
+          <p class="note">${cl.pp.note}</p>
+        </div>
+        <div class="chart-card">
+          <h4 style="margin-top:0">${cl.sen.title}</h4>
+          <div class="chart-wrap" id="fd-sen" style="height:250px"></div>
+          <div class="grid cols-2" style="margin:10px 0 0">
+            ${cl.sen.stats.map(s => `<div class="card stat" style="box-shadow:none;padding:10px"><div class="num" style="font-size:1.25rem">${s[0]}</div><div class="lbl" style="font-size:0.72rem">${s[1]}</div></div>`).join("")}
+          </div>
+          <p class="note">${cl.sen.note}</p>
+        </div>
+      </div>
+      <p style="font-size:0.87rem;margin-top:12px">${cl.closing}</p>
+    </div>
+
+    <div class="card" style="border-left:5px solid var(--green)">
+      <h3>Where it lands</h3>
+      <p style="font-size:0.9rem">${f.closing}</p>
+    </div>
+  `));
+  makeChart("fd-sas", { type: "bar", data: { labels: rd.sas.labels, datasets: [
+    { label: "Autumn 2025", data: rd.sas.aut, backgroundColor: BRAND.grey, borderRadius: 5 },
+    { label: "Summer 2026", data: rd.sas.sum, backgroundColor: BRAND.purple, borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { min: 90, max: 105, title: { display: true, text: "Mean SAS (national = 100)" } } } } });
+  makeChart("fd-exp", { type: "bar", data: { labels: rd.sas.labels, datasets: [
+    { label: "Autumn 2025", data: rd.sas.expAut, backgroundColor: BRAND.grey, borderRadius: 5 },
+    { label: "Summer 2026", data: rd.sas.expSum, backgroundColor: BRAND.green, borderRadius: 5 } ] },
+    options: { maintainAspectRatio: false, scales: { y: { min: 30, max: 65, title: { display: true, text: "% expected & above" } } } } });
+  makeChart("fd-pp", { type: "bar", data: { labels: cl.pp.terms, datasets: [
+    { type: "bar", label: "Homework-related negative logs", data: cl.pp.neg, backgroundColor: BRAND.purple, borderRadius: 6, yAxisID: "y" },
+    { type: "line", label: "Positive points as % of all logs", data: cl.pp.pwShare, borderColor: BRAND.gold, backgroundColor: BRAND.gold, tension: 0.3, yAxisID: "y1" } ] },
+    options: { maintainAspectRatio: false, scales: {
+      y: { beginAtZero: true, title: { display: true, text: "Negative logs" } },
+      y1: { position: "right", min: 0, max: 30, grid: { drawOnChartArea: false }, title: { display: true, text: "% positive" } } } } });
+  makeChart("fd-sen", { type: "bar", data: { labels: cl.sen.terms, datasets: [
+    { label: "Low-engagement cohort (behaviour incidents)", data: cl.sen.low, backgroundColor: BRAND.purpleLight, borderRadius: 5, stack: "s" },
+    { label: "High-engagement cohort (homework incidents)", data: cl.sen.high, backgroundColor: BRAND.purple, borderRadius: 5, stack: "s" } ] },
+    options: { maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true, title: { display: true, text: "Combined incidents" } } } } });
 }
 
 /* ================= PSHE / LIFE CURRICULUM ================= */
@@ -2011,7 +2170,7 @@ function escapeHtml(s) {
 
 /* ---------------- Render map ---------------- */
 const RENDER = {
-  dashboard: renderDashboard, sef: renderSef, pshe: renderPshe, send: renderSend, staff: renderStaff, results: renderResults,
+  dashboard: renderDashboard, sef: renderSef, foundations: renderFoundations, pshe: renderPshe, send: renderSend, staff: renderStaff, results: renderResults,
   years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, external: renderExternal, enrichment: renderEnrichment,
   careers: renderCareers, voice: renderVoice, graph: renderGraph,
   briefings: renderBriefings, scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,
