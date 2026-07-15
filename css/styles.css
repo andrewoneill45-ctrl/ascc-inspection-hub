@@ -376,6 +376,40 @@ a.media-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); 
 .brief-foot { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; text-align: center; }
 @media (max-width: 860px) { .brief-grid { grid-template-columns: 1fr; } }
 
+/* ---------- Improvement Plan (VMOST) ---------- */
+.sip-vm { border-top: 5px solid var(--purple-700); }
+.sip-ta { width: 100%; border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; font-family: var(--serif); font-size: 0.98rem; color: var(--purple-900); resize: vertical; line-height: 1.5; background: var(--purple-50); }
+.sip-ta:focus { outline: none; border-color: var(--purple-500); background: #fff; }
+.sip-input { width: 100%; border: 1.5px solid transparent; border-radius: 8px; padding: 7px 10px; font-family: var(--font); font-size: 0.92rem; background: transparent; }
+.sip-input:hover { border-color: var(--line); }
+.sip-input:focus { outline: none; border-color: var(--purple-500); background: #fff; }
+.sip-title { font-weight: 650; font-size: 1.02rem; color: var(--purple-900); }
+.sip-measure { font-size: 0.8rem; color: var(--muted); }
+.sip-obj { margin-bottom: 16px; border-left: 5px solid var(--purple-600); }
+.sip-obj-head { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+.sip-strat { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-top: 10px; background: var(--purple-50); }
+.sip-strat-head { display: flex; align-items: center; gap: 8px; }
+.sip-strat-head input { background: #fff; font-weight: 600; }
+.sip-tag { flex-shrink: 0; font-size: 0.68rem; font-weight: 750; color: #fff; background: var(--purple-600); border-radius: 6px; padding: 3px 8px; }
+.sip-tag-t { background: var(--gold); }
+.sip-tactic { display: flex; align-items: center; gap: 8px; margin: 6px 0 0 26px; }
+.sip-tactic input { background: #fff; font-size: 0.85rem; }
+.sip-strat button, .sip-tactic button { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 5px 10px; font-size: 0.74rem; cursor: pointer; font-family: var(--font); color: var(--purple-800); white-space: nowrap; }
+.sip-strat button:hover, .sip-tactic button:hover { border-color: var(--purple-500); }
+.sip-del, .sip-del-s, .sip-del-t { color: var(--red) !important; }
+.sip-sugg-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; margin-top: 10px; }
+.sip-sugg { text-align: left; border: 1.5px solid var(--gold); background: #fdf9ee; border-radius: 12px; padding: 12px 14px; cursor: pointer; font-family: var(--font); display: flex; flex-direction: column; gap: 4px; transition: transform 0.12s; }
+.sip-sugg:hover { transform: translateY(-2px); }
+.sip-sugg.used { opacity: 0.45; }
+.sip-sugg-t { font-weight: 650; color: var(--purple-900); font-size: 0.92rem; }
+.sip-sugg-m { font-size: 0.78rem; color: var(--green); font-weight: 600; }
+.sip-sugg-r { font-size: 0.76rem; color: var(--muted); }
+@media print {
+  #view-sip .graph-filters, .sip-del, .sip-del-s, .sip-del-t, .sip-add-s, .sip-add-t, .sip-ai-st, .sip-ai-sim, #sip-suggestions { display: none !important; }
+  .sip-obj, .sip-strat { break-inside: avoid; }
+  .sip-ta, .sip-input { border: 0 !important; background: transparent !important; }
+}
+
 /* framework */
 .scale-row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .scale-row:last-child { border-bottom: 0; }

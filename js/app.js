@@ -37,7 +37,7 @@ const VIEW_TITLES = {
   dashboard: "Dashboard", sef: "Self-Evaluation", foundations: "Reading, Literacy & Numeracy – Foundational Skills", pshe: "PSHE & Life Curriculum", send: "SEND – Interventions & Impact", staff: "Staff Development", results: "Results & Trends",
   years: "Year Groups", attendance: "Attendance", behaviour: "Behaviour", external: "IDSR & Pupil Premium",
   enrichment: "Enrichment", careers: "Careers & Gatsby Benchmarks", voice: "Student & Parent Voice", graph: "Connections",
-  briefings: "Briefing – Staff",
+  briefings: "Briefing – Staff", sip: "School Improvement Plan (VMOST)",
   scenarios: "Scenario Lab", governors: "Governors' Challenge",
   framework: "Renewed Framework", media: "Innovation & Press", ask: "Ask the Portal – AI conversation"
 };
@@ -1809,6 +1809,235 @@ function renderGraph() {
   tick();
 }
 
+/* ================= IMPROVEMENT PLAN (VMOST) ================= */
+const SIP_KEY = "ascc_sip_v1";
+const SIP_DEFAULT = {
+  vision: "Life in all its fullness (John 10:10) – every pupil known, challenged and supported to become who they are called to be.",
+  mission: "Orare, Laborare, Servire – to pray, to work, to serve. Exceptional education through consistency, evidence and Service with Colour, in the heart of North Kensington.",
+  objectives: []
+};
+let sip = null;
+const simCharts = {};
+function sipLoad() {
+  try { sip = JSON.parse(localStorage.getItem(SIP_KEY)) || null; } catch { sip = null; }
+  if (!sip || !Array.isArray(sip.objectives)) sip = JSON.parse(JSON.stringify(SIP_DEFAULT));
+}
+function sipSave() { localStorage.setItem(SIP_KEY, JSON.stringify(sip)); }
+const sipId = () => "o" + Math.random().toString(36).slice(2, 9);
+
+/* Ask the portal AI for strict JSON via the streaming endpoint */
+async function askJSON(prompt) {
+  const res = await fetch("/.netlify/functions/ask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question: "[JSON ONLY] " + prompt, history: [] })
+  });
+  if (!res.ok) {
+    let msg; try { msg = (await res.json()).error; } catch { msg = "HTTP " + res.status; }
+    throw new Error(res.status === 404 ? "AI is available once deployed to Netlify with ANTHROPIC_API_KEY set." : msg);
+  }
+  let text = "";
+  const ct = res.headers.get("content-type") || "";
+  if (ct.includes("application/json")) { const d = await res.json(); if (d.error) throw new Error(d.error); text = d.answer || ""; }
+  else {
+    const reader = res.body.getReader(); const dec = new TextDecoder();
+    while (true) { const { done, value } = await reader.read(); if (done) break; text += dec.decode(value, { stream: true }); }
+  }
+  const m = text.match(/```json\s*([\s\S]*?)```/) || text.match(/({[\s\S]*})/);
+  if (!m) throw new Error("The AI did not return valid JSON – try again.");
+  return JSON.parse(m[1]);
+}
+function busy(btn, on, label) {
+  if (!btn) return;
+  if (on) { btn.dataset.label = btn.textContent; btn.textContent = "✦ Thinking…"; btn.disabled = true; }
+  else { btn.textContent = label || btn.dataset.label; btn.disabled = false; }
+}
+
+function renderSip() {
+  sipLoad();
+  el("view-sip").appendChild(h(`
+    <div class="view-head">
+      <h2>School Improvement Plan – VMOST</h2>
+      <p>Vision and Mission at the top; Objectives beneath, each broken into Strategies and then Tactics. The ✦ buttons put the Portal AI to work: it reads the whole evidence base to suggest objectives, drafts strategies and tactics for any objective you set, and simulates the intended impact as a live chart. Everything saves in this browser automatically – use Export for PDF or JSON.</p>
+    </div>
+    <div class="card sip-vm" style="margin-bottom:18px">
+      <div class="grid cols-2">
+        <div>
+          <div class="gd-h">Vision</div>
+          <textarea id="sip-vision" class="sip-ta" rows="3"></textarea>
+        </div>
+        <div>
+          <div class="gd-h">Mission</div>
+          <textarea id="sip-mission" class="sip-ta" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="graph-filters">
+      <button id="sip-suggest" class="gf-action gf-ai">✦ Suggest objectives from the data</button>
+      <button id="sip-add" class="gf-action">＋ Add objective</button>
+      <span style="flex:1"></span>
+      <button id="sip-export" class="gf-action">⇩ JSON</button>
+      <button id="sip-import" class="gf-action">⇪ Import</button>
+      <button id="sip-pdf" class="gf-action">⤓ PDF</button>
+      <input type="file" id="sip-file" accept=".json" style="display:none">
+    </div>
+    <div id="sip-suggestions"></div>
+    <div id="sip-objectives"></div>
+    <p class="note" style="margin-top:14px">AI simulations are illustrative projections grounded in the school's trends – label them as modelling, not prediction, in any published plan.</p>
+  `));
+  const v = el("sip-vision"), m = el("sip-mission");
+  v.value = sip.vision; m.value = sip.mission;
+  v.addEventListener("change", () => { sip.vision = v.value; sipSave(); });
+  m.addEventListener("change", () => { sip.mission = m.value; sipSave(); });
+  el("sip-add").addEventListener("click", () => {
+    sip.objectives.push({ id: sipId(), title: "New objective", measure: "", strategies: [], sim: null });
+    sipSave(); sipRenderObjectives();
+  });
+  el("sip-export").addEventListener("click", () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(sip, null, 2)], { type: "application/json" }));
+    a.download = "ASCC-Improvement-Plan-VMOST.json"; a.click();
+  });
+  el("sip-import").addEventListener("click", () => el("sip-file").click());
+  el("sip-file").addEventListener("change", ev => {
+    const f = ev.target.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = () => { try { sip = JSON.parse(r.result); sipSave(); renderSipRefresh(); } catch { alert("Not a valid plan file."); } };
+    r.readAsText(f);
+  });
+  el("sip-pdf").addEventListener("click", () => window.print());
+  el("sip-suggest").addEventListener("click", async ev => {
+    const btn = ev.target; busy(btn, true);
+    try {
+      const data = await askJSON(`Acting as the school's improvement planner, propose 4 to 6 objectives for the 2026-27 School Improvement Plan, drawn strictly from the named priorities and weaknesses in the knowledge base (reading, SEN Support attainment, the disadvantaged gap, Y11 attendance, KS3 careers embedding, Science outcomes, British Values, plus any bold innovation the evidence supports such as Elev:9). Schema: {"objectives":[{"title":"concise objective, outcome-phrased","measure":"the success measure with baseline and target figures","rationale":"one sentence citing the data"}]}`);
+      const wrap = el("sip-suggestions");
+      wrap.innerHTML = `<div class="card" style="margin-bottom:18px;border-left:5px solid var(--gold)"><h3>Suggested objectives – click to adopt</h3><div class="sip-sugg-list">${
+        (data.objectives || []).map((o, i) => `
+          <button class="sip-sugg" data-i="${i}">
+            <span class="sip-sugg-t">${escapeHtml(o.title)}</span>
+            <span class="sip-sugg-m">${escapeHtml(o.measure || "")}</span>
+            <span class="sip-sugg-r">${escapeHtml(o.rationale || "")}</span>
+          </button>`).join("")}</div></div>`;
+      wrap.querySelectorAll(".sip-sugg").forEach(b => b.addEventListener("click", () => {
+        const o = data.objectives[+b.dataset.i];
+        sip.objectives.push({ id: sipId(), title: o.title, measure: o.measure || "", strategies: [], sim: null });
+        sipSave(); b.classList.add("used"); b.disabled = true; sipRenderObjectives();
+      }));
+    } catch (e) { alert("Suggestion failed: " + e.message); }
+    busy(btn, false);
+  });
+  sipRenderObjectives();
+}
+
+function sipRenderObjectives() {
+  const wrap = el("sip-objectives");
+  if (!wrap) return;
+  Object.values(simCharts).forEach(c => { try { c.destroy(); } catch {} });
+  wrap.innerHTML = "";
+  if (!sip.objectives.length) {
+    wrap.innerHTML = `<div class="card"><p class="placeholder">No objectives yet – add one, or let the AI read the data and suggest them.</p></div>`;
+    return;
+  }
+  sip.objectives.forEach((o, oi) => {
+    const card = h(`
+      <div class="card sip-obj" data-id="${o.id}">
+        <div class="sip-obj-head">
+          <span class="bench-num" style="width:34px;height:34px;font-size:1rem">O${oi + 1}</span>
+          <div style="flex:1;min-width:240px">
+            <input class="sip-input sip-title" value="${escapeHtml(o.title)}" placeholder="Objective">
+            <input class="sip-input sip-measure" value="${escapeHtml(o.measure || "")}" placeholder="Success measure – baseline → target">
+          </div>
+          <div class="gov-actions">
+            <button class="sip-ai-st">✦ Suggest strategies &amp; tactics</button>
+            <button class="sip-ai-sim">✦ Simulate impact</button>
+            <button class="sip-add-s">＋ Strategy</button>
+            <button class="sip-del" title="Delete objective">✕</button>
+          </div>
+        </div>
+        <div class="sip-strats"></div>
+        <div class="sip-sim"></div>
+      </div>`).firstElementChild;
+    wrap.appendChild(card);
+
+    const strats = card.querySelector(".sip-strats");
+    o.strategies.forEach((s, si) => {
+      const srow = h(`
+        <div class="sip-strat">
+          <div class="sip-strat-head">
+            <span class="sip-tag">S${oi + 1}.${si + 1}</span>
+            <input class="sip-input" value="${escapeHtml(s.title)}" placeholder="Strategy">
+            <button class="sip-add-t" title="Add tactic">＋ Tactic</button>
+            <button class="sip-del-s" title="Delete strategy">✕</button>
+          </div>
+          <div class="sip-tactics"></div>
+        </div>`).firstElementChild;
+      strats.appendChild(srow);
+      srow.querySelector("input").addEventListener("change", ev => { s.title = ev.target.value; sipSave(); });
+      srow.querySelector(".sip-add-t").addEventListener("click", () => { s.tactics.push("New tactic"); sipSave(); sipRenderObjectives(); });
+      srow.querySelector(".sip-del-s").addEventListener("click", () => { o.strategies.splice(si, 1); sipSave(); sipRenderObjectives(); });
+      const twrap = srow.querySelector(".sip-tactics");
+      s.tactics.forEach((t, ti) => {
+        const trow = h(`
+          <div class="sip-tactic">
+            <span class="sip-tag sip-tag-t">T</span>
+            <input class="sip-input" value="${escapeHtml(t)}" placeholder="Tactic">
+            <button class="sip-del-t">✕</button>
+          </div>`).firstElementChild;
+        twrap.appendChild(trow);
+        trow.querySelector("input").addEventListener("change", ev => { s.tactics[ti] = ev.target.value; sipSave(); });
+        trow.querySelector(".sip-del-t").addEventListener("click", () => { s.tactics.splice(ti, 1); sipSave(); sipRenderObjectives(); });
+      });
+    });
+
+    card.querySelector(".sip-title").addEventListener("change", ev => { o.title = ev.target.value; sipSave(); });
+    card.querySelector(".sip-measure").addEventListener("change", ev => { o.measure = ev.target.value; sipSave(); });
+    card.querySelector(".sip-del").addEventListener("click", () => { sip.objectives.splice(oi, 1); sipSave(); sipRenderObjectives(); });
+    card.querySelector(".sip-add-s").addEventListener("click", () => { o.strategies.push({ title: "New strategy", tactics: [] }); sipSave(); sipRenderObjectives(); });
+
+    card.querySelector(".sip-ai-st").addEventListener("click", async ev => {
+      const btn = ev.target; busy(btn, true);
+      try {
+        const data = await askJSON(`For the school improvement objective "${o.title}" (success measure: "${o.measure || "not yet set"}"), draft 2 to 3 strategies, each with 3 to 4 concrete tactics, grounded in this school's existing machinery and evidence base (coaching, provision map, enrichment engine, trackers, EEF strands). Schema: {"strategies":[{"title":"strategy","tactics":["tactic", "tactic"]}]}`);
+        (data.strategies || []).forEach(s => o.strategies.push({ title: s.title, tactics: s.tactics || [] }));
+        sipSave(); sipRenderObjectives();
+      } catch (e) { alert("Suggestion failed: " + e.message); busy(btn, false); }
+    });
+
+    card.querySelector(".sip-ai-sim").addEventListener("click", async ev => {
+      const btn = ev.target; busy(btn, true);
+      try {
+        o.sim = await askJSON(`Simulate the intended impact of the improvement objective "${o.title}" (measure: "${o.measure || "choose the most relevant metric"}"). Use the school's real baseline from the knowledge base and model a defensible trajectory to summer 2028. Schema: {"metric":"name","unit":"% or grade etc","labels":["2024/25","2025/26","2026/27","2027/28"],"school":[numbers, past actuals then projected],"comparator":[numbers or nulls, national or target line],"comparatorLabel":"National / Target","narrative":"2 sentences: what the trajectory assumes and the leading indicators to watch"}`);
+        sipSave(); sipRenderObjectives();
+      } catch (e) { alert("Simulation failed: " + e.message); busy(btn, false); }
+    });
+
+    if (o.sim && o.sim.labels) {
+      const simWrap = card.querySelector(".sip-sim");
+      simWrap.innerHTML = `
+        <div class="graph-spark-card" style="margin-top:12px">
+          <div class="graph-spark-title">Impact simulation – ${escapeHtml(o.sim.metric || "")} <span style="color:var(--muted);font-weight:500">(AI modelling, illustrative)</span></div>
+          <div style="position:relative;height:200px"><canvas></canvas></div>
+          <p class="note" style="margin-top:8px">${escapeHtml(o.sim.narrative || "")}</p>
+        </div>`;
+      const ds = [{ label: o.sim.metric || "School", data: o.sim.school, borderColor: BRAND.purple, backgroundColor: BRAND.purple, tension: 0.3, pointRadius: 4 }];
+      if (o.sim.comparator && o.sim.comparator.some(v => v !== null))
+        ds.push({ label: o.sim.comparatorLabel || "Comparator", data: o.sim.comparator, borderColor: BRAND.grey, backgroundColor: BRAND.grey, borderDash: [6, 4], tension: 0.3, pointRadius: 3 });
+      simCharts[o.id] = new Chart(simWrap.querySelector("canvas"), {
+        type: "line", data: { labels: o.sim.labels, datasets: ds },
+        options: { maintainAspectRatio: false, devicePixelRatio: 2,
+          plugins: { legend: { position: "bottom", labels: { boxWidth: 9, font: { size: 9 } } } },
+          scales: { y: { grid: { color: "#efe9f5" }, border: { display: false }, ticks: { font: { size: 9 } } },
+                    x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 9, weight: "600" } } } } }
+      });
+    }
+  });
+}
+function renderSipRefresh() {
+  el("view-sip").innerHTML = "";
+  rendered.sip = false;
+  showView("sip");
+}
+
 /* ================= BRIEFINGS (one-pagers) ================= */
 function renderBriefings() {
   el("view-briefings").appendChild(h(`
@@ -2173,7 +2402,7 @@ const RENDER = {
   dashboard: renderDashboard, sef: renderSef, foundations: renderFoundations, pshe: renderPshe, send: renderSend, staff: renderStaff, results: renderResults,
   years: renderYears, attendance: renderAttendance, behaviour: renderBehaviour, external: renderExternal, enrichment: renderEnrichment,
   careers: renderCareers, voice: renderVoice, graph: renderGraph,
-  briefings: renderBriefings, scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,
+  sip: renderSip, briefings: renderBriefings, scenarios: renderScenarios, governors: renderGovernors, framework: renderFramework,
   media: renderMedia, ask: renderAsk
 };
 
