@@ -1939,14 +1939,18 @@ function sipRenderObjectives() {
     return;
   }
   sip.objectives.forEach((o, oi) => {
+    const nStrat = o.strategies.length;
+    const nTact = o.strategies.reduce((n, s) => n + (s.tactics || []).length, 0);
     const card = h(`
-      <div class="card sip-obj" data-id="${o.id}">
+      <div class="card sip-obj ${o.collapsed ? "sip-closed" : ""}" data-id="${o.id}">
         <div class="sip-obj-head">
+          <button class="sip-chev sip-obj-chev" title="${o.collapsed ? "Expand" : "Collapse"}">${o.collapsed ? "▸" : "▾"}</button>
           <span class="bench-num" style="width:34px;height:34px;font-size:1rem">O${oi + 1}</span>
           <div style="flex:1;min-width:240px">
             <input class="sip-input sip-title" value="${escapeHtml(o.title)}" placeholder="Objective">
             <input class="sip-input sip-measure" value="${escapeHtml(o.measure || "")}" placeholder="Success measure – baseline → target">
           </div>
+          ${o.collapsed ? `<span class="sip-count">${nStrat} strateg${nStrat === 1 ? "y" : "ies"} · ${nTact} tactic${nTact === 1 ? "" : "s"}${o.sim ? " · simulated" : ""}</span>` : ""}
           <div class="gov-actions">
             <button class="sip-ai-st">✦ Suggest strategies &amp; tactics</button>
             <button class="sip-ai-sim">✦ Simulate impact</button>
@@ -1954,29 +1958,36 @@ function sipRenderObjectives() {
             <button class="sip-del" title="Delete objective">✕</button>
           </div>
         </div>
-        <div class="sip-strats"></div>
-        <div class="sip-sim"></div>
+        <div class="sip-body">
+          <div class="sip-strats"></div>
+          <div class="sip-sim"></div>
+        </div>
       </div>`).firstElementChild;
     wrap.appendChild(card);
+    card.querySelector(".sip-obj-chev").addEventListener("click", () => { o.collapsed = !o.collapsed; sipSave(); sipRenderObjectives(); });
 
     const strats = card.querySelector(".sip-strats");
     o.strategies.forEach((s, si) => {
+      const nT = (s.tactics || []).length;
       const srow = h(`
-        <div class="sip-strat">
+        <div class="sip-strat ${s.collapsed ? "sip-closed" : ""}">
           <div class="sip-strat-head">
+            <button class="sip-chev" title="${s.collapsed ? "Expand" : "Collapse"}">${s.collapsed ? "▸" : "▾"}</button>
             <span class="sip-tag">S${oi + 1}.${si + 1}</span>
             <input class="sip-input" value="${escapeHtml(s.title)}" placeholder="Strategy">
+            ${s.collapsed ? `<span class="sip-count">${nT} tactic${nT === 1 ? "" : "s"}</span>` : ""}
             <button class="sip-add-t" title="Add tactic">＋ Tactic</button>
             <button class="sip-del-s" title="Delete strategy">✕</button>
           </div>
           <div class="sip-tactics"></div>
         </div>`).firstElementChild;
       strats.appendChild(srow);
-      srow.querySelector("input").addEventListener("change", ev => { s.title = ev.target.value; sipSave(); });
-      srow.querySelector(".sip-add-t").addEventListener("click", () => { s.tactics.push("New tactic"); sipSave(); sipRenderObjectives(); });
+      srow.querySelector(".sip-chev").addEventListener("click", () => { s.collapsed = !s.collapsed; sipSave(); sipRenderObjectives(); });
+      srow.querySelector("input.sip-input").addEventListener("change", ev => { s.title = ev.target.value; sipSave(); });
+      srow.querySelector(".sip-add-t").addEventListener("click", () => { s.tactics.push("New tactic"); s.collapsed = false; sipSave(); sipRenderObjectives(); });
       srow.querySelector(".sip-del-s").addEventListener("click", () => { o.strategies.splice(si, 1); sipSave(); sipRenderObjectives(); });
       const twrap = srow.querySelector(".sip-tactics");
-      s.tactics.forEach((t, ti) => {
+      if (!s.collapsed) s.tactics.forEach((t, ti) => {
         const trow = h(`
           <div class="sip-tactic">
             <span class="sip-tag sip-tag-t">T</span>
@@ -1992,13 +2003,14 @@ function sipRenderObjectives() {
     card.querySelector(".sip-title").addEventListener("change", ev => { o.title = ev.target.value; sipSave(); });
     card.querySelector(".sip-measure").addEventListener("change", ev => { o.measure = ev.target.value; sipSave(); });
     card.querySelector(".sip-del").addEventListener("click", () => { sip.objectives.splice(oi, 1); sipSave(); sipRenderObjectives(); });
-    card.querySelector(".sip-add-s").addEventListener("click", () => { o.strategies.push({ title: "New strategy", tactics: [] }); sipSave(); sipRenderObjectives(); });
+    card.querySelector(".sip-add-s").addEventListener("click", () => { o.strategies.push({ title: "New strategy", tactics: [] }); o.collapsed = false; sipSave(); sipRenderObjectives(); });
 
     card.querySelector(".sip-ai-st").addEventListener("click", async ev => {
       const btn = ev.target; busy(btn, true);
       try {
         const data = await askJSON(`For the school improvement objective "${o.title}" (success measure: "${o.measure || "not yet set"}"), draft 2 to 3 strategies, each with 3 to 4 concrete tactics, grounded in this school's existing machinery and evidence base (coaching, provision map, enrichment engine, trackers, EEF strands). Schema: {"strategies":[{"title":"strategy","tactics":["tactic", "tactic"]}]}`);
         (data.strategies || []).forEach(s => o.strategies.push({ title: s.title, tactics: s.tactics || [] }));
+        o.collapsed = false;
         sipSave(); sipRenderObjectives();
       } catch (e) { alert("Suggestion failed: " + e.message); busy(btn, false); }
     });
@@ -2006,12 +2018,13 @@ function sipRenderObjectives() {
     card.querySelector(".sip-ai-sim").addEventListener("click", async ev => {
       const btn = ev.target; busy(btn, true);
       try {
+        o.collapsed = false;
         o.sim = await askJSON(`Simulate the intended impact of the improvement objective "${o.title}" (measure: "${o.measure || "choose the most relevant metric"}"). Use the school's real baseline from the knowledge base and model a defensible trajectory to summer 2028. Schema: {"metric":"name","unit":"% or grade etc","labels":["2024/25","2025/26","2026/27","2027/28"],"school":[numbers, past actuals then projected],"comparator":[numbers or nulls, national or target line],"comparatorLabel":"National / Target","narrative":"2 sentences: what the trajectory assumes and the leading indicators to watch"}`);
         sipSave(); sipRenderObjectives();
       } catch (e) { alert("Simulation failed: " + e.message); busy(btn, false); }
     });
 
-    if (o.sim && o.sim.labels) {
+    if (o.sim && o.sim.labels && !o.collapsed) {
       const simWrap = card.querySelector(".sip-sim");
       simWrap.innerHTML = `
         <div class="graph-spark-card" style="margin-top:12px">

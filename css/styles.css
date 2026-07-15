@@ -386,6 +386,12 @@ a.media-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); 
 .sip-title { font-weight: 650; font-size: 1.02rem; color: var(--purple-900); }
 .sip-measure { font-size: 0.8rem; color: var(--muted); }
 .sip-obj { margin-bottom: 16px; border-left: 5px solid var(--purple-600); }
+.sip-chev { flex-shrink: 0; width: 28px; height: 28px; border: 1px solid var(--line); background: #fff; border-radius: 8px; cursor: pointer; color: var(--purple-800); font-size: 0.85rem; font-family: var(--font); align-self: center; transition: border-color 0.15s; }
+.sip-chev:hover { border-color: var(--purple-500); background: var(--purple-50); }
+.sip-count { font-size: 0.74rem; color: var(--muted); font-weight: 600; white-space: nowrap; align-self: center; background: var(--purple-50); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; }
+.sip-obj.sip-closed .sip-body { display: none; }
+.sip-strat.sip-closed .sip-tactics { display: none; }
+.sip-obj.sip-closed { border-left-color: var(--purple-100); }
 .sip-obj-head { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
 .sip-strat { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-top: 10px; background: var(--purple-50); }
 .sip-strat-head { display: flex; align-items: center; gap: 8px; }
@@ -405,7 +411,8 @@ a.media-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); 
 .sip-sugg-m { font-size: 0.78rem; color: var(--green); font-weight: 600; }
 .sip-sugg-r { font-size: 0.76rem; color: var(--muted); }
 @media print {
-  #view-sip .graph-filters, .sip-del, .sip-del-s, .sip-del-t, .sip-add-s, .sip-add-t, .sip-ai-st, .sip-ai-sim, #sip-suggestions { display: none !important; }
+  #view-sip .graph-filters, .sip-del, .sip-del-s, .sip-del-t, .sip-add-s, .sip-add-t, .sip-ai-st, .sip-ai-sim, #sip-suggestions, .sip-chev, .sip-count { display: none !important; }
+  .sip-obj.sip-closed .sip-body, .sip-strat.sip-closed .sip-tactics { display: block !important; }  /* print the whole plan, expanded */
   .sip-obj, .sip-strat { break-inside: avoid; }
   .sip-ta, .sip-input { border: 0 !important; background: transparent !important; }
 }
